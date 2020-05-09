@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/MateoPanadero/.oh-my-zsh"
@@ -91,6 +91,11 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+# export EDITOR='/usr/local/bin/nvim'
+export EDITOR='/usr/local/bin/nvim'
+alias vi='/usr/local/bin/nvim'
+alias vim='/usr/local/bin/nvim'
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -121,3 +126,29 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export PATH="$HOME/.fastlane/bin:$PATH"
+
+#pyenv (Python environment switch thing)
+eval "$(pyenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+#Qt5 (Mainly to CMake neovim-qt)
+export PATH="/usr/local/opt/qt/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/qt/lib"
+export CPPFLAGS="-I/usr/local/opt/qt/include"
+export PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig"
+
+# PyEnv Config:
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+# Make sure eval "$(pyenv init -)" is placed toward the end of the shell 
+# configuration file since it manipulates PATH during the initialization
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# PyEnv-VirtualEnv
+if which pyenv-virtualenv-init > /dev/null; then 
+    eval "$(pyenv virtualenv-init -)";
+fi

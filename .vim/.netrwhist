@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/usr'
+let g:netrw_dirhist_4='/usr/local'
+let g:netrw_dirhist_3='/usr/local/Cellar'
+let g:netrw_dirhist_2='/usr/local'
+let g:netrw_dirhist_1='/usr'
+let g:netrw_dirhist_0='/'
+let g:netrw_dirhist_9='/opt'
+let g:netrw_dirhist_8='/'
+let g:netrw_dirhist_7='/Users'
+let g:netrw_dirhist_6='/Users/Shared'
