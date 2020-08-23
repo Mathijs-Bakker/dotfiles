@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
-let g:netrw_dirhist_3='/Users/MateoPanadero/.vim'
-let g:netrw_dirhist_2='/'
-let g:netrw_dirhist_1='/usr/local/Cellar/neovim/0.4.3/share/nvim'
