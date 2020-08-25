@@ -1,17 +1,20 @@
-" Vim-Plug Commands:
-" After adding a new plugin reload Vim and run:  PlugInstall
 " PlugUpdate, Install or update plugins
 " PlugClean, Remove unlisted plugins
 " PlugStatus, Check the status of plugins
 
-let $pluginConfigPath = $HOME.'/.dotfiles/nvim/pluginconfigs'
+let $pluginConfigPath = $HOME.'/.dotfiles/nvim/rc/pluginconfigs'
 
 call plug#begin('~/.vim/plugged')
 
-" Fancy Themes:
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Eye Candy:
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 Plug 'gruvbox-community/gruvbox'
+
+Plug 'itchyny/lightline.vim'
+Plug 'Mathijs-Bakker/vim-base16-lightline/'
+source $pluginConfigPath/lightline.vim
+
 
 " OmniSharp: 
 Plug 'OmniSharp/omnisharp-vim', {'for': 'cs'}

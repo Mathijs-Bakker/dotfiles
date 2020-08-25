@@ -1,31 +1,28 @@
-"gruvbox-community/gruvbox Vim-Plug Commands:
+" Vim-Plug Commands:
 " After adding a new plugin reload Vim and run:  PlugInstall
 " PlugUpdate, Install or update plugins
 " PlugClean, Remove unlisted plugins
 " PlugStatus, Check the status of plugins
 
-let $pluginConfigPath = $HOME.'/.vim/rc/pluginconfigs'
+let $pluginConfigPath = $HOME.'/.dotfiles/nvim/rc/pluginconfigs'
 
 call plug#begin('~/.vim/plugged')
 
-" Themes =====================================================================
-" Airline --------------------------------------------------------------------
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Solarized ------------------------------------------------------------------
-"Plug 'altercation/vim-colors-solarized'
+" Eye Candy:
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 "Plug 'lifepillar/vim-solarized8'
 "Plug 'morhetz/gruvbox'
 "Plug 'Mathijs-Bakker/gruvbox'
 Plug 'gruvbox-community/gruvbox'
-" End Themes -----------------------------------------------------------------
 
-" OmniSharp: ==================================================================
+" OmniSharp: 
 Plug 'OmniSharp/omnisharp-vim', {'for': 'cs'}
 source $pluginConfigPath/omnisharp.vim
 
 Plug 'OrangeT/vim-csharp'
-" Deoplete: ==================================================================
+
+" Deoplete: 
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Sources
 "Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
@@ -36,7 +33,7 @@ Plug 'OrangeT/vim-csharp'
 Plug 'dense-analysis/ale'
 source $pluginConfigPath/ale.vim
 
-" Filesystem: ===============================================================
+" Filesystem: 
 " fzf.vim - (Omnisharp Code Actions, Find Type and Find Symbol features)======
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -50,26 +47,25 @@ source $pluginConfigPath/ranger.vim
 
 Plug 'nickspoons/vim-movefast'
 
-" COC =======================================================================
+" COC 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 source $pluginConfigPath/coc.vim
 
-" Auto close brackets/parentheses: ==========================================
+" Auto close brackets/parentheses: 
 Plug 'townk/vim-autoclose'
 
-" VimSurround ===============================================================
+" VimSurround:
 Plug 'tpope/vim-surround'
 
-" Syntastic - OmniSharp (optional) ===========================================
+" Syntastic - OmniSharp (optional):
 Plug 'vim-syntastic/syntastic'
 source $pluginConfigPath/syntastic.vim
 
-" Git ========================================================================
+" Git:
 Plug 'tpope/vim-fugitive'
 
-" UltiSnips ==================================================================
+" UltiSnips:
 " Plug 'SirVer/ultisnips'
-" ----------------------------------------------------------------------------
 Plug 'honza/vim-snippets'
 Plug 'Mathijs-Bakker/vim-unity-snippets'
 "source $pluginConfigPath/ultisnips.vim
