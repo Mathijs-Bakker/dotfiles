@@ -67,9 +67,9 @@ call plug#begin('~/.vim/plugged')
         " }}}
     " }}}
     
-    " FUZZY FIND: {{{
-         Plug 'junegunn/fzf.vim'
-         source $pluginConfigPath/fzf.vim 
+      " FUZZY FIND: {{{
+            Plug 'junegunn/fzf.vim'
+            source $pluginConfigPath/fzf.vim 
       " }}}
 
       " GIT: {{{
@@ -84,15 +84,16 @@ call plug#begin('~/.vim/plugged')
             Plug 'sodapopcan/vim-twiggy'
       " }}}
 
+      " Ranger: {{{ 
+            Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+            source $pluginConfigPath/ranger.vim
+      " }}}
+
 "}}}
 
 
 " Rooter changes working dir to project root when opening a file or dir
 Plug 'airblade/vim-rooter'
-
-" Ranger:
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-source $pluginConfigPath/ranger.vim
 
 " Zoom {{{
     " Zoom split to full window
