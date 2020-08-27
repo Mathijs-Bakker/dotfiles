@@ -1,5 +1,3 @@
-" Vim-Plug Commands:
-" After adding a new plugin reload Vim and run:  PlugInstall
 " PlugUpdate, Install or update plugins
 " PlugClean, Remove unlisted plugins
 " PlugStatus, Check the status of plugins
@@ -8,69 +6,187 @@ let $pluginConfigPath = $HOME.'/.dotfiles/nvim/rc/pluginconfigs'
 
 call plug#begin('~/.vim/plugged')
 
-" Eye Candy:
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-"Plug 'lifepillar/vim-solarized8'
-"Plug 'morhetz/gruvbox'
-"Plug 'Mathijs-Bakker/gruvbox'
-Plug 'gruvbox-community/gruvbox'
+" AESTHETICS: {{{
 
-" OmniSharp: 
-Plug 'OmniSharp/omnisharp-vim', {'for': 'cs'}
-source $pluginConfigPath/omnisharp.vim
+    " Color Schemes {{{
+        Plug 'gruvbox-community/gruvbox'
+    " }}}
 
-Plug 'OrangeT/vim-csharp'
+    " Status bar / Tabline {{{
+        Plug 'itchyny/lightline.vim'
+        Plug 'Mathijs-Bakker/vim-base16-lightline/'
+        source $pluginConfigPath/lightline.vim
+    " }}}
+" }}}
 
-" Deoplete: 
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Sources
-"Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-"Plug 'zchee/deoplete-jedi'
-"source $pluginConfigPath/deoplete.vim
+" LANGUAGE: {{{
+    " C# {{{
+        " OmniSharp: {{{ 
+           Plug 'OmniSharp/omnisharp-vim', {'for': 'cs'}
+           source $pluginConfigPath/omnisharp.vim
+        " }}}
 
-" ALE:
-Plug 'dense-analysis/ale'
-source $pluginConfigPath/ale.vim
+      " Markdown {{{
+          Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+          let g:markdown_fenced_languages = [ 'tsx=typescript.tsx' ]
 
-" Filesystem: 
-" fzf.vim - (Omnisharp Code Actions, Find Type and Find Symbol features)======
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+          " Open .md files in Marked.app - mapped to <leader>m
+          Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' }
 
+          nmap <leader>m :MarkedOpen!<cr>
+          nmap <leader>mq :MarkedQuit<cr>
+          nmap <leader>* *<c-o>:%s///gn<cr>
+
+    " }}}
+
+    " JSON {{{
+        Plug 'elzr/vim-json', { 'for': 'json' }
+        let g:vim_json_syntax_conceal = 0
+    " }}}
+
+" GENERAL: {{{
+
+    " COMPLETION: {{{
+    "
+         " COC {{{
+               Plug 'neoclide/coc.nvim', {'branch': 'release'}
+               source $pluginConfigPath/coc.vim
+         " }}}
+
+         " UltiSnips {{{
+               Plug 'SirVer/ultisnips'
+               Plug 'honza/vim-snippets'
+               Plug 'Mathijs-Bakker/vim-unity-snippets'
+               source $pluginConfigPath/ultisnips.vim
+         " }}}
+
+    " LINTING: {{{ 
+       " ALE {{{
+              Plug 'dense-analysis/ale'
+              source $pluginConfigPath/ale.vim
+        " }}}
+    " }}}
+    
+      " FUZZY FIND: {{{
+            Plug 'junegunn/fzf.vim'
+            source $pluginConfigPath/fzf.vim 
+      " }}}
+
+      " GIT: {{{
+            Plug 'tpope/vim-fugitive'
+            nmap <silent> <leader>gs :Gstatus<cr>
+            nmap <leader>ge :Gedit<cr>
+            nmap <silent><leader>gr :Gread<cr>
+            nmap <silent><leader>gb :Gblame<cr>
+        
+            Plug 'tpope/vim-rhubarb' " hub extension for fugitive
+            Plug 'junegunn/gv.vim'
+            Plug 'sodapopcan/vim-twiggy'
+      " }}}
+
+      " NERDTree {{{
+              Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+              Plug 'Xuyuanp/nerdtree-git-plugin'
+              Plug 'ryanoasis/vim-devicons'
+              Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+              let g:WebDevIconsOS = 'Darwin'
+              let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+              let g:DevIconsEnableFoldersOpenClose = 1
+              let g:DevIconsEnableFolderExtensionPatternMatching = 1
+              let NERDTreeDirArrowExpandable = "\u00a0" " make arrows invisible
+              let NERDTreeDirArrowCollapsible = "\u00a0" " make arrows invisible
+              let NERDTreeNodeDelimiter = "\u263a" " smiley face
+
+              augroup nerdtree
+                  autocmd!
+                  autocmd FileType nerdtree setlocal nolist " turn off whitespace characters
+                  autocmd FileType nerdtree setlocal nocursorline " turn off line highlighting for performance
+              augroup END
+
+              " Toggle NERDTree
+              function! ToggleNerdTree()
+                  if @% != "" && @% !~ "Startify" && (!exists("g:NERDTree") || (g:NERDTree.ExistsForTab() && !g:NERDTree.IsOpen()))
+                      :NERDTreeFind
+                  else
+                      :NERDTreeToggle
+                  endif
+              endfunction
+              " toggle nerd tree
+              nmap <silent> <leader>k :call ToggleNerdTree()<cr>
+              " find the current file in nerdtree without needing to reload the drawer
+              nmap <silent> <leader>y :NERDTreeFind<cr>
+
+              let NERDTreeShowHidden=1
+              " let NERDTreeDirArrowExpandable = '▷'
+              " let NERDTreeDirArrowCollapsible = '▼'
+              let g:NERDTreeIndicatorMapCustom = {
+              \ "Modified"  : "✹",
+              \ "Staged"    : "✚",
+              \ "Untracked" : "✭",
+              \ "Renamed"   : "➜",
+              \ "Unmerged"  : "═",
+              \ "Deleted"   : "✖",
+              \ "Dirty"     : "✗",
+              \ "Clean"     : "✔︎",
+              \ 'Ignored'   : '☒',
+              \ "Unknown"   : "?"
+              \ }
+          " }}}
+
+      " Ranger: {{{ 
+            Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+            source $pluginConfigPath/ranger.vim
+      " }}}
+
+"}}}
 " Rooter changes working dir to project root when opening a file or dir
 Plug 'airblade/vim-rooter'
 
-" Ranger:
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-source $pluginConfigPath/ranger.vim
-
-Plug 'nickspoons/vim-movefast'
-
-" COC 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-source $pluginConfigPath/coc.vim
+" Zoom {{{
+    " Zoom split to full window
+    Plug 'Mathijs-Bakker/zoom-vim'
+    nmap <leader>z <Plug>Zoom
+" }}}
 
 " Auto close brackets/parentheses: 
 Plug 'townk/vim-autoclose'
 
-" VimSurround:
+" Comment stuff out
+Plug 'tpope/vim-commentary'
+"
+" mappings which are simply short normal mode aliases for commonly used ex commands
+Plug 'tpope/vim-unimpaired'
+
+" endings for html, xml, etc. - ehances surround
+Plug 'tpope/vim-ragtag'
+
+" mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens, etc.
 Plug 'tpope/vim-surround'
 
-" Syntastic - OmniSharp (optional):
-Plug 'vim-syntastic/syntastic'
-source $pluginConfigPath/syntastic.vim
+" tmux integration for vim
+Plug 'benmills/vimux'
 
-" Git:
-Plug 'tpope/vim-fugitive'
+" enables repeating other supported plugins with the . command
+Plug 'tpope/vim-repeat'
 
-" UltiSnips:
-" Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'Mathijs-Bakker/vim-unity-snippets'
-"source $pluginConfigPath/ultisnips.vim
-" End ultisnips -------------------------------------------------------------
+" EditorConfig helps define and maintain consistent coding styles
+Plug 'editorconfig/editorconfig-vim'
 
-"Plug 'mileszs/ack.vim'
+" single/multi line code handler: gS - split one line into multiple, gJ - combine multiple lines into one
+Plug 'AndrewRadev/splitjoin.vim'
+
+" add end, endif, etc. automatically
+" Plug 'tpope/vim-endwise' " <CR> conflicts with COC
+
+" detect indent style (tabs vs. spaces)
+Plug 'tpope/vim-sleuth'
+
+" Startify: Fancy startup screen for vim {{{
+   Plug 'mhinz/vim-startify'
+   source $pluginConfigPath/startify.vim
+" }}}
+
+" Remap p and P in normal and visual mode for context aware pasting.
+Plug 'sickill/vim-pasta'
 
 call plug#end()

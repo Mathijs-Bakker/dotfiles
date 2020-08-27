@@ -5,7 +5,8 @@ noremap <Left> <nop>
 noremap <Right> <nop>
 
 filetype plugin on
-"let mapleader=","                      " Set <leader>.
+
+let mapleader=","                      " Set <leader>.
 
 " GuiFont :
 if has("gui_running") 
@@ -59,6 +60,9 @@ noremap <c-h> <c-w><c-h>
 noremap <c-j> <c-w><c-j>
 noremap <c-k> <c-w><c-k>
 noremap <c-l> <c-w><c-l>
+
+" Zoom split to full window and back:
+nmap <Leader>z <Plug>Zoom
 
 " Look in all underlying paths
 set path+=**
