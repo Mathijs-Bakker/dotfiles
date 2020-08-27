@@ -44,6 +44,9 @@ set-option -g set-titles on
 set-option -g set-titles-string "#T - #W"
 # set-window-option -g automatic-rename on
 
+# Nvim's 'autoread' needs this:
+set-option -g focus-events on
+
 ######################
 #### Key Bindings ####
 ######################
