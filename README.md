@@ -1,4 +1,4 @@
-#.dotfiles
+# .dotfiles
 
 NeoVim, Tmux and Zsh configurations. 
 
@@ -37,8 +37,8 @@ I have sourced my plugin configurations for easy toggling (read: commenting out)
 │   ├── reload-browser
 │   └── tm
 ├── iterm
-│   ├── color\ presets
-│   │   └── Gruvbox\ Dark.itermcolors
+│   ├── color presets
+│   │   └── Gruvbox Dark.itermcolors
 │   └── profile.json
 ├── karabiner
 │   ├── assets
