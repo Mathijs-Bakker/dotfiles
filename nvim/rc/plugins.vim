@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
     " Color Schemes {{{
     
         Plug 'gruvbox-community/gruvbox'
+
     " }}}
 
     " Status bar / Tabline {{{
@@ -18,6 +19,7 @@ call plug#begin('~/.vim/plugged')
         Plug 'itchyny/lightline.vim'
         Plug 'Mathijs-Bakker/vim-base16-lightline/'
         source $pluginConfigPath/lightline.vim
+
     " }}}
 " }}}
 
@@ -50,137 +52,164 @@ call plug#begin('~/.vim/plugged')
         Plug 'elzr/vim-json', { 'for': 'json' }
         let g:vim_json_syntax_conceal = 0
     " }}}
+
 " }}}
 
 " GENERAL: {{{
 
-    " STARTUP {{{
+    " STARTUP: {{{
 
         " Startify {{{
             Plug 'mhinz/vim-startify'
             source $pluginConfigPath/startify.vim
-       " }}}
+        " }}}
  
     " }}}
-         " COMPLETION: {{{
-    
-         " COC {{{
-               Plug 'neoclide/coc.nvim', {'branch': 'release'}
-               source $pluginConfigPath/coc.vim
-         " }}}
 
-         " UltiSnips {{{
-               Plug 'SirVer/ultisnips'
-               Plug 'honza/vim-snippets'
-               Plug 'Mathijs-Bakker/vim-unity-snippets'
-               source $pluginConfigPath/ultisnips.vim
-         " }}}
+    " COMPLETION: {{{
+    
+        " COC {{{
+            Plug 'neoclide/coc.nvim', {'branch': 'release'}
+            source $pluginConfigPath/coc.vim
+        " }}}
+
+        " UltiSnips {{{
+            Plug 'SirVer/ultisnips'
+            Plug 'honza/vim-snippets'
+            Plug 'Mathijs-Bakker/vim-unity-snippets'
+            source $pluginConfigPath/ultisnips.vim
+        " }}}
+
     " }}}
 
     " LINTING: {{{ 
+
        " ALE {{{
-              Plug 'dense-analysis/ale'
-              source $pluginConfigPath/ale.vim
+            Plug 'dense-analysis/ale'
+            source $pluginConfigPath/ale.vim
         " }}}
+
     " }}}
 
     " FUZZY FINDER: {{{
-          Plug 'junegunn/fzf.vim'
-          source $pluginConfigPath/fzf.vim 
+
+        Plug 'junegunn/fzf.vim'
+        source $pluginConfigPath/fzf.vim 
+
     " }}}
 
     " GIT: {{{
 
-          Plug 'tpope/vim-fugitive'
-          nmap <silent> <leader>gs :Gstatus<cr>
-          nmap <leader>ge :Gedit<cr>
-          nmap <silent><leader>gr :Gread<cr>
-          nmap <silent><leader>gb :Gblame<cr>
+        Plug 'tpope/vim-fugitive'
+        nmap <silent> <leader>gs :Gstatus<cr>
+        nmap <leader>ge :Gedit<cr>
+        nmap <silent><leader>gr :Gread<cr>
+        nmap <silent><leader>gb :Gblame<cr>
         
-          Plug 'tpope/vim-rhubarb' " hub extension for fugitive
-          Plug 'junegunn/gv.vim'
-          Plug 'sodapopcan/vim-twiggy'
+        Plug 'tpope/vim-rhubarb' " hub extension for fugitive
+        Plug 'junegunn/gv.vim'
+        Plug 'sodapopcan/vim-twiggy'
+
     " }}}
 
-    " FILE EXPLORER: {{{
+    " FILES AND FOLDERS: {{{
      
-         " NERDTree {{{
-               Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+        " NERDTree {{{
+            Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 
-               Plug 'Xuyuanp/nerdtree-git-plugin'
-               Plug 'ryanoasis/vim-devicons'
-               Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-         " }}}
+            Plug 'Xuyuanp/nerdtree-git-plugin'
+            Plug 'ryanoasis/vim-devicons'
+            Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+        " }}}
 
-         " Ranger {{{ 
-               Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-               source $pluginConfigPath/ranger.vim
-         " }}}
+        " Ranger {{{ 
+            Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+            source $pluginConfigPath/ranger.vim
+        " }}}
+
+        " Rooter {{{
+            " Rooter changes working dir to project root of the current file
+            Plug 'airblade/vim-rooter'
+        " }}}
+
+     " }}}
+     
+    " EDITING {{{
+
+        " Autoclose {{{
+            " Auto close brackets/parentheses: 
+            Plug 'townk/vim-autoclose'
+        " }}}
+         
+        " Commentary {{{
+            " Commentng lines
+            Plug 'tpope/vim-commentary'
+        " }}}
+         
+        " Unimpaired {{{
+            " mappings which are simply short normal mode aliases for commonly used ex commands
+            Plug 'tpope/vim-unimpaired'
+        " }}}
+        
+        " Surround {{{
+            " mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens, etc.
+            Plug 'tpope/vim-surround'
+        " }}}
+
+        " Ragtag {{{
+            " endings for html, xml, etc. - ehances surround
+            Plug 'tpope/vim-ragtag'
+        " }}}
+        
+        " . Repeat {{{
+            " enables repeating other supported plugins with the . command
+            Plug 'tpope/vim-repeat'
+        " }}}
+
+        " EditorConfig {{{
+            " EditorConfig helps define and maintain consistent coding styles
+            Plug 'editorconfig/editorconfig-vim'
+        " }}}
+
+        " SplitJoin {{{
+            " single/multi line code handler: gS - split one line into multiple, gJ - combine multiple lines into one
+            Plug 'AndrewRadev/splitjoin.vim'
+        " }}}
+
+        " Endwise {{{
+            " add end, endif, etc. automatically
+            " Plug 'tpope/vim-endwise' " <CR> conflicts with COC
+        " }}}
+
+        " Slueth {{{
+             " detect indent style (tabs vs. spaces)
+             Plug 'tpope/vim-sleuth'
+        " }}}
+        
+        " Pasta {{{
+            " Remap p and P in normal and visual mode for context aware pasting.
+            Plug 'sickill/vim-pasta'
+        " }}}
+
+    " }}}
+
+     " WINDOWS/PANES: {{{
+
+        " Zoom {{{
+            " Zooms splits to full window and back
+            Plug 'Mathijs-Bakker/zoom-vim'
+            nmap <leader>z <Plug>Zoom
+        " }}}
 
      " }}}
 
-      " UTILS: {{{
-
-         " Zoom {{{
-             " Zooms splits to full window and back
-            Plug 'Mathijs-Bakker/zoom-vim'
-            nmap <leader>z <Plug>Zoom
-         " }}}
-
-         " Rooter {{{
-            " Rooter changes working dir to project root of the current file
-            Plug 'airblade/vim-rooter'
-         " }}}
-
-         " Autoclose {{{
-            " Auto close brackets/parentheses: 
-            Plug 'townk/vim-autoclose'
-         " }}}
-         
-         " Commentary {{{
-            " Comment lines out
-            Plug 'tpope/vim-commentary'
-         " }}}
-         
-         " Unimpaired {{{
-            " mappings which are simply short normal mode aliases for commonly used ex commands
-            Plug 'tpope/vim-unimpaired'
-         " }}}
-         
-         " Ragtag {{{
-            " endings for html, xml, etc. - ehances surround
-            Plug 'tpope/vim-ragtag'
-         " }}}
-         
-         " Suround {{{
-            " mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens, etc.
-            Plug 'tpope/vim-surround'
-         " }}}
-         
+     " TERMINAL: {{{
+ 
          " Vimux {{{
             " tmux integration for vim
             Plug 'benmills/vimux'
          " }}}
 
-
       " }}}
 "}}}
-" enables repeating other supported plugins with the . command
-Plug 'tpope/vim-repeat'
-
-" EditorConfig helps define and maintain consistent coding styles
-Plug 'editorconfig/editorconfig-vim'
-
-" single/multi line code handler: gS - split one line into multiple, gJ - combine multiple lines into one
-Plug 'AndrewRadev/splitjoin.vim'
-
-" add end, endif, etc. automatically
-" Plug 'tpope/vim-endwise' " <CR> conflicts with COC
-
-" detect indent style (tabs vs. spaces)
-Plug 'tpope/vim-sleuth'
-
-" Remap p and P in normal and visual mode for context aware pasting.
-Plug 'sickill/vim-pasta'
-
 call plug#end()
