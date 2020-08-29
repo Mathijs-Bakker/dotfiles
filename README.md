@@ -1,14 +1,16 @@
 #.dotfiles
 
-My dotfiles... A collection of NeoVim, Tmux and Zsh configurations. 
+NeoVim, Tmux and Zsh configurations. 
 
-This is my setup, for DotNet Core and Unity3D development on MacOS (or other nix system). I stole a lot of stuff so feel free to steal from me as well ;P
+My setup, for DotNet Core and Unity3D development on MacOS (or other nix system). 
 
-Different projects have different requirements. So next to C#, I do occasionally Ecmascript, LUA, Python and other languages. What suits best for a current solution. I will clean up my dotfiles when needed. To get rid of unused business.
+Different projects have different requirements. So next to C#, I do occasionally Ecmascript, LUA, Python and other languages. Whatever suits best for a project.
 
-But plugin configurations will be to stay.
+### Nvim
+I have sourced my plugin configurations for easy toggling (read: commenting out) in ``nvim/rc/plugins.vim``.
 
-`.
+```
+.
 ├── LICENSE
 ├── README.md
 ├── Ranger
