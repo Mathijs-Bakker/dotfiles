@@ -54,7 +54,15 @@ call plug#begin('~/.vim/plugged')
 
 " GENERAL: {{{
 
-    " COMPLETION: {{{
+    " STARTUP {{{
+
+        " Startify {{{
+            Plug 'mhinz/vim-startify'
+            source $pluginConfigPath/startify.vim
+       " }}}
+ 
+    " }}}
+         " COMPLETION: {{{
     
          " COC {{{
                Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -82,7 +90,7 @@ call plug#begin('~/.vim/plugged')
     " }}}
 
     " GIT: {{{
-    
+
           Plug 'tpope/vim-fugitive'
           nmap <silent> <leader>gs :Gstatus<cr>
           nmap <leader>ge :Gedit<cr>
@@ -109,11 +117,7 @@ call plug#begin('~/.vim/plugged')
                source $pluginConfigPath/ranger.vim
          " }}}
 
-         " Startify {{{
-            Plug 'mhinz/vim-startify'
-            source $pluginConfigPath/startify.vim
-         " }}}
-      " }}}
+     " }}}
 
       " UTILS: {{{
 
