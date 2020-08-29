@@ -13,11 +13,9 @@ I have sourced my plugin configurations for easy toggling (read: commenting out)
 This folder contains a user profile. To import manually into iTerm2.
 iTerm doesn't have a config folder which could be symlinked to .dotfiles.
 
-### Tree
+### Contents
 ```
 .
-├── LICENSE
-├── README.md
 ├── Ranger
 │   ├── plugins
 │   │   └── devicons2
