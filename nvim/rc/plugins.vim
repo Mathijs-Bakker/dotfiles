@@ -9,45 +9,53 @@ call plug#begin('~/.vim/plugged')
 " AESTHETICS: {{{
 
     " Color Schemes {{{
+    
         Plug 'gruvbox-community/gruvbox'
     " }}}
 
     " Status bar / Tabline {{{
+    
         Plug 'itchyny/lightline.vim'
         Plug 'Mathijs-Bakker/vim-base16-lightline/'
         source $pluginConfigPath/lightline.vim
     " }}}
 " }}}
 
-" LANGUAGE: {{{
+" LANGUAGE SPECIFIC: {{{
+
     " C# {{{
+    
         " OmniSharp: {{{ 
-           Plug 'OmniSharp/omnisharp-vim', {'for': 'cs'}
-           source $pluginConfigPath/omnisharp.vim
+            Plug 'OmniSharp/omnisharp-vim', {'for': 'cs'}
+            source $pluginConfigPath/omnisharp.vim
         " }}}
+    " }}}
 
-      " Markdown {{{
-          Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-          let g:markdown_fenced_languages = [ 'tsx=typescript.tsx' ]
+    " Markdown {{{
+    
+        Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+        let g:markdown_fenced_languages = [ 'tsx=typescript.tsx' ]
 
-          " Open .md files in Marked.app - mapped to <leader>m
-          Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' }
+        " Open .md files in Marked.app - mapped to <leader>m
+        Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' }
 
-          nmap <leader>m :MarkedOpen!<cr>
-          nmap <leader>mq :MarkedQuit<cr>
-          nmap <leader>* *<c-o>:%s///gn<cr>
+        nmap <leader>m :MarkedOpen!<cr>
+        nmap <leader>mq :MarkedQuit<cr>
+        nmap <leader>* *<c-o>:%s///gn<cr>
 
     " }}}
 
     " JSON {{{
+    
         Plug 'elzr/vim-json', { 'for': 'json' }
         let g:vim_json_syntax_conceal = 0
     " }}}
+" }}}
 
 " GENERAL: {{{
 
     " COMPLETION: {{{
-    "
+    
          " COC {{{
                Plug 'neoclide/coc.nvim', {'branch': 'release'}
                source $pluginConfigPath/coc.vim
@@ -59,6 +67,7 @@ call plug#begin('~/.vim/plugged')
                Plug 'Mathijs-Bakker/vim-unity-snippets'
                source $pluginConfigPath/ultisnips.vim
          " }}}
+    " }}}
 
     " LINTING: {{{ 
        " ALE {{{
@@ -66,106 +75,92 @@ call plug#begin('~/.vim/plugged')
               source $pluginConfigPath/ale.vim
         " }}}
     " }}}
+
+    " FUZZY FINDER: {{{
+          Plug 'junegunn/fzf.vim'
+          source $pluginConfigPath/fzf.vim 
+    " }}}
+
+    " GIT: {{{
     
-      " FUZZY FIND: {{{
-            Plug 'junegunn/fzf.vim'
-            source $pluginConfigPath/fzf.vim 
-      " }}}
-
-      " GIT: {{{
-            Plug 'tpope/vim-fugitive'
-            nmap <silent> <leader>gs :Gstatus<cr>
-            nmap <leader>ge :Gedit<cr>
-            nmap <silent><leader>gr :Gread<cr>
-            nmap <silent><leader>gb :Gblame<cr>
+          Plug 'tpope/vim-fugitive'
+          nmap <silent> <leader>gs :Gstatus<cr>
+          nmap <leader>ge :Gedit<cr>
+          nmap <silent><leader>gr :Gread<cr>
+          nmap <silent><leader>gb :Gblame<cr>
         
-            Plug 'tpope/vim-rhubarb' " hub extension for fugitive
-            Plug 'junegunn/gv.vim'
-            Plug 'sodapopcan/vim-twiggy'
+          Plug 'tpope/vim-rhubarb' " hub extension for fugitive
+          Plug 'junegunn/gv.vim'
+          Plug 'sodapopcan/vim-twiggy'
+    " }}}
+
+    " FILE EXPLORER: {{{
+     
+         " NERDTree {{{
+               Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+
+               Plug 'Xuyuanp/nerdtree-git-plugin'
+               Plug 'ryanoasis/vim-devicons'
+               Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+         " }}}
+
+         " Ranger {{{ 
+               Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+               source $pluginConfigPath/ranger.vim
+         " }}}
+
+         " Startify {{{
+            Plug 'mhinz/vim-startify'
+            source $pluginConfigPath/startify.vim
+         " }}}
       " }}}
 
-      " NERDTree {{{
-              Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-              Plug 'Xuyuanp/nerdtree-git-plugin'
-              Plug 'ryanoasis/vim-devicons'
-              Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-              let g:WebDevIconsOS = 'Darwin'
-              let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-              let g:DevIconsEnableFoldersOpenClose = 1
-              let g:DevIconsEnableFolderExtensionPatternMatching = 1
-              let NERDTreeDirArrowExpandable = "\u00a0" " make arrows invisible
-              let NERDTreeDirArrowCollapsible = "\u00a0" " make arrows invisible
-              let NERDTreeNodeDelimiter = "\u263a" " smiley face
+      " UTILS: {{{
 
-              augroup nerdtree
-                  autocmd!
-                  autocmd FileType nerdtree setlocal nolist " turn off whitespace characters
-                  autocmd FileType nerdtree setlocal nocursorline " turn off line highlighting for performance
-              augroup END
+         " Zoom {{{
+             " Zooms splits to full window and back
+            Plug 'Mathijs-Bakker/zoom-vim'
+            nmap <leader>z <Plug>Zoom
+         " }}}
 
-              " Toggle NERDTree
-              function! ToggleNerdTree()
-                  if @% != "" && @% !~ "Startify" && (!exists("g:NERDTree") || (g:NERDTree.ExistsForTab() && !g:NERDTree.IsOpen()))
-                      :NERDTreeFind
-                  else
-                      :NERDTreeToggle
-                  endif
-              endfunction
-              " toggle nerd tree
-              nmap <silent> <leader>k :call ToggleNerdTree()<cr>
-              " find the current file in nerdtree without needing to reload the drawer
-              nmap <silent> <leader>y :NERDTreeFind<cr>
+         " Rooter {{{
+            " Rooter changes working dir to project root of the current file
+            Plug 'airblade/vim-rooter'
+         " }}}
 
-              let NERDTreeShowHidden=1
-              " let NERDTreeDirArrowExpandable = '▷'
-              " let NERDTreeDirArrowCollapsible = '▼'
-              let g:NERDTreeIndicatorMapCustom = {
-              \ "Modified"  : "✹",
-              \ "Staged"    : "✚",
-              \ "Untracked" : "✭",
-              \ "Renamed"   : "➜",
-              \ "Unmerged"  : "═",
-              \ "Deleted"   : "✖",
-              \ "Dirty"     : "✗",
-              \ "Clean"     : "✔︎",
-              \ 'Ignored'   : '☒',
-              \ "Unknown"   : "?"
-              \ }
-          " }}}
+         " Autoclose {{{
+            " Auto close brackets/parentheses: 
+            Plug 'townk/vim-autoclose'
+         " }}}
+         
+         " Commentary {{{
+            " Comment lines out
+            Plug 'tpope/vim-commentary'
+         " }}}
+         
+         " Unimpaired {{{
+            " mappings which are simply short normal mode aliases for commonly used ex commands
+            Plug 'tpope/vim-unimpaired'
+         " }}}
+         
+         " Ragtag {{{
+            " endings for html, xml, etc. - ehances surround
+            Plug 'tpope/vim-ragtag'
+         " }}}
+         
+         " Suround {{{
+            " mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens, etc.
+            Plug 'tpope/vim-surround'
+         " }}}
+         
+         " Vimux {{{
+            " tmux integration for vim
+            Plug 'benmills/vimux'
+         " }}}
 
-      " Ranger: {{{ 
-            Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-            source $pluginConfigPath/ranger.vim
+
       " }}}
-
 "}}}
-" Rooter changes working dir to project root when opening a file or dir
-Plug 'airblade/vim-rooter'
-
-" Zoom {{{
-    " Zoom split to full window
-    Plug 'Mathijs-Bakker/zoom-vim'
-    nmap <leader>z <Plug>Zoom
-" }}}
-
-" Auto close brackets/parentheses: 
-Plug 'townk/vim-autoclose'
-
-" Comment stuff out
-Plug 'tpope/vim-commentary'
-"
-" mappings which are simply short normal mode aliases for commonly used ex commands
-Plug 'tpope/vim-unimpaired'
-
-" endings for html, xml, etc. - ehances surround
-Plug 'tpope/vim-ragtag'
-
-" mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens, etc.
-Plug 'tpope/vim-surround'
-
-" tmux integration for vim
-Plug 'benmills/vimux'
-
 " enables repeating other supported plugins with the . command
 Plug 'tpope/vim-repeat'
 
@@ -180,11 +175,6 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 " detect indent style (tabs vs. spaces)
 Plug 'tpope/vim-sleuth'
-
-" Startify: Fancy startup screen for vim {{{
-   Plug 'mhinz/vim-startify'
-   source $pluginConfigPath/startify.vim
-" }}}
 
 " Remap p and P in normal and visual mode for context aware pasting.
 Plug 'sickill/vim-pasta'
