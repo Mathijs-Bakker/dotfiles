@@ -8,25 +8,12 @@ Different projects have different requirements. So next to C#, I do occasionally
 
 But plugin configurations will be to stay.
 
-```
-.
+`.
 ├── LICENSE
 ├── README.md
 ├── Ranger
 │   ├── plugins
-│   │   ├── __init__.py
-│   │   ├── __pycache__
-│   │   │   └── __init__.cpython-38.opt-1.pyc
 │   │   └── devicons2
-│   │       ├── LICENSE.txt
-│   │       ├── README.md
-│   │       ├── __init__.py
-│   │       ├── __pycache__
-│   │       │   ├── __init__.cpython-38.opt-1.pyc
-│   │       │   └── icons.cpython-38.opt-1.pyc
-│   │       ├── gen_icons.sh
-│   │       ├── icons.py
-│   │       └── screenshot.png
 │   └── rc.conf
 ├── applescripts
 │   ├── tunes.js
@@ -47,44 +34,38 @@ But plugin configurations will be to stay.
 │   ├── manage
 │   ├── reload-browser
 │   └── tm
+├── iterm
+│   ├── color\ presets
+│   │   └── Gruvbox\ Dark.itermcolors
+│   └── profile.json
+├── karabiner
+│   ├── assets
+│   │   └── complex_modifications
+│   └── karabiner.json
 ├── nvim
-│   ├── autoInstall-VimPlug-PluginManager.vim
-│   ├── base.vim
-│   ├── coc-settings.json
+│   ├── autoload
+│   │   └── helpers
+│   │       └── lightline.vim
 │   ├── ginit.vim
 │   ├── init.vim
-│   ├── pluginconfigs
-│   │   ├── ale.vim
-│   │   ├── coc.vim
-│   │   ├── deoplete.vim
-│   │   ├── languageclient-neovim.vim
-│   │   ├── lightline.vim
-│   │   ├── omnisharp.vim
-│   │   ├── ranger.vim
-│   │   ├── syntastic.vim
-│   │   └── ultisnips.vim
-│   ├── plugins.vim
 │   ├── rc
-│   │   ├── autoInstall-VimPlug-PluginManager.vim
 │   │   ├── base.vim
 │   │   ├── pluginconfigs
 │   │   │   ├── ale.vim
 │   │   │   ├── coc.vim
 │   │   │   ├── deoplete.vim
+│   │   │   ├── fzf.vim
 │   │   │   ├── languageclient-neovim.vim
 │   │   │   ├── lightline.vim
+│   │   │   ├── nerdtree.vim
 │   │   │   ├── omnisharp.vim
 │   │   │   ├── ranger.vim
+│   │   │   ├── startify.vim
 │   │   │   ├── syntastic.vim
 │   │   │   └── ultisnips.vim
 │   │   └── plugins.vim
 │   ├── syntax
-│   │   ├── _cs.vim
-│   │   ├── cs.vim
 │   │   └── csharp.vim
-│   ├── themes
-│   │   └── solarized.vim
-│   └── tmp
 ├── resources
 │   ├── tmux.terminfo
 │   └── xterm-256color-italic.terminfo
@@ -109,6 +90,4 @@ But plugin configurations will be to stay.
     ├── utils.zsh
     ├── zshenv.symlink
     └── zshrc.symlink
-
-18 directories, 81 files
 ```
