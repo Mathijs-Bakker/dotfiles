@@ -8,6 +8,13 @@ let g:deoplete#enable_at_startup = 1
 
 " }}}
 
+" Options: {{{
+    call deoplete#custom#option({
+    \   'auto_complete_delay': 100,
+    \   'smart_case': v:false,
+    \   'ignore_case': v:true,
+    \ })
+" }}}
 " Custom Source: {{{
 
   " Rank: {{{
@@ -17,13 +24,22 @@ let g:deoplete#enable_at_startup = 1
   "}}}
 
   " Mark: {{{
+  
+      " Tweaks for a cleaner appearance. Only lanuages are shown (c#, JS, LUA)
+      " There's space for four characters to keep the output aligned. 
       " Hide the marks by setting a string with four spaces.
-      " Probably there's a better option for this.
-      call deoplete#custom#source('omnisharp', 'mark', '    ')
+
+      call deoplete#custom#source('omnisharp', 'mark', ' C# ')
+      call deoplete#custom#source('jedi', 'mark', ' PY ')
+
+      " Ultisnips shows 'snippet' already in the output. Mark can be empty.
       call deoplete#custom#source('ultisnips', 'mark', '    ')
+
+      " Tabnine outputs a percentage, it's clear it's TN completion.
       call deoplete#custom#source('tabnine', 'mark', '    ')
 
   " Variable: {{{
+  "
       call deoplete#custom#var('tabnine', {
       \     'line_limit': 500,
       \     'max_num_results': 5,
@@ -45,4 +61,4 @@ let g:deoplete#enable_at_startup = 1
       \ deoplete#manual_complete()
 
 " }}}
-
+ 
