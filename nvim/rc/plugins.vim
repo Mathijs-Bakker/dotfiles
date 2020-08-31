@@ -67,10 +67,12 @@ call plug#begin('~/.vim/plugged')
     " }}}
 
     " COMPLETION: {{{
-    
-        " COC {{{
-            Plug 'neoclide/coc.nvim', {'branch': 'release'}
-            source $pluginConfigPath/coc.vim
+
+        " Deoplete {{{
+            Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+            Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+            Plug 'zchee/deoplete-jedi'
+            " Source needs to be after 'plug#end' 
         " }}}
 
         " UltiSnips {{{
@@ -213,3 +215,5 @@ call plug#begin('~/.vim/plugged')
       " }}}
 "}}}
 call plug#end()
+
+source $pluginConfigPath/deoplete.vim

@@ -1,53 +1,48 @@
 let g:deoplete#enable_at_startup = 1
 
-" enable_logging
-call deoplete#custom#option('profile', v:true)
-call deoplete#enable_logging('DEBUG', 'deoplete.log')
-call deoplete#custom#source('cs', 'is_debug_enabled', 1)
+" Enable Deoplete logging {{{
 
-"=============================================================================
-" Sources:
-"-----------------------------------------------------------------------------
+  "call deoplete#custom#option('profile', v:true)
+  "call deoplete#enable_logging('DEBUG', 'deoplete.log')
+  "call deoplete#custom#source('cs', 'is_debug_enabled', 1)
 
-"call deoplete#custom#option('sources', {
-"    \ 'cs': ['omni', 'tabnine'],
-"    \ })
-"call deoplete#custom#source('omni', 'rank', 2000)
+" }}}
 
-"call deoplete#custom#var('omni', 'input_patterns', {
-"    \ 'cs': '\w+|[^. *\t]\.\w*',
-"    \})
-call deoplete#custom#option('sources', {
-   \ 'cs': ['omnisharp'],
-   \})   
+" Custom Source: {{{
 
-call deoplete#custom#var('tabnine', {
-\ 'line_limit': 500,
-\ 'max_num_results': 5,
-\ })
+  " Rank: {{{
+      call deoplete#custom#source('ultisnips', 'rank', 3)
+      call deoplete#custom#source('omnisharp', 'rank', 2)
+      call deoplete#custom#source('tabnine', 'rank', 1)
+  "}}}
 
-function! s:check_back_space() abort "{{{
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
+  " Mark: {{{
+      " Hide the marks by setting a string with four spaces.
+      " Probably there's a better option for this.
+      call deoplete#custom#source('omnisharp', 'mark', '    ')
+      call deoplete#custom#source('ultisnips', 'mark', '    ')
+      call deoplete#custom#source('tabnine', 'mark', '    ')
 
-" ----------------------------------------------------------------------------
-" Options:
-" ----------------------------------------------------------------------------
+  " Variable: {{{
+      call deoplete#custom#var('tabnine', {
+      \     'line_limit': 500,
+      \     'max_num_results': 5,
+      \})
+  " }}}
 
-" Auto or manual completion
-"call deoplete#custom#option('auto_complete', v:true)
+" }}}
 
-" Delay completion after input (default 0 milliseconds:
-"call deoplete#custom#option('auto_complete_delay', 200)
+" Key mappings: {{{
 
-"call deoplete#custom#option('auto_complete_popup', "auto")
-" Ignore upper- and lowercase in input
-"call deoplete#custom#option('smart_case', v:true)
+  function! s:check_back_space() abort 
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction
 
-inoremap <silent><expr> <TAB>
+  inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ deoplete#manual_complete()
 
-" autocmd VimEnter * inoremap <expr> <cr> ((pumvisible()) ? (deoplete#close_popup()) : ("\<cr>"))
+" }}}
+
