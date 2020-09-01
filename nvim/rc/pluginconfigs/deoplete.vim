@@ -35,7 +35,7 @@ let g:deoplete#enable_at_startup = 1
       " Ultisnips shows 'snippet' already in the output. Mark can be empty.
       call deoplete#custom#source('ultisnips', 'mark', '    ')
 
-      " Tabnine outputs a percentage, it's clear it's TN completion.
+      " Tabnine outputs a percentage, which makes clear it's TN completion.
       call deoplete#custom#source('tabnine', 'mark', '    ')
 
   " Variable: {{{
