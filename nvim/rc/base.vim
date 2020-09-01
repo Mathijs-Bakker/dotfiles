@@ -1,9 +1,3 @@
-" Disable Arrow Keys (<nop> no operation):
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
-
 filetype plugin on
 
 let mapleader=","                      " Set <leader>.
@@ -13,22 +7,28 @@ if has("gui_running")
     set guifont=MesloLGSNer-Regular:h18 " Set font for gVim. But not for nvim-qt
 endif
 
-" Rulers :
-set rnu                                 " Relative numbering.
-set nu                                  " Line nubering.
+" Rulers: {{{
+    set rnu                             " Relative numbering
+    set nu                              " Line numbering
+" }}}
 
-" Scrolling offset:
-set scrolloff=5                         " Lines above and under cursor
+" Scrolling: {{{
+    set scrolloff=5                     " Top and bottom offset:
+    set mouse=nv                        " a = all, nv = modes
+" }}}
 
 " Turn on autoindent
 set autoindent                          " Respect indentation starting new line
-set tabstop=4                           " Number of spaces tab is counted for.
 
-" Indentation : 
-set shiftwidth=4                        " Number of spaces for autoindent.
-" On pressing tabs, insert 2 spaces
+" Tab spacing: {{{
+    set smarttab
+    set tabstop=4
+    set softtabstop=4
+    set shiftwidth=4
+    set shiftround
 
-set expandtab
+    set expandtab
+" }}}
 
 "set foldmethod=indent                   " Folding based on indentation.
 "autocmd BufRead * normal zR             " Keep folds open when opening new file.
@@ -40,20 +40,38 @@ set cursorline
 set colorcolumn=80,120                  
 highlight ColorColumn ctermbg=0 guibg=lightgrey    " The Line color
 
-" Search :
-set hlsearch                            " Highlight matches
-set incsearch                           " Dynamically move to first match while typing
-set ignorecase
-set smartcase
+" Search: {{{
+    set hlsearch                            " Highlight matches
+    set incsearch                           " Dynamically move to first match while typing
+    set ignorecase
+    set smartcase
+    set nolazyredraw 
 
-" Unset the "last search pattern" register by hitting return
-nnoremap <CR> :nohlsearch<CR><CR>
+    set magic                               " Regex magic
+
+    " Unset the "last search pattern" register by hitting return
+    nnoremap <CR> :nohlsearch<CR><CR>
+" }}} 
 
 " Swap files:
 if empty(glob('$HOME/.vim/swap'))
     silent !mkdir -p $HOME/.vim/swap
 endif
 set directory=$HOME/.vim/swap//               " Place all swap files here
+
+" Error Bells: {{{
+    set noerrorbells
+    set visualbell
+    set t_vb=
+    set tm=500
+"}}}
+
+" Cursor: {{{
+    " Switch cursor to line when in insert mode, and block when not
+    set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+    \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+    \,sm:block-blinkwait175-blinkoff150-blinkon175
+" }}}
 
 " Fast split navigation with <Ctrl> + hjkl.
 noremap <c-h> <c-w><c-h>
@@ -70,7 +88,6 @@ set path+=**
 " Clipboard Integration:
 set clipboard+=unnamedplus        " ALWAYS use the clipboard for ALL operations
 
-set mouse=nv
 
 " Enable wildmenu
 set wildmenu                      " Enable enhanced tab autocomplete.
