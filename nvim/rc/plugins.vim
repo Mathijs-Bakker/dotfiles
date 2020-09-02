@@ -10,7 +10,8 @@ call plug#begin('~/.vim/plugged')
 
     " Color Schemes {{{
     
-        Plug 'gruvbox-community/gruvbox'
+        " Plug 'gruvbox-community/gruvbox'
+        Plug 'Mathijs-Bakker/gruvbox'
 
     " }}}
 
