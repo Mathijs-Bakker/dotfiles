@@ -9,14 +9,14 @@ let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_start_without_solution = 1 
 
 " Set the type lookup function to use the preview window 
-"let g:OmniSharp_typeLookupInPreview = 1
+let g:OmniSharp_typeLookupInPreview = 1
 
 " Timeout in seconds to wait for a response from the server
 "let g:OmniSharp_timeout = 5
 
 " Popups:
 " Enable popups 
-"let g:OmniSharp_popup = 1
+let g:OmniSharp_popup = 1
 
 "let g:OmniSharp_popup_options = {
 "            \ 'wrap': v:true,
