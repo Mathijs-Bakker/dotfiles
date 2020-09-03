@@ -6,6 +6,12 @@ let $pluginConfigPath = $HOME.'/.dotfiles/nvim/rc/pluginconfigs'
 
 call plug#begin('~/.vim/plugged')
 
+" Plugin Development {{{
+
+    Plug '~/Repositories/vim-testsharp'
+
+" }}}
+
 " AESTHETICS: {{{
 
     " Color Schemes {{{
@@ -218,3 +224,4 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 source $pluginConfigPath/deoplete.vim
+
