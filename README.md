@@ -70,7 +70,7 @@ iTerm doesn't have a config folder which could be symlinked to .dotfiles.
 │   │   │   └── ultisnips.vim
 │   │   └── plugins.vim
 │   ├── syntax
-│   │   └── csharp.vim
+│       └── csharp.vim
 ├── resources
 │   ├── tmux.terminfo
 │   └── xterm-256color-italic.terminfo
