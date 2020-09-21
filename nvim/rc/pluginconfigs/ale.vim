@@ -1,3 +1,9 @@
+" Close loclist window when closing buffer:
+ augroup CloseLoclistWindowGroup
+   autocmd!
+   autocmd QuitPre * if empty(&buftype) | lclose | endif
+ augroup END
+
 let g:airline#extensions#ale#enabled = 0
 
 let g:ale_open_list = 'on_save'
