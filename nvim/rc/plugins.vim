@@ -8,7 +8,20 @@ call plug#begin('~/.vim/plugged')
 
 " Plugin Development {{{
 
-    Plug '~/Repositories/vim-testsharp'
+    Plug '~/Repositories/the-dottest-chili.nvim'
+    " let g:dottestchili_show_results_leftside = 1
+
+" }}}
+
+" Lua dev: {{{
+    Plug 'tjdevries/nlua.nvim'
+" }}}
+
+" Telescope: {{{
+
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-lua/telescope.nvim'
 
 " }}}
 
