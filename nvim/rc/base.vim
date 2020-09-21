@@ -50,7 +50,7 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey    " The Line color
     set magic                               " Regex magic
 
     " Unset the "last search pattern" register by hitting return
-    nnoremap <CR> :nohlsearch<CR><CR>
+    "nnoremap <CR> :nohlsearch<CR><CR>
 " }}} 
 
 " Swap files:
