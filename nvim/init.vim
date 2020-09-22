@@ -8,7 +8,6 @@ let g:python3_host_prog = "/usr/local/bin/python3"
     set termguicolors
 " }}} 
 
-source $HOME/.dotfiles/nvim/rc/autoInstall-VimPlug-PluginManager.vim
 source $HOME/.dotfiles/nvim/rc/base.vim
 source $HOME/.dotfiles/nvim/rc/plugins.vim
 
