@@ -1,8 +1,7 @@
 filetype plugin on
-
 let mapleader=","                      " Set <leader>.
 
-" GuiFont :
+" GuiFont:
 if has("gui_running") 
     set guifont=MesloLGSNer-Regular:h18 " Set font for gVim. But not for nvim-qt
 endif
@@ -49,8 +48,8 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey    " The Line color
 
     set magic                               " Regex magic
 
-    " Unset the "last search pattern" register by hitting return
-    "nnoremap <CR> :nohlsearch<CR><CR>
+    " Unset the "last search pattern" register by hitting return:
+    nnoremap <CR> :nohlsearch<CR><CR>
 " }}} 
 
 " Swap files:
@@ -72,15 +71,6 @@ set directory=$HOME/.vim/swap//               " Place all swap files here
     \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
     \,sm:block-blinkwait175-blinkoff150-blinkon175
 " }}}
-
-" Fast split navigation with <Ctrl> + hjkl.
-noremap <c-h> <c-w><c-h>
-noremap <c-j> <c-w><c-j>
-noremap <c-k> <c-w><c-k>
-noremap <c-l> <c-w><c-l>
-
-" Zoom split to full window and back:
-nmap <Leader>z <Plug>Zoom
 
 " Look in all underlying paths
 set path+=**
