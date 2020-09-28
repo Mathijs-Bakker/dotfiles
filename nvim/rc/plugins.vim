@@ -3,11 +3,13 @@
 " PlugStatus, Check the status of plugins
 
 " AutoInstall: {{{
-if empty(glob('~/.config/nvim/plugged/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/plugged/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+
+    if empty(glob('~/.config/nvim/plugged/autoload/plug.vim'))
+      silent !curl -fLo ~/.config/nvim/plugged/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+
 "}}}
 
 let $pluginConfigPath = $HOME.'/.dotfiles/nvim/rc/pluginconfigs'
@@ -56,7 +58,6 @@ call plug#begin('~/.dotfiles/nvim/plugged')
     
         " OmniSharp: {{{ 
             Plug 'OmniSharp/omnisharp-vim', {'for': 'cs'}
-            source $pluginConfigPath/omnisharp.vim
         " }}}
     " }}}
 
