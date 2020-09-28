@@ -244,5 +244,5 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 "}}}
 call plug#end()
 
-source $pluginConfigPath/deoplete.vim
+" source $pluginConfigPath/deoplete.vim
 
