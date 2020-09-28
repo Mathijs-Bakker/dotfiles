@@ -105,7 +105,6 @@ call plug#begin('~/.dotfiles/nvim/plugged')
             Plug 'SirVer/ultisnips'
             Plug 'honza/vim-snippets'
             Plug 'Mathijs-Bakker/vim-unity-snippets'
-            source $pluginConfigPath/ultisnips.vim
         " }}}
 
     " }}}
