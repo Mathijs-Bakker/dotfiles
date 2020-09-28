@@ -201,7 +201,7 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 
         " Endwise {{{
             " add end, endif, etc. automatically
-            " Plug 'tpope/vim-endwise' " <CR> conflicts with COC
+            Plug 'tpope/vim-endwise' " <CR> conflicts with COC
         " }}}
 
         " Slueth {{{
@@ -235,4 +235,3 @@ call plug#begin('~/.dotfiles/nvim/plugged')
       " }}}
 "}}}
 call plug#end()
-
