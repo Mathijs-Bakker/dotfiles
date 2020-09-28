@@ -1,4 +1,8 @@
-let g:deoplete#enable_at_startup = 1
+if exists('g:loaded_deoplete')
+  finish
+endif
+
+" let g:deoplete#enable_at_startup = 1
 
 " Enable Deoplete logging {{{
 
@@ -24,9 +28,9 @@ let g:deoplete#enable_at_startup = 1
   "}}}
 
   " Mark: {{{
-  
+
       " Tweaks for a cleaner appearance. Only lanuages are shown (c#, JS, LUA)
-      " There's space for four characters to keep the output aligned. 
+      " There's space for four characters to keep the output aligned.
       " Hide the marks by setting a string with four spaces.
 
       call deoplete#custom#source('omnisharp', 'mark', ' C# ')
@@ -50,7 +54,7 @@ let g:deoplete#enable_at_startup = 1
 
 " Key mappings: {{{
 
-  function! s:check_back_space() abort 
+  function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~ '\s'
   endfunction
@@ -61,4 +65,3 @@ let g:deoplete#enable_at_startup = 1
       \ deoplete#manual_complete()
 
 " }}}
- 
