@@ -1,4 +1,5 @@
 " Conquer of Completion
+finish
 
 " JSON comment highlighting (for CocConfig)
 autocmd FileType json syntax match Comment +\/\/.\+$+
