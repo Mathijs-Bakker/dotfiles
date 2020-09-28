@@ -46,7 +46,6 @@ call plug#begin('~/.dotfiles/nvim/plugged')
     
         Plug 'itchyny/lightline.vim'
         Plug 'Mathijs-Bakker/vim-base16-lightline/'
-        source $pluginConfigPath/lightline.vim
 
     " }}}
 " }}}
