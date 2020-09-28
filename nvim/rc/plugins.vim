@@ -89,7 +89,6 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 
         " Startify {{{
             Plug 'mhinz/vim-startify'
-            source $pluginConfigPath/startify.vim
         " }}}
  
     " }}}
@@ -100,7 +99,6 @@ call plug#begin('~/.dotfiles/nvim/plugged')
             Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
             Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
             Plug 'zchee/deoplete-jedi'
-            " Source needs to be after 'plug#end' 
         " }}}
 
         " UltiSnips {{{
@@ -132,6 +130,7 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 
         Plug 'tpope/vim-fugitive'
         nmap <silent> <leader>gs :Gstatus<cr>
+        nmap <silent> <leader>gc :Gcommit<cr>
         nmap <leader>ge :Gedit<cr>
         nmap <silent><leader>gr :Gread<cr>
         nmap <silent><leader>gb :Gblame<cr>
@@ -153,8 +152,8 @@ call plug#begin('~/.dotfiles/nvim/plugged')
         " }}}
 
         " Ranger {{{ 
-            Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-            source $pluginConfigPath/ranger.vim
+            " Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+            " source $pluginConfigPath/ranger.vim
         " }}}
 
         " Rooter {{{
@@ -228,7 +227,6 @@ call plug#begin('~/.dotfiles/nvim/plugged')
         " Zoom {{{
             " Zooms splits to full window and back
             Plug 'Mathijs-Bakker/zoom-vim'
-            nmap <leader>z <Plug>Zoom
         " }}}
 
      " }}}
@@ -243,6 +241,4 @@ call plug#begin('~/.dotfiles/nvim/plugged')
       " }}}
 "}}}
 call plug#end()
-
-" source $pluginConfigPath/deoplete.vim
 
