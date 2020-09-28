@@ -68,11 +68,6 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 
         " Open .md files in Marked.app - mapped to <leader>m
         Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' }
-
-        nmap <leader>m :MarkedOpen!<cr>
-        nmap <leader>mq :MarkedQuit<cr>
-        nmap <leader>* *<c-o>:%s///gn<cr>
-
     " }}}
 
     " JSON {{{
