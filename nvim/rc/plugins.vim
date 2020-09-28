@@ -114,7 +114,6 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 
        " ALE {{{
             Plug 'dense-analysis/ale'
-            source $pluginConfigPath/ale.vim
         " }}}
 
     " }}}
@@ -122,7 +121,6 @@ call plug#begin('~/.dotfiles/nvim/plugged')
     " FUZZY FINDER: {{{
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
-
     " }}}
 
     " GIT: {{{
