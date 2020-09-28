@@ -129,12 +129,6 @@ call plug#begin('~/.dotfiles/nvim/plugged')
     " GIT: {{{
 
         Plug 'tpope/vim-fugitive'
-        nmap <silent> <leader>gs :Gstatus<cr>
-        nmap <silent> <leader>gc :Gcommit<cr>
-        nmap <leader>ge :Gedit<cr>
-        nmap <silent><leader>gr :Gread<cr>
-        nmap <silent><leader>gb :Gblame<cr>
-        
         Plug 'tpope/vim-rhubarb' " hub extension for fugitive
         Plug 'junegunn/gv.vim'
         Plug 'sodapopcan/vim-twiggy'
