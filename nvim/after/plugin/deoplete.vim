@@ -66,4 +66,3 @@ endif
       \ deoplete#manual_complete()
 
 " }}}
-echom 'DeoEnd'
