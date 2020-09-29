@@ -1,4 +1,4 @@
-if exists('g:loaded_deoplete')
+if !exists('g:loaded_deoplete')
   finish
 endif
 
@@ -19,12 +19,13 @@ endif
     \   'ignore_case': v:true,
     \ })
 " }}}
+
 " Custom Source: {{{
 
   " Rank: {{{
-      call deoplete#custom#source('ultisnips', 'rank', 3)
-      call deoplete#custom#source('omnisharp', 'rank', 2)
-      call deoplete#custom#source('tabnine', 'rank', 1)
+      call deoplete#custom#source('ultisnips', 'rank', 700)
+      call deoplete#custom#source('omnisharp', 'rank', 600)
+      call deoplete#custom#source('tabnine', 'rank', 500)
   "}}}
 
   " Mark: {{{
@@ -65,3 +66,4 @@ endif
       \ deoplete#manual_complete()
 
 " }}}
+echom 'DeoEnd'
