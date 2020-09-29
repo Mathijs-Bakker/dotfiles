@@ -29,7 +29,8 @@ let g:startify_commands = [
 \ ]
 
 let g:startify_bookmarks = [
-\ { 'b': '~/.dotfiles/nvim/rc/base.vim' },
+\ { 'b': '~/.dotfiles/nvim/init.vim' },
+\ { 'k': '~/.dotfiles/nvim/plugin/base_keymaps.vim' },
 \ { 'p': '~/.dotfiles/nvim/rc/plugins.vim' },
 \ { 'z': '~/.zshrc' }
 \ ]
