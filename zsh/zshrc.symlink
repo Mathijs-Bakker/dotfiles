@@ -214,9 +214,17 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 alias clsym="find -L . -name . -o -type d -prune -o -type l -exec rm {} +"
 
 # git aliases
-alias gc="git commit"
+alias gc='git commit'
 alias gs='git status'
+alias gd='git diff'
+alias gpr='git pull --rebase'
+alias gpull='git pull'
+alias gpush='git push'
 alias glog="git log"
+
+# git helpers
+alias gadd='git add .'
+alias gca='git add . && git commit -av'
 
 # tmux aliases
 alias ta='tmux attach'
