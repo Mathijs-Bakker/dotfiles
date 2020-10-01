@@ -124,4 +124,13 @@ source $HOME/.dotfiles/nvim/rc/plugins.vim
 
 let g:deoplete#enable_at_startup = 1
 
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "all",     -- one of "all", "language", or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    -- disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF
 

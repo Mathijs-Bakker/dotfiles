@@ -27,6 +27,10 @@ call plug#begin('~/.dotfiles/nvim/plugged')
     Plug 'tjdevries/nlua.nvim'
 " }}}
 
+" Treesitter: {{{
+    Plug 'nvim-treesitter/nvim-treesitter'
+" }}}
+
 " Telescope: {{{
 
     Plug 'nvim-lua/popup.nvim'
