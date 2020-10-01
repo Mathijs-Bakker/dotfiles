@@ -6,7 +6,7 @@ My setup, for DotNet Core and Unity3D development on MacOS (or other *nix).
 
 Different projects have different requirements. So next to C#, I do occasionally Lua, Python, JavaScript and other languages. Whatever suits best.
 
-### Nvim
+### Nvim 0.5
 I have sourced my plugin configurations for easy toggling (read: commenting out) in ``nvim/rc/plugins.vim``.
 
 ### iTerm2
