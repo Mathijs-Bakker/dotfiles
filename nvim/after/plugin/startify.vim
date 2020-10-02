@@ -1,5 +1,5 @@
 " Don't change to directory when selecting a file
-let g:startify_files_number = 5
+let g:startify_files_number = 10
 let g:startify_change_to_dir = 0
 let g:startify_custom_header = [ ]
 let g:startify_relative_path = 1
@@ -30,7 +30,7 @@ let g:startify_commands = [
 
 let g:startify_bookmarks = [
 \ { 'b': '~/.dotfiles/nvim/init.vim' },
-\ { 'k': '~/.dotfiles/nvim/plugin/base_keymaps.vim' },
+\ { 'm': '~/.dotfiles/nvim/plugin/base_keymaps.vim' },
 \ { 'p': '~/.dotfiles/nvim/rc/plugins.vim' },
 \ { 'z': '~/.zshrc' }
 \ ]
