@@ -214,7 +214,7 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 alias clsym="find -L . -name . -o -type d -prune -o -type l -exec rm {} +"
 
 # git aliases
-alias gc='git commit'
+alias gc='git commit -v'
 alias gs='git status'
 alias gd='git diff'
 alias gpr='git pull --rebase'
