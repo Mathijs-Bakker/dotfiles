@@ -49,7 +49,7 @@ let g:ale_linters = { 'cs': ['OmniSharp'] }
 " Enable auto highlighting:
 let g:OmniSharp_highlighting = 1
 " Update semantic highlighting on BufEnter, InsertLeave and TextChanged
-let g:OmniSharp_highlight_types = 2
+let g:OmniSharp_highlight_types = 1
 " Show relevent diagnostic ID's for linters as ALE/Syntastic
 let g:OmniSharp_diagnostic_showid = 1
 "
