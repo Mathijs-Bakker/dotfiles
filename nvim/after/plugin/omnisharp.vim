@@ -1,58 +1,111 @@
 " Note: this is required for the plugin to work
 filetype indent plugin on
 
-" Use the stdio OmniSharp-roslyn server
-let g:OmniSharp_server_stdio = 1
-" Use system installed Mono:
-"let g:OmniSharp_server_use_mono = 1
-" Start server in current path when there is no solution file
-let g:OmniSharp_start_without_solution = 1 
+" Server: {{{
 
-" Set the type lookup function to use the preview window 
-let g:OmniSharp_typeLookupInPreview = 1
+    " Use the stdio OmniSharp-roslyn server
+    let g:OmniSharp_server_stdio = 1
 
-" Timeout in seconds to wait for a response from the server
-"let g:OmniSharp_timeout = 5
+    " Use system installed Mono:
+    "let g:OmniSharp_server_use_mono = 1
 
-" Popups:
-" Enable popups 
-let g:OmniSharp_popup = 1
+    " Start server in current path when there is no solution file
+    let g:OmniSharp_start_without_solution = 1 
 
-"let g:OmniSharp_popup_options = {
-"            \ 'wrap': v:true,
-"            \ 'winblend': 30,
-"            \ 'winhl': 'Normal:Normal'
-"            \}
-"" Don't autoselect first omnicomplete option, show options even if there is only
-"" one (so the previe documentation is accessible). Remove 'preview', 'popup'
-"" and 'popuphidden' if you don't want to see any documentation whatsoever.
-"" Note that neovim does not support `popuphidden` or `popup` yet: 
-"" https://github.com/neovim/neovim/issues/10996
-"set completeopt=longest,menuone,preview ",popuphidden
-"
-"" Highlight the completion documentation popup background/foreground the same as
-"" the completion menu itself, for better readability with highlighted
-"" documentation.
-""set completepopup=highlight:Pmenu,border:off
-"
-"" Fetch full documentation during omnicomplete requests.
-"" By default, only Type/Method signatures are fetched. Full documentation can
-"" still be fetched when you need it with the :OmniSharpDocumentation command.
-let g:omnicomplete_fetch_full_documentation = 1
-"
-" Set desired preview window height for viewing documentation.
-" You might also want to look at the echodoc plugin.
-set previewheight=5
+    " Timeout in seconds to wait for a response from the server
+    "let g:OmniSharp_timeout = 5
 
-" Tell ALE to use OmniSharp for linting C# files, and no other linters.
-let g:ale_linters = { 'cs': ['OmniSharp'] }
-" Enable auto highlighting:
-let g:OmniSharp_highlighting = 1
-" Update semantic highlighting on BufEnter, InsertLeave and TextChanged
-let g:OmniSharp_highlight_types = 1
-" Show relevent diagnostic ID's for linters as ALE/Syntastic
-let g:OmniSharp_diagnostic_showid = 1
-"
+    " For stdio the possible values are 'debug', 'info' and 'none'.
+    " default: 'info'
+    let g:OmniSharp_loglevel = 'info'
+
+" }}}
+
+" Preview: {{{
+
+    " Set the type lookup function to use the preview window 
+    let g:OmniSharp_typeLookupInPreview = 1
+
+    "By default, only type/method signatures are fetched
+    let g:omnicomplete_fetch_full_documentation = 0
+
+    " Displays the implementation of the interface/class under the cursor in the preview window. 
+    let g:OmniSharpPreviewImplementation = 1
+
+    " Set desired preview window height for viewing documentation.
+    " You might also want to look at the echodoc plugin.
+    set previewheight=5
+
+" }}}
+
+" Popup: {{{
+    " Enable popups 
+    let g:OmniSharp_popup = 1
+    let g:OmniSharp_popup_options = 'atcursor' " options: atcursor, peek, center
+    let g:OmniSharp_popup_options = {
+        \ 'wrap': v:true,
+        \ 'winblend': 30,
+        \ 'winhl': 'Normal:Normal'
+        \}
+" }}}
+
+" Diagnostics and Linting: {{{
+
+    " Tell ALE to use OmniSharp for linting C# files
+    let g:ale_linters = { 'cs': ['OmniSharp'] }
+
+    " Include the ID in diagnostic outputs
+    let g:OmniSharp_diagnostic_showid = 1
+
+    " Override diagnostic severity for linters
+    " 'E': Error, 'W': Warning, 'I'L Info, 'None'
+    " let g:OmniSharp_diagnostic_overrides = {
+    " \ 'CS8019': {'type': 'None'},
+    " \ 'RemoveUnnecessaryImportsFixable': {'type': 'None'}
+    " \}
+
+" }}}
+
+" Highlighing: {{{
+
+    " Enable auto highlighting on bufenter:
+    let g:OmniSharp_highlighting = 0 
+    " Highlight on BufEnter, InsertLeave and TextChanged:
+    let g:OmniSharp_highlighting = 0
+    " Highlight after all text changes (all of the above, plus TextChangedI and TextChangedP):
+    let g:OmniSharp_highlighting = 3
+
+" }}}
+
+" Integrations: {{{
+
+    " Selector UI for choosing code actions and navigating to symbols.
+    " If set to '', the vim command-line and quickfix window will be used
+    let g:OmniSharp_selector_ui = 'fzf'
+
+    " Allows |:OmniSharpFindUsages| to use fzf or vim-clap as a selector, instead of populating the quickfix.  Default: '' > 
+    let g:OmniSharp_selector_findusages = 'fzf'
+
+    " Use this to pass custom options to fzf 
+    let g:OmniSharp_fzf_options = { 'right': '50%' } 
+
+    " Enable snippet completion, when ultisnips is available.  
+    let g:OmniSharp_want_snippet = 0
+
+" }}}
+
+" Misc: {{{
+
+    " Look up metadata for compiled types
+    let g:OmniSharp_lookup_metadata = 1
+
+    " Auto opening quickfix window for find usages, implementations, etc.
+    let g:OmniSharp_open_quickfix = 1
+
+" }}}
+
+" AutoCmds: {{{
+
 augroup omnisharp_commands
     autocmd!
 
@@ -100,7 +153,5 @@ command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
 "" Start the omnisharp server for the current solution
 "nnoremap <Leader>ss :OmniSharpStartServer<CR>
 "nnoremap <Leader>sp :OmniSharpStopServer<CR>
-"
-"" Enable snippet completion
-"let g:OmniSharp_want_snippet=1
 
+" }}}
