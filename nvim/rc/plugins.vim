@@ -28,7 +28,7 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 " }}}
 
 " Treesitter: {{{
-    Plug 'nvim-treesitter/nvim-treesitter'
+  "  Plug 'nvim-treesitter/nvim-treesitter'
 " }}}
 
 " Telescope: {{{
@@ -63,6 +63,12 @@ call plug#begin('~/.dotfiles/nvim/plugged')
         " OmniSharp: {{{ 
             Plug 'OmniSharp/omnisharp-vim', {'for': 'cs'}
         " }}}
+
+        " Sharpen Up!: {{{
+        " Better defined default OmniSharp mappings and integrations
+            Plug 'nickspoons/vim-sharpenup'
+        " }}}
+
     " }}}
 
     " Markdown {{{
