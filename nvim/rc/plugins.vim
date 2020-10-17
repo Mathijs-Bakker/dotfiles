@@ -18,8 +18,9 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 
 " Plugin Development {{{
 
-    Plug '~/Repositories/the-dottest-chili.nvim'
+    Plug '~/Repositories/test-explorer.nvim'
     " let g:dottestchili_show_results_leftside = 1
+    " let g:testexplorer_filename_match_tests= 1
 
 " }}}
 
@@ -28,7 +29,7 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 " }}}
 
 " Treesitter: {{{
-    Plug 'nvim-treesitter/nvim-treesitter'
+  "  Plug 'nvim-treesitter/nvim-treesitter'
 " }}}
 
 " Telescope: {{{
@@ -63,6 +64,12 @@ call plug#begin('~/.dotfiles/nvim/plugged')
         " OmniSharp: {{{ 
             Plug 'OmniSharp/omnisharp-vim', {'for': 'cs'}
         " }}}
+
+        " Sharpen Up!: {{{
+        " Better defined default OmniSharp mappings and integrations
+            Plug 'nickspoons/vim-sharpenup'
+        " }}}
+
     " }}}
 
     " Markdown {{{

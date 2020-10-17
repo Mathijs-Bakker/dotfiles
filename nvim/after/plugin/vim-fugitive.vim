@@ -1,6 +1,5 @@
-nmap <silent> <leader>gc :Gcommit<cr>
-nmap <silent> <leader>gs :Gstatus<cr>
-nmap <leader>ge :Gedit<cr>
-nmap <silent><leader>gr :Gread<cr>
-nmap <silent><leader>gb :Gblame<cr>
- 
+nmap <silent> <Leader>gc :Gcommit -v<CR>
+nmap <silent> <Leader>gs :Gstatus<CR>
+nmap <Leader>ge :Gedit<CR>
+nmap <silent><Leader>gr :Gread<CR>
+nmap <silent><Leader>gb :Gblame<CR>

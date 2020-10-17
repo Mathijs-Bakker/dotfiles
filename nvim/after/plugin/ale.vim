@@ -1,10 +1,3 @@
-" Close loclist window when closing buffer: {{{
-    augroup CloseLoclistWindowGroup
-      autocmd!
-      autocmd QuitPre * if empty(&buftype) | lclose | endif
-    augroup END
-" }}}
-
 let g:airline#extensions#ale#enabled = 1
 
 let g:ale_open_list = 'on_save'
@@ -16,31 +9,48 @@ let g:ale_linters = {
     \ 'cs': ['OmniSharp']
     \ }
 
-let g:ale_completion_symbols = {
-  \ 'text': '',
-  \ 'method': '',
-  \ 'function': '',
-  \ 'constructor': '',
-  \ 'field': '',
-  \ 'variable': '',
-  \ 'class': '',
-  \ 'interface': '',
-  \ 'module': '',
-  \ 'property': '',
-  \ 'unit': 'unit',
-  \ 'value': 'val',
-  \ 'enum': '',
-  \ 'keyword': 'keyword',
-  \ 'snippet': '',
-  \ 'color': 'color',
-  \ 'file': '',
-  \ 'reference': 'ref',
-  \ 'folder': '',
-  \ 'enum member': '',
-  \ 'constant': '',
-  \ 'struct': '',
-  \ 'event': 'event',
-  \ 'operator': '',
-  \ 'type_parameter': 'type param',
-  \ '<default>': 'v'
-  \ }
+" let g:ale_virtualtext_cursor =1
+let g:ale_set_highlight = 1
+
+" Ale Signs: {{{
+    let g:ale_set_signs = 1
+
+    let g:ale_completion_symbols = {
+      \ 'text': '',
+      \ 'method': '',
+      \ 'function': '',
+      \ 'constructor': '',
+      \ 'field': '',
+      \ 'variable': '',
+      \ 'class': '',
+      \ 'interface': '',
+      \ 'module': '',
+      \ 'property': '',
+      \ 'unit': 'unit',
+      \ 'value': 'val',
+      \ 'enum': '',
+      \ 'keyword': 'keyword',
+      \ 'snippet': '',
+      \ 'color': 'color',
+      \ 'file': '',
+      \ 'reference': 'ref',
+      \ 'folder': '',
+      \ 'enum member': '',
+      \ 'constant': '',
+      \ 'struct': '',
+      \ 'event': 'event',
+      \ 'operator': '',
+      \ 'type_parameter': 'type param',
+      \ '<default>': 'v'
+    \ }
+" }}}
+
+" Close loclist window when closing buffer: {{{
+
+    augroup CloseLoclistWindowGroup
+      autocmd!
+      autocmd QuitPre * if empty(&buftype) | lclose | endif
+    augroup END
+
+" }}}
+
