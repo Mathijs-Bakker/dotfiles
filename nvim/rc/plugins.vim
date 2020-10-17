@@ -18,8 +18,9 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 
 " Plugin Development {{{
 
-    Plug '~/Repositories/the-dottest-chili.nvim'
+    Plug '~/Repositories/test-explorer.nvim'
     " let g:dottestchili_show_results_leftside = 1
+    " let g:testexplorer_filename_match_tests= 1
 
 " }}}
 
