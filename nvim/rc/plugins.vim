@@ -20,7 +20,7 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 
     Plug '~/Repositories/test-explorer.nvim'
     " let g:dottestchili_show_results_leftside = 1
-    " let g:testexplorer_filename_match_tests= 1
+    let g:testexplorer_filename_match_tests= 1
 
 " }}}
 
@@ -207,8 +207,9 @@ call plug#begin('~/.dotfiles/nvim/plugged')
         " }}}
 
         " Slueth {{{
+        " Somehow this does bad things with Lua files
              " detect indent style (tabs vs. spaces)
-             Plug 'tpope/vim-sleuth'
+          "   Plug 'tpope/vim-sleuth'
         " }}}
         
         " Pasta {{{

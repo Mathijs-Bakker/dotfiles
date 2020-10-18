@@ -1,5 +1,5 @@
 scriptencoding utf-8
-filetype plugin on
+filetype plugin indent on
 
 " Appearance: {{{
 
