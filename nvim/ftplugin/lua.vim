@@ -1,5 +1,5 @@
-setlocal shiftwidth=2
-setlocal tabstop=3
+setlocal shiftwidth=3
+" setlocal tabstop=3
 setlocal formatoptions-=o
 
 " Kill 'trailing whitespace' warnings with fire:
