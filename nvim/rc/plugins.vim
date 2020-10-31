@@ -28,7 +28,7 @@ call plug#begin('~/.dotfiles/nvim/plugged')
     Plug 'tjdevries/nlua.nvim'
 " }}}
 
-" Treesitter: {{{
+" " Treesitter: {{{
   "  Plug 'nvim-treesitter/nvim-treesitter'
 " }}}
 
@@ -55,6 +55,13 @@ call plug#begin('~/.dotfiles/nvim/plugged')
         Plug 'Mathijs-Bakker/vim-base16-lightline/'
 
     " }}}
+" }}}
+
+" LSP: {{{
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/completion-nvim'
+    Plug 'nvim-lua/diagnostic-nvim'
+    Plug 'euclidianAce/BetterLua.vim'
 " }}}
 
 " LANGUAGE SPECIFIC: {{{
