@@ -37,10 +37,7 @@ filetype plugin indent on
     set mouse=nv                        " a = all, nv = modes
 " }}}
 
-" Turn on autoindent
-set autoindent                          " Respect indentation starting new line
-
-" Tab spacing: {{
+" Tab Spacing: {{
     set smarttab
     set tabstop=4
     set softtabstop=4
@@ -50,10 +47,50 @@ set autoindent                          " Respect indentation starting new line
     set expandtab
 " }}}
 
+" Formatting: {{{
+
+    " Turn On Autoindent:
+    set autoindent            " Respect indentation when starting new line
+
+    " Format Options: {{{
+        set formatoptions-=t  " Autowrap using textwidth
+        set fo+=c             " Autowrap commands using textwidth
+        set fo+=r             " Auto insert current comment leader after <CR> 
+        set fo-=o             " Don't do the latter w/ 'o' or 'O' in normal mode
+        set fo+=q             " Allow formatting comments with 'gq'
+        set fo+=w             " Trailing whitespace indicates text continuation
+        set fo-=a             " Autoformatting paragraphs
+        set fo+=n             " Recognize numbered lists
+        set fo-=2             " Indentation follows the indent of second line
+        set fo+=j             " Remove comments when joining lines
+        set fo+=p             " Don't break at single spaces that follow periods
+    " }}}
+
+    " Line Wrapping: {{{
+        set breakindent " Long lines respect indentation
+        let &showbreak=repeat(' ', 3) " But add some spaces
+        set linebreak
+    " }}}
+
+    " Empty lines at the end of a buffer
+        set fillchars=eob:~
+" }}}
+
+" Crash Recovery: {{{
+    set noswapfile              " Living on a razor's edge
+
+    " Swap Files: {{{
+        if empty(glob('$HOME/.vim/swap'))
+            silent !mkdir -p $HOME/.vim/swap
+        endif
+        set directory=$HOME/.vim/swap//      " Dump all swap files here
+    " }}}
+" }}}
+
 "set foldmethod=indent                   " Folding based on indentation.
 "autocmd BufRead * normal zR             " Keep folds open when opening new file.
 
-" Hi" Search: {{{
+" Hi Search: {{{
     set hlsearch                            " Highlight matches
     set incsearch                           " Dynamically move to first match while typing
     set ignorecase
@@ -66,19 +103,13 @@ set autoindent                          " Respect indentation starting new line
     nnoremap <CR> :nohlsearch<CR><CR>
 " }}} 
 
-" Swap files:
-if empty(glob('$HOME/.vim/swap'))
-    silent !mkdir -p $HOME/.vim/swap
-endif
-set directory=$HOME/.vim/swap//               " Place all swap files here
-
 " Error Bells: {{{
     set noerrorbells
     set visualbell
     set t_vb=
     set tm=500
 "}}}
-"
+
 " Clipboard Integration:
 set clipboard+=unnamedplus        " ALWAYS use the clipboard for ALL operations
 
@@ -116,13 +147,42 @@ set splitbelow " splits windows to bottom
 set updatetime=1000 " faster updtes
 
 
-set breakindent " Long lines respect indentation
-let &showbreak=repeat(' ', 3) " But add some spaces
-set linebreak
-
 source $HOME/.dotfiles/nvim/rc/plugins.vim
 
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
+
+:lua << EOF
+  local nvim_lsp = require('nvim_lsp')
+ 
+  local on_attach = function(_, bufnr)
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    require'diagnostic'.on_attach()
+    require'completion'.on_attach()
+ 
+    -- Mappings.
+    local opts = { noremap=true, silent=true }
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>e', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>', opts)
+  end
+ 
+  local servers = {'sumneko_lua'}
+  for _, lsp in ipairs(servers) do
+    nvim_lsp[lsp].setup {
+      on_attach = on_attach,
+    }
+  end
+
+  require'nvim_lsp'.jsonls.setup{}
+  require'nvim_lsp'.omnisharp.setup{}
+
+EOF
 
 " lua <<EOF
 " require'nvim-treesitter.configs'.setup {
