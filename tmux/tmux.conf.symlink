@@ -1,5 +1,6 @@
 # tmux display things in 256 colors
-set -g default-terminal "tmux-256color"
+# set -g default-terminal "tmux-256color"
+set -g default-terminal "alacritty"
 set -as terminal-overrides ',xterm*:Tc:sitm=\E[3m'
 
 set -g history-limit 20000
@@ -78,14 +79,15 @@ bind -r J resize-pane -D 10
 bind -r K resize-pane -U 10
 bind -r L resize-pane -R 10
 
+
 # enable mouse support for switching panes/windows
 setw -g mouse on
 
-set editing-mode vi 
-$if mode=vi # vi settings 
-    set keymap vi-insert 
-    "kj" # remap escape
-$endif
+# set editing-mode vi 
+# $if mode=vi # vi settings 
+#     set keymap vi-insert
+#     "kj" # remap escape
+# $endif
 
 # set vi mode for copy mode
 setw -g mode-keys vi
