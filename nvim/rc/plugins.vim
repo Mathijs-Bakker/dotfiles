@@ -32,10 +32,15 @@ call plug#begin('~/.dotfiles/nvim/plugged')
   "  Plug 'nvim-treesitter/nvim-treesitter'
 " }}}
 
+" Plenary: {{{
+"
+" }}}
+
 " Telescope: {{{
 
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
+
     Plug 'nvim-lua/telescope.nvim'
 
 " }}}
@@ -69,13 +74,13 @@ call plug#begin('~/.dotfiles/nvim/plugged')
     " C# {{{
     
         " OmniSharp: {{{ 
-            Plug 'OmniSharp/omnisharp-vim', {'for': 'cs'}
-        " }}}
+            " Plug 'OmniSharp/omnisharp-vim', {'for': 'cs'}
+        " " }}}
 
         " Sharpen Up!: {{{
         " Better defined default OmniSharp mappings and integrations
-            Plug 'nickspoons/vim-sharpenup'
-        " }}}
+            " Plug 'nickspoons/vim-sharpenup'
+        " " }}}
 
     " }}}
 
@@ -125,7 +130,7 @@ call plug#begin('~/.dotfiles/nvim/plugged')
     " LINTING: {{{ 
 
        " ALE {{{
-            Plug 'dense-analysis/ale'
+            " Plug 'dense-analysis/ale'
         " }}}
 
     " }}}
@@ -141,6 +146,7 @@ call plug#begin('~/.dotfiles/nvim/plugged')
         Plug 'tpope/vim-rhubarb' " hub extension for fugitive
         Plug 'junegunn/gv.vim'
         Plug 'sodapopcan/vim-twiggy'
+        Plug 'rhysd/git-messenger.vim'
 
     " }}}
 
