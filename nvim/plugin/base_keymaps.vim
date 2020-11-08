@@ -63,7 +63,7 @@ scriptencoding utf-8
     inoremap kj <esc>
 " }}}
 
-" Clear search highligths: {{{
+" Clear Search Highligths: {{{
     nnoremap <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()
 " }}}
 
@@ -71,7 +71,7 @@ scriptencoding utf-8
     tnoremap <S-Space> <Space>
     tnoremap <C-Space> <Space>
 
-" Source this file: {{{
+" Source This Tile: {{{
 
     function! s:save_and_exec() abort
       if &filetype == 'vim'
@@ -87,7 +87,7 @@ scriptencoding utf-8
     nnoremap <leader><leader>x :call <sid>save_and_exec()<cr>
 " }}}
 
-" Remove whitespace: {{{
+" Remove Whitespace: {{{
     nnoremap <leader>sws :%s/\s\+$//<CR>
 " }}}
 
