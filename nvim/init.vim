@@ -149,6 +149,7 @@ set updatetime=1000 " faster updtes
 
 source $HOME/.dotfiles/nvim/rc/plugins.vim
 
+let g:completion_enable_snippet = 'ultisnips'
 "let g:deoplete#enable_at_startup = 1
 
 :lua << EOF
@@ -161,36 +162,38 @@ source $HOME/.dotfiles/nvim/rc/plugins.vim
  
     -- Mappings.
     local opts = { noremap=true, silent=true }
+
+    -- gD :: Goto [D]eclaration:
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+
+    -- gd :: Goto [d]efinition:
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+
+    -- Wut?
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+
+    -- gi :: Goto Implementation:
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+
+    -- <C-k>  ::  Signature help
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    -- <Leader>D :: Type Definition:
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+
+    -- <Leader>rn :: Rename:
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+
+    -- gr :: Goto References:
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+
+    -- <Leader>e :: Show line diagnostics:
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>e', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>', opts)
   end
  
-  local servers = {'sumneko_lua'}
+  local servers = {'sumneko_lua', 'omnisharp', 'vimls', 'jsonls'}
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
       on_attach = on_attach,
     }
   end
-
-  require'nvim_lsp'.jsonls.setup{}
-  require'nvim_lsp'.omnisharp.setup{}
-
 EOF
-
-" lua <<EOF
-" require'nvim-treesitter.configs'.setup {
-"   ensure_installed = "all",     -- one of "all", "language", or a list of languages
-"   highlight = {
-"     enable = true,              -- false will disable the whole extension
-"     -- disable = { "c", "rust" },  -- list of language that will be disabled
-"   },
-" }
-" EOF
-
