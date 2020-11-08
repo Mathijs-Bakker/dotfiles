@@ -341,12 +341,12 @@ selection:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 
-shell:
-    program: /usr/local/bin/zsh
-    args:
-        - -l
-        - -c 
-        - "tmux attach -t default || tmux new -s default"
+# shell:
+#     program: /usr/local/bin/zsh
+#     args:
+#         - -l
+#         - -c 
+#         - "tmux attach -t default || tmux new -s default"
 
 # Startup directory
 #
