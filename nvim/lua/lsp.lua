@@ -11,6 +11,8 @@ local function map(key, vim_lsp_command)
 
 end
 
+local completion = require'completion'
+
 local default_keybindings = function()
    -- Show Line Diagnostics
    map('<Leader>e', 'vim.lsp.diagnostic.show_line_diagnostics()')
@@ -36,6 +38,19 @@ local custom_keybindings = function()
    map('<leader>D', 'vim.lsp.buf.type_definition()')
 end
 
+
+local lua_attach = function()
+   default_keybindings()
+   completion.on_attach()
+end
+
+local omnisharp_attach = function()
+   custom_keybindings()
+   completion.on_attach()
+   print("omnisharp attached")
+end
+
+-- LUA:
 require('lspconfig').sumneko_lua.setup({
    Lua = {
       settings = {
@@ -45,14 +60,14 @@ require('lspconfig').sumneko_lua.setup({
          },
       },
    },
-   on_attach = default_keybindings
+   on_attach = lua_attach
 })
 
+-- require'lspconfig'.sumneko_lua.setup{on_attach=require'completion'.on_attach}
+
+-- C#
 require('lspconfig').omnisharp.setup({
-   on_attach = custom_keybindings
+   on_attach = omnisharp_attach
 })
 
--- local on_attach = function(_, bufnr)
---   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
---   require'diagnostic'.on_attach()
---   require'completion'.on_attach()
+-- require'lspconfig'.omnisharp.setup{on_attach=require'completion'.on_attach}
