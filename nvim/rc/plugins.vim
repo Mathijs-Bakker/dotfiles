@@ -16,7 +16,7 @@ let $pluginConfigPath = $HOME.'/.dotfiles/nvim/rc/pluginconfigs'
 
 call plug#begin('~/.dotfiles/nvim/plugged')
 
-" Plugin Development {{{
+" Plugin Development: {{{
 
     Plug '~/Repositories/test-explorer.nvim'
     " let g:dottestchili_show_results_leftside = 1
@@ -24,16 +24,8 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 
 " }}}
 
-" Lua dev: {{{
-    Plug 'tjdevries/nlua.nvim'
-" }}}
-
-" " Treesitter: {{{
-  "  Plug 'nvim-treesitter/nvim-treesitter'
-" }}}
-
-" Plenary: {{{
-"
+" Treesitter: {{{
+    Plug 'nvim-treesitter/nvim-treesitter'
 " }}}
 
 " Telescope: {{{
@@ -47,14 +39,14 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 
 " AESTHETICS: {{{
 
-    " Color Schemes {{{
+    " Color Schemes: {{{
     
         " Plug 'gruvbox-community/gruvbox'
         Plug 'Mathijs-Bakker/gruvbox'
 
     " }}}
 
-    " Status bar / Tabline {{{
+    " Status Bar: {{{
     
         Plug 'itchyny/lightline.vim'
         Plug 'Mathijs-Bakker/vim-base16-lightline/'
@@ -65,7 +57,6 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 " LSP: {{{
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/completion-nvim'
-    Plug 'nvim-lua/diagnostic-nvim'
     Plug 'euclidianAce/BetterLua.vim'
 " }}}
 
@@ -74,17 +65,17 @@ call plug#begin('~/.dotfiles/nvim/plugged')
     " C# {{{
     
         " OmniSharp: {{{ 
-            " Plug 'OmniSharp/omnisharp-vim', {'for': 'cs'}
-        " " }}}
+          "  Plug 'OmniSharp/omnisharp-vim', {'for': 'cs'}
+        " }}}
 
-        " Sharpen Up!: {{{
+        " Sharpen Up: {{{
         " Better defined default OmniSharp mappings and integrations
             " Plug 'nickspoons/vim-sharpenup'
         " " }}}
 
     " }}}
 
-    " Markdown {{{
+    " Markdown: {{{
     
         Plug 'tpope/vim-markdown', { 'for': 'markdown' }
         let g:markdown_fenced_languages = [ 'tsx=typescript.tsx' ]
@@ -93,10 +84,10 @@ call plug#begin('~/.dotfiles/nvim/plugged')
         Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' }
     " }}}
 
-    " JSON {{{
+    " JSON: {{{
     
-        Plug 'elzr/vim-json', { 'for': 'json' }
-        let g:vim_json_syntax_conceal = 0
+    "    Plug 'elzr/vim-json', { 'for': 'json' }
+    "    let g:vim_json_syntax_conceal = 0
     " }}}
 
 " }}}
@@ -105,21 +96,21 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 
     " STARTUP: {{{
 
-        " Startify {{{
-            Plug 'mhinz/vim-startify'
+        " Startify: {{{
+           Plug 'mhinz/vim-startify'
         " }}}
  
     " }}}
 
     " COMPLETION: {{{
 
-        " Deoplete {{{
-            Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-            Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-            Plug 'zchee/deoplete-jedi'
-        " }}}
+    "    " Deoplete: {{{
+    "        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    "        Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+    "        Plug 'zchee/deoplete-jedi'
+    "    " }}}
 
-        " UltiSnips {{{
+        " UltiSnips: {{{
             Plug 'SirVer/ultisnips'
             Plug 'honza/vim-snippets'
             Plug 'Mathijs-Bakker/vim-unity-snippets'
@@ -129,9 +120,9 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 
     " LINTING: {{{ 
 
-       " ALE {{{
-            " Plug 'dense-analysis/ale'
-        " }}}
+    "   " ALE {{{
+    "        " Plug 'dense-analysis/ale'
+    "    " }}}
 
     " }}}
 
@@ -150,104 +141,103 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 
     " }}}
 
-    " FILES AND FOLDERS: {{{
+    " FILESYSTEM: {{{
      
-        " NERDTree {{{
+        " NERDTree: {{{
             Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 
-            Plug 'Xuyuanp/nerdtree-git-plugin'
-            Plug 'ryanoasis/vim-devicons'
-            Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-        " }}}
+    "        Plug 'Xuyuanp/nerdtree-git-plugin'
+    "        Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    "    " }}}
 
-        " Ranger {{{ 
+            Plug 'ryanoasis/vim-devicons'
+
+        " Ranger: {{{ 
             " Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
             " source $pluginConfigPath/ranger.vim
         " }}}
 
-        " Rooter {{{
+        " Rooter: {{{
             " Rooter changes working dir to project root of the current file
             Plug 'airblade/vim-rooter'
         " }}}
 
      " }}}
      
-    " EDITING {{{
+    " EDITING: {{{
 
-        " Autoclose {{{
+        " Autoclose: {{{
             " Auto close brackets/parentheses: 
-            Plug 'townk/vim-autoclose'
+            " Plug 'townk/vim-autoclose'
         " }}}
          
-        " Commentary {{{
-            " Commentng lines
+        " Commenting: {{{
             Plug 'tpope/vim-commentary'
         " }}}
          
-        " Unimpaired {{{
+        " Unimpaired: {{{
             " mappings which are simply short normal mode aliases for commonly used ex commands
             Plug 'tpope/vim-unimpaired'
         " }}}
         
-        " Surround {{{
+        " Surround: {{{
             " mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens, etc.
-            Plug 'tpope/vim-surround'
+            " Plug 'tpope/vim-surround'
         " }}}
 
-        " Ragtag {{{
+        " Ragtag: {{{
             " endings for html, xml, etc. - ehances surround
             Plug 'tpope/vim-ragtag'
         " }}}
         
-        " . Repeat {{{
+        " Dot Repeat: {{{
             " enables repeating other supported plugins with the . command
             Plug 'tpope/vim-repeat'
         " }}}
 
-        " EditorConfig {{{
-            " EditorConfig helps define and maintain consistent coding styles
-            Plug 'editorconfig/editorconfig-vim'
+       " EditorConfig: {{{
+           " EditorConfig helps define and maintain consistent coding styles
+           Plug 'editorconfig/editorconfig-vim'
         " }}}
 
-        " SplitJoin {{{
+        " SplitJoin: {{{
             " single/multi line code handler: gS - split one line into multiple, gJ - combine multiple lines into one
             Plug 'AndrewRadev/splitjoin.vim'
         " }}}
 
-        " Endwise {{{
+        " Endwise: {{{
             " add end, endif, etc. automatically
             Plug 'tpope/vim-endwise' " <CR> conflicts with COC
         " }}}
 
-        " Slueth {{{
-        " Somehow this does bad things with Lua files
-             " detect indent style (tabs vs. spaces)
-          "   Plug 'tpope/vim-sleuth'
-        " }}}
+    "    " Slueth: {{{
+    "    " Somehow this does bad things with Lua files
+    "         " detect indent style (tabs vs. spaces)
+    "      "   Plug 'tpope/vim-sleuth'
+    "    " }}}
         
-        " Pasta {{{
+        " Pasta: {{{
             " Remap p and P in normal and visual mode for context aware pasting.
             Plug 'sickill/vim-pasta'
         " }}}
 
     " }}}
 
-     " WINDOWS/PANES: {{{
+    " WINDOWS: {{{
 
-        " Zoom {{{
-            " Zooms splits to full window and back
-            Plug 'Mathijs-Bakker/zoom-vim'
-        " }}}
+       " Zoom: {{{
+           " Zooms splits to full window and back
+           Plug 'Mathijs-Bakker/zoom-vim'
+       " }}}
 
-     " }}}
+    " }}}
 
-     " TERMINAL: {{{
+    " TERMINAL: {{{
  
-         " Vimux {{{
-            " tmux integration for vim
+         " TMUX: {{{
             Plug 'benmills/vimux'
          " }}}
 
-      " }}}
+    " }}}
 "}}}
 call plug#end()
