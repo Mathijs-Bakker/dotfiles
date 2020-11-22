@@ -1,5 +1,3 @@
-local api = vim.api
-
 local function map(key, vim_lsp_command)
    local bufnr = 0
    local mode = 'n'
@@ -7,7 +5,7 @@ local function map(key, vim_lsp_command)
 
    local cmd = '<cmd>lua ' .. vim_lsp_command .. '<CR>'
 
-   api.nvim_buf_set_keymap(bufnr, mode, key, cmd, opts)
+   vim.api.nvim_buf_set_keymap(bufnr, mode, key, cmd, opts)
 
 end
 
@@ -52,15 +50,24 @@ end
 
 -- LUA:
 require('lspconfig').sumneko_lua.setup({
-   Lua = {
-      settings = {
+   settings = {
+      Lua = {
          diagnostics = {
-            enable = true,
-            globals = { "vim" },
+            globals = { "vim", "map", "filter", "range", "reduce", "head", "tail", "nth", "describe", "it" },
+            disable = {"redefined-local"}
+         },
+         runtime = {version = "LuaJIT"},
+         workspace = {
+            library = {
+               [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+               [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+               [require "nvim-treesitter.utils".get_package_path() .. "/lua"] = true,
+            },
          },
       },
    },
-   on_attach = lua_attach
+   on_attach = lua_attach,
+   print(vim.fn.expand("$VIMRUNTIME"))
 })
 
 -- require'lspconfig'.sumneko_lua.setup{on_attach=require'completion'.on_attach}
