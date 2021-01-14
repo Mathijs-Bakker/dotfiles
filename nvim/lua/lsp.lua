@@ -61,20 +61,19 @@ require('lspconfig').sumneko_lua.setup({
             library = {
                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+               -- ['usr/local/bin/busted'] = true,
+               --[require 'busted'(busted)] = true,
+               -- [require 'busted.runner'({standalone = false})] = true,
                [require "nvim-treesitter.utils".get_package_path() .. "/lua"] = true,
             },
          },
       },
    },
    on_attach = lua_attach,
-   print(vim.fn.expand("$VIMRUNTIME"))
 })
-
--- require'lspconfig'.sumneko_lua.setup{on_attach=require'completion'.on_attach}
 
 -- C#
 require('lspconfig').omnisharp.setup({
    on_attach = omnisharp_attach
 })
 
--- require'lspconfig'.omnisharp.setup{on_attach=require'completion'.on_attach}

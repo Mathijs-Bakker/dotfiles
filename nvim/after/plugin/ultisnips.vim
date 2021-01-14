@@ -6,4 +6,4 @@
 let g:UltiSnipsJumpForwardTrigger = '<Tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "UnitySnippets", "ZenjectSnippets"]
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "UnitySnippets", "ZenjectSnippets", "LuaSnippets"]

@@ -5,9 +5,9 @@ let g:ale_keep_list_window_open = 0
 " let g:ale_set_loclist = 1
 let g:ale_list_window_size = 3
 
-let g:ale_linters = {
-    \ 'cs': ['OmniSharp']
-    \ }
+" let g:ale_linters = {
+"     \ 'cs': ['OmniSharp']
+"     \ }
 
 " let g:ale_virtualtext_cursor =1
 let g:ale_set_highlight = 1

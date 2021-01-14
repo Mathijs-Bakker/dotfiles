@@ -154,19 +154,3 @@ let g:completion_enable_snippet = 'UltiSnips'
 
 " lua require('lsp')
 lua require('init')
-
-" :lua << EOF
-" if false then
-"   -- Load required packages
-"   local neorocks = require("plenary.neorocks")
-"   print(neorocks)
-
-"   neorocks.install('penlight', 'pl')
-"   neorocks.install('luasocket', 'socket')
-
-"   neorocks.ensure_installed('penlight', 'pl')
-"   neorocks.ensure_installed('lua-cjson', 'cjson')
-"   neorocks.ensure_installed('luasocket', 'socket')
-"   neorocks.ensure_installed('moses', 'moses')
-" end
-" EOF
