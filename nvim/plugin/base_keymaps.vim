@@ -67,11 +67,12 @@ scriptencoding utf-8
     nnoremap <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()
 " }}}
 
-" Try and make sure to not mangle space items
+" Try And Make Sure To Not Mangle Space Items: {{{
     tnoremap <S-Space> <Space>
     tnoremap <C-Space> <Space>
+" }}}
 
-" Source This Tile: {{{
+" Source This File: {{{
 
     function! s:save_and_exec() abort
       if &filetype == 'vim'
