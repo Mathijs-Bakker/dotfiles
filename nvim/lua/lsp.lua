@@ -48,8 +48,17 @@ local omnisharp_attach = function()
    print("omnisharp attached")
 end
 
+local home = os.getenv ( "HOME" )
+
 -- LUA:
+local sumneko_lua_root_path =  home .. "/Repositories/lua-language-server"
+
 require('lspconfig').sumneko_lua.setup({
+   cmd = {
+      sumneko_lua_root_path .. "/bin/macOS/lua-language-server",
+      "-E", 
+      sumneko_lua_root_path .. "/main.lua"
+   },
    settings = {
       Lua = {
          diagnostics = {
