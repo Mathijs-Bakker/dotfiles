@@ -45,18 +45,17 @@ end
 local omnisharp_attach = function()
    custom_keybindings()
    completion.on_attach()
-   print("omnisharp attached")
 end
 
 local home = os.getenv ( "HOME" )
 
 -- LUA:
-local sumneko_lua_root_path =  home .. "/Repositories/lua-language-server"
+local sumneko_lua_root_path =  home .. "/Repositories/language-servers/lua-language-server"
 
 require('lspconfig').sumneko_lua.setup({
    cmd = {
       sumneko_lua_root_path .. "/bin/macOS/lua-language-server",
-      "-E", 
+      "-E",
       sumneko_lua_root_path .. "/main.lua"
    },
    settings = {
@@ -82,7 +81,13 @@ require('lspconfig').sumneko_lua.setup({
 })
 
 -- C#
+local omnisharp_bin = home .. "/Repositories/language-servers/omnisharp-osx/run"
+local pid = vim.fn.getpid()
+
 require('lspconfig').omnisharp.setup({
+   cmd = {
+      omnisharp_bin, "--languageserver", "--hostPID", tostring(pid)
+   },
    on_attach = omnisharp_attach
 })
 
