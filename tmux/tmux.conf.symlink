@@ -3,6 +3,8 @@ set -g default-terminal "tmux-256color"
 # set -g default-terminal "alacritty"
 set -as terminal-overrides ',xterm*:Tc:sitm=\E[3m'
 
+set -g utf8
+
 set -g history-limit 20000
 
 # automatically renumber tmux windows
@@ -74,10 +76,10 @@ bind -r C-h select-window -t :-
 bind -r C-l select-window -t :+
 
 # Resize pane shortcuts
-bind -r H resize-pane -L 10
-bind -r J resize-pane -D 10
-bind -r K resize-pane -U 10
-bind -r L resize-pane -R 10
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
 
 
 # enable mouse support for switching panes/windows
