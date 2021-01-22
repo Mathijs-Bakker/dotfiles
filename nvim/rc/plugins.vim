@@ -33,7 +33,8 @@ call plug#begin('~/.dotfiles/nvim/plugged')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
 
-    Plug 'nvim-lua/telescope.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    " Plug 'nvim-lua/telescope.nvim'
 
 " }}}
 
@@ -144,7 +145,7 @@ call plug#begin('~/.dotfiles/nvim/plugged')
     " FILESYSTEM: {{{
      
         " NERDTree: {{{
-            Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+           " Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 
     "        Plug 'Xuyuanp/nerdtree-git-plugin'
     "        Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
