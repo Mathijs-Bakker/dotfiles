@@ -3,9 +3,13 @@ scriptencoding utf-8
 " Movement: {{{
 
     " Lines up and down {{{
-      " 'gv' to hl back 
-        vnoremap <C-a-j> :m '>+1<cr>gv=gv
-        vnoremap <C-k> :m '>-2<cr>gv=gv
+        " nnoremap <C-j> :m .+1<CR>==
+        " nnoremap <C-k> :m .-2<CR>==
+        inoremap <C-j> <Esc>:m .+1<CR>==gi
+        inoremap <C-k> <Esc>:m .-2<CR>==gi
+        " 'gv' to hl back 
+        vnoremap <C-j> :m '>+1<cr>gv=gv
+        vnoremap <C-k> :m '<-2<cr>gv=gv
     " }}}
 
     " Navigate to next error {{{
@@ -21,12 +25,12 @@ scriptencoding utf-8
         nnoremap <left>  gt
     " }}}
 
-    " Split navigation: {{{ 
-        noremap <c-h> <c-w><c-h>
-        noremap <c-j> <c-w><c-j>
-        noremap <c-k> <c-w><c-k>
-        noremap <c-l> <c-w><c-l>
-    " }}}
+    " " Split navigation: {{{ 
+    "     noremap <c-h> <c-w><c-h>
+    "     noremap <c-j> <c-w><c-j>
+    "     noremap <c-k> <c-w><c-k>
+    "     noremap <c-l> <c-w><c-l>
+    " " }}}
 
     " Easy moving between the buffers: {{{
        tnoremap <A-h> <C-\><C-n><C-w>h
@@ -61,6 +65,7 @@ scriptencoding utf-8
 " Escape: {{{
   " Set kj to be escape in insert mode
     inoremap kj <esc>
+    vnoremap kj <esc>
 " }}}
 
 " Clear Search Highligths: {{{

@@ -24,6 +24,9 @@ local default_keybindings = function()
    map('<leader>rn', 'vim.lsp.buf.rename()')
    -- Go to References:
    map('gr', 'vim.lsp.buf.references()')
+
+   -- Rename:
+   map('<Leader>rn', 'vim.lsp.buf.rename()')
 end
 
 local custom_keybindings = function()

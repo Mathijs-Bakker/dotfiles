@@ -91,6 +91,10 @@ call plug#begin('~/.dotfiles/nvim/plugged')
     "    let g:vim_json_syntax_conceal = 0
     " }}}
 
+    " Cheat.sh: {{{
+        Plug 'dbeniamine/cheat.sh-vim'
+    " }}}
+
 " }}}
 
 " GENERAL: {{{
