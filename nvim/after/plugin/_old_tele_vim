@@ -10,4 +10,5 @@
     nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
     " Vim Config:
     nnoremap <Leader>fc <cmd>lua require'telescope.builtin'.find_files{ cwd = "~/.config/nvim/" }<CR>
+    
 " }}}

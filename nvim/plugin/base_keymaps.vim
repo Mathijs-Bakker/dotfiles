@@ -1,5 +1,9 @@
 scriptencoding utf-8
 
+" Plenary Busted: {{{
+   nmap <Leader>t <Plug>PlenaryWriteAndRunTestFile<CR> 
+" }}}
+
 " Movement: {{{
 
     " Lines up and down {{{
@@ -25,12 +29,12 @@ scriptencoding utf-8
         nnoremap <left>  gt
     " }}}
 
-    " " Split navigation: {{{ 
-    "     noremap <c-h> <c-w><c-h>
-    "     noremap <c-j> <c-w><c-j>
-    "     noremap <c-k> <c-w><c-k>
-    "     noremap <c-l> <c-w><c-l>
-    " " }}}
+    " Split navigation: {{{ 
+        noremap <c-h> <c-w><c-h>
+        noremap <c-j> <c-w><c-j>
+        noremap <c-k> <c-w><c-k>
+        noremap <c-l> <c-w><c-l>
+    " }}}
 
     " Easy moving between the buffers: {{{
        tnoremap <A-h> <C-\><C-n><C-w>h

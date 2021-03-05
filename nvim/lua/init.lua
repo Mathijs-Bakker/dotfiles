@@ -1,5 +1,10 @@
 require 'lsp'
 
+require('mb.globals')
+
+require('mb.telescope')
+require('mb.telescope.mappings')
+
  -- if true then
  --   -- Load required packages
  --   local neorocks = require("plenary.neorocks")

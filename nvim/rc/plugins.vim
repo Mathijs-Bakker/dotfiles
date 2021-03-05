@@ -28,14 +28,25 @@ call plug#begin('~/.dotfiles/nvim/plugged')
     Plug 'nvim-treesitter/nvim-treesitter'
 " }}}
 
+" Plenary: {{{
+
+    " Plug 'Mathijs-Bakker/plenary.nvim', { 'branch': 'bustin-makes-you-feel-good' }
+
+    Plug '~/Repositories/plenary.nvim', { 'branch': 'bustin-makes-you-feel-good' }
+    " Plug 'nvim-lua/plenary.nvim'
+
+    Plug 'norcalli/nvim-terminal.lua'
+" }}}
+
 " Telescope: {{{
 
     Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
-
     Plug 'nvim-telescope/telescope.nvim'
     " Plug 'nvim-lua/telescope.nvim'
 
+    Plug 'nvim-telescope/telescope-cheat.nvim'
+    Plug 'nvim-telescope/telescope-frecency.nvim'
+    Plug 'nvim-telescope/telescope-fzf-writer.nvim'
 " }}}
 
 " AESTHETICS: {{{
@@ -115,6 +126,9 @@ call plug#begin('~/.dotfiles/nvim/plugged')
     "        Plug 'zchee/deoplete-jedi'
     "    " }}}
 
+        Plug 'hrsh7th/nvim-compe'
+        Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
+
         " UltiSnips: {{{
             Plug 'SirVer/ultisnips'
             Plug 'honza/vim-snippets'
@@ -144,6 +158,7 @@ call plug#begin('~/.dotfiles/nvim/plugged')
         Plug 'sodapopcan/vim-twiggy'
         Plug 'rhysd/git-messenger.vim'
 
+        Plug 'pwntester/octo.nvim' " Telescope >> Issues and PR viewing
     " }}}
 
     " FILESYSTEM: {{{

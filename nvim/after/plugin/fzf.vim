@@ -1,12 +1,12 @@
 let g:fzf_layout = { 'down': '~25%' }
 
-        if isdirectory(".git")
-            " if in a git project, use :GFiles
-            nmap <silent> <leader>t :GitFiles --cached --others --exclude-standard<cr>
-        else
-            " otherwise, use :FZF
-            nmap <silent> <leader>t :FZF<cr>
-        endif
+        " if isdirectory(".git")
+        "     " if in a git project, use :GFiles
+        "     nmap <silent> <leader>t :GitFiles --cached --others --exclude-standard<cr>
+        " else
+        "     " otherwise, use :FZF
+        "     nmap <silent> <leader>t :FZF<cr>
+        " endif
 
         nmap <silent> <leader>s :GFiles?<cr>
 
