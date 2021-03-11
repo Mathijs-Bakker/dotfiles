@@ -161,7 +161,7 @@ call plug#begin('~/.dotfiles/nvim/plugged')
         Plug 'pwntester/octo.nvim' " Telescope >> Issues and PR viewing
     " }}}
 
-    " FILESYSTEM: {{{
+    " File System: {{{
      
         " NERDTree: {{{
            " Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
@@ -169,6 +169,11 @@ call plug#begin('~/.dotfiles/nvim/plugged')
     "        Plug 'Xuyuanp/nerdtree-git-plugin'
     "        Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     "    " }}}
+    "
+        
+        " Dirvish: {{{
+            Plug 'justinmk/vim-dirvish'
+        "}}}
 
             Plug 'ryanoasis/vim-devicons'
 
