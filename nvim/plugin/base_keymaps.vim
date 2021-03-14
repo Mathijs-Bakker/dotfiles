@@ -101,13 +101,15 @@ scriptencoding utf-8
     nnoremap <leader>sws :%s/\s\+$//<CR>
 " }}}
 
-" Black Hole Sun: {{{
-  " Delete/change into blackhole buffer
-    nmap <leader>d "_d
-    nmap <leader>c "_c
-    nmap <space>d "_d
-    nmap <space>c "_c
-" }}}
+" Commenting this out in favor of '<space>dn' 
+" Need to find a better solution for this:
+" " Black Hole Sun: {{{
+"   " Delete/change into blackhole register
+"     nmap <leader>d "_d
+"     nmap <leader>c "_c
+"     nmap <space>d "_d
+"     nmap <space>c "_c
+" " }}}
 
 " Zoom split to full window and back:
 nmap <Leader>z <Plug>Zoom

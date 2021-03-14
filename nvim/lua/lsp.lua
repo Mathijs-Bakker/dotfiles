@@ -9,7 +9,8 @@ local function map(key, vim_lsp_command)
 
 end
 
-local completion = require'completion'
+-- local completion = require'completion'
+local completion = require'compe'
 
 local default_keybindings = function()
    -- Show Line Diagnostics
@@ -20,8 +21,6 @@ local default_keybindings = function()
    map('K', 'vim.lsp.buf.hover()')
    -- Signature Help:
    map('<C-k>', 'vim.lsp.buf.signature_help()')
-   -- Rename:
-   map('<leader>rn', 'vim.lsp.buf.rename()')
    -- Go to References:
    map('gr', 'vim.lsp.buf.references()')
 

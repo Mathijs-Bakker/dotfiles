@@ -25,7 +25,7 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 " }}}
 
 " Treesitter: {{{
-    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/nvim-treesitter' , {'do': ':TSUpdate'}
 " }}}
 
 " Plenary: {{{
@@ -68,7 +68,13 @@ call plug#begin('~/.dotfiles/nvim/plugged')
 
 " LSP: {{{
     Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-lua/completion-nvim'
+    " Plug 'nvim-lua/completion-nvim'
+    Plug 'hrsh7th/nvim-compe'
+    Plug 'nvim-lua/lsp_extensions.nvim'
+    Plug 'nvim-lua/lsp-status.nvim'                 
+    Plug 'onsails/lspkind-nvim'
+    Plug 'glepnir/lspsaga.nvim'
+    Plug 'tjdevries/nlua.nvim'
     Plug 'euclidianAce/BetterLua.vim'
 " }}}
 

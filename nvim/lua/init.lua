@@ -1,9 +1,11 @@
-require 'lsp'
+-- require 'lsp'
+require('mb.lsp')
 
 require('mb.globals')
 
 require('mb.telescope')
 require('mb.telescope.mappings')
+require('completion')
 
  -- if true then
  --   -- Load required packages

@@ -1,34 +1,46 @@
-local has_lsp, lspconfig = pcall(require, 'lspconfig')
-if not has_lsp then
-  return
-end
-
+local lspconfig = require('lspconfig')
 local nvim_status = require('lsp-status')
+
+local has_completion, completion = pcall(require, 'lua.completion')
 
 local telescope_mapper = require('mb.telescope.mappings')
 
--- TODO: Consider using this. I do kind of like it :)
-local nnoremap = vim.keymap.nnoremap
+local status = require('mb.lsp.status')
 
 -- Can set this lower if needed.
+
 -- require('vim.lsp.log').set_level("debug")
 -- require('vim.lsp.log').set_level("trace")
 
-_ = require('lspkind').init()
-
-_ = require('mb.lsp.status')
+-- Setup handlers before running
 require('mb.lsp.handlers')
-
-local mapper = function(mode, key, result)
-  vim.api.nvim_buf_set_keymap(0, mode, key, "<cmd>lua " .. result .. "<CR>", {noremap = true, silent = true})
-end
 
 -- Turn on status.
 -- status.activate()
 
+-- local function map(key, vim_lsp_command)
+--    local bufnr = 0
+--    local mode = 'n'
+--    local opts = { noremap=true, silent=true, nowait=true }
+
+--    local cmd = '<cmd>lua ' .. vim_lsp_command .. '<CR>'
+
+--    vim.api.nvim_buf_set_keymap(bufnr, mode, key, cmd, opts)
+-- end
+
+
+local function map(mode, key, vim_lsp_command)
+  local bufnr = 0
+  local vim_lsp_command = vim_lsp_command or ""
+  local opts = { noremap=true, silent=true, nowait=true }
+
+  local cmd = '<cmd>lua ' .. vim_lsp_command .. '<CR>'
+
+  vim.api.nvim_buf_set_keymap(bufnr, mode, key, cmd, opts)
+end
 
 local custom_attach = function(client)
-  local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
+--   local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
 
   if client.config.flags then
     -- It doesn't seem like clang likes this very much.
@@ -37,16 +49,20 @@ local custom_attach = function(client)
     end
   end
 
+  if has_completion and filetype ~= 'c' then
+    completion.on_attach(client)
+  end
+
   -- status    .on_attach(client)
 
-  nnoremap { '<space>dn', vim.lsp.diagnostic.goto_next, buffer = 0 }
-  nnoremap { '<space>dp', vim.lsp.diagnostic.goto_prev, buffer = 0 }
-  nnoremap { '<space>sl', vim.lsp.diagnostic.show_line_diagnostics, buffer = 0 }
+  map ('n', '<space>dn', 'vim.lsp.diagnostic.goto_next()')
+  map ('n', '<space>dp', 'vim.lsp.diagnostic.goto_prev()')
+  map ('n', '<space>sl', 'vim.lsp.diagnostic.show_line_diagnostics()')
 
-  nnoremap { '<c-]>', vim.lsp.buf.definition, buffer = 0 }
-  nnoremap { 'gD', vim.lsp.buf.declaration, buffer = 0 }
+  map ('n', '<c-]>', 'vim.lsp.buf.definition()')
+  map ('n', 'gD', 'vim.lsp.buf.declaration()')
 
-  mapper('n', '<space>cr', 'MyLspRename()')
+  map ('n', '<space>cr', 'MyLspRename()')
 
   telescope_mapper('gr', 'lsp_references', {
     layout_strategy = "vertical",
@@ -72,11 +88,11 @@ local custom_attach = function(client)
   -- mapper('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 
   if filetype ~= 'lua' then
-    mapper('n', 'K', 'vim.lsp.buf.hover()')
+    map ('n', 'K', 'vim.lsp.buf.hover()')
   end
 
-  mapper('i', '<c-s>', 'vim.lsp.buf.signature_help()')
-  mapper('n', '<space>rr', 'vim.lsp.stop_client(vim.lsp.get_active_clients()); vim.cmd [[e]]')
+  map ('i', '<c-s>', 'vim.lsp.buf.signature_help()')
+  map ('n', '<space>rr', 'vim.lsp.stop_client(vim.lsp.get_active_clients()); vim.cmd [[e]]')
 
   -- Rust is currently the only thing w/ inlay hints
   if filetype == 'rust' then
@@ -99,16 +115,19 @@ lspconfig.yamlls.setup {
   on_attach = custom_attach
 }
 
-lspconfig.pyls.setup {
-  enable = true,
-  plugins = {
-    pyls_mypy = {
-      enabled = true,
-      live_mode = false
-    }
-  },
-  on_attach = custom_attach
-}
+lspconfig.clangd.setup {
+    cmd = {
+      "clangd-13",
+      "--clang-tidy",
+      "--all-scopes-completion",
+      "--header-insertion=iwyu",
+      "--background-index",
+      "--suggest-missing-includes",
+      "--cross-file-rename"
+    },
+    filetypes = {"c", "cpp", "objc", "objcpp", "cuda"},
+    on_attach = on_attach
+  }
 
 lspconfig.vimls.setup {
   on_attach = custom_attach,
@@ -119,38 +138,7 @@ codelens_capabilities.textDocument.codeLens = {
   dynamicRegistration = false,
 }
 
-lspconfig.gopls.setup {
-  on_attach = custom_attach,
-
-  capabilities = codelens_capabilities,
-
-  settings = {
-    gopls = {
-      codelenses = { test = true },
-    }
-  }
-}
-
-lspconfig.gdscript.setup {
-  on_attach = custom_attach,
-}
-
--- Load lua configuration from nlua.
-if true then
-  require('nlua.lsp.nvim').setup(lspconfig, {
-    on_attach = custom_attach,
-
-    globals = {
-      -- Colorbuddy
-      "Color", "c", "Group", "g", "s",
-
-      -- Custom
-      "RELOAD",
-    }
-  })
-else
-  -- This is the documentation example from ":help".
-  --    I just keep it here to test w/ it.
+ --    I just keep it here to test w/ it.
   local custom_lsp_attach = function(client)
     -- See `:help nvim_buf_set_keymap()` for more information
     vim.api.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = true})
@@ -168,21 +156,56 @@ else
   -- An example of configuring for `sumneko_lua`,
   --  a language server for Lua.
   -- First, you must run `:LspInstall sumneko_lua` for this to work.
+  -- require('lspconfig').sumneko_lua.setup({
+  --   -- An example of settings for an LSP server.
+  --   --    For more options, see nvim-lspconfig
+  --   settings = {
+  --     Lua = {
+  --       diagnostics = {
+  --         enable = true,
+  --         globals = { "vim" },
+  --       },
+  --     }
+  --   },
+
+  --   on_attach = custom_lsp_attach
+  -- })
+  -- end
+
+  -- LUA:
+  local home = os.getenv ( "HOME" )
+
+  local sumneko_lua_root_path =  home .. "/Repositories/language-servers/lua-language-server"
+
   require('lspconfig').sumneko_lua.setup({
-    -- An example of settings for an LSP server.
-    --    For more options, see nvim-lspconfig
+    cmd = {
+      sumneko_lua_root_path .. "/bin/macOS/lua-language-server",
+      "-E",
+      sumneko_lua_root_path .. "/main.lua"
+    },
     settings = {
       Lua = {
         diagnostics = {
-          enable = true,
-          globals = { "vim" },
+          globals = { "vim", "map", "filter", "range", "reduce", "head", "tail", "nth", "describe", "it" },
+          disable = {"redefined-local"}
         },
-      }
+        runtime = {version = "LuaJIT"},
+        workspace = {
+          library = {
+            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+            [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+            -- ['usr/local/bin/busted'] = true,
+            --[require 'busted'(busted)] = true,
+            -- [require 'busted.runner'({standalone = false})] = true,
+            [require "nvim-treesitter.utils".get_package_path() .. "/lua"] = true,
+          },
+        },
+      },
     },
-
-    on_attach = custom_lsp_attach
+    -- on_attach = custom_lsp_attach
+    on_attach = custom_attach
   })
-end
+-- end
 
 if true then
   lspconfig.tsserver.setup({
@@ -202,81 +225,6 @@ else
     on_attach = custom_attach
   }
 end
-
-
-lspconfig.clangd.setup({
-  cmd = {
-    "clangd",
-    "--background-index",
-    "--suggest-missing-includes",
-    "--clang-tidy",
-    "--header-insertion=iwyu",
-  },
-  on_attach = custom_attach,
-
-  -- Required for lsp-status
-  init_options = {
-    clangdFileStatus = true
-  },
-  handlers = nvim_status.extensions.clangd.setup(),
-  capabilities = nvim_status.capabilities,
-})
-
-if 1 == vim.fn.executable('cmake-language-server') then
-  lspconfig.cmake.setup {
-    on_attach = custom_attach,
-  }
-end
-
-lspconfig.rust_analyzer.setup({
-  cmd = {"rust-analyzer"},
-  filetypes = {"rust"},
-  on_attach = custom_attach,
-})
-
---[[
-Example settings, have not messed around with too many of these.
--- require 'lspconfig'.pyls_ms.setup{
---     init_options = {
---         interpreter = {
---             properties = {
---                 InterpreterPath = "~/.pyenv/versions/sourceress/bin/python",
---                 Version = "3.6"
---             }
---         }
---     }
--- }
-let settings = {
-\   "pyls" : {
-\     "enable" : v:true,
-\     "trace" : { "server" : "verbose", },
-\     "commandPath" : "",
-\     "configurationSources" : [ "pycodestyle" ],
-\     "plugins" : {
-\       "jedi_completion" : { "enabled" : v:true, },
-\       "jedi_hover" : { "enabled" : v:true, },
-\       "jedi_references" : { "enabled" : v:true, },
-\       "jedi_signature_help" : { "enabled" : v:true, },
-\       "jedi_symbols" : {
-\         "enabled" : v:true,
-\         "all_scopes" : v:true,
-\       },
-\       "mccabe" : {
-\         "enabled" : v:true,
-\         "threshold" : 15,
-\       },
-\       "preload" : { "enabled" : v:true, },
-\       "pycodestyle" : { "enabled" : v:true, },
-\       "pydocstyle" : {
-\         "enabled" : v:false,
-\         "match" : "(?!test_).*\\.py",
-\         "matchDir" : "[^\\.].*",
-\       },
-\       "pyflakes" : { "enabled" : v:true, },
-\       "rope_completion" : { "enabled" : v:true, },
-\       "yapf" : { "enabled" : v:true, },
-\     }}}
---]]
 
 local sign_decider
 if true then
@@ -310,7 +258,7 @@ end
 --[ An example of using functions...
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, method, params, client_id, bufnr, config)
 --   local uri = params.uri
--- 
+--
 --   vim.lsp.with(
 --     vim.lsp.diagnostic.on_publish_diagnostics, {
 --       underline = true,
@@ -319,9 +267,9 @@ end
 --       update_in_insert = false,
 --     }
 --   )(err, method, params, client_id, bufnr, config)
--- 
+--
 --   bufnr = bufnr or vim.uri_to_bufnr(uri)
--- 
+--
 --   if bufnr == vim.api.nvim_get_current_buf() then
 --     vim.lsp.diagnostic.set_loclist { open_loclist = false }
 --   end
