@@ -6,7 +6,7 @@ let g:lightline = {
         \               [ 'readonly', 'filetype', 'filename' ]],
         \       'right': [ [ 'percent' ], [ 'lineinfo' ],
         \               [ 'fileformat', 'fileencoding' ],
-        \               [ 'gitblame', 'currentfunction',  'cocstatus', 'linter_errors', 'linter_warnings' ]]
+        \               [ 'gitblame', 'currentfunction', 'lspstatus', 'cocstatus', 'linter_errors', 'linter_warnings' ]]
         \   },
         \   'component_expand': {
         \   },
@@ -22,6 +22,7 @@ let g:lightline = {
         \       'filetype': 'helpers#lightline#fileType',
         \       'gitbranch': 'helpers#lightline#gitBranch',
         \       'cocstatus': 'coc#status',
+        \       'lspstatus': 'helpers#lightline#lspStatus',
         \       'currentfunction': 'helpers#lightline#currentFunction',
         \       'gitblame': 'helpers#lightline#gitBlame'
         \   },

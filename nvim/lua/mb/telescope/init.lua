@@ -272,7 +272,7 @@ function M.search_all_files()
   }
 end
 
-function M.example_for_prime()
+function M.example()
   -- local Sorter = require('telescope.sorters')
 
   -- require('telescope.builtin').find_files {

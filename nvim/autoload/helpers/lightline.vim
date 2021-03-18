@@ -30,6 +30,28 @@ function! helpers#lightline#currentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
 
+" Statusline: {{{
+" set statusline^=%{helpers"lightline#lspStatus()}%{get(b:,'LspStatus','')}
+
+function! LspStatus() abort
+
+    if luaeval('#vim.lsp.buf_get_clients() > 0')
+        return luaeval("require('lsp-status').status()")
+    endif
+
+    return 'foo'
+endfunction
+" }}}
+
+function! helpers#lightline#lspStatus()
+    return get(b:, 'LspStatus', '')
+endfunction
+
 function! helpers#lightline#gitBlame()
     return winwidth(0) > 100 ? strpart(get(b:, 'coc_git_blame', ''), 0, 20) : ''
 endfunction
+
+
+" function! helpers#lightline#lspStatus()
+"     return winwidth(0) > 100 ? strpart(get(b:, 'LspStatus', ''), 0, 20) : ''
+" endfunction

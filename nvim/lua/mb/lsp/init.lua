@@ -1,10 +1,7 @@
 local lspconfig = require('lspconfig')
-local nvim_status = require('lsp-status')
-
+-- local nvim_status = require('lsp-status')
 local has_completion, completion = pcall(require, 'lua.completion')
-
 local telescope_mapper = require('mb.telescope.mappings')
-
 local status = require('mb.lsp.status')
 
 -- Can set this lower if needed.
@@ -16,7 +13,7 @@ local status = require('mb.lsp.status')
 require('mb.lsp.handlers')
 
 -- Turn on status.
--- status.activate()
+status.activate()
 
 -- local function map(key, vim_lsp_command)
 --    local bufnr = 0
@@ -40,7 +37,7 @@ local function map(mode, key, vim_lsp_command)
 end
 
 local custom_attach = function(client)
---   local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
+  local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
 
   if client.config.flags then
     -- It doesn't seem like clang likes this very much.
@@ -52,8 +49,6 @@ local custom_attach = function(client)
   if has_completion and filetype ~= 'c' then
     completion.on_attach(client)
   end
-
-  -- status    .on_attach(client)
 
   map ('n', '<space>dn', 'vim.lsp.diagnostic.goto_next()')
   map ('n', '<space>dp', 'vim.lsp.diagnostic.goto_prev()')

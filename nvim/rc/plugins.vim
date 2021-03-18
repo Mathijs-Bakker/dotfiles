@@ -270,5 +270,11 @@ call plug#begin('~/.dotfiles/nvim/plugged')
          " }}}
 
     " }}}
+
+    " FUN: {{{
+        " Discord:
+        Plug 'andweeb/presence.nvim'
+    " }}}
+
 "}}}
 call plug#end()
