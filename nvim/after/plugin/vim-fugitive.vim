@@ -1,3 +1,5 @@
+let g:fugitive_git_executable = 'hub'
+
 nmap <silent> <Leader>gc :Git commit -v<CR>
 nmap <silent> <Leader>gs :Gstatus<CR>
 nmap <Leader>ge :Gedit<CR>
