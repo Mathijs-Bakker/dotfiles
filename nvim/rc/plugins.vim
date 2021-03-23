@@ -136,7 +136,8 @@ call plug#begin('~/.dotfiles/nvim/plugged')
         Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
 
         " UltiSnips: {{{
-            Plug 'SirVer/ultisnips'
+            " Plug 'SirVer/ultisnips'
+            Plug 'norcalli/snippets.nvim'
             Plug 'honza/vim-snippets'
             Plug 'Mathijs-Bakker/vim-unity-snippets'
         " }}}

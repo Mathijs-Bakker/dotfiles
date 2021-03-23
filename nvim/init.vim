@@ -149,7 +149,7 @@ set updatetime=1000 " faster updtes
 
 source $HOME/.dotfiles/nvim/rc/plugins.vim
 lua require'terminal'.setup()
-let g:completion_enable_snippet = 'UltiSnips'
+" let g:completion_enable_snippet = 'UltiSnips'
 "let g:deoplete#enable_at_startup = 1
 
 " lua require('lsp')

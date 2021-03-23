@@ -9,6 +9,7 @@ local function map(key, vim_lsp_command)
 
 end
 
+print("LSP.LUA")
 -- local completion = require'completion'
 local completion = require'compe'
 
