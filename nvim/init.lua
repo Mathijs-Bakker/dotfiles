@@ -4,5 +4,7 @@ end
 
 vim.g.mapleader = ','
 
+require'globals.keybinder'
 require'keymaps'
 require'packer.plugins'
+require'plugin.completion'

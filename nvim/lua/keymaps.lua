@@ -1,24 +1,3 @@
-local function keybinder(mode, keys, cmd)
-	local mode = mode
-	local keys = keys
-	local cmd = cmd
-	vim.api.nvim_set_keymap(mode, keys, cmd, { noremap = true, silent = true })
-end
-
-local function nnoremap(keys, cmd)
- 	keybinder('n', keys, cmd)
-end
-local function inoremap(keys, cmd)
- 	keybinder('i', keys, cmd)
-end
-local function vnoremap(keys, cmd)
- 	keybinder('v', keys, cmd)
-end
-local function tnoremap(keys, cmd)
- 	keybinder('t', keys, cmd)
-end
-
-
 -- Plenary Busted:
    nnoremap('<Leader>t', '<Plug>PlenaryWriteAndRunTestFile<CR>')
 
