@@ -4,4 +4,5 @@ return require'packer'.startup(function()
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-compe'
   use 'norcalli/snippets.nvim'
+  use 'mhinz/vim-startify'
 end)
