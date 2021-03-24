@@ -11,15 +11,6 @@ vim.g.completion_enable_snippet = 'snippets.nvim'
 -- Decide on length
 vim.g.completion_trigger_keyword_length = 2
 
--- vim.g.completion_chain_complete_list = {
---   default = {
---     {
---       {complete_items = {'lsp', 'snippet'}},
---       {complete_items = {'buffer'}}, {mode = 'file'}
---     }
---   }
--- }
-
 local has_compe, compe = pcall(require, 'compe')
 if has_compe then
   compe.setup {
@@ -48,10 +39,50 @@ if has_compe then
 end
 
 
---[[
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
---]]
+inoremap_expr('<C-Space>', 'compe#complete()')
+inoremap_expr('<CR>', "compe#confirm('<CR>')")
+inoremap_expr('<C-e>', "compe#close('<C-e>')")
+inoremap_expr('<C-f>', "compe#scroll({ 'delta': +4 })")
+inoremap_expr('<C-d>', "compe#scroll({ 'delta': -4 })")
+
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+local check_back_space = function()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        return true
+    else
+        return false
+    end
+end
+
+-- Use (s-)tab to:
+--- move to prev/next item in completion menuone
+--- jump to prev/next snippet's placeholder
+_G.tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-n>"
+  elseif vim.fn.call("vsnip#available", {1}) == 1 then
+    return t "<Plug>(vsnip-expand-or-jump)"
+  elseif check_back_space() then
+    return t "<Tab>"
+  else
+    return vim.fn['compe#complete']()
+  end
+end
+_G.s_tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-p>"
+  elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
+    return t "<Plug>(vsnip-jump-prev)"
+  else
+    return t "<S-Tab>"
+  end
+end
+
+inoremap_expr("<Tab>", "v:lua.tab_complete()")
+snoremap_expr("<Tab>", "v:lua.tab_complete()")
+inoremap_expr("<S-Tab>", "v:lua.s_tab_complete()")
+snoremap_expr("<S-Tab>", "v:lua.s_tab_complete()")

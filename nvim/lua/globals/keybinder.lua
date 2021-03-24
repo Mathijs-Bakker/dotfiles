@@ -20,3 +20,12 @@ end
 function tnoremap(keys, cmd)
  	keybinder('t', keys, cmd)
 end
+
+function inoremap_expr(keys, cmd)
+	vim.api.nvim_set_keymap('i', keys, cmd, { expr = true, noremap = true, silent = true })
+end
+
+function snoremap_expr(keys, cmd)
+	vim.api.nvim_set_keymap('s', keys, cmd, { expr = true, noremap = true, silent = true })
+end
+
