@@ -28,11 +28,11 @@ let g:startify_commands = [
 \ ]
 
 let g:startify_bookmarks = [
-\ { 'co': '~/.dotfiles/nvim/lua/config.lua' },
-\ { 'km': '~/.dotfiles/nvim/lua/keymaps.lua' },
-\ { 'pl': '~/.dotfiles/nvim/packer/plugins.lua' },
+\ { 'p': '~/.dotfiles/nvim/lua/packer/plugins.lua' },
+\ { 'c': '~/.dotfiles/nvim/lua/config.lua' },
+\ { 'm': '~/.dotfiles/nvim/lua/keymaps.lua' },
 \ { 'in': '~/.dotfiles/nvim/init.lua' },
-\ { 'zs': '~/.zshrc' }
+\ { 'z': '~/.zshrc' }
 \ ]
 
 autocmd User Startified setlocal cursorline
