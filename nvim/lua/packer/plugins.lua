@@ -6,4 +6,8 @@ return require'packer'.startup(function()
   use 'norcalli/snippets.nvim'
   use 'mhinz/vim-startify'
   use 'morhetz/gruvbox'
+  use 'tpope/vim-commentary'
+  use 'tpope/vim-unimpaired'
+  use 'tpope/vim-repeat'
+  use 'sickill/vim-pasta'
 end)
