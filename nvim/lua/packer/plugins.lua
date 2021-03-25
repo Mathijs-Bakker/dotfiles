@@ -5,4 +5,5 @@ return require'packer'.startup(function()
   use 'hrsh7th/nvim-compe'
   use 'norcalli/snippets.nvim'
   use 'mhinz/vim-startify'
+  use 'morhetz/gruvbox'
 end)
