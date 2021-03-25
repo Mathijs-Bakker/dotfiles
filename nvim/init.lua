@@ -5,8 +5,8 @@ end
 vim.g.mapleader = ','
 
 require'global_helpers'
-require'config'
-require'keymaps'
+require'config.options'
+require'config.keymaps'
 require'packer.plugins'
 require'plugin.completion'
 require'lsp'

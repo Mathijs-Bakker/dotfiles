@@ -29,8 +29,8 @@ let g:startify_commands = [
 
 let g:startify_bookmarks = [
 \ { 'p': '~/.dotfiles/nvim/lua/packer/plugins.lua' },
-\ { 'c': '~/.dotfiles/nvim/lua/config.lua' },
-\ { 'm': '~/.dotfiles/nvim/lua/keymaps.lua' },
+\ { 'o': '~/.dotfiles/nvim/lua/config/options.lua' },
+\ { 'm': '~/.dotfiles/nvim/lua/config/keymaps.lua' },
 \ { 'in': '~/.dotfiles/nvim/init.lua' },
 \ { 'z': '~/.zshrc' }
 \ ]
