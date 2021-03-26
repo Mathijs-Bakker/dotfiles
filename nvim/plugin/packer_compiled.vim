@@ -32,9 +32,33 @@ local function try_loadstring(s, component, name)
 end
 
 _G.packer_plugins = {
+  ["BetterLua.vim"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/BetterLua.vim"
+  },
   gruvbox = {
     loaded = true,
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/gruvbox"
+  },
+  harpoon = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/harpoon"
+  },
+  ["lsp-status.nvim"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/lsp-status.nvim"
+  },
+  ["lspkind-nvim"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
+  },
+  ["lspsaga.nvim"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
+  },
+  ["nlua.nvim"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/nlua.nvim"
   },
   ["nvim-compe"] = {
     loaded = true,
@@ -47,6 +71,10 @@ _G.packer_plugins = {
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/packer.nvim"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
   ["snippets.nvim"] = {
     loaded = true,
@@ -63,6 +91,10 @@ _G.packer_plugins = {
   ["vim-repeat"] = {
     loaded = true,
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/vim-repeat"
+  },
+  ["vim-rooter"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/vim-rooter"
   },
   ["vim-startify"] = {
     loaded = true,
