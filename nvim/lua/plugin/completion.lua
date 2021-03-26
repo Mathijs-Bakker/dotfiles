@@ -28,7 +28,7 @@ if has_compe then
       path = true;
       buffer = true;
       calc = true;
-      vsnip = true;
+      vsnip = false;
       nvim_lsp = true;
       nvim_lua = true;
       spell = true;
@@ -64,8 +64,8 @@ end
 _G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-n>"
-  elseif vim.fn.call("vsnip#available", {1}) == 1 then
-    return t "<Plug>(vsnip-expand-or-jump)"
+  -- elseif vim.fn.call("vsnip#available", {1}) == 1 then
+  --   return t "<Plug>(vsnip-expand-or-jump)"
   elseif check_back_space() then
     return t "<Tab>"
   else
