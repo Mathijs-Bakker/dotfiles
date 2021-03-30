@@ -39,11 +39,11 @@ if has_compe then
 end
 
 
-inoremap_expr('<C-Space>', 'compe#complete()')
-inoremap_expr('<CR>', "compe#confirm('<CR>')")
-inoremap_expr('<C-e>', "compe#close('<C-e>')")
-inoremap_expr('<C-f>', "compe#scroll({ 'delta': +4 })")
-inoremap_expr('<C-d>', "compe#scroll({ 'delta': -4 })")
+Inoremap_expr('<C-Space>', 'compe#complete()')
+Inoremap_expr('<CR>', "compe#confirm('<CR>')")
+Inoremap_expr('<C-e>', "compe#close('<C-e>')")
+Inoremap_expr('<C-f>', "compe#scroll({ 'delta': +4 })")
+Inoremap_expr('<C-d>', "compe#scroll({ 'delta': -4 })")
 
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -64,8 +64,8 @@ end
 _G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-n>"
-  -- elseif vim.fn.call("vsnip#available", {1}) == 1 then
-  --   return t "<Plug>(vsnip-expand-or-jump)"
+  elseif vim.fn.call("vsnip#available", {1}) == 1 then
+    return t "<Plug>(vsnip-expand-or-jump)"
   elseif check_back_space() then
     return t "<Tab>"
   else
@@ -82,7 +82,7 @@ _G.s_tab_complete = function()
   end
 end
 
-inoremap_expr("<Tab>", "v:lua.tab_complete()")
-snoremap_expr("<Tab>", "v:lua.tab_complete()")
-inoremap_expr("<S-Tab>", "v:lua.s_tab_complete()")
-snoremap_expr("<S-Tab>", "v:lua.s_tab_complete()")
+Inoremap_expr("<Tab>", "v:lua.tab_complete()")
+Snoremap_expr("<Tab>", "v:lua.tab_complete()")
+Inoremap_expr("<S-Tab>", "v:lua.s_tab_complete()")
+Snoremap_expr("<S-Tab>", "v:lua.s_tab_complete()")

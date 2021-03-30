@@ -1,64 +1,64 @@
 -- Plenary Busted:
-   nnoremap('<Leader>t', '<Plug>PlenaryWriteAndRunTestFile<CR>')
+   Nnoremap('<Leader>t', '<Plug>PlenaryWriteAndRunTestFile<CR>')
 
 --[[  Movement: --]]
 
 -- Lines up and down:
-    inoremap('<C-j> <Esc>', ':m .+1<CR>==gi')
-    inoremap('<C-k> <Esc>', ':m .-2<CR>==gi')
+    Inoremap('<C-j> <Esc>', ':m .+1<CR>==gi')
+    Inoremap('<C-k> <Esc>', ':m .-2<CR>==gi')
     -- 'gv' to hl back 
-    vnoremap('<C-j>', ":m '>+1<cr>gv=gv")
-    vnoremap('<C-k>', ":m '<-2<cr>gv=gv")
+    Vnoremap('<C-j>', ":m '>+1<cr>gv=gv")
+    Vnoremap('<C-k>', ":m '<-2<cr>gv=gv")
 
 -- Navigate to next error:
-	nnoremap('<leader>l', ':lnext<CR>')
-        nnoremap('<leader>h', ':lprevious<CR>')
+	Nnoremap('<leader>l', ':lnext<CR>')
+        Nnoremap('<leader>h', ':lprevious<CR>')
 
 -- [[ Tabs, Splits, Windows & Buffers: --]]
 
 -- Tab switching:
-        nnoremap('<right>', 'gt')
-        nnoremap('<left>', 'gt')
+        Nnoremap('<right>', 'gt')
+        Nnoremap('<left>', 'gt')
 
 -- Split navigation:
-        nnoremap('<c-h>', '<c-w><c-h>')
-        nnoremap('<c-j>', '<c-w><c-j>')
-        nnoremap('<c-k>', '<c-w><c-k>')
-        nnoremap('<c-l>', '<c-w><c-l>')
+        Nnoremap('<c-h>', '<c-w><c-h>')
+        Nnoremap('<c-j>', '<c-w><c-j>')
+        Nnoremap('<c-k>', '<c-w><c-k>')
+        Nnoremap('<c-l>', '<c-w><c-l>')
 
 -- Easy moving between the buffers:
-       tnoremap('<A-h>', '<C-\\><C-n><C-w>h')
-       tnoremap('<A-j>', '<C-\\><C-n><C-w>j')
-       tnoremap('<A-k>', '<C-\\><C-n><C-w>k')
-       tnoremap('<A-l>', '<C-\\><C-n><C-w>l')
+       Tnoremap('<A-h>', '<C-\\><C-n><C-w>h')
+       Tnoremap('<A-j>', '<C-\\><C-n><C-w>j')
+       Tnoremap('<A-k>', '<C-\\><C-n><C-w>k')
+       Tnoremap('<A-l>', '<C-\\><C-n><C-w>l')
 
-       nnoremap('<A-h>', '<C-w>h')
-       nnoremap('<A-j>', '<C-w>j')
-       nnoremap('<A-k>', '<C-w>k')
-       nnoremap('<A-l>', '<C-w>l')
+       Nnoremap('<A-h>', '<C-w>h')
+       Nnoremap('<A-j>', '<C-w>j')
+       Nnoremap('<A-k>', '<C-w>k')
+       Nnoremap('<A-l>', '<C-w>l')
 
 -- Window sizing:
        -- Resize windows to be basically the same size
-        nnoremap('<leader>=', '<C-w>=')
+        Nnoremap('<leader>=', '<C-w>=')
 
       -- Sizing window horizontally
-        nnoremap('<c-,>', '<C-W><')
-        nnoremap('<c-.>', '<C-W>>')
-        nnoremap('<A-,>', '<C-W>5<')
-        nnoremap('<A-.>', '<C-W>5>')
+        Nnoremap('<c-,>', '<C-W><')
+        Nnoremap('<c-.>', '<C-W>>')
+        Nnoremap('<A-,>', '<C-W>5<')
+        Nnoremap('<A-.>', '<C-W>5>')
 
       -- Sizing window vertically
         -- taller
-        nnoremap('<A-t>', '<C-W>+')
+        Nnoremap('<A-t>', '<C-W>+')
         -- shorter
-        nnoremap('<A-s>', '<C-W>-')
+        Nnoremap('<A-s>', '<C-W>-')
 
 -- Escape:
-inoremap('kj', '<Esc>')
-vnoremap('kj', '<Esc>')
+Inoremap('kj', '<Esc>')
+Vnoremap('kj', '<Esc>')
 
 -- Remove Whitespaces:
-nnoremap('<leader>sws', ':%s/\\s\\+$//<CR>')
+Nnoremap('<leader>sws', ':%s/\\s\\+$//<CR>')
 
 -- Clear Search Highlights:
 vim.api.nvim_set_keymap('n', '<CR>',
@@ -66,4 +66,4 @@ vim.api.nvim_set_keymap('n', '<CR>',
 	{ expr = true, noremap = true, silent = true })
 
 -- Explorer: 
-nnoremap('<Leader>e', ':Lexplore<CR>')
+Nnoremap('<Leader>e', ':Lexplore<CR>')
