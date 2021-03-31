@@ -1,77 +1,73 @@
--- Option Scopes:
-local o = vim.o -- editor global
-local bo = vim.bo -- buffer
-local wo = vim.wo -- window
-local cmd = vim.cmd
+O.fileencoding = "utf-8"
 
-o.fileencoding = "utf-8"
+Cmd('language en_US')
 
 --[[ APPEARANCE --]]
 -- Gruvbox:
-cmd('autocmd vimenter * colorscheme gruvbox')
-cmd('set termguicolors')
+Cmd('autocmd vimenter * colorscheme gruvbox')
+Cmd('set termguicolors')
 
 -- Colums, gutters and rulers:
-wo.number = true
-wo.relativenumber = true
-wo.signcolumn = "yes"
-wo.colorcolumn = "80,120"
-wo.cursorline = true
-o.scrolloff = 5
+Wo.number = true
+Wo.relativenumber = true
+Wo.signcolumn = "yes"
+Wo.colorcolumn = "80,120"
+Wo.cursorline = true
+O.scrolloff = 5
 
 -- Status:
-o.showmode = false
+O.showmode = false
 
 -- Split like this:
-o.splitright = true
-o.splitbelow = true
-o.equalalways = true
+O.splitright = true
+O.splitbelow = true
+O.equalalways = true
 
 -- Wildcard Menu:
-o.wildmode = "longest,full"
-o.wildoptions = 'pum'
+O.wildmode = "longest,full"
+O.wildoptions = 'pum'
 
 -- Popup menu transparency:
-o.pumblend = 17
+O.pumblend = 17
 
 
 --[[ FORMATTING --]]
 -- Tab Spacing:
-bo.tabstop = 4
-bo.softtabstop = 4
-bo.shiftwidth = 4
-o.shiftround = true
-bo.expandtab = true
+Bo.tabstop = 4
+Bo.softtabstop = 4
+Bo.shiftwidth = 4
+O.shiftround = true
+Bo.expandtab = true
 
-bo.autoindent = true
-bo.smartindent = true
-bo.cindent = true
+Bo.autoindent = true
+Bo.smartindent = true
+Bo.cindent = true
 
 --[[ SEARCH --]]
-o.ignorecase = true
-o.smartcase = true
+O.ignorecase = true
+O.smartcase = true
 
 --[[ MISC --]]
 
 -- Completion Timers:
-o.updatetime = 300
+O.updatetime = 300
 --o.timeoutlen = 100
 
 -- Hide, don't close buffers:
-o.hidden = true
+O.hidden = true
 -- Matching brackets:
-o.showmatch = true
+O.showmatch = true
 
 -- Avoid hit-enter caused by file messages:
-o.shortmess = "fmlwxsi"
+O.shortmess = "fmlwxsi"
 
 -- TODO: Need to get into language support
 -- bo.spelllang = "en_us,nl_NL,es_ES"
 
-bo.swapfile = false
+Bo.swapfile = false
 
 -- I smell a rat:
-o.mouse = "nv"
+O.mouse = "nv"
 
 -- Use clipboard for ALL ops:
-o.clipboard = "unnamedplus"
+O.clipboard = "unnamedplus"

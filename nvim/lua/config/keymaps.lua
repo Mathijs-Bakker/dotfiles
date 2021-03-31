@@ -6,7 +6,7 @@
 -- Lines up and down:
     Inoremap('<C-j> <Esc>', ':m .+1<CR>==gi')
     Inoremap('<C-k> <Esc>', ':m .-2<CR>==gi')
-    -- 'gv' to hl back 
+    -- 'gv' to hl back
     Vnoremap('<C-j>', ":m '>+1<cr>gv=gv")
     Vnoremap('<C-k>', ":m '<-2<cr>gv=gv")
 
@@ -27,10 +27,10 @@
         Nnoremap('<c-l>', '<c-w><c-l>')
 
 -- Easy moving between the buffers:
-       Tnoremap('<A-h>', '<C-\\><C-n><C-w>h')
-       Tnoremap('<A-j>', '<C-\\><C-n><C-w>j')
-       Tnoremap('<A-k>', '<C-\\><C-n><C-w>k')
-       Tnoremap('<A-l>', '<C-\\><C-n><C-w>l')
+       Tnoremap('<A-h>', [[<C-\><C-n><C-w>h]])
+       Tnoremap('<A-j>', [[<C-\><C-n><C-w>j]])
+       Tnoremap('<A-k>', [[<C-\><C-n><C-w>k]])
+       Tnoremap('<A-l>', [[<C-\><C-n><C-w>l]])
 
        Nnoremap('<A-h>', '<C-w>h')
        Nnoremap('<A-j>', '<C-w>j')
@@ -58,12 +58,12 @@ Inoremap('kj', '<Esc>')
 Vnoremap('kj', '<Esc>')
 
 -- Remove Whitespaces:
-Nnoremap('<leader>sws', ':%s/\\s\\+$//<CR>')
+Nnoremap('<leader>sws', [[:%s/\s\+$/<CR>]])
 
 -- Clear Search Highlights:
 vim.api.nvim_set_keymap('n', '<CR>',
-	'{-> v:hlsearch ? ":nohl\\<CR>" : "\\<CR>"}()',
+	[[{-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()]],
 	{ expr = true, noremap = true, silent = true })
 
--- Explorer: 
+-- Explorer:
 Nnoremap('<Leader>e', ':Lexplore<CR>')

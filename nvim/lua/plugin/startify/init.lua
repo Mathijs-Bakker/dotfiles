@@ -1,11 +1,11 @@
 local g = vim.g
 
-g.startify_files_number = 10
+G.startify_files_number = 10
 -- Don't change to directory when selecting a file
-g.startify_change_to_dir = 0
-g.startify_custom_header = { }
-g.startify_relative_path = 1
-g.startify_use_env = 1
+G.startify_change_to_dir = 0
+G.startify_custom_header = { }
+G.startify_relative_path = 1
+G.startify_use_env = 1
 
 vim.cmd([[
 function! List_commits()
