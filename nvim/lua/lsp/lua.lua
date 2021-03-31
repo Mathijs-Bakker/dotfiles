@@ -12,7 +12,7 @@ require('lspconfig').sumneko_lua.setup({
    settings = {
       Lua = {
          diagnostics = {
-            globals = { "vim", "map", "filter", "range", "reduce", "head", "tail", "nth", "describe", "it" },
+            globals = { "vim", "map", "filter", "range", "reduce", "head", "tail", "nth", "describe", "it", "use" },
             disable = {"redefined-local"}
          },
          runtime = {version = "LuaJIT"},
