@@ -1,5 +1,3 @@
-local g = vim.g
-
 G.startify_files_number = 10
 -- Don't change to directory when selecting a file
 G.startify_change_to_dir = 0
@@ -7,7 +5,7 @@ G.startify_custom_header = { }
 G.startify_relative_path = 1
 G.startify_use_env = 1
 
-vim.cmd([[
+Cmd([[
 function! List_commits()
    let git = 'git -C ' . getcwd()
    let commits = systemlist(git . ' log --oneline | head -n5')
@@ -31,5 +29,5 @@ let g:startify_bookmarks = [ { 'p': '~/.dotfiles/nvim/lua/packer/plugins.lua' },
 ]===],
 true)
 
-vim.cmd('autocmd User Startified setlocal cursorline')
+Cmd('autocmd User Startified setlocal cursorline')
 Nnoremap('<leader>st', ':Startify<cr>')
