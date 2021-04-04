@@ -4,7 +4,7 @@ Cmd('language en_US')
 
 --[[ APPEARANCE --]]
 -- Gruvbox:
-Cmd('autocmd vimenter * colorscheme gruvbox')
+Cmd([[colorscheme gruvbox]])
 Cmd('set termguicolors')
 
 -- Colums, gutters and rulers:
