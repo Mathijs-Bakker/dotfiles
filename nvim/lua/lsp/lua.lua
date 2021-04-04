@@ -18,7 +18,7 @@ require('lspconfig').sumneko_lua.setup({
          runtime = {version = "LuaJIT"},
          workspace = {
             library = {
-               [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+               [vim.fn.expand('$VIMRUNTIME/lua')] = true,
                [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
                -- ['usr/local/bin/busted'] = true,
                --[require 'busted'(busted)] = true,

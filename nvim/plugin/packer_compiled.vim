@@ -60,14 +60,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/nlua.nvim"
   },
-  ["nvim-compe"] = {
-    loaded = true,
-    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/nvim-compe"
-  },
-  ["nvim-lspconfig"] = {
-    loaded = true,
-    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/packer.nvim"
@@ -96,13 +88,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/vim-rooter"
   },
-  ["vim-startify"] = {
-    loaded = true,
-    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/vim-startify"
-  },
   ["vim-unimpaired"] = {
     loaded = true,
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/vim-unimpaired"
+  },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/vim-vsnip"
+  },
+  ["zoom-vim"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/zoom-vim"
   }
 }
 

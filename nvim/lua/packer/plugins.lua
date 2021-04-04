@@ -1,10 +1,20 @@
 return require'packer'.startup(function()
   -- Let Packer manage itself
   use 'wbthomason/packer.nvim'
+
   use { '~/Repositories/plenary.nvim', branch = 'bustin-makes-you-feel-good' }
-  -- use 'nvim-treesitter/nvim-treesitter' , {'do': ':TSUpdate'}
+
+  -- Treesitter:
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate all' }
+  use 'nvim-treesitter/playground'
+  -- use 'tjdevries/tree-sitter-lua'
+
   -- LSP:
   use 'neovim/nvim-lspconfig'
+  use 'nvim-lua/lsp-status.nvim'
+  use 'onsails/lspkind-nvim'
+  use 'glepnir/lspsaga.nvim'
+
   -- Completion:
   use 'hrsh7th/nvim-compe'
   use 'norcalli/snippets.nvim'
@@ -12,7 +22,8 @@ return require'packer'.startup(function()
 
 
   use 'mhinz/vim-startify'
-  use 'morhetz/gruvbox'
+  -- use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+  use 'Mathijs-Bakker/gruvbox'
   use 'tpope/vim-commentary'
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-repeat'
@@ -20,9 +31,6 @@ return require'packer'.startup(function()
   use 'airblade/vim-rooter'
   use 'euclidianAce/BetterLua.vim'
   use 'ThePrimeagen/harpoon'
-  use 'nvim-lua/lsp-status.nvim'
-  use 'onsails/lspkind-nvim'
-  use 'glepnir/lspsaga.nvim'
   use 'tjdevries/nlua.nvim'
   use 'Mathijs-Bakker/zoom-vim'
 end)
