@@ -30,7 +30,7 @@ setw -g aggressive-resize on
 # make delay shorter
 set -sg escape-time 0
 # escape time for Vim
-set -g escape-time 10
+# set -g escape-time 10
 
 # tile all windows
 unbind =
