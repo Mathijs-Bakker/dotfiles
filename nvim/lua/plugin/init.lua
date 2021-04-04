@@ -1,2 +1,3 @@
-require'plugin.startify'
-require'plugin.zoom-vim'
+Source'plugin.startify'
+Source'plugin.treesitter'
+Source'plugin.zoom-vim'

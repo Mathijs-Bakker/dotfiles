@@ -1,3 +1,3 @@
-require'globals.vimscript'
-require'globals.keybinder'
+Source('globals.vimscript')
+Source('globals.keybinder')
 

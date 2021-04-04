@@ -1,6 +1,6 @@
-require'lsp.lua'
-require'lsp.omnisharp'
-require'lsp.viml'
+Source'lsp.lua'
+Source'lsp.omnisharp'
+Source'lsp.viml'
 
   local bufnr = 0
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
