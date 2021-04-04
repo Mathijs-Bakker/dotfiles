@@ -15,16 +15,16 @@ function! List_commits()
 endfunction
 ]])
 
-vim.api.nvim_exec([===[
+Nvim_exec([===[
 let g:startify_lists = [ { 'type': 'dir', 'header': [ 'Files '. getcwd() ] }, { 'type': function('List_commits'), 'header': [ 'Recent Commits' ] }, { 'type': 'sessions',  'header': [ 'Sessions' ]       }, { 'type': 'bookmarks', 'header': [ 'Bookmarks' ]      }, { 'type': 'commands',  'header': [ 'Commands' ]       }, ]
 ]===], true)
 
-vim.api.nvim_exec([===[
+Nvim_exec([===[
 let g:startify_commands = [{ 'up': [ 'Update/Sync Plugins', ':PackerSync' ] }, { 'ch': [ ':checkhealth', ':checkhealth' ] }]
 ]===],
 true)
 
-vim.api.nvim_exec([===[
+Nvim_exec([===[
 let g:startify_bookmarks = [ { 'p': '~/.dotfiles/nvim/lua/packer/plugins.lua' }, { 'o': '~/.dotfiles/nvim/lua/config/options.lua' }, { 'm': '~/.dotfiles/nvim/lua/config/keymaps.lua' }, { 'in': '~/.dotfiles/nvim/init.lua' }, { 'z': '~/.zshrc' } ]
 ]===],
 true)

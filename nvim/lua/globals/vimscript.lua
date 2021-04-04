@@ -17,6 +17,10 @@ O = vim.o
 Bo = vim.bo
 Wo = vim.wo
 
+-- API
+Nvim_exec = vim.api.nvim_exec
+Nvim_eval = vim.api.nvim_eval
+
 -- Lua
 Inspect = vim.inspect
 Deepcopy = vim.deepcopy
