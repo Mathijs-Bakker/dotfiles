@@ -1,3 +1,3 @@
-Source('globals.vimscript')
-Source('globals.keybinder')
+TrySource('globals.vimscript')
+TrySource('globals.keybinder')
 
