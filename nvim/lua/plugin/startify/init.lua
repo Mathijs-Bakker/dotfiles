@@ -5,6 +5,21 @@ G.startify_custom_header = { }
 G.startify_relative_path = 1
 G.startify_use_env = 1
 
+-- Icons:
+function _G.webDevIcons(path)
+  local filename = vim.fn.fnamemodify(path, ':t')
+  local extension = vim.fn.fnamemodify(path, ':e')
+  return require'nvim-web-devicons'.get_icon(filename, extension, { default = true })
+end
+
+Cmd([[
+function! StartifyEntryFormat() abort
+  return 'v:lua.webDevIcons(absolute_path) . " " . entry_path'
+endfunction
+]])
+
+--
+
 Cmd([[
 function! List_commits()
    let git = 'git -C ' . getcwd()

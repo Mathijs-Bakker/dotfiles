@@ -20,10 +20,18 @@ return require'packer'.startup(function()
   use 'norcalli/snippets.nvim'
   use 'hrsh7th/vim-vsnip'
 
+  -- Telescope
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+  }
+
+  -- Appearance
+  use 'kyazdani42/nvim-web-devicons'
+  use 'Mathijs-Bakker/gruvbox'
 
   use 'mhinz/vim-startify'
   -- use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
-  use 'Mathijs-Bakker/gruvbox'
   use 'tpope/vim-commentary'
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-repeat'
