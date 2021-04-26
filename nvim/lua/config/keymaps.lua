@@ -1,6 +1,7 @@
 -- Plenary Busted:
 Nnoremap('<Leader>t', '<Plug>PlenaryWriteAndRunTestFile<CR>')
 
+Nnoremap([['']], [[:luafile init.lua]])
 --[[  Movement: --]]
 
 -- Lines up and down:

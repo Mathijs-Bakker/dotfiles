@@ -1,3 +1,7 @@
+if not pcall(require, 'telescope') then
+  return
+end
+
 require('telescope').setup{
   defaults = {
     vimgrep_arguments = {
@@ -47,3 +51,6 @@ require('telescope').setup{
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
   }
 }
+
+TrySource'plugins.telescope.pickers'
+TrySource'plugins.telescope.keymaps'
