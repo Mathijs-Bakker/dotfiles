@@ -26,7 +26,12 @@ return require'packer'.startup(function()
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+    requires = {
+      {'nvim-lua/popup.nvim'},
+      {'nvim-lua/plenary.nvim'},
+      {'yamatsum/nvim-nonicons'},
+      {'nvim-telescope/telescope-fzf-writer.nvim'}
+    }
   }
 
   use 'mrk21/yaml-vim'
