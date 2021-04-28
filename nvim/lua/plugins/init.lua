@@ -1,7 +1,4 @@
 TrySource'plugins.startify'
 TrySource'plugins.treesitter'
 TrySource'plugins.telescope'
--- TrySource'plugconfigs.telescope_conf'
--- TrySource'plugconfigs.telescope_conf.keymaps'
--- require'plugconfigs.telescope'
 TrySource'plugins.zoom-vim'
