@@ -1,78 +1,42 @@
--- [[ NVim ]]--
+if not pcall(require, 'telescope') then
+  return
+end
 
-Nnoremap('<Leader>fb', ':Telescope buffers<CR>')
+local function ts_map (key, picker_f)
 
+  local rhs = string.format(":lua require'plugins.telescope.pickers'.%s()<CR>", picker_f)
 
+  local opts = {
+    noremap = true,
+    silent = true
+  }
+  vim.api.nvim_set_keymap('n', key, rhs, opts)
+  -- vim.api.nvim_buf_set_keymap(0, 'n', key, rhs, opts)
+end
 
--- local sorters = require('telescope.sorters')
+-- Files:
 
--- TelescopeMapArgs = TelescopeMapArgs or {}
+ts_map ('<Leader>ff', 'find_files')
+ts_map ('<Leader>fg', 'git_files')
+ts_map ('<Leader>fw', 'grep_word') -- Grep file in cwp
+ts_map ('<Leader>fl', 'live_grep') -- Grep in files in cwp
+ts_map ('<Leader>fe', 'file_browser')
 
--- local map_tele = function(key, f, options, buffer)
+-- Lsp:
+ts_map ('<Leader>cr', 'lsp_references')
+ts_map ('<Leader>ca', 'lsp_code_actions')
+ts_map ('<Leader>cd', 'lsp_definitions')
+ts_map ('<Leader>ci', 'lsp_implementations')
+ts_map ('<Leader>cd', 'lsp_document_symbols')
+ts_map ('<Leader>cw', 'lsp_workspace_symbols')
+ts_map ('<Leader>cD', 'lsp_diagnostics')
 
---   local map_key = vim.api.nvim_replace_termcodes(key .. f, true, true, true)
+-- NVim
 
---   TelescopeMapArgs[map_key] = options or {}
+ts_map ('<Leader>fn', 'edit_neovim')
+ts_map ('<Leader>fb', 'buffers')
+ts_map ('<Leader>fh', 'help_tags')
 
---   local mode = "n"
---   local rhs = string.format(
---     "<cmd>lua require('plugconfigs.telescope')['%s'](TelescopeMapArgs['%s'])<CR>",
---     f,
---     map_key
---   )
+-- Git:
 
---   local map_options = {
---     noremap = true,
---     silent = true,
---   }
-
---   if not buffer then
---     vim.api.nvim_set_keymap(mode, key, rhs, map_options)
---   else
---     vim.api.nvim_buf_set_keymap(0, mode, key, rhs, map_options)
---   end
--- end
-
--- vim.api.nvim_set_keymap('c', '<c-r><c-r>', '<Plug>(TelescopeFuzzyCommandSearch)', { noremap = false, nowait = true })
-
--- -- Dotfiles
--- map_tele('<leader>en', 'edit_neovim')
--- map_tele('<leader>ez', 'edit_zsh')
-
--- -- Search
--- map_tele('<space>gw', 'grep_string', {
---   short_path = true,
---   word_match = '-w',
---   only_sort_text = true,
---   layout_strategy = 'vertical',
---   sorter = sorters.get_fzy_sorter(),
--- })
--- map_tele('<space>f/', 'grep_last_search', {
---   layout_strategy = 'vertical',
--- })
-
--- -- Files
--- map_tele('<space>ft', 'git_files')
--- map_tele('<space>fg', 'live_grep')
--- map_tele('<space>fo', 'oldfiles')
--- map_tele('<Leader>fd', 'fd')
--- map_tele('<space>pp', 'project_search')
--- map_tele('<space>fv', 'find_nvim_source')
--- map_tele('<space>fe', 'file_browser')
--- map_tele('<space>fs', 'find_sourcegraph')
--- map_tele('<space>fz', 'sourcegraph_tips')
-
--- -- Nvim
--- map_tele('<Leader>fb', 'buffers')
--- map_tele('<space>fp', 'my_plugins')
--- map_tele('<space>fa', 'installed_plugins')
--- map_tele('<space>fi', 'search_all_files')
--- map_tele('<space>ff', 'curbuf')
--- map_tele('<space>fh', 'help_tags')
--- map_tele('<space>so', 'vim_options')
--- map_tele('<space>gp', 'grep_prompt')
-
--- -- Telescope Meta
--- map_tele('<space>fB', 'builtin')
-
--- return map_tele
+ts_map ('<Leader>fs', 'git_status')
