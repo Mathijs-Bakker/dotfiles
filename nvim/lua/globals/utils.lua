@@ -8,13 +8,3 @@ function TrySource(filename)
     return
   end
 end
-
-
--- function IsNotInstalled(plugin_name)
---   local is_installed = pcall(require, plugin_name)
---   if not is_installed then
---     print('Missing: ' .. plugin_name)
---     return true
---   end
--- end
-
