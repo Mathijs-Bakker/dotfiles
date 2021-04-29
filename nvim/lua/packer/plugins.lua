@@ -23,6 +23,14 @@ return require'packer'.startup(function()
   -- Need to try this as it looks promising:
   -- use 'L3MON4D3/LuaSnip'
 
+  -- Git:
+  use 'tpope/vim-fugitive'
+  use 'shumphrey/fugitive-gitlab.vim'
+  use 'tpope/vim-rhubarb'
+  use 'sodapopcan/vim-twiggy'
+  use 'junegunn/gv.vim'
+  use 'rhysd/git-messenger.vim'
+
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
