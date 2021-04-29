@@ -40,3 +40,7 @@ ts_map ('<Leader>fh', 'help_tags')
 -- Git:
 
 ts_map ('<Leader>fs', 'git_status')
+
+-- Other:
+
+vim.api.nvim_set_keymap('n', '<Leader>fm', [[:lua require'telescope.builtin'.keymaps()<CR>]], {})
