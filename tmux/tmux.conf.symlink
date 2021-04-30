@@ -3,7 +3,7 @@ set -g default-terminal "tmux-256color"
 # set -g default-terminal "alacritty"
 set -as terminal-overrides ',xterm*:Tc:sitm=\E[3m'
 
-set -g utf8
+# set -g utf8
 
 set -g history-limit 20000
 
@@ -85,7 +85,7 @@ bind -r L resize-pane -R 5
 # enable mouse support for switching panes/windows
 setw -g mouse on
 
-set editing-mode vi 
+# set editing-mode vi 
 
 # $if mode=vi # vi settings 
     
