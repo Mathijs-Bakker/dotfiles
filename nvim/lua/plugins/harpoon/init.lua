@@ -1,11 +1,11 @@
-Nnoremap ('<Leader>a', [[:lua require('harpoon.mark').add_file()<CR>]])
-Nnoremap ('<C-e>', [[:lua require('harpoon.ui').toggle_quick_menu()<CR>]])
+Nnoremap (',m', [[:lua require('harpoon.mark').add_file()<CR>]])
+Nnoremap (',e', [[:lua require('harpoon.ui').toggle_quick_menu()<CR>]])
 
--- m = mark
-Nnoremap ('ma', [[:lua require('harpoon.ui').nav_file(1)<CR>]])
-Nnoremap ('ms', [[:lua require('harpoon.ui').nav_file(2)<CR>]])
-Nnoremap ('md', [[:lua require('harpoon.ui').nav_file(3)<CR>]])
-Nnoremap ('mf', [[:lua require('harpoon.ui').nav_file(4)<CR>]])
+Nnoremap (',a', [[:lua require('harpoon.ui').nav_file(1)<CR>]])
+Nnoremap (',s', [[:lua require('harpoon.ui').nav_file(2)<CR>]])
+Nnoremap (',d', [[:lua require('harpoon.ui').nav_file(3)<CR>]])
+Nnoremap (',f', [[:lua require('harpoon.ui').nav_file(4)<CR>]])
+Nnoremap (',g', [[:lua require('harpoon.ui').nav_file(5)<CR>]])
 
 -- t = terminal
 Nnoremap ('ta', [[:lua require('harpoon.term').gotoTerminal(1)<CR>]])
