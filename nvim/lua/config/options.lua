@@ -7,6 +7,10 @@ Cmd('language en_US')
 Cmd([[colorscheme gruvbox]])
 Cmd('set termguicolors')
 
+-- Cmd([[set background=dark]])
+-- Cmd([[colorscheme gruvbox8_hard]])
+-- Nvim_exec([[let g:gruvbox_italics = 0]], true)
+
 -- Colums, gutters and rulers:
 Wo.number = true
 Wo.relativenumber = true
