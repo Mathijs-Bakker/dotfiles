@@ -47,6 +47,7 @@ return require'packer'.startup(function()
   -- Appearance
   use 'kyazdani42/nvim-web-devicons'
   use 'Mathijs-Bakker/gruvbox'
+  -- use 'lifepillar/vim-gruvbox8'
 
   use 'mhinz/vim-startify'
   -- use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
@@ -56,7 +57,7 @@ return require'packer'.startup(function()
   use 'sickill/vim-pasta'
   use 'airblade/vim-rooter'
   use 'euclidianAce/BetterLua.vim'
-  -- use 'ThePrimeagen/harpoon'
+  use 'ThePrimeagen/harpoon'
   use 'tjdevries/nlua.nvim'
   use 'Mathijs-Bakker/zoom-vim'
 end)
