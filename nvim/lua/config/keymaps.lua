@@ -1,6 +1,9 @@
 -- Plenary Busted:
 Nnoremap('<Leader>t', '<Plug>PlenaryWriteAndRunTestFile<CR>')
 
+-- Reload config/init
+Nnoremap ('<Leader><Leader>r', ':Reload<CR>')
+
 Nnoremap([['']], [[:luafile init.lua]])
 --[[  Movement: --]]
 

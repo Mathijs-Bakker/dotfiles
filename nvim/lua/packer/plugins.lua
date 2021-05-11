@@ -42,6 +42,8 @@ return require'packer'.startup(function()
     }
   }
 
+  use { 'famiu/nvim-reload', requires = { 'nvim-lua/plenary.nvim' }}
+
   use 'mrk21/yaml-vim'
 
   -- Appearance
