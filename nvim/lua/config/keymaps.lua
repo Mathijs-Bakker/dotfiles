@@ -15,6 +15,10 @@ Vnoremap('<C-k>', ":m '<-2<cr>gv=gv")
 Nnoremap('<leader>l', ':lnext<CR>')
 Nnoremap('<leader>h', ':lprevious<CR>')
 
+-- Navigate jump list
+-- Nnoremap('<S-i>', '<C-i>')
+-- Nnoremap('<S-o>', '<C-o>')
+
 -- [[ Tabs, Splits, Windows & Buffers: --]]
 
 -- Tab switching:
@@ -57,6 +61,8 @@ Nnoremap('<A-s>', '<C-W>-')
 -- Escape:
 Inoremap('kj', '<Esc>')
 Vnoremap('kj', '<Esc>')
+
+Tnoremap('kj', [[<C-\><C-n>]])
 
 -- Remove Whitespaces:
 Nnoremap('<leader>sws', [[:%s/\s\+$/<CR>]])
