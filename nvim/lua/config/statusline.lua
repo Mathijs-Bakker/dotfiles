@@ -1,9 +1,3 @@
--- local statusline = "%-0{minwid}.{maxwid}{item} "
--- Each status line item is of the form:
---       %-0{minwid}.{maxwid}{item}
---     All fields except the {item} are optional.  A single percent sign can
---     be given as "%%".
-
 local function get_relative_path_filename()
   return '%f'
 end
@@ -23,13 +17,18 @@ local function get_file_status()
 end
 
 local function get_lines()
-  return ' %l r %L  %c  %p%%'
+  -- return ' %l  %c %L  %p%%'
+    -- return ' %l,%c %L  %p%%'
+    return ' %l,%c : %L  %p%%'
 end
 
 local lsp_status = require('lsp-status')
 
 local function get_lsp_status()
   local status = lsp_status.status()
+  if not status or status == '' then
+      return ''
+  end
   return status
 end
 
@@ -73,13 +72,16 @@ function StatusLine()
     statusline = '  '
     .. get_file_status()
     .. '  '
-    .. get_harpoon_status()
-    .. '   '
     .. get_git_branch()
-    .. '   '
+    .. '  '
+    .. get_harpoon_status()
+    .. '  '
+    .. '%='
+    .. '  '
     .. get_lsp_status()
-    .. '   '
+    .. '%='
     .. get_lines()
+    .. '  '
   end
 
   return statusline
@@ -87,9 +89,9 @@ end
 
 O.statusline = '%!v:lua.StatusLine()'
 
---[[ Separators:
+--[[ Icons:
 ┊
-
+﫦 ﯎
 --]]
 
 
