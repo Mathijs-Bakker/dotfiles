@@ -3,15 +3,8 @@ require('plugins.lsp-status').activate()
 
 local home = os.getenv ( "HOME" )
 
--- local custom_attach = function(client)
---     lsp_status.on_attach,
---     capabilities = lsp_status.capabilities
--- end
-
 -- LUA:
 local sumneko_lua_root_path =  home .. "/Repositories/language-servers/lua-language-server"
-
--- local status = require('plugins.lsp-status')
 
 require('lspconfig').sumneko_lua.setup({
    cmd = {
@@ -39,6 +32,5 @@ require('lspconfig').sumneko_lua.setup({
       },
    },
    on_attach = lsp_status.on_attach,
-   -- on_attach = status.on_attach,
    capabilities = lsp_status.capabilities
 })

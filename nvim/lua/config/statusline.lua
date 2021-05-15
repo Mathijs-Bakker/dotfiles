@@ -4,10 +4,6 @@
 --     All fields except the {item} are optional.  A single percent sign can
 --     be given as "%%".
 
-local function isempty(s)
-  return s == nil or s == ''
-end
-
 local function get_relative_path_filename()
   return '%f'
 end
@@ -34,8 +30,6 @@ local lsp_status = require('lsp-status')
 
 local function get_lsp_status()
   local status = lsp_status.status()
-  print('status: ' .. status)
-  -- print('sts: ' .. lsp_status.status())
   return status
 end
 
