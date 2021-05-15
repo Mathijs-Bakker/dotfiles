@@ -13,6 +13,8 @@ TrySource('globals')
 
 TrySource('config.options')
 TrySource('config.keymaps')
+TrySource('config.statusline')
+
 TrySource('packer.plugins')
 TrySource('plugins.completion')
 TrySource('plugins')
