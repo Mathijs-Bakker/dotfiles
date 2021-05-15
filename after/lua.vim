@@ -1,6 +1,5 @@
-" LuaRocks
 setlocal shiftwidth=2
-" setlocal tabstop=2
+setlocal tabstop=2
 setlocal formatoptions-=o
 
 " Kill 'trailing whitespace' warnings with fire:
