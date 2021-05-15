@@ -4,10 +4,10 @@ if [[ -d $DOTFILES/zsh/functions ]]; then
     for func in $DOTFILES/zsh/functions/*(:t); autoload -U $func
 fi
 
-if [ -z "$TMUX" ]
-then
-    tmux attach -t Workbench || tmux new -s Workbench
-fi
+# if [ -z "$TMUX" ]
+# then
+#     tmux attach -t Workbench || tmux new -s Workbench
+# fi
 
 ########################################################
 # Configuration
