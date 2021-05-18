@@ -43,4 +43,39 @@ status.on_attach = function(client)
   vim.cmd [[augroup END]]
 end
 
+status.statusline = function()
+  -- local lsp = lsp_status.status()
+  local errors = lsp_status.status_errors()
+  local warnings = lsp_status.status_warnings()
+  local info = lsp_status.status_info()
+  local hints = lsp_status.status_hints()
+  -- local capabilities = lsp_status.capabilities()
+
+  if not errors or errors == '' then
+      errors = ' ∘'
+  else
+    errors = '%#ErrorMsg# ' .. errors .. ' %*'
+  end
+
+  if not warnings or warnings == '' then
+      warnings = ' ∘'
+  else
+    warnings = '%#GruvboxBlue# ' .. warnings .. '%*'
+  end
+
+  if not info or info == '' then
+      info = ' ∘'
+  else
+      info = '%#GruvboxBlue# ' .. info .. '%*'
+  end
+
+  if not hints or hints == '' then
+      hints = ' ∘'
+  else
+    hints = '%#GruvboxBlue# ' .. hints .. ' %*'
+  end
+
+  return errors .. ' ' .. warnings .. ' '  .. info .. ' ' .. hints
+end
+
 return status
