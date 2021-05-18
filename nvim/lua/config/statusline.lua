@@ -1,33 +1,38 @@
+local path_sep = require('plenary.path').path.sep
+
 local function get_relative_path_filename()
-  return '%f'
+
+    local path_head = vim.fn.expand('%:h')
+    if path_head ~= '' then
+        path_head = path_head .. path_sep
+    end
+
+    return '%#StatusLineNC# ' .. path_head .. '%*%#CursorLineNr#%t %*'
 end
 
-local function get_modified_status()
+local function get_file_modified_status()
   return '%m'
 end
 
-local function get_help_status()
+local function get_file_help_status()
   return '%h'
 end
 
-local function get_file_status()
-  return get_relative_path_filename()
-  .. ' ' .. get_modified_status()
-  .. ' ' .. get_help_status()
+local function get_file_status_section()
+  return string.format('%s %s %s',
+    get_relative_path_filename(),
+    get_file_modified_status(),
+    get_file_help_status())
 end
 
 local function get_lines()
   return ' %l,%c : %L : %p%%'
 end
 
-local lsp_status = require('lsp-status')
-
 local function get_lsp_status()
-  local status = lsp_status.status()
-
-  if not status or status == '' then return '' end
-
-  return status
+  local status = require('plugins.lsp-status')
+  local diagnostics = status.statusline()
+  return diagnostics
 end
 
 local function get_git_branch()
@@ -35,17 +40,22 @@ local function get_git_branch()
 
   if not git_branch or git_branch == '' then return '' end
 
-  return ' ' .. git_branch
+  return '%#WildMenu#  ' .. git_branch .. '%*'
 end
 
-local status = require("harpoon.mark").status()
+local harpoon_mark = require("harpoon.mark")
 
 local function get_harpoon_status()
-  if status == "" then status = "" end
-  return string.format("♆ %s", status)
+  local mark_id = harpoon_mark.status()
+
+  if not mark_id or mark_id == "" then
+    mark_id = ""
+  end
+
+  return '%#PmenuSel# ♆ ' .. mark_id .. ' %*'
 end
 
-local function is_term()
+local function is_terminal_window()
   local buftype = tostring(Bo.buftype)
 
   if buftype == 'terminal' then return true end
@@ -59,12 +69,12 @@ local section_spacer = '%='
 
 function StatusLine()
 
-  if is_term() then
+  if is_terminal_window() then
     statusline = '  Terminal  '
     .. get_harpoon_status()
   else
     statusline = separator
-    .. get_file_status()
+    .. get_file_status_section()
     .. separator
     .. get_git_branch()
     .. separator
