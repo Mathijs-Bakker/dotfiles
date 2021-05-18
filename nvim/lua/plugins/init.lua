@@ -1,3 +1,4 @@
+TrySource'plugins.rooter'
 TrySource'plugins.startify'
 TrySource'plugins.treesitter'
 TrySource'plugins.lsp-status'
