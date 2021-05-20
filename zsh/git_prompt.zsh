@@ -10,16 +10,16 @@ git_status() {
     local INDEX git_status=""
 
     GIT_SYMBOL="\ue725"
-    GIT_STATUS_ADDED=$(dotfiles::print '008' '+')
-    GIT_STATUS_MODIFIED=$(dotfiles::print '008' '!')
-    GIT_STATUS_UNTRACKED=$(dotfiles::print '008' '?')
-    GIT_STATUS_RENAMED=$(dotfiles::print '208' '»')
-    GIT_STATUS_DELETED=$(dotfiles::print '008' '✘')
-    GIT_STATUS_STASHED=$(dotfiles::print '008' '$')
-    GIT_STATUS_UNMERGED=$(dotfiles::print '008' '=')
-    GIT_STATUS_AHEAD=$(dotfiles::print '008' '⇡')
-    GIT_STATUS_BEHIND=$(dotfiles::print '001' '⇣')
-    GIT_STATUS_DIVERGED=$(dotfiles::print '008' '⇕')
+    GIT_STATUS_ADDED=$(dotfiles::print '003' '')
+    GIT_STATUS_MODIFIED=$(dotfiles::print '003' '!')
+    GIT_STATUS_UNTRACKED=$(dotfiles::print '003' '?')
+    GIT_STATUS_RENAMED=$(dotfiles::print '201' '»')
+    GIT_STATUS_DELETED=$(dotfiles::print '001' '﫧')
+    GIT_STATUS_STASHED=$(dotfiles::print '003' '﬘')
+    GIT_STATUS_UNMERGED=$(dotfiles::print '001' '')
+    GIT_STATUS_AHEAD=$(dotfiles::print '003' '')
+    GIT_STATUS_BEHIND=$(dotfiles::print '001' '')
+    GIT_STATUS_DIVERGED=$(dotfiles::print '001' '')
     GIT_STATUS_CLEAN=$(dotfiles::print '002' '✔')
 
     INDEX=$(command git status --porcelain -b 2>/dev/null)
@@ -94,5 +94,5 @@ git_status() {
     [[ -n "$git_status" ]] || git_status="$GIT_STATUS_CLEAN"
 
     dotfiles::bold "$git_status"
-    dotfiles::print '241' "$git_branch"
+    dotfiles::print '002' "$git_branch"
 }
