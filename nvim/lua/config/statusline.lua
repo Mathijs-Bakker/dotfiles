@@ -3,6 +3,7 @@ local path_sep = require('plenary.path').path.sep
 local function get_relative_path_filename()
 
     local path_head = vim.fn.expand('%:h')
+    -- print("ph " .. path_head)
     if path_head ~= '' then
         path_head = path_head .. path_sep
     end
@@ -26,7 +27,7 @@ local function get_file_status_section()
 end
 
 local function get_lines()
-  return ' %l,%c : %L : %p%%'
+  return '%-20.( %l,%c : %L : %p%% %)'
 end
 
 local function get_lsp_status()
@@ -49,7 +50,7 @@ local function get_harpoon_status()
   local mark_id = harpoon_mark.status()
 
   if not mark_id or mark_id == "" then
-    mark_id = ""
+    return '%#WildMenu# ♆  %*'
   end
 
   return '%#PmenuSel# ♆ ' .. mark_id .. ' %*'

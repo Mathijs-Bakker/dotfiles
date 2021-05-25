@@ -4,8 +4,7 @@ require'rooter'.setup {
     patterns = {
       '.git',    -- same as patterns passed to nvim_lsp.util.root_pattern(patterns...)
       '.sln',
-      'Cargo.toml',
-      'go.mod',
+      'Assets',
     },
     cd_command = 'lcd',
     non_project_files = 'current',

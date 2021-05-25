@@ -37,37 +37,37 @@ map_tele('<leader>en', 'edit_neovim')
 map_tele('<leader>ez', 'edit_zsh')
 
 -- Search
-map_tele('<space>gw', 'grep_string', {
+map_tele('<Leader>gw', 'grep_string', {
   short_path = true,
   word_match = '-w',
   only_sort_text = true,
   layout_strategy = 'vertical',
   sorter = sorters.get_fzy_sorter(),
 })
-map_tele('<space>f/', 'grep_last_search', {
+map_tele('<Leader>f/', 'grep_last_search', {
   layout_strategy = 'vertical',
 })
 
 -- Files
-map_tele('<space>ft', 'git_files')
-map_tele('<space>fg', 'live_grep')
-map_tele('<space>fo', 'oldfiles')
-map_tele('<space>fd', 'fd')
-map_tele('<space>pp', 'project_search')
-map_tele('<space>fv', 'find_nvim_source')
-map_tele('<space>fe', 'file_browser')
+map_tele('<Leader>ft', 'git_files')
+map_tele('<Leader>fg', 'live_grep')
+-- map_tele('<Leader>fo', 'oldfiles')
+-- map_tele('<Leader>fd', 'fd')
+-- map_tele('<Leader>pp', 'project_search')
+-- map_tele('<Leader>fv', 'find_nvim_source')
+map_tele('<Leader>fe', 'file_browser')
 
 -- Nvim
-map_tele('<space>fb', 'buffers')
-map_tele('<space>fp', 'my_plugins')
-map_tele('<space>fa', 'installed_plugins')
-map_tele('<space>fi', 'search_all_files')
-map_tele('<space>ff', 'curbuf')
-map_tele('<space>fh', 'help_tags')
-map_tele('<space>so', 'vim_options')
-map_tele('<space>gp', 'grep_prompt')
+map_tele('<Leader>fb', 'buffers')
+-- map_tele('<Leader>fp', 'my_plugins')
+-- map_tele('<Leader>fa', 'installed_plugins')
+-- map_tele('<Leader>fi', 'search_all_files')
+map_tele('<Leader>ff', 'curbuf')
+map_tele('<Leader>fh', 'help_tags')
+-- map_tele('<Leader>so', 'vim_options')
+-- map_tele('<Leader>gp', 'grep_prompt') --> Conflicts with git push
 
 -- Telescope Meta
-map_tele('<space>fB', 'builtin')
+map_tele('<Leader>fB', 'builtin')
 
 return map_tele

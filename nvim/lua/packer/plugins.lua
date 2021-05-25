@@ -44,6 +44,14 @@ return require'packer'.startup(function()
 
   use { 'famiu/nvim-reload', requires = { 'nvim-lua/plenary.nvim' }}
 
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup {
+      }
+    end
+  }
+
   use 'mrk21/yaml-vim'
 
   -- Appearance
