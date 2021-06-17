@@ -1,6 +1,11 @@
 -- Plenary Busted:
 Nnoremap('<Leader>t', '<Plug>PlenaryWriteAndRunTestFile<CR>')
 
+-- <C-z> suspends Vim to terminal
+-- Disable <C-z> as it's anoying with SKHD keymapings
+-- NeoVim has a terminal behavior alternative.
+Nnoremap ('<C-z>', '<nop>')
+
 -- Reload config/init
 Nnoremap ('<Leader><Leader>r', ':Reload<CR>')
 
