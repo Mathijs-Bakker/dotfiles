@@ -42,8 +42,13 @@ return require'packer'.startup(function()
     }
   }
 
+  -- File Explorer
+  use {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}}
+
+  -- Reload
   use { 'famiu/nvim-reload', requires = { 'nvim-lua/plenary.nvim' }}
 
+  -- Which Key?
   use {
     "folke/which-key.nvim",
     config = function()

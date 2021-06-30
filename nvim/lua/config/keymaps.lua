@@ -80,5 +80,5 @@ vim.api.nvim_set_keymap('n', '<CR>',
 [[{-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()]],
 { expr = true, noremap = true, silent = true })
 
--- Explorer:
-Nnoremap('<Leader>e', ':Lexplore<CR>')
+-- File Explore:
+Nnoremap('<Leader>e', ':NvimTreeToggle<CR>')
