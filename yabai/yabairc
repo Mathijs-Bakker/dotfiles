@@ -51,19 +51,26 @@ yabai -m config --space games layout        float
 # window rules
 yabai -m rule --add app="^kitty$" space=code
 yabai -m rule --add app="^Mail$" space=mail
-yabai -m rule --add app="^Brave$" space=web
+yabai -m rule --add app="^Brave Browser$" space=web
 yabai -m rule --add app="^Notes$" space=notes
+yabai -m rule --add app="^Notities$" space=notes
 yabai -m rule --add app="^Spotify$" space=media
-yabai -m rule --add app="^Discord$" space=social grid=1:1:0:0:1:1 manage=off
+# yabai -m rule --add app="^Discord$" space=social grid=1:1:0:0:1:1 manage=off
+yabai -m rule --add app="^Discord$" manage=off 
 yabai -m rule --add app="^Slack$" space=social grid=1:1:0:0:1:1 manage=off
 yabai -m rule --add app="^Steam$" space=games manage=off
 yabai -m rule --add app="^System Preferences$" manage=off
 
 # signals
 yabai -m signal --add event=window_destroyed active=yes action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse &> /dev/null || yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id) &> /dev/null"
-# yabai -m signal --add event=window_destroyed action="echo \"destroyed window with id \$YABAI_WINDOW_ID\""
-# yabai -m signal --add event=space_changed action="echo \"changed space \$YABAI_RECENT_SPACE_ID -> \$YABAI_SPACE_ID\""
-# yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
+yabai -m signal --add event=window_destroyed action="echo \"destroyed window with id \$YABAI_WINDOW_ID\""
+yabai -m signal --add event=space_changed action="echo \"changed space \$YABAI_RECENT_SPACE_ID -> \$YABAI_SPACE_ID\""
+yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
+
+# Apps that float:
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Systeemvoorkeuren$" manage=off
+yabai -m rule --add app="^Unity Hub$" manage=off
 
 # Limelight:
 killall limelight &> /dev/null
