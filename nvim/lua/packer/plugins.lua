@@ -30,6 +30,7 @@ return require'packer'.startup(function()
   use 'sodapopcan/vim-twiggy'
   use 'junegunn/gv.vim'
   use 'rhysd/git-messenger.vim'
+  use { 'ruifm/gitlinker.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- Telescope
   use {
@@ -60,7 +61,7 @@ return require'packer'.startup(function()
   use 'mrk21/yaml-vim'
 
   -- Appearance
-  use 'kyazdani42/nvim-web-devicons'
+  -- use 'kyazdani42/nvim-web-devicons'
   use 'Mathijs-Bakker/gruvbox'
   -- use 'lifepillar/vim-gruvbox8'
 
