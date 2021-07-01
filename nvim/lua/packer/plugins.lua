@@ -38,13 +38,14 @@ return require'packer'.startup(function()
     requires = {
       {'nvim-lua/popup.nvim'},
       {'nvim-lua/plenary.nvim'},
-      {'yamatsum/nvim-nonicons'},
+      -- {'yamatsum/nvim-nonicons'},
       {'nvim-telescope/telescope-fzf-writer.nvim'}
     }
   }
 
   -- File Explorer
-  use {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}}
+  -- use {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}}
+  use {'tamago324/lir.nvim'}
 
   -- Reload
   use { 'famiu/nvim-reload', requires = { 'nvim-lua/plenary.nvim' }}
@@ -61,7 +62,7 @@ return require'packer'.startup(function()
   use 'mrk21/yaml-vim'
 
   -- Appearance
-  -- use 'kyazdani42/nvim-web-devicons'
+  use 'kyazdani42/nvim-web-devicons'
   use 'Mathijs-Bakker/gruvbox'
   -- use 'lifepillar/vim-gruvbox8'
 

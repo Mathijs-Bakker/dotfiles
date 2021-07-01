@@ -10,7 +10,6 @@ vim.g.mapleader = ' '
 require('globals.utils')
 TrySource('globals')
 --
-
 TrySource('config.options')
 TrySource('config.keymaps')
 TrySource('config.statusline')

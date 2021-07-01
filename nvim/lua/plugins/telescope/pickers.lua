@@ -3,28 +3,33 @@ local action_state = require('telescope.actions.state')
 -- local sorters = require('telescope.sorters')
 local themes = require('telescope.themes')
 
-local _ = require('nvim-nonicons')
-
 local M = {}
 
 --[[ Files: ]]--
 
 function M.find_files()
-  require('telescope.builtin').find_files {}
+ require('telescope.builtin').find_files {
+    prompt_title = " Find Files",
+}
 end
 
 function M.git_files()
-  require('telescope.builtin').git_files {}
+  require('telescope.builtin').git_files {
+    prompt_title = " Git Files",
+}
 end
 
 function M.grep_string()
-  require('telescope.builtin').grep_string {}
+  require('telescope.builtin').grep_string {
+    prompt_title = " Grep String",
+  }
 end
 
 function M.live_grep()
   -- require('telescope.builtin').live_grep {}
 
  require('telescope').extensions.fzf_writer.staged_grep {
+   prompt_title = " Live Grep",
    shorten_path = true,
    previewer = false,
    fzf_separator = "|>"
@@ -35,6 +40,7 @@ function M.file_browser()
   local opts
 
   opts = {
+    prompt_title = " File Brower",
     sorting_strategy = "ascending",
     scroll_strategy = "cycle",
     prompt_position = "top",
@@ -77,6 +83,7 @@ end
 
 function M.grep_word()
   require('telescope.builtin').grep_string {
+    prompt_title = " Grep Word",
     shorten_path = true,
     word_match = '-w',
     only_sort_text = true,
@@ -136,7 +143,7 @@ end
 
 function M.edit_neovim()
   require('telescope.builtin').find_files {
-    prompt_title = "~ dotfiles ~",
+    prompt_title = " Dotfiles",
     shorten_path = false,
     cwd = "~/.config/nvim",
 
@@ -154,12 +161,14 @@ end
 
 function M.buffers()
   require('telescope.builtin').buffers {
+    prompt_title = " Buffers",
     shorten_path = false,
   }
 end
 
 function M.help_tags()
   require('telescope.builtin').help_tags {
+    prompt_title = " Help Tags",
     show_version = true,
   }
 end
@@ -167,6 +176,7 @@ end
 -- end nvim
 function M.git_status()
   local opts = themes.get_dropdown {
+    prompt_title = " Git Status",
     winblend = 10,
     border = true,
     previewer = false,

@@ -79,6 +79,3 @@ Nnoremap('<leader>sws', [[:%s/\s\+$/<CR>]])
 vim.api.nvim_set_keymap('n', '<CR>',
 [[{-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()]],
 { expr = true, noremap = true, silent = true })
-
--- File Explore:
-Nnoremap('<Leader>e', ':NvimTreeToggle<CR>')
