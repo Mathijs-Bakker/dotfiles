@@ -78,4 +78,5 @@ return require'packer'.startup(function()
   use 'ThePrimeagen/harpoon'
   use 'tjdevries/nlua.nvim'
   use 'Mathijs-Bakker/zoom-vim'
+  use 'dstein64/vim-startuptime'
 end)

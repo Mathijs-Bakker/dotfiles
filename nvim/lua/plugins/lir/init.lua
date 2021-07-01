@@ -6,7 +6,7 @@ require'lir'.setup {
   show_hidden_files = true,
   devicons_enable = true,
   mappings = {
-    ['<CR>']     = actions.edit,
+    ['l']     = actions.edit,
     ['<C-s>'] = actions.split,
     ['<C-v>'] = actions.vsplit,
     ['<C-t>'] = actions.tabedit,
@@ -14,11 +14,12 @@ require'lir'.setup {
     ['q']     = actions.quit,
     ['K']     = actions.mkdir,
     ['N']     = actions.newfile,
+    ['D']     = actions.delete,
     ['R']     = actions.rename,
     ['@']     = actions.cd,
     ['Y']     = actions.yank_path,
     ['.']     = actions.toggle_show_hidden,
-    ['J'] = function()
+    ['M'] = function()
       mark_actions.toggle_mark()
       vim.cmd('normal! j')
     end,
