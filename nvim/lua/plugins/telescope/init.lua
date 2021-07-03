@@ -22,14 +22,10 @@ require('telescope').setup{
     layout_strategy = "horizontal",
     layout_config = {
       horizontal = {
-        width_padding = 0.1,
-        height_padding = 0.1,
-        preview_width = 0.6,
+	preview_width = 0.6,
       },
       vertical = {
-        width_padding = 0.05,
-        height_padding = 1,
-        preview_height = 0.5,
+	preview_height = 0.5,
       },
       preview_cutoff = 120,
       prompt_position = "bottom",
