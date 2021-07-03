@@ -100,6 +100,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/harpoon"
   },
+  ["lir-bookmark.nvim"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/lir-bookmark.nvim"
+  },
+  ["lir-git-status.nvim"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/lir-git-status.nvim"
+  },
   ["lir.nvim"] = {
     loaded = true,
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/lir.nvim"
@@ -195,6 +203,10 @@ _G.packer_plugins = {
   ["vim-startify"] = {
     loaded = true,
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/vim-startify"
+  },
+  ["vim-startuptime"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/vim-startuptime"
   },
   ["vim-twiggy"] = {
     loaded = true,

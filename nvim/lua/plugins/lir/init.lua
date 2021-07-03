@@ -26,6 +26,8 @@ require'lir'.setup {
     ['C'] = clipboard_actions.copy,
     ['X'] = clipboard_actions.cut,
     ['P'] = clipboard_actions.paste,
+    ['B']     = require'lir.bookmark.actions'.list,
+    ['ba']     = require'lir.bookmark.actions'.add,
   },
   float = {
     winblend = 15,
@@ -57,7 +59,7 @@ require'nvim-web-devicons'.setup({
   }
 })
 
-Nnoremap('-', [[:edit %:h<CR>]])
+Nnoremap('<Leader>e', [[:edit %:h<CR>]])
 
 -- use visual mode
 function _G.LirSettings()
@@ -69,3 +71,21 @@ vim.cmd [[augroup lir-settings]]
 vim.cmd [[  autocmd!]]
 vim.cmd [[  autocmd Filetype lir :lua LirSettings()]]
 vim.cmd [[augroup END]]
+
+local b_actions = require'lir.bookmark.actions'
+require'lir.bookmark'.setup {
+  bookmark_path = '~/.lir_bookmark',
+  mappings = {
+    ['l']     = b_actions.edit,
+    ['<C-s>'] = b_actions.split,
+    ['<C-v>'] = b_actions.vsplit,
+    ['<C-t>'] = b_actions.tabedit,
+    ['<C-e>'] = b_actions.open_lir,
+    ['B']     = b_actions.open_lir,
+    ['q']     = b_actions.open_lir,
+  }
+}
+
+require'lir.git_status'.setup({
+  show_ignored = true
+})

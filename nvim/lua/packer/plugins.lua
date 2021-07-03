@@ -46,6 +46,8 @@ return require'packer'.startup(function()
   -- File Explorer
   -- use {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}}
   use {'tamago324/lir.nvim'}
+  use {'tamago324/lir-bookmark.nvim'}
+  use {'tamago324/lir-git-status.nvim'}
 
   -- Reload
   use { 'famiu/nvim-reload', requires = { 'nvim-lua/plenary.nvim' }}
