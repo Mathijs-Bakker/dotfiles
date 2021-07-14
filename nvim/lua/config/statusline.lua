@@ -50,8 +50,8 @@ local function get_harpoon_status()
   local mark_id = harpoon_mark.status()
 
   if not mark_id or mark_id == "" then
-    -- return '%#WildMenu# ♆  %*'
-    return '%#WildMenu# ♆ -- %*'
+    return '%#WildMenu# ♆  %*'
+    -- return '%#WildMenu# ♆ -- %*'
   end
 
   return '%#PmenuSel# ♆ ' .. mark_id .. ' %*'
