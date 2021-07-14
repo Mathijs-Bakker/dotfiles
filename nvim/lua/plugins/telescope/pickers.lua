@@ -30,7 +30,7 @@ function M.live_grep()
 
  require('telescope').extensions.fzf_writer.staged_grep {
    prompt_title = " Live Grep ",
-   shorten_path = true,
+   path_display = { "absolute" },
    previewer = false,
    fzf_separator = "|>"
  }
@@ -86,7 +86,7 @@ end
 function M.grep_word()
   require('telescope.builtin').grep_string {
     prompt_title = " Grep Word ",
-    shorten_path = true,
+    path_display = { "absolute" },
     word_match = '-w',
     only_sort_text = true,
     layout_strategy = 'vertical'
@@ -102,7 +102,6 @@ function M.lsp_code_actions()
     winblend = 10,
     border = true,
     previewer = false,
-    shorten_path = false,
   }
 
   require('telescope.builtin').lsp_code_actions(opts)
@@ -134,7 +133,6 @@ function M.lsp_diagnostics()
     winblend = 10,
     border = true,
     previewer = false,
-    shorten_path = false,
   }
 
   require('telescope.builtin').lsp_diagnostics(opts)
@@ -146,7 +144,6 @@ end
 function M.neovim_config()
   require('telescope.builtin').find_files {
     prompt_title = " Neovim RC ",
-    shorten_path = false,
     cwd = "~/.dotfiles/nvim/",
     layout_strategy = 'flex',
     layout_config = {
@@ -163,7 +160,6 @@ end
 function M.dotfiles()
   require('telescope.builtin').find_files {
     prompt_title = " Dotfiles ",
-    shorten_path = false,
     cwd = "~/.dotfiles/",
     layout_strategy = 'flex',
   }
@@ -172,7 +168,6 @@ end
 function M.buffers()
   require('telescope.builtin').buffers {
     prompt_title = " Buffers ",
-    shorten_path = false,
   }
 end
 
@@ -190,7 +185,6 @@ function M.git_status()
     winblend = 10,
     border = true,
     previewer = false,
-    shorten_path = false,
     git_icons = {
       changed = "M"
     }
