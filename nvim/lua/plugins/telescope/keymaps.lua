@@ -14,6 +14,9 @@ local function ts_map (key, picker_f)
   -- vim.api.nvim_buf_set_keymap(0, 'n', key, rhs, opts)
 end
 
+-- Navigation:
+ts_map('<Leader>k', 'moveuo')
+
 -- Lsp:
 ts_map ('<Leader>cr', 'lsp_references')
 ts_map ('<Leader>ca', 'lsp_code_actions')
