@@ -16,8 +16,10 @@ Nnoremap([['']], [[:luafile init.lua]])
 Inoremap('<C-j> <Esc>', ':m .+1<CR>==gi')
 Inoremap('<C-k> <Esc>', ':m .-2<CR>==gi')
 -- 'gv' to hl back
-Vnoremap('<C-j>', ":m '>+1<cr>gv=gv")
-Vnoremap('<C-k>', ":m '<-2<cr>gv=gv")
+-- Vnoremap('<C-j>', ":m '>+1<cr>gv=gv")
+-- Vnoremap('<C-k>', ":m '<-2<cr>gv=gv")
+Vnoremap('<S-j>', ":m '>+1<cr>gv=gv")
+Vnoremap('<S-k>', ":m '<-2<cr>gv=gv")
 
 -- Navigate to next error:
 Nnoremap('<leader>l', ':lnext<CR>')
