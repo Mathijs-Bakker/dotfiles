@@ -40,7 +40,7 @@ yabai -m space 2 --label web
 yabai -m space 3 --label notes
 yabai -m space 4 --label gfx
 yabai -m space 5 --label mail
-yabai -m space 5 --label social
+yabai -m space 6 --label social
 yabai -m space 7 --label media
 yabai -m space 8 --label games
 
