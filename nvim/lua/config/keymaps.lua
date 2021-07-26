@@ -1,3 +1,7 @@
+--[[ Primo Refactoring-Vim ]]--
+ -- vnoremap <leader>i :lua require("refactoring.106").extract()<CR>
+Vnoremap('<Leader>i',  [[:lua require("refactoring.106").extract()<CR>]])
+
 -- Plenary Busted:
 Nnoremap('<Leader>t', '<Plug>PlenaryWriteAndRunTestFile<CR>')
 

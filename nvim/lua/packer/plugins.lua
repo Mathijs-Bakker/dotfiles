@@ -3,6 +3,7 @@ return require'packer'.startup(function()
   use 'wbthomason/packer.nvim'
 
   -- use { '~/Repositories/plenary.nvim', branch = 'bustin-makes-you-feel-good' }
+  use { '~/Repositories/refactoring.nvim' }
 
   -- Treesitter:
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate all' }
