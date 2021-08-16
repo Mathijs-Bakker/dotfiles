@@ -15,7 +15,7 @@ local function ts_map (key, picker_f)
 end
 
 -- Navigation:
-ts_map('<Leader>k', 'moveuo')
+-- ts_map('<Leader>k', 'moveuo')
 
 -- Lsp:
 ts_map ('<Leader>cr', 'lsp_references')
