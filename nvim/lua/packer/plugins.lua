@@ -25,6 +25,7 @@ return require'packer'.startup(function()
   -- use 'L3MON4D3/LuaSnip'
 
   -- Git:
+  use 'ThePrimeagen/git-worktree.nvim'
   use 'tpope/vim-fugitive'
   use 'shumphrey/fugitive-gitlab.vim'
   use 'tpope/vim-rhubarb'
