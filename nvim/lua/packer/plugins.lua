@@ -19,7 +19,8 @@ return require'packer'.startup(function()
   -- Completion:
   use 'hrsh7th/nvim-compe'
   use 'norcalli/snippets.nvim'
-  use 'hrsh7th/vim-vsnip'
+  -- use 'hrsh7th/vim-vsnip'
+  use 'L3MON4D3/LuaSnip'
 
   -- Need to try this as it looks promising:
   -- use 'L3MON4D3/LuaSnip'
@@ -70,6 +71,10 @@ return require'packer'.startup(function()
   use 'Mathijs-Bakker/gruvbox'
   -- use 'lifepillar/vim-gruvbox8'
 
+  -- Writing
+  use 'junegunn/goyo.vim'
+
+  -- Misc:
   use 'mhinz/vim-startify'
   -- use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
   use 'tpope/vim-commentary'
