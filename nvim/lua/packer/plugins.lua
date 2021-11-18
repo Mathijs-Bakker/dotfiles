@@ -17,13 +17,10 @@ return require'packer'.startup(function()
   use 'glepnir/lspsaga.nvim'
 
   -- Completion:
-  use 'hrsh7th/nvim-compe'
-  use 'norcalli/snippets.nvim'
+  use 'hrsh7th/nvim-cmp'
+  -- use 'norcalli/snippets.nvim'
   -- use 'hrsh7th/vim-vsnip'
   use 'L3MON4D3/LuaSnip'
-
-  -- Need to try this as it looks promising:
-  -- use 'L3MON4D3/LuaSnip'
 
   -- Git:
   use 'ThePrimeagen/git-worktree.nvim'
