@@ -79,6 +79,51 @@ _G.packer_plugins = {
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
+  },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-nvim-lsp-document-symbol"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp-document-symbol",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp-document-symbol"
+  },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
+  },
+  ["cmp-spell"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/cmp-spell",
+    url = "https://github.com/f3fora/cmp-spell"
+  },
+  ["cmp-zsh"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/cmp-zsh",
+    url = "https://github.com/tamago324/cmp-zsh"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
   ["fugitive-gitlab.vim"] = {
     loaded = true,
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/fugitive-gitlab.vim",
@@ -154,10 +199,10 @@ _G.packer_plugins = {
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/nlua.nvim",
     url = "https://github.com/tjdevries/nlua.nvim"
   },
-  ["nvim-compe"] = {
+  ["nvim-cmp"] = {
     loaded = true,
-    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/nvim-compe",
-    url = "https://github.com/hrsh7th/nvim-compe"
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -208,11 +253,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/rooter.nvim",
     url = "https://github.com/oberblastmeister/rooter.nvim"
-  },
-  ["snippets.nvim"] = {
-    loaded = true,
-    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/snippets.nvim",
-    url = "https://github.com/norcalli/snippets.nvim"
   },
   ["telescope-fzf-writer.nvim"] = {
     loaded = true,

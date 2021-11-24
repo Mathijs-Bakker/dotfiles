@@ -16,6 +16,7 @@ TrySource('config.statusline')
 
 TrySource('packer.plugins')
 TrySource('plugins.completion')
+TrySource('plugins.luasnip')
 TrySource('plugins')
 TrySource('lsp')
 

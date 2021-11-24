@@ -56,10 +56,16 @@ if client.resolved_capabilities.document_formatting then
          ]], true)
     end
 end
+
+-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 nvim_lsp.tsserver.setup {
     on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
         on_attach(client)
+	capabilities = capabilities
     end
 }
 local filetypes = {

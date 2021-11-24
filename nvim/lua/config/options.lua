@@ -40,7 +40,7 @@ O.pumblend = 17
 Bo.tabstop = 4
 Bo.softtabstop = 4
 Bo.shiftwidth = 4
-O.shiftround = true
+-- O.shiftround = true
 Bo.expandtab = true
 
 Bo.autoindent = true

@@ -18,9 +18,17 @@ return require'packer'.startup(function()
 
   -- Completion:
   use 'hrsh7th/nvim-cmp'
-  -- use 'norcalli/snippets.nvim'
-  -- use 'hrsh7th/vim-vsnip'
   use 'L3MON4D3/LuaSnip'
+  -- Cmp sources:
+  use 'f3fora/cmp-spell'			-- src for vim's spellsuggest
+  use 'hrsh7th/cmp-buffer'			-- src for buffer words
+  use 'hrsh7th/cmp-cmdline' 			-- src for vim's cmdline
+  use 'hrsh7th/cmp-nvim-lua'			-- src for nvim lua
+  use 'hrsh7th/cmp-nvim-lsp' 			-- src for neovim builtin LSP client
+  use 'hrsh7th/cmp-nvim-lsp-document-symbol'
+  use 'hrsh7th/cmp-path'			-- src for path
+  use 'saadparwaiz1/cmp_luasnip' 		-- src for luasnip
+  use 'tamago324/cmp-zsh'
 
   -- Git:
   use 'ThePrimeagen/git-worktree.nvim'
@@ -85,4 +93,7 @@ return require'packer'.startup(function()
   use 'tjdevries/nlua.nvim'
   use 'Mathijs-Bakker/zoom-vim'
   use 'dstein64/vim-startuptime'
+
+  -- Language specific:
+  use 'ckipp01/stylua-nvim'
 end)
