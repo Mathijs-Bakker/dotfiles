@@ -1,4 +1,4 @@
-return require'packer'.startup(function()
+return require('packer').startup(function()
   -- Let Packer manage itself
   use 'wbthomason/packer.nvim'
 
@@ -13,21 +13,21 @@ return require'packer'.startup(function()
   -- LSP:
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/lsp-status.nvim'
-  use 'onsails/lspkind-nvim'
   use 'glepnir/lspsaga.nvim'
 
   -- Completion:
-  use 'hrsh7th/nvim-cmp'
-  use 'L3MON4D3/LuaSnip'
-  -- Cmp sources:
-  use 'f3fora/cmp-spell'			-- src for vim's spellsuggest
-  use 'hrsh7th/cmp-buffer'			-- src for buffer words
-  use 'hrsh7th/cmp-cmdline' 			-- src for vim's cmdline
-  use 'hrsh7th/cmp-nvim-lua'			-- src for nvim lua
-  use 'hrsh7th/cmp-nvim-lsp' 			-- src for neovim builtin LSP client
+  use 'hrsh7th/nvim-cmp' -- Cmp
+  use 'L3MON4D3/LuaSnip' -- Snippets
+  use 'onsails/lspkind-nvim' --  vscode-like pictograms
+  -- Nvim-Cmp sources:
+  use 'f3fora/cmp-spell' -- src for vim's spellsuggest
+  use 'hrsh7th/cmp-buffer' -- src for buffer words
+  use 'hrsh7th/cmp-cmdline' -- src for vim's cmdline
+  use 'hrsh7th/cmp-nvim-lua' -- src for nvim lua
+  use 'hrsh7th/cmp-nvim-lsp' -- src for neovim builtin LSP client
   use 'hrsh7th/cmp-nvim-lsp-document-symbol'
-  use 'hrsh7th/cmp-path'			-- src for path
-  use 'saadparwaiz1/cmp_luasnip' 		-- src for luasnip
+  use 'hrsh7th/cmp-path' -- src for path
+  use 'saadparwaiz1/cmp_luasnip' -- src for luasnip
   use 'tamago324/cmp-zsh'
 
   -- Git:
@@ -44,29 +44,28 @@ return require'packer'.startup(function()
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
-      {'nvim-lua/popup.nvim'},
-      {'nvim-lua/plenary.nvim'},
+      { 'nvim-lua/popup.nvim' },
+      { 'nvim-lua/plenary.nvim' },
       -- {'yamatsum/nvim-nonicons'},
-      {'nvim-telescope/telescope-fzf-writer.nvim'}
-    }
+      { 'nvim-telescope/telescope-fzf-writer.nvim' },
+    },
   }
 
   -- File Explorer
   -- use {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}}
-  use {'tamago324/lir.nvim'}
-  use {'tamago324/lir-bookmark.nvim'}
-  use {'tamago324/lir-git-status.nvim'}
+  use { 'tamago324/lir.nvim' }
+  use { 'tamago324/lir-bookmark.nvim' }
+  use { 'tamago324/lir-git-status.nvim' }
 
   -- Reload
-  use { 'famiu/nvim-reload', requires = { 'nvim-lua/plenary.nvim' }}
+  use { 'famiu/nvim-reload', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Which Key?
   use {
-    "folke/which-key.nvim",
+    'folke/which-key.nvim',
     config = function()
-      require("which-key").setup {
-      }
-    end
+      require('which-key').setup {}
+    end,
   }
 
   use 'mrk21/yaml-vim'
