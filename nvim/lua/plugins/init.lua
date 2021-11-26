@@ -1,4 +1,4 @@
-TrySource'plugins.rooter'
+-- TrySource'plugins.rooter'
 -- TrySource'plugins.nvim-web-devicons'
 TrySource'plugins.startify'
 TrySource'plugins.treesitter'

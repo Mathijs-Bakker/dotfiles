@@ -86,7 +86,7 @@ return require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'sickill/vim-pasta'
   -- use 'airblade/vim-rooter'
-  use 'oberblastmeister/rooter.nvim'
+  -- use 'oberblastmeister/rooter.nvim'
   use 'euclidianAce/BetterLua.vim'
   use 'ThePrimeagen/harpoon'
   use 'tjdevries/nlua.nvim'

@@ -249,11 +249,6 @@ _G.packer_plugins = {
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/refactoring.nvim",
     url = "/Users/MateoPanadero/Repositories/refactoring.nvim"
   },
-  ["rooter.nvim"] = {
-    loaded = true,
-    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/rooter.nvim",
-    url = "https://github.com/oberblastmeister/rooter.nvim"
-  },
   ["stylua-nvim"] = {
     loaded = true,
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/stylua-nvim",
