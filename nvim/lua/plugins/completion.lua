@@ -1,5 +1,3 @@
--- O.completeopt = "menuone,noinsert,noselect"
-
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match '%s' == nil
@@ -12,9 +10,6 @@ local icons = require 'lspkind'
 
 -- Setup nvim-cmp:
 cmp.setup {
-  completion = {
-    autocomplete = true,
-  },
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
@@ -64,6 +59,7 @@ cmp.setup {
     { name = 'nvim_lsp', max_item_count = 5 },
     { name = 'luasnip' },
     { name = 'nvim_lua' },
+    { name = 'custom_source' },
     { name = 'path' },
     { name = 'spell' },
     { name = 'zsh' },
@@ -78,11 +74,19 @@ cmp.setup {
   },
   sorting = {
     comparators = {
-      -- Buffer(s): Return result nearest to the cursor, then other buffers.
+      -- Buffer(s): Return result nearest to the cursor, then from other buffers.
       function(...)
         return cmp_buffer:compare_locality(...)
       end,
-      -- The rest of your comparators...
+      -- Default comperators:
+      -- cmp.config.compare.offset,
+      -- cmp.config.compare.exact,
+      -- cmp.config.compare.score,
+      -- cmp.config.compare.recently_used,
+      -- cmp.config.compare.kind,
+      -- cmp.config.compare.sort_text,
+      -- cmp.config.compare.length,
+      -- cmp.config.compare.order,
     },
   },
   formatting = {
@@ -90,13 +94,12 @@ cmp.setup {
       with_text = true,
       maxwidth = 50,
       menu = {
+        custom_source = '[cust]',
         buffer = '[buf]',
         nvim_lsp = '[lsp]',
-        luasnip = '[snp]',
+        luasnip = '[snip]',
         nvim_lua = '[api]',
         path = '[path]',
-        -- gh_issues = '[issues]',
-        -- tn = '[TabNine]',
       },
     },
   },
