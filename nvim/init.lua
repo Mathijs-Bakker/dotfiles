@@ -1,4 +1,4 @@
-if require'packer.install_packer'() then
+if require 'packer.install_packer'() then
   return
 end
 
@@ -7,17 +7,16 @@ vim.api.nvim_set_keymap('n', '<Space>', '', {})
 vim.g.mapleader = ' '
 
 --[[ Global helpers needs to be on top of init.lua --]]
-require('globals.utils')
-TrySource('globals')
+require 'globals.utils'
+TrySource 'globals'
 --
-TrySource('config.options')
-TrySource('config.keymaps')
-TrySource('config.statusline')
+TrySource 'config.options'
+TrySource 'config.keymaps'
+TrySource 'config.statusline'
 
-TrySource('packer.plugins')
-TrySource('plugins.completion')
-TrySource('plugins.luasnip')
-TrySource('plugins')
-TrySource('lsp')
+TrySource 'packer.plugins'
+TrySource 'plugins.completion'
+TrySource 'plugins'
+TrySource 'lsp'
 
-vim.cmd(':source $HOME/.dotfiles/nvim/autoload/file_sourcer.vim')
+vim.cmd ':source $HOME/.dotfiles/nvim/autoload/file_sourcer.vim'

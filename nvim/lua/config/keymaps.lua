@@ -1,6 +1,7 @@
---[[ Primo Refactoring-Vim ]]--
- -- vnoremap <leader>i :lua require("refactoring.106").extract()<CR>
-Vnoremap('<Leader>i',  [[:lua require("refactoring.106").extract()<CR>]])
+--[[ Primo Refactoring-Vim ]]
+--
+-- vnoremap <leader>i :lua require("refactoring.106").extract()<CR>
+Vnoremap('<Leader>i', [[:lua require("refactoring.106").extract()<CR>]])
 
 -- Plenary Busted:
 Nnoremap('<Leader>t', '<Plug>PlenaryWriteAndRunTestFile<CR>')
@@ -8,10 +9,10 @@ Nnoremap('<Leader>t', '<Plug>PlenaryWriteAndRunTestFile<CR>')
 -- <C-z> suspends Vim to terminal
 -- Disable <C-z> as it's anoying with SKHD keymapings
 -- NeoVim has a terminal behavior alternative.
-Nnoremap ('<C-z>', '<nop>')
+Nnoremap('<C-z>', '<nop>')
 
 -- Reload config/init
-Nnoremap ('<Leader><Leader>r', ':Reload<CR>')
+Nnoremap('<Leader><Leader>r', ':Reload<CR>')
 
 Nnoremap([['']], [[:luafile init.lua]])
 --[[  Movement: --]]
@@ -21,9 +22,8 @@ Inoremap('<C-j> <Esc>', ':m .+1<CR>==')
 Vnoremap('<S-j>', ":m '>+1<cr>gv=gv")
 Vnoremap('<S-k>', ":m '<-2<cr>gv=gv")
 
-Nnoremap ('<Leader>k', [[:m .-2<CR>==']])
-Nnoremap ('<Leader>j', [[:m .+1<CR>==']])
-
+Nnoremap('<Leader>k', [[:m .-2<CR>==']])
+Nnoremap('<Leader>j', [[:m .+1<CR>==']])
 
 -- Location List:
 -- Navigate to next error:
@@ -80,7 +80,8 @@ Nnoremap('<C-l>', '<c-w><c-l>')
 -- shorter
 -- Nnoremap('<A-s>', '<C-W>-')
 
---[[ Custom Vim Behavior: ]]--
+--[[ Custom Vim Behavior: ]]
+--
 
 -- Escape:
 Inoremap('kj', '<Esc>')
@@ -89,25 +90,31 @@ Vnoremap('kj', '<Esc>')
 Tnoremap('kj', [[<C-\><C-n>]])
 
 -- Yank last part from current cursor position:
-Nnoremap ('<S-y>', [[y$]])
+Nnoremap('<S-y>', [[y$]])
 
 -- Center contexts:
-Nnoremap ('n', [[nzzzv]])
-Nnoremap ('<S-n>', [[Nzzzv]])
-Nnoremap ('<S-j>', [[mzJ`z]])
+Nnoremap('n', [[nzzzv]])
+Nnoremap('<S-n>', [[Nzzzv]])
+Nnoremap('<S-j>', [[mzJ`z]])
 
 -- Undo Breakpoints:
-Inoremap (',', [[,<C-g>u]])
-Inoremap ('.', [[.<C-g>u]])
-Inoremap ('!', [[!<C-g>u]])
-Inoremap ('?', [[?<C-g>u]])
+Inoremap(',', [[,<C-g>u]])
+Inoremap('.', [[.<C-g>u]])
+Inoremap('!', [[!<C-g>u]])
+Inoremap('?', [[?<C-g>u]])
 
---[[ Misc: ]]--
+--[[ Misc: ]]
+--
 
 -- Remove Whitespaces:
 Nnoremap('<leader>sws', [[:%s/\s\+$/<CR>]])
 
 -- Clear Search Highlights:
-vim.api.nvim_set_keymap('n', '<CR>',
-[[{-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()]],
-{ expr = true, noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+  'n',
+  '<CR>',
+  [[{-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()]],
+  { expr = true, noremap = true, silent = true }
+)
+
+-- Reload
