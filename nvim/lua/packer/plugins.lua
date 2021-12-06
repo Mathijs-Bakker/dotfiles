@@ -30,6 +30,21 @@ return require('packer').startup(function()
   use 'saadparwaiz1/cmp_luasnip' -- src for luasnip
   use 'tamago324/cmp-zsh'
 
+  -- use 'rafamadriz/friendly-snippets'
+
+  -- Debugger Adaptor Protocol:
+  -- TODO: Read the docs
+  use 'mfussenegger/nvim-dap'
+
+  -- Clipboard Manager:
+  -- TODO: Read the docs
+  use {
+    'AckslD/nvim-neoclip.lua',
+    config = function()
+      require('neoclip').setup()
+    end,
+  }
+
   -- Git:
   use 'ThePrimeagen/git-worktree.nvim'
   use 'tpope/vim-fugitive'

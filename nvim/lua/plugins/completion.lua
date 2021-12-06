@@ -24,14 +24,8 @@ cmp.setup {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     },
-    -- vim.cmd [[
-    --  imap <silent><expr> <c-k> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<c-k>'
-    --  inoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<CR>
-    --  imap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-l>'
-    --  snoremap <silent> <c-k> <cmd>lua require('luasnip').jump(1)<CR>
-    --  snoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<CR>
-    -- ]]
     ['<CR>'] = cmp.mapping.confirm { select = true },
+
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -56,8 +50,8 @@ cmp.setup {
   },
   -- The order of the sources list defines the priority of each source.
   sources = cmp.config.sources {
-    { name = 'nvim_lsp', max_item_count = 5 },
     { name = 'luasnip' },
+    { name = 'nvim_lsp', max_item_count = 5 },
     { name = 'nvim_lua' },
     { name = 'custom_source' },
     { name = 'path' },
