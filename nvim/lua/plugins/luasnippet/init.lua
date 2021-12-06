@@ -168,7 +168,7 @@ ls.snippets = {
     s('ctor',
     {
       t { 'public ' }, i(1), t { '(' }, i(2), t {' ' }, i(3), t { ')', '' },
-      t {'{', '' },
+      t { '{', '' },
 	i(0),
       t { '', '}' },
     }),
@@ -179,10 +179,13 @@ ls.snippets = {
     s('class',
     {
       c(1, {
-	t("public "),
-	t("private "),
+	    t 'public ',
+	    t 'private ',
       }),
-      t { 'class' },
+      t { 'class ' }, i(1), t { '' },
+      t { '{', ''},
+	i(0),
+      t { '}' },
     }),
   },
   -- When trying to expand a snippet, luasnip first searches the tables for
