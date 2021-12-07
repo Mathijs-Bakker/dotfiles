@@ -35,34 +35,44 @@ yabai -m config right_padding                5
 yabai -m config window_gap                   5
 
 # mission-control desktop labels
-yabai -m space 1 --label code
-yabai -m space 2 --label web
-yabai -m space 3 --label notes
-yabai -m space 4 --label gfx
-yabai -m space 5 --label mail
-yabai -m space 6 --label social
-yabai -m space 7 --label media
-yabai -m space 8 --label games
+yabai -m space 1 --label console
+yabai -m space 2 --label ide
+yabai -m space 3 --label web
+yabai -m space 4 --label system
+yabai -m space 5 --label unity
+yabai -m space 6 --label gfx
+yabai -m space 7 --label mail
+yabai -m space 8 --label social
+yabai -m space 9 --label media
+yabai -m space 10 --label games
+yabai -m space 11 --label office
 
 # specific space settings
 yabai -m config --space 1 layout stack
 yabai -m config --space 2 layout stack
 yabai -m config --space 4 layout stack
-yabai -m config --space 8 layout float
+# yabai -m config --space 8 layout float
 
 # window rules
-yabai -m rule --add app="^kitty$" space=code
-yabai -m rule --add app="^Alacritty$" space=code
-yabai -m rule --add app="^Rider$" space=code
+yabai -m rule --add app="^Finder$" space=system
+yabai -m rule --add app="^kitty$" space=console
+yabai -m rule --add app="^Alacritty$" space=console
+yabai -m rule --add app="^Rider$" space=ide
+yabai -m rule --add app="^Xcode$" space=ide
+yabai -m rule --add app="^Visual Studio$" space=ide
 yabai -m rule --add app="^Brave Browser$" space=web
 yabai -m rule --add app="^Safari$" space=web
 yabai -m rule --add app="^Firefox$" space=web
 yabai -m rule --add app="^Voorvertoning$" space=notes
-yabai -m rule --add app="^Notes$" space=notes
-yabai -m rule --add app="^Notities$" space=notes
-yabai -m rule --add app="^Agenda$" space=notes
+yabai -m rule --add app="^Notes$" space=office
+yabai -m rule --add app="^Notities$" space=office
+yabai -m rule --add app="^Agenda$" space=office
+yabai -m rule --add app="^Word$" space=office
+yabai -m rule --add app="^Pages$" space=office
+yabai -m rule --add app="^Excel$" space=office
+yabai -m rule --add app="^Pages$" space=office
 yabai -m rule --add app="^Blender$" space=gfx
-yabai -m rule --add app="^Unity$" space=gfx
+yabai -m rule --add app="^Unity$" space=unity
 yabai -m rule --add app="^Adobe Photoshop CC 2018$" space=gfx
 yabai -m rule --add app="^Adobe Indesign CC 2018$" space=gfx
 yabai -m rule --add app="^Adobe Illustrator CC 2018$" space=gfx
@@ -72,9 +82,16 @@ yabai -m rule --add app="^Muziek$" space=media
 yabai -m rule --add app="^Discord$" space=social
 yabai -m rule --add app="^Slack$" space=social
 
+yabai -m rule --add app="^Game$" space=games
+yabai -m rule --add app="^Fubar$" space=games
+yabai -m rule --add app="^Hearthstone$" space=games
+yabai -m rule --add app="^Battle.net$" space=games
+
 # Apps that float:
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Systeemvoorkeuren$" manage=off
+yabai -m rule --add app="^Calculator.app$" manage=off
+yabai -m rule --add app="^Rekenmachine$" manage=off
 yabai -m rule --add app="^Unity Hub$" manage=off
 yabai -m rule --add app="^Steam$" space=games manage=off
 
