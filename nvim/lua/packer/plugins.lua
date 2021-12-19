@@ -110,4 +110,5 @@ return require('packer').startup(function()
 
   -- Language specific:
   use 'ckipp01/stylua-nvim'
+  use 'simrat39/rust-tools.nvim'
 end)
