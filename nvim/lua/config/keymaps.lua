@@ -66,13 +66,13 @@ Nnoremap('<C-l>', '<c-w><c-l>')
 
 -- Window sizing:
 -- Resize windows to be basically the same size
--- Nnoremap('<leader>=', '<C-w>=')
+Nnoremap('<leader>=', '<C-w>=')
 
 -- Sizing window horizontally
--- Nnoremap('<c-,>', '<C-W><')
--- Nnoremap('<c-.>', '<C-W>>')
--- Nnoremap('<A-,>', '<C-W>5<')
--- Nnoremap('<A-.>', '<C-W>5>')
+Nnoremap('<c-,>', '<C-W><')
+Nnoremap('<c-.>', '<C-W>>')
+Nnoremap('<A-,>', '<C-W>5<')
+Nnoremap('<A-.>', '<C-W>5>')
 
 -- Sizing window vertically
 -- taller
