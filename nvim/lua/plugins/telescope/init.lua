@@ -52,6 +52,22 @@ require('telescope').setup {
         use_highlighter = false,
         minimum_grep_characters = 6,
       },
+      frecency = {
+        db_root = '~/.local/share/nvim/db_root',
+        show_scores = false,
+        show_unindexed = true,
+        ignore_patterns = { '*.git/*', '*/tmp/*' },
+        disable_devicons = false,
+        workspaces = {
+          -- TODO: Need to investigate this further:
+          ['conf'] = '~/.config',
+          ['data'] = '~/.local/share',
+          -- ['project'] = '~/projects',
+          ['repo'] = '~/Repositories',
+          ['docs'] = '~/Documents',
+          -- ['wiki'] = '/home/my_username/wiki',
+        },
+      },
     },
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require('telescope.previewers').buffer_previewer_maker,

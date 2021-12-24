@@ -1,50 +1,56 @@
 -- local actions = require('telescope.actions')
-local action_state = require('telescope.actions.state')
+local action_state = require 'telescope.actions.state'
 -- local sorters = require('telescope.sorters')
-local themes = require('telescope.themes')
+local themes = require 'telescope.themes'
 
 local M = {}
 
---[[ Files: ]]--
+--[[ Files: ]]
+--
 
 function M.find_files()
- require('telescope.builtin').find_files {
-    prompt_title = " Find Files ",
-}
+  require('telescope.builtin').find_files {
+    prompt_title = ' Find Files ',
+  }
+end
+
+function M.find_recent()
+  -- require('telescope').extensions.frecency(themes.get_ivy {})
+  require('telescope').extensions.frecency.frecency(themes.get_ivy {})
 end
 
 function M.git_files()
   require('telescope.builtin').git_files {
-    prompt_title = " Git Files ",
-}
+    prompt_title = ' Git Files ',
+  }
 end
 
 function M.grep_string()
   require('telescope.builtin').grep_string {
-    prompt_title = " Grep String ",
+    prompt_title = ' Grep String ',
   }
 end
 
 function M.live_grep()
   -- require('telescope.builtin').live_grep {}
 
- require('telescope').extensions.fzf_writer.staged_grep {
-   prompt_title = " Live Grep ",
-   path_display = { "absolute" },
-   previewer = false,
-   fzf_separator = "|>"
- }
+  require('telescope').extensions.fzf_writer.staged_grep {
+    prompt_title = ' Live Grep ',
+    path_display = { 'absolute' },
+    previewer = false,
+    fzf_separator = '|>',
+  }
 end
 
 function M.file_browser()
   local opts
 
   opts = {
-    prompt_title = " File Brower ",
-    sorting_strategy = "ascending",
-    scroll_strategy = "cycle",
+    prompt_title = ' File Brower ',
+    sorting_strategy = 'ascending',
+    scroll_strategy = 'cycle',
     layout_config = {
-      prompt_position = "top",
+      prompt_position = 'top',
     },
 
     attach_mappings = function(prompt_bufnr, map)
@@ -55,8 +61,12 @@ function M.file_browser()
         current_picker:refresh(opts.new_finder(new_cwd), { reset_prompt = true })
       end
 
-      map('i', '-', function() modify_cwd(current_picker.cwd .. "/..") end)
-      map('i', '~', function() modify_cwd(vim.fn.expand("~")) end)
+      map('i', '-', function()
+        modify_cwd(current_picker.cwd .. '/..')
+      end)
+      map('i', '~', function()
+        modify_cwd(vim.fn.expand '~')
+      end)
 
       local modify_depth = function(mod)
         return function()
@@ -64,7 +74,7 @@ function M.file_browser()
 
           local current_picker = action_state.get_current_picker(prompt_bufnr)
           current_picker:refresh(opts.new_finder(current_picker.cwd), {
-            reset_prompt = true
+            reset_prompt = true,
           })
         end
       end
@@ -79,23 +89,26 @@ function M.file_browser()
   require('telescope.builtin').file_browser(opts)
 end
 
---[[ Search for files ]]--
+--[[ Search for files ]]
+--
 
---[[ In files: ]]--
+--[[ In files: ]]
+--
 
 function M.grep_word()
   require('telescope.builtin').grep_string {
-    prompt_title = " Grep Word ",
-    path_display = { "absolute" },
+    prompt_title = ' Grep Word ',
+    path_display = { 'absolute' },
     word_match = '-w',
     only_sort_text = true,
-    layout_strategy = 'vertical'
+    layout_strategy = 'vertical',
   }
 end
 
 -- end files
 
---[[ LSP: ]]--
+--[[ LSP: ]]
+--
 
 function M.lsp_code_actions()
   local opts = themes.get_dropdown {
@@ -128,7 +141,6 @@ function M.lsp_workspace_symbols()
 end
 
 function M.lsp_diagnostics()
-
   local opts = themes.get_dropdown {
     winblend = 10,
     border = true,
@@ -138,13 +150,13 @@ function M.lsp_diagnostics()
   require('telescope.builtin').lsp_diagnostics(opts)
 end
 
-
---[[ Nvim ]]--
+--[[ Nvim ]]
+--
 
 function M.neovim_config()
   require('telescope.builtin').find_files {
-    prompt_title = " Neovim RC ",
-    cwd = "~/.dotfiles/nvim/",
+    prompt_title = ' Neovim RC ',
+    cwd = '~/.dotfiles/nvim/',
     layout_strategy = 'flex',
     layout_config = {
       horizontal = {
@@ -159,21 +171,21 @@ end
 
 function M.dotfiles()
   require('telescope.builtin').find_files {
-    prompt_title = " Dotfiles ",
-    cwd = "~/.dotfiles/",
+    prompt_title = ' Dotfiles ',
+    cwd = '~/.dotfiles/',
     layout_strategy = 'flex',
   }
 end
 
 function M.buffers()
   require('telescope.builtin').buffers {
-    prompt_title = " Buffers ",
+    prompt_title = ' Buffers ',
   }
 end
 
 function M.help_tags()
   require('telescope.builtin').help_tags {
-    prompt_title = " Help Tags ",
+    prompt_title = ' Help Tags ',
     show_version = true,
   }
 end
@@ -181,16 +193,15 @@ end
 -- end nvim
 function M.git_status()
   local opts = themes.get_dropdown {
-    prompt_title = " Git Status ",
+    prompt_title = ' Git Status ',
     winblend = 10,
     border = true,
     previewer = false,
     git_icons = {
-      changed = "M"
-    }
+      changed = 'M',
+    },
   }
   require('telescope.builtin').git_status(opts)
 end
 
 return M
-
