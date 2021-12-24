@@ -103,6 +103,7 @@ return require('packer').startup(function()
   use 'sickill/vim-pasta'
   -- use 'airblade/vim-rooter'
   -- use 'oberblastmeister/rooter.nvim'
+  use 'ahmedkhalf/project.nvim'
   use 'euclidianAce/BetterLua.vim'
   use 'ThePrimeagen/harpoon'
   use 'tjdevries/nlua.nvim'
