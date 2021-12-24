@@ -1,8 +1,8 @@
--- local nvim_lsp = require 'lspconfig'
+-- local lsp = require 'lspconfig'
 
--- local extension_path = '~/.vscode/extensions/vadimcn.vscode-lldb-1.6.10'
--- local codelldb_path = extension_path .. 'adapter/codelldb'
--- local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+local extension_path = '~/.vscode/extensions/vadimcn.vscode-lldb-1.6.10'
+local codelldb_path = extension_path .. 'adapter/codelldb'
+local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 
 local opts = {
   tools = { -- rust-tools options
@@ -73,14 +73,14 @@ local opts = {
       -- the border that is used for the hover window
       -- see vim.api.nvim_open_win()
       border = {
-        { '?', 'FloatBorder' },
-        { '?', 'FloatBorder' },
-        { '?', 'FloatBorder' },
-        { '?', 'FloatBorder' },
-        { '?', 'FloatBorder' },
-        { '?', 'FloatBorder' },
-        { '?', 'FloatBorder' },
-        { '?', 'FloatBorder' },
+        { '╭', 'FloatBorder' },
+        { '─', 'FloatBorder' },
+        { '╮', 'FloatBorder' },
+        { '│', 'FloatBorder' },
+        { '╯', 'FloatBorder' },
+        { '─', 'FloatBorder' },
+        { '╰', 'FloatBorder' },
+        { '│', 'FloatBorder' },
       },
 
       -- whether the hover action window gets automatically focused
@@ -101,28 +101,29 @@ local opts = {
       -- true for all crates.io and external crates, false only the local
       -- crates
       -- default: true
-      full = true,
     },
+    full = true,
   },
 
   -- all the opts to send to nvim-lspconfig
   -- these override the defaults set by rust-tools.nvim
   -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
-  server = {}, -- rust-analyer options
+  server = {},
+
+  -- rust-analyer options
 
   -- debugging stuff
+  dap = {
+    adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path),
+  },
 
   -- dap = {
-  --   adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path),
+  --   adapter = {
+  --     type = 'executable',
+  --     command = 'lldb-vscode',
+  --     name = 'rt_lldb',
+  --   },
   -- },
-
-  dap = {
-    adapter = {
-      type = 'executable',
-      command = 'lldb-vscode',
-      name = 'rt_lldb',
-    },
-  },
 }
 
 require('rust-tools').setup(opts)
