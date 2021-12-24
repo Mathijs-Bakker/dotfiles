@@ -1,11 +1,12 @@
-O.fileencoding = "utf-8"
+O.fileencoding = 'utf-8'
 
-Cmd('language en_US')
+Cmd 'language en_US'
 
 --[[ APPEARANCE --]]
 -- Gruvbox:
-Cmd([[colorscheme gruvbox]])
-Cmd('set termguicolors')
+-- Cmd([[colorscheme gruvbox]])
+Cmd [[colorscheme kanagawa]]
+Cmd 'set termguicolors'
 
 -- Cmd([[set background=dark]])
 -- Cmd([[colorscheme gruvbox8_hard]])
@@ -14,8 +15,8 @@ Cmd('set termguicolors')
 -- Colums, gutters and rulers:
 Wo.number = true
 Wo.relativenumber = true
-Wo.signcolumn = "yes"
-Wo.colorcolumn = "80,120"
+Wo.signcolumn = 'yes'
+Wo.colorcolumn = '80,120'
 Wo.cursorline = true
 O.scrolloff = 5
 
@@ -28,12 +29,11 @@ O.splitbelow = true
 O.equalalways = true
 
 -- Wildcard Menu:
-O.wildmode = "longest,full"
+O.wildmode = 'longest,full'
 O.wildoptions = 'pum'
 
 -- Popup menu transparency:
 O.pumblend = 17
-
 
 --[[ FORMATTING --]]
 -- Tab Spacing:
@@ -63,7 +63,7 @@ O.hidden = true
 O.showmatch = true
 
 -- Avoid hit-enter caused by file messages:
-O.shortmess = "fmlwxsi"
+O.shortmess = 'fmlwxsi'
 
 -- TODO: Need to get into language support
 -- bo.spelllang = "en_us,nl_NL,es_ES"
@@ -71,7 +71,7 @@ O.shortmess = "fmlwxsi"
 Bo.swapfile = false
 
 -- I smell a rat:
-O.mouse = "nv"
+O.mouse = 'nv'
 
 -- Use clipboard for ALL ops:
-O.clipboard = "unnamedplus"
+O.clipboard = 'unnamedplus'

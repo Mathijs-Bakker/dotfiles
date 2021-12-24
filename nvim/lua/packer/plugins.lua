@@ -87,8 +87,9 @@ return require('packer').startup(function()
 
   -- Appearance
   use 'kyazdani42/nvim-web-devicons'
-  use 'Mathijs-Bakker/gruvbox'
+  -- use 'Mathijs-Bakker/gruvbox'
   -- use 'lifepillar/vim-gruvbox8'
+  use 'rebelot/kanagawa.nvim'
 
   -- Writing
   use 'junegunn/goyo.vim'
