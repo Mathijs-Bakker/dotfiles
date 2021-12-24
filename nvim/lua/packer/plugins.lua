@@ -66,6 +66,14 @@ return require('packer').startup(function()
     },
   }
 
+  use {
+    'nvim-telescope/telescope-frecency.nvim',
+    config = function()
+      require('telescope').load_extension 'frecency'
+    end,
+    requires = { 'tami5/sqlite.lua' },
+  }
+
   -- File Explorer
   -- use {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}}
   use { 'tamago324/lir.nvim' }
@@ -95,7 +103,12 @@ return require('packer').startup(function()
   use 'junegunn/goyo.vim'
 
   -- Misc:
-  use 'mhinz/vim-startify'
+  -- use 'mhinz/vim-startify'
+  -- use 'glepnir/dashboard-nvim'
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+  }
   -- use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
   use 'tpope/vim-commentary'
   use 'tpope/vim-unimpaired'
