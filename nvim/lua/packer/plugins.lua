@@ -74,6 +74,8 @@ return require('packer').startup(function()
     requires = { 'tami5/sqlite.lua' },
   }
 
+  use 'nvim-telescope/telescope-project.nvim'
+
   -- File Explorer
   -- use {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}}
   use { 'tamago324/lir.nvim' }
