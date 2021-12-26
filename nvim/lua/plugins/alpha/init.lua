@@ -12,7 +12,7 @@ local alpha = require 'alpha'
 local dashboard = require 'alpha.themes.dashboard'
 
 dashboard.section.header.val = {
-  [[                                               ]],
+  [[   ]],
   [[ 01101110 00110011 00110000 01110110 00110001 01101101 ]],
 }
 
