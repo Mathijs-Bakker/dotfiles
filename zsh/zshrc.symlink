@@ -239,6 +239,10 @@ alias tns='tmux new-session -s'
 
 alias lpath='echo $PATH | tr ":" "\n"' # list the PATH separated by new lines
 
+# Cargo/Rust:
+alias cr='cargo run'
+alias ct='cargo test'
+
 # list our process using port
 alias wtfport="lsof -i -P -n | grep LISTEN"
 
