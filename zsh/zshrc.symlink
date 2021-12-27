@@ -240,6 +240,8 @@ alias tns='tmux new-session -s'
 alias lpath='echo $PATH | tr ":" "\n"' # list the PATH separated by new lines
 
 # Cargo/Rust:
+alias cb='cargo build'
+alias cc='cargo check'
 alias cr='cargo run'
 alias ct='cargo test'
 
