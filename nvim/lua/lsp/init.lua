@@ -37,6 +37,6 @@ buf_set_keymap('n', 'gr', 	        '<Cmd>lua vim.lsp.buf.references()<CR>', opts
 buf_set_keymap('n', '<space>d',     '<Cmd>lua vim.diagnostic.show()<CR>', opts)
 buf_set_keymap('n', 'dn',           '<Cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 buf_set_keymap('n', 'dp',           '<Cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-buf_set_keymap('n', '<space>l',     '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-buf_set_keymap('n', '<space>qf',     '<cmd>lua vim.diagnostic.setqflist()<CR>', opts)
+buf_set_keymap('n', '<space>ll',     '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+buf_set_keymap('n', '<space>lf',     '<cmd>lua vim.diagnostic.setqflist()<CR>', opts)
 -- stylua: ignore end
