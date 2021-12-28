@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/fugitive-gitlab.vim",
     url = "https://github.com/shumphrey/fugitive-gitlab.vim"
   },
+  ["fuzzy-motion.vim"] = {
+    loaded = true,
+    path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/fuzzy-motion.vim",
+    url = "https://github.com/yuki-yano/fuzzy-motion.vim"
+  },
   ["git-messenger.vim"] = {
     loaded = true,
     path = "/Users/MateoPanadero/.local/share/nvim/site/pack/packer/start/git-messenger.vim",

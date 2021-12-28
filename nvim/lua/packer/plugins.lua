@@ -111,7 +111,7 @@ return require('packer').startup(function()
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
-  -- use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+
   use 'tpope/vim-commentary'
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-repeat'
