@@ -22,6 +22,9 @@ ts_map('<Leader>ca', 	'lsp_code_actions')
 
 Inoremap('<C-s>', 	'<cmd>lua vim.lsp.buf.signature_help()<CR>')
 
+ts_map('<Leader>wd', 'lsp_document_symbols')
+ts_map('<Leader>ww', 'lsp_workspace_symbols')
+
 Nnoremap('<Leader>wl', 	'<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
 Nnoremap('<Leader>wa', 	'<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>')
 Nnoremap('<Leader>wr', 	'<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>')
@@ -47,14 +50,16 @@ whichkey.register {
   ['<Leader>'] = {
     c = {
       name = 'LSP',
-	a = { '[LSP] Code Actions' },
-	r = { '[LSP] Rename Symbol' },
+        a = { '[LSP] Code Actions' },
+        r = { '[LSP] Rename Symbol' },
     },
     w = {
       name = 'LSP',
-	a = { 'Add Workspace Folder' },
-	l = { 'List Workspace Folders' },
-	r = { 'Remove Workspace Folders' },
+        a = { 'Add Workspace Folder' },
+        l = { 'List Workspace Folders' },
+        r = { 'Remove Workspace Folders' },
+        d = { 'List Document Symbols in Current Document' },
+        w = { 'List Document Symbols in Current Workspace' },
     },
     name = 'Diagnostics',
       d = { '[Diagnostics] Display Line Diagnostics' },
@@ -69,5 +74,7 @@ whichkey.register {
       n = { '[Diagnostics] Goto Next' },
       p = { '[Diagnostics] Goto Previous' },
   },
+-- ts_map('<Leader>wd', 'lsp_document_symbols')
+-- ts_map('<Leader>ww', 'lsp_workspace_symbols')
 }
 -- stylua: ignore end
