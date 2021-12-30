@@ -204,4 +204,38 @@ function M.git_status()
   require('telescope.builtin').git_status(opts)
 end
 
+-- LSP / Diagnostics
+local function lsp_references()
+  require('telescope.builtin').lsp_references {
+    layout_strategy = 'vertical',
+    layout_config = {
+      prompt_position = 'top',
+    },
+    sorting_strategy = 'ascending',
+    ignore_filename = false,
+  }
+end
+
+function lsp_implementations()
+  require('telescope.builtin').lsp_implementations {
+    layout_strategy = 'vertical',
+    layout_config = {
+      prompt_position = 'top',
+    },
+    sorting_strategy = 'ascending',
+    ignore_filename = false,
+  }
+end
+
+function lsp_code_actions()
+  local opts = themes.get_dropdown {
+    winblend = 10,
+    border = true,
+    previewer = false,
+    shorten_path = false,
+  }
+
+  require('telescope.builtin').lsp_code_actions(opts)
+end
+-- end LSP / Diagnostics
 return M

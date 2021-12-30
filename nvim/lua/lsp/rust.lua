@@ -141,5 +141,5 @@ local opts = {
 
 require('rust-tools').setup(opts)
 
-Cmd [[set updatetime=300]]
-Cmd [[autocmd CursorHold * lua vim.diagnostic.open_float()]]
+-- Cmd [[set updatetime=300]]
+-- Cmd [[autocmd CursorHold * lua vim.diagnostic.open_float()]]

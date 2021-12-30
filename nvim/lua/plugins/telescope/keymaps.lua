@@ -2,7 +2,7 @@ if not pcall(require, 'telescope') then
   return
 end
 
-local function ts_map(key, picker_f)
+function ts_map(key, picker_f)
   local rhs = string.format(":lua require'plugins.telescope.pickers'.%s()<CR>", picker_f)
 
   local opts = {
