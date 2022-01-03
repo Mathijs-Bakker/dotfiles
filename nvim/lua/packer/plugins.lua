@@ -126,6 +126,7 @@ return require('packer').startup(function()
   use 'dstein64/vim-startuptime'
 
   -- Language specific:
+  -- use 'folke/lua-dev.nvim'
   use 'ckipp01/stylua-nvim'
   use 'simrat39/rust-tools.nvim'
 end)

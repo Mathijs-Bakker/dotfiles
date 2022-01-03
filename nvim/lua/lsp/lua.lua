@@ -10,7 +10,8 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 -- LUA:
 local sumneko_lua_root_path = home .. '/Repositories/language-servers/lua-language-server'
 
-require('lspconfig').sumneko_lua.setup {
+local lspconfig = require 'lspconfig'
+lspconfig.sumneko_lua.setup {
   cmd = {
     sumneko_lua_root_path .. '/bin/macOS/lua-language-server',
     '-E',
