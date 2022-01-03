@@ -32,8 +32,8 @@ Nnoremap('<Leader>wr', 	'<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>')
 -- Diagnostics:
 
 Nnoremap('<Leader>d', 	'<cmd>lua vim.diagnostic.open_float()<CR>')
-Nnoremap('dn', 		'<cmd>lua vim.diagnostic.goto_prev()<CR>')
-Nnoremap('dp', 		'<cmd>lua vim.diagnostic.goto_next()<CR>')
+Nnoremap('dp', 		'<cmd>lua vim.diagnostic.goto_prev()<CR>')
+Nnoremap('dn', 		'<cmd>lua vim.diagnostic.goto_next()<CR>')
 Nnoremap('<Leader>ll', 	'<cmd>lua vim.diagnostic.setloclist()<CR>')
 Nnoremap('<Leader>lf', 	'<cmd>lua vim.diagnostic.setqflist()<CR>')
 
