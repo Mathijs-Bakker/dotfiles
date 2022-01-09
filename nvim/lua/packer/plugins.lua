@@ -89,7 +89,11 @@ return require('packer').startup(function()
   use {
     'folke/which-key.nvim',
     config = function()
-      require('which-key').setup {}
+      require('which-key').setup {
+        plugins = {
+          marks = false,
+        },
+      }
     end,
   }
 
@@ -123,8 +127,8 @@ return require('packer').startup(function()
   use 'ThePrimeagen/harpoon'
   use 'tjdevries/nlua.nvim'
   use 'Mathijs-Bakker/zoom-vim'
-  use 'dstein64/vim-startuptime'
-
+  -- use 'dstein64/vim-startuptime'
+  use 'tpope/vim-surround'
   -- Language specific:
   -- use 'folke/lua-dev.nvim'
   use 'ckipp01/stylua-nvim'
