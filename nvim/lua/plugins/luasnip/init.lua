@@ -162,17 +162,38 @@ ls.snippets = {
       i(0),
     }),
   },
+
   rust = {
+
     s('struct',
     {
       t {'#[derive(Debug)]', ''},
       t {'struct '}, i(1), t {' {', ''},
-	i(0),
+	    i(0),
       t {'}', ''},
     }),
-    s('test', t '#[test]'),
-    s('testcfg', t '#[cfg(test)]'),
+
+    s('test',
+    {
+    	t {'#[test]', ''},
+        t {'fn '}, i(1), t {' {', ''},
+        t {'	assert'}, i(0), t {'', ''},
+        t {'}'},
+    }),
+
+    s('testcfg',
+    {
+      t {'#[cfg(test)]', ''},
+      t {'mod '}, i(1), t {' {', ''},
+      t {'	#[test]', ''},
+      t {'	fn '}, i(2), t {' {', ''},
+      t {'		assert'}, i(0), t {'', ''},
+      t {'	}', ''},
+      t {'}'},
+    }),
+
   },
+
   lua = {
     s('stylelua', t '-- stylua: ignore'),
   },
