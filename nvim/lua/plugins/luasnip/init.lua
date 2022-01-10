@@ -163,9 +163,15 @@ ls.snippets = {
     }),
   },
   rust = {
-    s('derive', t '#[derive(Debug)'),
-    s('testcfg', t '#[cfg(test)]'),
+    s('struct',
+    {
+      t {'#[derive(Debug)]', ''},
+      t {'struct '}, i(1), t {' {', ''},
+	i(0),
+      t {'}', ''},
+    }),
     s('test', t '#[test]'),
+    s('testcfg', t '#[cfg(test)]'),
   },
   lua = {
     s('stylelua', t '-- stylua: ignore'),
