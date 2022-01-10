@@ -152,8 +152,6 @@ end
 -- stylua: ignore
 ls.snippets = {
   all = {
-    s('stylelua', t '-- stylua: ignore'),
-    s('tst', t 'Whoot! This Snippet works!'),
     s('trigger',
     {
       t { '', 'After expanding, the cursor is here ->' },
@@ -163,6 +161,14 @@ ls.snippets = {
       t { '', 'After jumping once more, the snippet is exited there ->' },
       i(0),
     }),
+  },
+  rust = {
+    s('derive', t '#[derive(Debug)'),
+    s('testcfg', t '#[cfg(test)]'),
+    s('test', t '#[test]'),
+  },
+  lua = {
+    s('stylelua', t '-- stylua: ignore'),
   },
   cs = {
     s('ctor',
@@ -196,51 +202,6 @@ ls.snippets = {
   --     - luasnip.all
   -- are searched in that order.
   -- all = global_snips.All,
-  java = {
-    -- Very long example for a java class.
-    s('fn', {
-      d(6, jdocsnip, { 2, 4, 5 }),
-      t { '', '' },
-      c(1, {
-        t 'public ',
-        t 'private ',
-      }),
-      c(2, {
-        t 'void',
-        t 'String',
-        t 'char',
-        t 'int',
-        t 'double',
-        t 'boolean',
-        i(nil, ''),
-      }),
-      t ' ',
-      i(3, 'myFunc'),
-      t '(',
-      i(4),
-      t ')',
-      c(5, {
-        t '',
-        sn(nil, {
-          t { '', ' throws ' },
-          i(1),
-        }),
-      }),
-      t { ' {', '\t' },
-      i(0),
-      t { '', '}' },
-    }),
-  },
-  tex = {
-    -- rec_ls is self-referencing. That makes this snippet 'infinite' eg. have as many
-    -- \item as necessary by utilizing a choiceNode.
-    s('ls', {
-      t { '\\begin{itemize}', '\t\\item ' },
-      i(1),
-      d(2, rec_ls, {}),
-      t { '', '\\end{itemize}' },
-    }),
-  },
 }
 
 -- local all = require 'ls-snips.all'
@@ -283,7 +244,9 @@ ls.autosnippets = {
 -- in a lua file: search lua-, then c-, then all-snippets.
 ls.filetype_extend('lua', { 'c' })
 -- in a cpp file: search c-snippets, then all-snippets only (no cpp-snippets!!).
-ls.filetype_set('cpp', { 'c' })
+ls.filetype_set('cs', { 'csharp' })
+ls.filetype_set('lua', { 'lua' })
+ls.filetype_set('rs', { 'rust' })
 -- ls.filetype_extend('csharp', { 'cs' })
 -- ls.filetype_set('csharp', { 'cs' })
 --[[
