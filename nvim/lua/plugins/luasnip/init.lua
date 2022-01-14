@@ -165,6 +165,10 @@ ls.snippets = {
 
   rust = {
 
+    s('derivedebug', t '#[derive(Debug)]'),
+    s('print', {
+      t {'println!("'}, i(1), t {' {}", '}, i(0), t {');'}}),
+
     s('struct',
     {
       t {'#[derive(Debug)]', ''},

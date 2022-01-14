@@ -1,5 +1,4 @@
 --[[ h lua --]]
-
 Call = vim.call
 Cmd = vim.cmd
 Fn = vim.fn
@@ -16,7 +15,7 @@ Env = vim.env
 O = vim.o
 Bo = vim.bo
 Wo = vim.wo
-
+Opt = vim.opt
 -- API
 Nvim_exec = vim.api.nvim_exec
 Nvim_eval = vim.api.nvim_eval
