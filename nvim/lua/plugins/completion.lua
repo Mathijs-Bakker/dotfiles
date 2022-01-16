@@ -1,5 +1,6 @@
 Opt.completeopt = { 'menu', 'menuone', 'noselect' }
 Opt.shortmess:append 'c' -- don't give ins-compl-menu messages
+O.pumblend = 0 -- Transparency pop up menu
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -53,8 +54,8 @@ cmp.setup {
   },
   -- The order of the sources list defines the priority of each source.
   sources = cmp.config.sources {
-    { name = 'luasnip' },
-    { name = 'nvim_lsp', max_item_count = 10 },
+    { name = 'luasnip', priority = 100 },
+    { name = 'nvim_lsp', priority = 50, max_item_count = 10 },
     { name = 'nvim_lua' },
     { name = 'custom_source' },
     { name = 'path' },
@@ -62,7 +63,8 @@ cmp.setup {
     { name = 'zsh' },
     {
       name = 'buffer',
-      keyword_length = 2,
+      -- priority = 10,
+      -- keyword_length = 2,
       max_item_count = 4,
       get_bufnrs = function()
         return vim.api.nvim_list_bufs()
@@ -70,11 +72,13 @@ cmp.setup {
     },
   },
   sorting = {
+    priority_weight = 10,
     comparators = {
       -- Buffer(s): Return result nearest to the cursor, then from other buffers.
-      function(...)
-        return cmp_buffer:compare_locality(...)
-      end,
+      -- function(...)
+      --   return cmp_buffer:compare_locality(...)
+      -- end,
+
       -- Default comperators:
       -- cmp.config.compare.offset,
       -- cmp.config.compare.exact,
@@ -99,6 +103,10 @@ cmp.setup {
         path = '[path]',
       },
     },
+  },
+  experimental = {
+    ghost_text = true,
+    native_menu = true,
   },
 }
 

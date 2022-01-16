@@ -26,6 +26,10 @@ lspconfig.sumneko_lua.setup {
   },
   settings = {
     Lua = {
+      completion = {
+        workspaceWord = false,
+        showWord = 'Disable',
+      },
       diagnostics = {
         globals = {
           'vim',
