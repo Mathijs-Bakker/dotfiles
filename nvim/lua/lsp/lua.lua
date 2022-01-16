@@ -27,8 +27,8 @@ lspconfig.sumneko_lua.setup {
   settings = {
     Lua = {
       completion = {
-        workspaceWord = false,
-        showWord = 'Disable',
+        -- workspaceWord = false,
+        showWord = 'Fallback',
       },
       diagnostics = {
         globals = {
