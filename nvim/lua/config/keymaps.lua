@@ -17,18 +17,29 @@ Nnoremap('<Leader><Leader>r', ':Reload<CR>')
 Nnoremap([['']], [[:luafile init.lua]])
 --[[  Movement: --]]
 -- Lines up and down:
-Inoremap('<C-k> <Esc>', ':m .-2<CR>==')
-Inoremap('<C-j> <Esc>', ':m .+1<CR>==')
-Vnoremap('<S-j>', ":m '>+1<cr>gv=gv")
-Vnoremap('<S-k>', ":m '<-2<cr>gv=gv")
 
-Nnoremap('<Leader>k', [[:m .-2<CR>==']])
-Nnoremap('<Leader>j', [[:m .+1<CR>==']])
+-- Cmd or D key ->
+-- it's a macOS HACK for working with the command key nicely
+-- check Kitty's config too, as the CHAR-0x0b key code is dispatched from there.
+
+local super_key = '<CHAR-0x0b>'
+
+-- Inoremap(super_key .. 'k <Esc>', ':m .-2<CR>==gi')
+-- Inoremap('<CHAR-0x0b>k', ':m .-2<CR>==')
+-- Inoremap('<CHAR-0x0b>j', ':m .+1<CR>==')
+-- Inoremap('<D-j> <Esc>', ':m .+1<CR>==')
+
+Vnoremap(super_key .. 'k', ":m '<-2<cr>gv=gv")
+Vnoremap(super_key .. 'j', ":m '>+1<cr>gv=gv")
+
+-- Nnoremap('<D-k>', [[:m .-2<CR>==']])
+Nnoremap(super_key .. 'k', [[:m .-2<CR>==']])
+Nnoremap(super_key .. 'j', [[:m .+1<CR>==']])
 
 -- Location List:
--- Navigate to next error:
-Nnoremap('<Leader>l', ':lnext<CR>')
-Nnoremap('<Leader>h', ':lprevious<CR>')
+-- -- Navigate to next error:
+-- Nnoremap('<Leader>l', ':lnext<CR>')
+-- Nnoremap('<Leader>h', ':lprevious<CR>')
 
 -- Navigate jump lis>
 -- Nnoremap('<S-i>', '<C-i>')
@@ -38,14 +49,6 @@ Nnoremap('<Leader>h', ':lprevious<CR>')
 -- vim.api.noremap([[<expr> k (v:count > 5 ? "m'" . v:count : "") . 'k']])
 
 -- [[ Tabs, Splits, Windows & Buffers: --]]
-
--- [[ I do not use tabs and stuff
--- consider to remove commented lines after a certain time
--- when I am sure that I would not miss them --]]
-
--- Tab switching:
--- Nnoremap('<right>', 'gt')
--- Nnoremap('<left>', 'gt')
 
 -- Split navigation:
 Nnoremap('<C-h>', '<c-w><c-h>')
