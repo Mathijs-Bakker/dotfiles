@@ -30,8 +30,8 @@ local super_key = '<CHAR-0x37>'
 Vnoremap(super_key .. 'k', ":m '<-2<cr>gv=gv")
 Vnoremap(super_key .. 'j', ":m '>+1<cr>gv=gv")
 
-Nnoremap(super_key .. 'k', [[:m .-2<CR>==']])
-Nnoremap(super_key .. 'j', [[:m .+1<CR>==']])
+Nnoremap(super_key .. 'k', [[:m .-2<CR>==]])
+Nnoremap(super_key .. 'j', [[:m .+1<CR>==]])
 
 -- Location List:
 -- -- Navigate to next error:
@@ -116,5 +116,3 @@ vim.api.nvim_set_keymap(
   [[{-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()]],
   { expr = true, noremap = true, silent = true }
 )
-
--- Reload
