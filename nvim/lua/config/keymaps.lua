@@ -20,19 +20,16 @@ Nnoremap([['']], [[:luafile init.lua]])
 
 -- Cmd or D key ->
 -- it's a macOS HACK for working with the command key nicely
--- check Kitty's config too, as the CHAR-0x0b key code is dispatched from there.
+-- check Kitty's config too, as the CHAR-0x37 key code is dispatched from there.
 
-local super_key = '<CHAR-0x0b>'
+local super_key = '<CHAR-0x37>'
 
 -- Inoremap(super_key .. 'k <Esc>', ':m .-2<CR>==gi')
--- Inoremap('<CHAR-0x0b>k', ':m .-2<CR>==')
--- Inoremap('<CHAR-0x0b>j', ':m .+1<CR>==')
--- Inoremap('<D-j> <Esc>', ':m .+1<CR>==')
+-- Inoremap(super_key .. 'j <Esc>', ':m .+1<CR>==gi')
 
 Vnoremap(super_key .. 'k', ":m '<-2<cr>gv=gv")
 Vnoremap(super_key .. 'j', ":m '>+1<cr>gv=gv")
 
--- Nnoremap('<D-k>', [[:m .-2<CR>==']])
 Nnoremap(super_key .. 'k', [[:m .-2<CR>==']])
 Nnoremap(super_key .. 'j', [[:m .+1<CR>==']])
 

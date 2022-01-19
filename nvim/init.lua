@@ -20,3 +20,8 @@ TrySource 'plugins'
 TrySource 'lsp'
 
 vim.cmd ':source $HOME/.dotfiles/nvim/autoload/file_sourcer.vim'
+
+Cmd [[ augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
+augroup END ]]
