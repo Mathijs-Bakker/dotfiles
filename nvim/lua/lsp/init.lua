@@ -10,22 +10,22 @@ end
 
 buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 -- stylua: ignore start
-Nnoremap('gD', 	'<cmd>lua vim.lsp.buf.declaration()<CR>')
-Nnoremap('gd', 	'<cmd>lua vim.lsp.buf.definition()<CR>')
-Nnoremap('K', 	'<cmd>lua vim.lsp.buf.hover()<CR>')
+Nnoremap('gD', 	'<cmd>lua vim.lsp.buf.declaration()<CR>') -- Goto Declaration
+Nnoremap('gd', 	'<cmd>lua vim.lsp.buf.definition()<CR>') -- Goto Definition
+Nnoremap('K', 	'<cmd>lua vim.lsp.buf.hover()<CR>') -- Well, K is K
 
-ts_map('gr', 	'lsp_references')
-ts_map('gI', 	'lsp_implementations')
+ts_map('gr', 	'lsp_references') -- Goto References
+ts_map('gI', 	'lsp_implementations') -- Goto Implementations
 
-Nnoremap('<Leader>cr', 	'<cmd>lua vim.lsp.buf.rename()<CR>')
-ts_map('<Leader>ca', 	'lsp_code_actions')
+Nnoremap('<Leader>cr', 	'<cmd>lua vim.lsp.buf.rename()<CR>') -- Code Rename
+ts_map('<Leader>ca', 	'lsp_code_actions') -- Code Action
 -- ts_map('<Leader>cca', 	'lsp_range_code_actions')
-Nnoremap('<Leader>cca', '<cmd>Telescope lsp_range_code_actions<CR>')
+Nnoremap('<Leader>cca', '<cmd>Telescope lsp_range_code_actions<CR>') -- Code Range Action
 
-Inoremap('<C-s>', 	'<cmd>lua vim.lsp.buf.signature_help()<CR>')
+Inoremap('<C-s>', 	'<cmd>lua vim.lsp.buf.signature_help()<CR>') -- Show Signature
 
-ts_map('<Leader>wd', 'lsp_document_symbols')
-ts_map('<Leader>ww', 'lsp_workspace_symbols')
+ts_map('<Leader>wd', 'lsp_document_symbols') -- Workspace = Document Symbols
+ts_map('<Leader>ww', 'lsp_workspace_symbols') -- Workspace Symbols
 
 Nnoremap('<Leader>wl', 	'<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
 Nnoremap('<Leader>wa', 	'<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>')
@@ -33,13 +33,13 @@ Nnoremap('<Leader>wr', 	'<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>')
 
 -- Diagnostics:
 
--- Nnoremap('<Leader>d', 	'<cmd>lua vim.diagnostic.open_float()<CR>')
-Nnoremap('dp', 		'<cmd>lua vim.diagnostic.goto_prev()<CR>')
-Nnoremap('dn', 		'<cmd>lua vim.diagnostic.goto_next()<CR>')
+Nnoremap('<Leader>d', 	'<cmd>lua vim.diagnostic.open_float()<CR>') -- Diagnostics
+Nnoremap('dp', 		'<cmd>lua vim.diagnostic.goto_prev()<CR>') -- Diagnostics Previous
+Nnoremap('dn', 		'<cmd>lua vim.diagnostic.goto_next()<CR>') -- Diagnostics Next
 -- ts_map('<Leader>dl', 'diagnostics')
-Nnoremap('<Leader>dl', '<cmd>Telescope diagnostics<CR>')
-Nnoremap('<Leader>ll', 	'<cmd>lua vim.diagnostic.setloclist()<CR>')
-Nnoremap('<Leader>lf', 	'<cmd>lua vim.diagnostic.setqflist()<CR>')
+Nnoremap('<Leader>ld', '<cmd>Telescope diagnostics<CR>') -- List Diagnotics
+Nnoremap('<Leader>ll', 	'<cmd>lua vim.diagnostic.setloclist()<CR>') -- List Location List
+Nnoremap('<Leader>lf', 	'<cmd>lua vim.diagnostic.setqflist()<CR>') -- List quickFix
 
 local whichkey = require 'which-key'
 whichkey.register {
@@ -55,6 +55,7 @@ whichkey.register {
     c = {
       name = 'LSP',
         a = { '[LSP] Code Actions' },
+	ca = { '[LSP] Code Actions All' },
         r = { '[LSP] Rename Symbol' },
     },
     w = {
@@ -69,6 +70,7 @@ whichkey.register {
       d = { '[Diagnostics] Display Line Diagnostics' },
       l = {
 	name = 'Diagnostics',
+	  d = { '[Diagnostics] List Diagnostics' },
 	  f = { '[Diagnostics] Quickfix List' },
 	  l = { '[Diagnostics] Location List' },
     },
