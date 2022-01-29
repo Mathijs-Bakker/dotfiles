@@ -13,7 +13,8 @@ local sumneko_lua_root_path = home .. '/Repositories/language-servers/lua-langua
 local lspconfig = require 'lspconfig'
 lspconfig.sumneko_lua.setup {
   cmd = {
-    sumneko_lua_root_path .. '/bin/macOS/lua-language-server',
+    -- sumneko_lua_root_path .. '/bin/macOS/lua-language-server',
+    sumneko_lua_root_path .. '/bin/lua-language-server',
     '-E',
     sumneko_lua_root_path .. '/main.lua',
   },
@@ -27,8 +28,8 @@ lspconfig.sumneko_lua.setup {
   settings = {
     Lua = {
       completion = {
-        -- workspaceWord = false,
-        showWord = 'Fallback',
+        workspaceWord = false,
+        showWord = 'Disable',
       },
       diagnostics = {
         globals = {
@@ -60,6 +61,7 @@ lspconfig.sumneko_lua.setup {
     },
   },
   on_attach = lsp_status.on_attach,
+
   -- capabilities = lsp_status.capabilities
   capabilities = capabilities,
 }

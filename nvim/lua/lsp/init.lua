@@ -19,6 +19,8 @@ ts_map('gI', 	'lsp_implementations')
 
 Nnoremap('<Leader>cr', 	'<cmd>lua vim.lsp.buf.rename()<CR>')
 ts_map('<Leader>ca', 	'lsp_code_actions')
+-- ts_map('<Leader>cca', 	'lsp_range_code_actions')
+Nnoremap('<Leader>cca', '<cmd>Telescope lsp_range_code_actions<CR>')
 
 Inoremap('<C-s>', 	'<cmd>lua vim.lsp.buf.signature_help()<CR>')
 
@@ -31,9 +33,11 @@ Nnoremap('<Leader>wr', 	'<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>')
 
 -- Diagnostics:
 
-Nnoremap('<Leader>d', 	'<cmd>lua vim.diagnostic.open_float()<CR>')
+-- Nnoremap('<Leader>d', 	'<cmd>lua vim.diagnostic.open_float()<CR>')
 Nnoremap('dp', 		'<cmd>lua vim.diagnostic.goto_prev()<CR>')
 Nnoremap('dn', 		'<cmd>lua vim.diagnostic.goto_next()<CR>')
+-- ts_map('<Leader>dl', 'diagnostics')
+Nnoremap('<Leader>dl', '<cmd>Telescope diagnostics<CR>')
 Nnoremap('<Leader>ll', 	'<cmd>lua vim.diagnostic.setloclist()<CR>')
 Nnoremap('<Leader>lf', 	'<cmd>lua vim.diagnostic.setqflist()<CR>')
 
