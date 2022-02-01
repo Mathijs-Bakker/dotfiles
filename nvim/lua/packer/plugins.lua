@@ -103,7 +103,8 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons'
   -- use 'Mathijs-Bakker/gruvbox'
   -- use 'lifepillar/vim-gruvbox8'
-  use 'rebelot/kanagawa.nvim'
+  use 'ellisonleao/gruvbox.nvim'
+  -- use 'rebelot/kanagawa.nvim'
 
   -- Writing
   use 'junegunn/goyo.vim'
@@ -133,4 +134,5 @@ return require('packer').startup(function()
   -- use 'folke/lua-dev.nvim'
   use 'ckipp01/stylua-nvim'
   use 'simrat39/rust-tools.nvim'
+  use 'alx741/vim-rustfmt'
 end)

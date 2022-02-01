@@ -5,9 +5,11 @@ Cmd 'language en_US'
 --[[ APPEARANCE --]]
 -- Gruvbox:
 -- Cmd([[colorscheme gruvbox]])
-Cmd [[colorscheme kanagawa]]
-Cmd 'set termguicolors'
-
+-- Cmd [[colorscheme kanagawa]]
+-- Cmd 'set termguicolors'
+vim.opt.termguicolors = true
+vim.o.background = 'dark' -- or "light" for light mode
+vim.cmd [[colorscheme gruvbox]]
 -- Cmd([[set background=dark]])
 -- Cmd([[colorscheme gruvbox8_hard]])
 -- Nvim_exec([[let g:gruvbox_italics = 0]], true)
