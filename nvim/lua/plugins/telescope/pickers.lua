@@ -226,6 +226,7 @@ function lsp_implementations()
     layout_strategy = 'vertical',
     layout_config = {
       prompt_position = 'top',
+      preview_cutoff = 20,
     },
     sorting_strategy = 'ascending',
     ignore_filename = false,
