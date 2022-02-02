@@ -102,6 +102,9 @@ function M.grep_word()
     word_match = '-w',
     only_sort_text = true,
     layout_strategy = 'vertical',
+    layout_config = {
+      preview_cutoff = 20,
+    },
   }
 end
 
@@ -144,9 +147,11 @@ function M.lsp_diagnostics()
   local opts = {
     prompt_title = ' LSP Workspace Diagnostics ',
     layout_strategy = 'vertical',
+    layout_config = {
+      preview_cutoff = 20,
+    },
     vertical = {
       height = 1,
-      -- preview_cutoff = 20,
       preview_height = 6,
       prompt_position = 'bottom',
       width = 0.8,
@@ -170,6 +175,7 @@ function M.neovim_config()
       vertical = {
         -- preview_height = 0.75,
       },
+      preview_cutoff = 20,
     },
   }
 end
