@@ -141,13 +141,18 @@ function M.lsp_workspace_symbols()
 end
 
 function M.lsp_diagnostics()
-  local opts = themes.get_dropdown {
-    winblend = 10,
-    border = true,
-    previewer = false,
+  local opts = {
+    prompt_title = ' LSP Workspace Diagnostics ',
+    layout_strategy = 'vertical',
+    vertical = {
+      height = 1,
+      -- preview_cutoff = 20,
+      preview_height = 6,
+      prompt_position = 'bottom',
+      width = 0.8,
+    },
   }
-
-  require('telescope.builtin').lsp_diagnostics(opts)
+  require('telescope.builtin').diagnostics(opts)
 end
 
 --[[ Nvim ]]

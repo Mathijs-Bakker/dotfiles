@@ -23,7 +23,8 @@ ts_map('<Leader>cd', 'lsp_definitions')
 ts_map('<Leader>ci', 'lsp_implementations')
 ts_map('<Leader>cd', 'lsp_document_symbols')
 ts_map('<Leader>cw', 'lsp_workspace_symbols')
-ts_map('<Leader>cD', 'lsp_diagnostics')
+-- ts_map('<Leader>cD', 'lsp_diagnostics')
+ts_map('<Leader>ld', 'lsp_diagnostics')
 
 -- Files:
 ts_map('<Leader>ff', 'find_files')
