@@ -17,7 +17,7 @@ Nnoremap('K', 	'<cmd>lua vim.lsp.buf.hover()<CR>') -- Well, K is K
 ts_map('gr', 	'lsp_references') -- Goto References
 ts_map('gI', 	'lsp_implementations') -- Goto Implementations
 
-Nnoremap('<Leader>cr', 	'<cmd>lua vim.lsp.buf.rename()<CR>') -- Code Rename
+-- Nnoremap('<Leader>cr', 	'<cmd>lua vim.lsp.buf.rename()<CR>') -- Code Rename
 ts_map('<Leader>ca', 	'lsp_code_actions') -- Code Action
 -- ts_map('<Leader>cca', 	'lsp_range_code_actions')
 Nnoremap('<Leader>cca', '<cmd>Telescope lsp_range_code_actions<CR>') -- Code Range Action
@@ -37,7 +37,7 @@ Nnoremap('<Leader>d', 	'<cmd>lua vim.diagnostic.open_float()<CR>') -- Diagnostic
 Nnoremap('dp', 		'<cmd>lua vim.diagnostic.goto_prev()<CR>') -- Diagnostics Previous
 Nnoremap('dn', 		'<cmd>lua vim.diagnostic.goto_next()<CR>') -- Diagnostics Next
 -- ts_map('<Leader>dl', 'diagnostics')
-Nnoremap('<Leader>ld', '<cmd>Telescope diagnostics<CR>') -- List Diagnotics
+-- Nnoremap('<Leader>ld', '<cmd>Telescope diagnostics<CR>') -- List Diagnotics
 Nnoremap('<Leader>ll', 	'<cmd>lua vim.diagnostic.setloclist()<CR>') -- List Location List
 Nnoremap('<Leader>lf', 	'<cmd>lua vim.diagnostic.setqflist()<CR>') -- List quickFix
 
