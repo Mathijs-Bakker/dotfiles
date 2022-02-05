@@ -17,7 +17,7 @@ end
 -- ts_map('<Leader>k', 'moveuo')
 
 -- Lsp:
-ts_map('<Leader>cr', 'lsp_references')
+ts_map('<Leader>lr', 'lsp_references') -- List References
 ts_map('<Leader>ca', 'lsp_code_actions')
 ts_map('<Leader>cd', 'lsp_definitions')
 ts_map('<Leader>ci', 'lsp_implementations')

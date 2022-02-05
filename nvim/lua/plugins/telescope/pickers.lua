@@ -11,6 +11,10 @@ local M = {}
 function M.find_files()
   require('telescope.builtin').find_files {
     prompt_title = ' Find Files ',
+    layout_strategy = 'vertical',
+    layout_config = {
+      preview_cutoff = 20,
+    },
   }
 end
 
@@ -114,13 +118,23 @@ end
 --
 
 function M.lsp_code_actions()
-  local opts = themes.get_dropdown {
-    winblend = 10,
-    border = true,
-    previewer = false,
-  }
+  -- local opts = themes.get_dropdown {
+  --   winblend = 10,
+  --   border = true,
+  --   previewer = false,
+  -- }
 
-  require('telescope.builtin').lsp_code_actions(opts)
+  -- require('telescope.builtin').lsp_code_actions(opts)
+  require('telescope.builtin').lsp_code_actions {
+    prompt_title = ' Code Actions ',
+    path_display = { 'absolute' },
+    word_match = '-w',
+    only_sort_text = true,
+    layout_strategy = 'vertical',
+    layout_config = {
+      preview_cutoff = 20,
+    },
+  }
 end
 
 function M.lsp_references()

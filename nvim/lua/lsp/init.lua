@@ -17,8 +17,8 @@ Nnoremap('K', 	'<cmd>lua vim.lsp.buf.hover()<CR>') -- Well, K is K
 ts_map('gr', 	'lsp_references') -- Goto References
 ts_map('gI', 	'lsp_implementations') -- Goto Implementations
 
--- Nnoremap('<Leader>cr', 	'<cmd>lua vim.lsp.buf.rename()<CR>') -- Code Rename
-ts_map('<Leader>ca', 	'lsp_code_actions') -- Code Action
+Nnoremap('<Leader>cr', 	'<cmd>lua vim.lsp.buf.rename()<CR>') -- Code Rename
+-- ts_map('<Leader>ca', 	'lsp_code_actions') -- Code Action
 -- ts_map('<Leader>cca', 	'lsp_range_code_actions')
 Nnoremap('<Leader>cca', '<cmd>Telescope lsp_range_code_actions<CR>') -- Code Range Action
 
