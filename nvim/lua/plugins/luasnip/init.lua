@@ -166,6 +166,7 @@ ls.snippets = {
   rust = {
 
     s('derivedebug', t '#[derive(Debug)]'),
+    s('deadcode', t '#[allow(dead_code)]'),
 
     s('clippypedantic', t '#![warn(clippy::all, clippy::pedantic)]'),
 
