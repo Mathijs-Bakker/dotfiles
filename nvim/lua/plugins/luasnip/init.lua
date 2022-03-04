@@ -171,7 +171,7 @@ ls.snippets = {
     s('clippypedantic', t '#![warn(clippy::all, clippy::pedantic)]'),
 
     s('print', {
-      t {'println!("'}, i(1), t {' {}", '}, i(0), t {');'}}),
+      t {'println!("'}, i(1), t {' {:?}", '}, i(0), t {');'}}),
 
     s('struct',
     {

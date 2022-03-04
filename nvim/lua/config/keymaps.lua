@@ -4,7 +4,7 @@
 Vnoremap('<Leader>i', [[:lua require("refactoring.106").extract()<CR>]])
 
 -- Plenary Busted:
-Nnoremap('<Leader>t', '<Plug>PlenaryWriteAndRunTestFile<CR>')
+-- Nnoremap('<Leader>t', '<Plug>PlenaryWriteAndRunTestFile<CR>')
 
 -- <C-z> suspends Vim to terminal
 -- Disable <C-z> as it's anoying with SKHD keymapings
