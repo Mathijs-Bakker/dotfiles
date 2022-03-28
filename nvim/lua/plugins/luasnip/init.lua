@@ -18,6 +18,7 @@ local fmta = require('luasnip.extras.fmt').fmta
 local types = require 'luasnip.util.types'
 local conds = require 'luasnip.extras.expand_conditions'
 
+
 -- Every unspecified option will be set to the default.
 ls.config.set_config {
   history = true,
@@ -150,7 +151,7 @@ end
 -- require 'ls-snips.ft-test'
 
 -- stylua: ignore
-ls.snippets = {
+ls.add_snippets(nil, {
   all = {
     s('trigger',
     {
@@ -237,7 +238,7 @@ ls.snippets = {
   --     - luasnip.all
   -- are searched in that order.
   -- all = global_snips.All,
-}
+})
 
 -- local all = require 'ls-snips.all'
 -- local all = {
