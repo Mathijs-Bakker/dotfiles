@@ -15,11 +15,11 @@ return require('packer').startup(function()
   use 'nvim-lua/lsp-status.nvim'
   use 'glepnir/lspsaga.nvim'
 
-  -- Completion:
+  -- -- Completion:
   use 'hrsh7th/nvim-cmp' -- Cmp
   use 'L3MON4D3/LuaSnip' -- Snippets
   use 'onsails/lspkind-nvim' --  vscode-like pictograms
-  -- Nvim-Cmp sources:
+  -- -- Nvim-Cmp sources:
   use 'f3fora/cmp-spell' -- src for vim's spellsuggest
   use 'hrsh7th/cmp-buffer' -- src for buffer words
   use 'hrsh7th/cmp-cmdline' -- src for vim's cmdline

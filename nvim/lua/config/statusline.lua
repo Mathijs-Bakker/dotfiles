@@ -35,7 +35,7 @@ local function get_lsp_status()
 end
 
 local function get_git_branch()
-  local git_branch = vim.fn['fugitive#head']()
+  local git_branch = vim.fn['FugitiveHead']()
 
   if not git_branch or git_branch == '' then
     return ''
