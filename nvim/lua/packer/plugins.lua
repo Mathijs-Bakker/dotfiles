@@ -66,6 +66,8 @@ return require('packer').startup(function()
     },
   }
 
+  use 'nvim-telescope/telescope-ui-select.nvim'
+
   use {
     'nvim-telescope/telescope-frecency.nvim',
     config = function()
