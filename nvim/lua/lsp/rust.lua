@@ -7,6 +7,8 @@ local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 local opts = {
   tools = { -- rust-tools options
 
+    autoSetHints = true,
+    -- hover_with_actions = true,
     -- how to execute terminal commands
     -- options right now: termopen / quickfix
     executor = require('rust-tools/executors').termopen,
@@ -158,6 +160,28 @@ local opts = {
   -- these override the defaults set by rust-tools.nvim
   -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
   server = {
+    -- cmd_env = requested_server._default_options.cmd_env,
+    settings = {
+      ['rust-analyzer'] = {
+        assist = {
+          importEnforceGranularity = true,
+          importPrefix = 'crate',
+        },
+        cargo = {
+          allFeatures = true,
+        },
+        checkOnSave = {
+          -- default: `cargo check`
+          command = 'clippy',
+        },
+      },
+      inlayHints = {
+        lifetimeElisionHints = {
+          enable = true,
+          useParameterNames = true,
+        },
+      },
+    },
     -- standalone file support
     -- setting it to false may improve startup time
     standalone = true,
