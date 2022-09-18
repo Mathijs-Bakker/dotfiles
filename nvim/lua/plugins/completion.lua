@@ -11,9 +11,7 @@ vim.diagnostic.config {
   virtual_text = false,
 }
 
-local luasnip = require 'luasnip'
 local cmp = require 'cmp'
-local cmp_buffer = require 'cmp_buffer'
 local icons = require 'lspkind'
 
 -- Setup nvim-cmp:
@@ -59,7 +57,7 @@ cmp.setup {
     -- end, { 'i', 's' }),
   },
   -- The order of the sources list defines the priority of each source.
-  sources = {
+  sources = cmp.config.sources {
     { name = 'nvim_lsp_signature_help' },
     { name = 'luasnip', priority = 100 },
     { name = 'nvim_lsp', priority = 50, max_item_count = 10 },
@@ -71,13 +69,18 @@ cmp.setup {
     {
       name = 'buffer',
       -- priority = 10,
-      -- keyword_length = 2,
+      keyword_length = 3,
       max_item_count = 4,
       get_bufnrs = function()
-        return vim.api.nvim_list_bufs()
+        local bufs = {}
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+          bufs[vim.api.nvim_win_get_buf(win)] = true
+        end
+        return vim.tbl_keys(bufs)
       end,
     },
   },
+
   sorting = {
     priority_weight = 10,
     comparators = {
