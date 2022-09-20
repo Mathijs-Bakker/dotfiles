@@ -59,8 +59,8 @@ cmp.setup {
   -- The order of the sources list defines the priority of each source.
   sources = cmp.config.sources {
     { name = 'nvim_lsp_signature_help' },
-    { name = 'luasnip', priority = 100 },
-    { name = 'nvim_lsp', priority = 50, max_item_count = 10 },
+    { name = 'luasnip', priority = 1 },
+    { name = 'nvim_lsp', priority = 2, max_item_count = 10 },
     { name = 'nvim_lua' },
     { name = 'custom_source' },
     { name = 'path' },
