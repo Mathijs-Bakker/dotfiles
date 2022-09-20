@@ -1,14 +1,14 @@
-TrySource("lsp.lua")
-TrySource("lsp.omnisharp")
-TrySource("lsp.rust")
-TrySource("lsp.typescript")
-TrySource("lsp.viml")
+TrySource 'lsp.lua'
+TrySource 'lsp.omnisharp'
+TrySource 'lsp.rust'
+TrySource 'lsp.typescript'
+TrySource 'lsp.viml'
 
 local function buf_set_option(...)
-	vim.api.nvim_buf_set_option(0, ...)
+  vim.api.nvim_buf_set_option(0, ...)
 end
 
-buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 -- stylua: ignore start
 Nnoremap('gD', 	'<cmd>lua vim.lsp.buf.declaration()<CR>') -- Goto Declaration
 Nnoremap('gd', 	'<cmd>lua vim.lsp.buf.definition()<CR>') -- Goto Definition
@@ -18,9 +18,7 @@ ts_map('gr', 	'lsp_references') -- Goto References
 ts_map('gI', 	'lsp_implementations') -- Goto Implementations
 
 Nnoremap('<Leader>cr', 	'<cmd>lua vim.lsp.buf.rename()<CR>') -- Code Rename
--- ts_map('<Leader>ca', 	'lsp_code_actions') -- Code Action
--- ts_map('<Leader>cca', 	'lsp_range_code_actions')
--- Nnoremap('<Leader>cca', '<cmd>Telescope lsp_range_code_actions<CR>') -- Code Range Action
+vim.keymap.set({'v', 'n'}, '<Leader>ca', vim.lsp.buf.code_action)
 
 Inoremap('<C-s>', 	'<cmd>lua vim.lsp.buf.signature_help()<CR>') -- Show Signature
 
