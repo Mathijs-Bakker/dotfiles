@@ -18,7 +18,6 @@ local fmta = require('luasnip.extras.fmt').fmta
 local types = require 'luasnip.util.types'
 local conds = require 'luasnip.extras.expand_conditions'
 
-
 -- Every unspecified option will be set to the default.
 ls.config.set_config {
   history = true,
@@ -174,6 +173,13 @@ ls.add_snippets(nil, {
     s('print', {
       t {'println!("'}, i(1), t {' {:?}", '}, i(0), t {');'}}),
 
+    s('for',
+    {
+	t {'for '}, i(1), t {' in ' }, i(2), t {' {', ''},
+	      i(0),
+	t {'}', ''},
+    }),
+
     s('struct',
     {
       t {'#[derive(Debug)]', ''},
@@ -201,6 +207,12 @@ ls.add_snippets(nil, {
       t {'}'},
     }),
 
+    s('if',
+    {
+      t {'if '}, i(1), t {' {', ''},
+	   i(0),
+      t {'}'},
+    }),
   },
 
   lua = {
