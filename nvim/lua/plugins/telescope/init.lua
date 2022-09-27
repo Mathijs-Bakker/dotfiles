@@ -35,9 +35,21 @@ require('telescope').setup {
     file_sorter = require('telescope.sorters').get_fuzzy_file,
     file_ignore_patterns = {},
     mappings = {
+
       i = {
-        ['<C-j>'] = actions.results_scrolling_down,
-        ['<C-k>'] = actions.results_scrolling_up,
+        -- ['<C-j>'] = actions.results_scrolling_down,
+        -- ['<C-k>'] = actions.results_scrolling_up,
+        ['<C-k>'] = {
+          actions.move_selection_previous,
+          type = 'action',
+          opts = { nowait = true, silent = true },
+        },
+
+        ['<C-j>'] = {
+          actions.move_selection_next,
+          type = 'action',
+          opts = { nowait = true, silent = true },
+        },
       },
     },
     generic_sorter = require('telescope.sorters').get_generic_fuzzy_sorter,
