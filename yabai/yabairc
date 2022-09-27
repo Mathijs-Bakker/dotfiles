@@ -36,13 +36,13 @@ yabai -m config window_gap                   5
 
 # mission-control desktop labels
 yabai -m space 1 --label console
-yabai -m space 2 --label ide
-yabai -m space 3 --label web
+# yabai -m space 2 --label ide
+yabai -m space 2 --label web
+yabai -m space 3 --label mail
 yabai -m space 4 --label system
-yabai -m space 5 --label unity
+yabai -m space 5 --label social
+# yabai -m space 5 --label unity
 yabai -m space 6 --label gfx
-yabai -m space 7 --label mail
-yabai -m space 8 --label social
 yabai -m space 9 --label media
 yabai -m space 10 --label games
 yabai -m space 11 --label office
@@ -80,10 +80,12 @@ yabai -m rule --add app="^Mail$" space=mail
 yabai -m rule --add app="^Spotify$" space=media
 yabai -m rule --add app="^Muziek$" space=media
 yabai -m rule --add app="^Discord$" space=social
+yabai -m rule --add app="^WhatsApp$" space=social
 yabai -m rule --add app="^Slack$" space=social
 
 yabai -m rule --add app="^Game$" space=games
 yabai -m rule --add app="^Fubar$" space=games
+yabai -m rule --add app="^Battle.net$" space=games
 yabai -m rule --add app="^Hearthstone$" space=games
 yabai -m rule --add app="^Battle.net$" space=games
 
