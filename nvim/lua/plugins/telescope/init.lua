@@ -50,6 +50,18 @@ require('telescope').setup {
           type = 'action',
           opts = { nowait = true, silent = true },
         },
+        ['qq'] = {
+          actions.close,
+          type = 'action',
+          opts = { nowait = true, silent = true },
+        },
+      },
+      n = {
+        ['q'] = {
+          actions.close,
+          type = 'action',
+          opts = { nowait = true, silent = true },
+        },
       },
     },
     generic_sorter = require('telescope.sorters').get_generic_fuzzy_sorter,
