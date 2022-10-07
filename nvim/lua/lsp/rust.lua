@@ -1,5 +1,7 @@
 -- local lsp = require 'lspconfig'
 
+vim.keymap.set('n', 'cr', ':! cargo run<CR>')
+
 local extension_path = '~/.vscode/extensions/vadimcn.vscode-lldb-1.6.10'
 local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
