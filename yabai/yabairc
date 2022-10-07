@@ -1,8 +1,8 @@
 #!usr/bin/env sh
 
 # Load scritpting-addition
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # Global settings
 yabai -m config external_bar                 all:0:0
