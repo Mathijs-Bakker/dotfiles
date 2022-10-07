@@ -137,7 +137,7 @@ return require('packer').startup(function()
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
-  use 'akinsho/toggleterm.nvim'
+  -- use 'akinsho/toggleterm.nvim'
 
   use 'tpope/vim-commentary'
   use 'tpope/vim-unimpaired'
