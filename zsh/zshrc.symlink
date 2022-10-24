@@ -188,6 +188,7 @@ fi
 
 # use nvim, but don't make me think about it
 [[ -n "$(command -v nvim)" ]] && alias vim="nvim"
+alias e="nvim"
 
 # Filesystem aliases
 alias ..='cd ..'

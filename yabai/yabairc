@@ -4,6 +4,9 @@
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
+# HOMEBREW_PREFIX/var/log/yabai/
+yabai -m config debug_output on
+
 # Global settings
 yabai -m config external_bar                 all:0:0
 yabai -m config mouse_follows_focus          on
@@ -36,16 +39,15 @@ yabai -m config window_gap                   5
 
 # mission-control desktop labels
 yabai -m space 1 --label console
-# yabai -m space 2 --label ide
 yabai -m space 2 --label web
 yabai -m space 3 --label mail
 yabai -m space 4 --label system
 yabai -m space 5 --label social
-# yabai -m space 5 --label unity
 yabai -m space 6 --label gfx
-yabai -m space 9 --label media
-yabai -m space 10 --label games
-yabai -m space 11 --label office
+yabai -m space 7 --label media
+yabai -m space 8 --label games
+yabai -m space 9 --label office
+yabai -m space 10 --label ide
 
 # specific space settings
 yabai -m config --space 1 layout stack
@@ -55,15 +57,21 @@ yabai -m config --space 4 layout stack
 
 # window rules
 yabai -m rule --add app="^Finder$" space=system
+
+# yabai -m rule --add app="^kitty$" space=1
 yabai -m rule --add app="^kitty$" space=console
 yabai -m rule --add app="^Alacritty$" space=console
+
 yabai -m rule --add app="^Rider$" space=ide
 yabai -m rule --add app="^Xcode$" space=ide
 yabai -m rule --add app="^Visual Studio$" space=ide
+
 yabai -m rule --add app="^Brave Browser$" space=web
 yabai -m rule --add app="^Safari$" space=web
 yabai -m rule --add app="^Firefox$" space=web
-yabai -m rule --add app="^Voorvertoning$" space=notes
+
+yabai -m rule --add app="^Voorvertoning$" space=system
+
 yabai -m rule --add app="^Notes$" space=office
 yabai -m rule --add app="^Notities$" space=office
 yabai -m rule --add app="^Agenda$" space=office
@@ -71,14 +79,19 @@ yabai -m rule --add app="^Word$" space=office
 yabai -m rule --add app="^Pages$" space=office
 yabai -m rule --add app="^Excel$" space=office
 yabai -m rule --add app="^Pages$" space=office
+
 yabai -m rule --add app="^Blender$" space=gfx
-yabai -m rule --add app="^Unity$" space=unity
+
+# yabai -m rule --add app="^Unity$" space=unity
 yabai -m rule --add app="^Adobe Photoshop CC 2018$" space=gfx
 yabai -m rule --add app="^Adobe Indesign CC 2018$" space=gfx
 yabai -m rule --add app="^Adobe Illustrator CC 2018$" space=gfx
+
 yabai -m rule --add app="^Mail$" space=mail
+
 yabai -m rule --add app="^Spotify$" space=media
 yabai -m rule --add app="^Muziek$" space=media
+
 yabai -m rule --add app="^Discord$" space=social
 yabai -m rule --add app="^WhatsApp$" space=social
 yabai -m rule --add app="^Slack$" space=social
@@ -96,6 +109,13 @@ yabai -m rule --add app="^Calculator.app$" manage=off
 yabai -m rule --add app="^Rekenmachine$" manage=off
 yabai -m rule --add app="^Unity Hub$" manage=off
 yabai -m rule --add app="^Steam$" space=games manage=off
+# temperary apps (development)
+yabai -m rule --add app="^KeyFinder$" manage=off
+yabai -m rule --add app="^find_key_of_chord_progression$" manage=off
+yabai -m rule --add app="^RTunes$" manage=off
+yabai -m rule --add app="^rtunes$" manage=off
+
+
 
 # signals
 yabai -m signal --add event=window_destroyed active=yes action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse &> /dev/null || yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id) &> /dev/null"
