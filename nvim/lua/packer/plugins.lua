@@ -142,6 +142,7 @@ return require('packer').startup(function()
   use 'tpope/vim-commentary'
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-repeat'
+  use 'ggandor/leap.nvim'
   use 'sickill/vim-pasta'
   -- use 'airblade/vim-rooter'
   -- use 'oberblastmeister/rooter.nvim'
