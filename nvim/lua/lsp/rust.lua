@@ -1,11 +1,32 @@
 -- local lsp = require 'lspconfig'
+local dap = require 'dap'
+dap.configurations.rust = {
+  {
+    name = 'Rust debug',
+    type = 'codelldb',
+    request = 'launch',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = true,
+  },
+}
+-- dap.adapters.codelldb = {}
 
 vim.keymap.set('n', 'cr', ':! cargo run<CR>')
 
-local extension_path = '~/.vscode/extensions/vadimcn.vscode-lldb-1.6.10'
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/'
 local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 
+-- local extension_path = vim.env.HOME .. '.local/share/nvim/mason/packages/codelldb/extension/adapter/'
+-- local codelldb_path = extension_path .. 'codelldb'
+-- -- local liblldb_path = extension_path .. 'liblldb.so'
+-- local liblldb_path = extension_path .. 'libcodelldb.dylib'
 local opts = {
   tools = { -- rust-tools options
 
@@ -191,14 +212,17 @@ local opts = {
 
   -- debugging stuff
   dap = {
-    adapter = {
-      type = 'executable',
-      command = 'lldb-vscode',
-      name = 'rt_lldb',
-    },
+    adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path),
+    -- adapter = {
+    --   type = 'executable',
+    --   command = 'lldb-vscode',
+    --   name = 'rt_lldb',
+    -- },
   },
 }
 
 require('rust-tools').setup(opts)
 
+-- local dap = require 'dap'
+-- dap.defaults.fallback.terminal_win_cmdd = '50vsplit new'
 -- -- Cmd [[autocmd CursorHold * lua vim.diagnostic.open_float()]]

@@ -15,8 +15,14 @@ return require('packer').startup(function()
   use 'nvim-lua/lsp-status.nvim'
   use 'glepnir/lspsaga.nvim'
 
-  use 'williamboman/mason.nvim'
+  use 'mfussenegger/nvim-dap'
+  use { 'williamboman/mason.nvim', require('mason').setup() }
   use { 'williamboman/mason-lspconfig.nvim', require('mason').setup() }
+  use {
+    'jayp0521/mason-nvim-dap.nvim',
+    require('mason-nvim-dap').setup { ensure_installed = { 'lldb' } },
+    automatic_setup = true,
+  }
 
   -- -- Completion:
   use 'hrsh7th/nvim-cmp' -- Cmp
@@ -38,10 +44,6 @@ return require('packer').startup(function()
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
   -- use 'rafamadriz/friendly-snippets'
-
-  -- Debugger Adaptor Protocol:
-  -- TODO: Read the docs
-  use 'mfussenegger/nvim-dap'
 
   -- Clipboard Manager:
   -- TODO: Read the docs
