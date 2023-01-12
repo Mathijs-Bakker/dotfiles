@@ -17,7 +17,7 @@ Nnoremap('<Leader>dl', [[:lua require('dap').run_last()<CR>]])
 local wk = require 'which-key'
 
 wk.register {
-  ['<Leader><Leader>'] = {
+  ['<Leader>'] = {
     d = {
       name = 'DAP (F5 = Continue, F10 Step Over, F11 Step Into, F12 Step Out',
       b = { 'Toggle Breakpoint' },
@@ -26,5 +26,32 @@ wk.register {
       r = { 'Repl Open' },
       l = { 'Run Last' },
     },
+  },
+}
+-- export LDFLAGS="-L/usr/local/opt/llvm/lib"
+-- export CPPFLAGS="-I/usr/local/opt/llvm/include"
+
+dap.adapters.lldb = {
+  type = 'executable',
+  Command = vim.env.HOME .. '/.local/share/nvim/mason/packages/codelldb/extension/adapter/',
+  -- command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
+  -- Command = '/usr/local/opt/llvm/lib',
+  -- Command = '/usr/local/opt/llvm/bin/lldb/',
+  name = 'lldb',
+}
+
+dap.configurations.rust = {
+  {
+    name = 'Launch',
+    type = 'lldb',
+    request = 'launch',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+    -- terminal = 'integrated',
+    runInTerminal = false,
+    args = {},
   },
 }

@@ -251,3 +251,5 @@ alias ct='cargo test'
 alias wtfport="lsof -i -P -n | grep LISTEN"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="/usr/local/opt/node@16/bin:$PATH"
