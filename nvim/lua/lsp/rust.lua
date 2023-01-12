@@ -1,7 +1,7 @@
 vim.keymap.set('n', 'cr', ':! cargo run<CR>')
 vim.keymap.set('n', '<Leader>ct', ':! cargo test<CR>')
 vim.keymap.set('n', '<Leader>gd', ':RustOpenExternalDocs<CR>')
-vim.diagnostic.config { virtual_text = true }
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 

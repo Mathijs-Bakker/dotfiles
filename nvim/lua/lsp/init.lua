@@ -4,6 +4,10 @@ TrySource 'lsp.rust'
 TrySource 'lsp.typescript'
 TrySource 'lsp.viml'
 
+vim.diagnostic.config {
+  virtual_text = true,
+}
+
 local function buf_set_option(...)
   vim.api.nvim_buf_set_option(0, ...)
 end
