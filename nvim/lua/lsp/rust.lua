@@ -1,20 +1,9 @@
--- local lsp = require 'lspconfig'
-vim.keymap.set('n', '<Leader>cr', ':! cargo run<CR>')
+vim.keymap.set('n', 'cr', ':! cargo run<CR>')
 vim.keymap.set('n', '<Leader>ct', ':! cargo test<CR>')
 vim.keymap.set('n', '<Leader>gd', ':RustOpenExternalDocs<CR>')
-
+vim.diagnostic.config { virtual_text = true }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
--- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-local lsp_attach = function(client, buf)
-  -- vim.api.nvim_buf_set_option(buf, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
-  -- vim.api.nvim_buf_set_option(buf, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-  -- vim.api.nvim_buf_set_option(buf, 'tagfunc', 'v:lua.vim.lsp.tagfunc')
-end
--- local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/'
--- local codelldb_path = extension_path .. 'adapter/codelldb'
--- local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 
 local extension_path = vim.env.HOME .. '.local/share/nvim/mason/packages/codelldb/extension/'
 local codelldb_path = extension_path .. 'adapter/codelldb'
@@ -177,7 +166,6 @@ local opts = {
   -- these override the defaults set by rust-tools.nvim
   -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
   server = {
-    -- cmd_env = requested_server._default_options.cmd_env,
     settings = {
       capabilities = capabilities,
       -- on_attach = lsp_attach,
@@ -201,8 +189,6 @@ local opts = {
         },
       },
     },
-    -- standalone file support
-    -- setting it to false may improve startup time
     standalone = true,
   }, -- rust-analyer options
 
@@ -218,7 +204,3 @@ local opts = {
 }
 
 require('rust-tools').setup(opts)
-
--- local dap = require 'dap'
--- dap.defaults.fallback.terminal_win_cmdd = '50vsplit new'
--- -- Cmd [[autocmd CursorHold * lua vim.diagnostic.open_float()]]
