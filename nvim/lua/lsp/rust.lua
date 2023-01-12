@@ -1,32 +1,26 @@
 -- local lsp = require 'lspconfig'
-local dap = require 'dap'
-dap.configurations.rust = {
-  {
-    name = 'Rust debug',
-    type = 'codelldb',
-    request = 'launch',
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
-    end,
-    cwd = '${workspaceFolder}',
-    stopOnEntry = true,
-  },
-}
--- dap.adapters.codelldb = {}
-
-vim.keymap.set('n', 'cr', ':! cargo run<CR>')
+vim.keymap.set('n', '<Leader>cr', ':! cargo run<CR>')
+vim.keymap.set('n', '<Leader>ct', ':! cargo test<CR>')
+vim.keymap.set('n', '<Leader>gd', ':RustOpenExternalDocs<CR>')
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/'
+local lsp_attach = function(client, buf)
+  -- vim.api.nvim_buf_set_option(buf, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
+  -- vim.api.nvim_buf_set_option(buf, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  -- vim.api.nvim_buf_set_option(buf, 'tagfunc', 'v:lua.vim.lsp.tagfunc')
+end
+-- local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/'
+-- local codelldb_path = extension_path .. 'adapter/codelldb'
+-- local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+
+local extension_path = vim.env.HOME .. '.local/share/nvim/mason/packages/codelldb/extension/'
 local codelldb_path = extension_path .. 'adapter/codelldb'
-local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+local liblldb_path = extension_path .. 'lldb/lib/libcodelldb.dylib'
+-- /Users/MateoPanadero/.local/share/nvim/mason/packages/codelldb/extension/lldb/lib/liblldb.dylib
 
--- local extension_path = vim.env.HOME .. '.local/share/nvim/mason/packages/codelldb/extension/adapter/'
--- local codelldb_path = extension_path .. 'codelldb'
--- -- local liblldb_path = extension_path .. 'liblldb.so'
--- local liblldb_path = extension_path .. 'libcodelldb.dylib'
 local opts = {
   tools = { -- rust-tools options
 
@@ -185,6 +179,8 @@ local opts = {
   server = {
     -- cmd_env = requested_server._default_options.cmd_env,
     settings = {
+      capabilities = capabilities,
+      -- on_attach = lsp_attach,
       ['rust-analyzer'] = {
         assist = {
           importEnforceGranularity = true,
