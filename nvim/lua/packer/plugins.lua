@@ -15,6 +15,7 @@ return require('packer').startup(function()
   use 'nvim-lua/lsp-status.nvim'
   use 'glepnir/lspsaga.nvim'
 
+  -- DAP:
   use 'mfussenegger/nvim-dap'
   use { 'williamboman/mason.nvim', require('mason').setup() }
   use { 'williamboman/mason-lspconfig.nvim', require('mason').setup() }
@@ -23,6 +24,7 @@ return require('packer').startup(function()
     require('mason-nvim-dap').setup { ensure_installed = { 'lldb' } },
     automatic_setup = true,
   }
+  use { 'nvim-telescope/telescope-dap.nvim' }
 
   -- -- Completion:
   use 'hrsh7th/nvim-cmp' -- Cmp
@@ -152,7 +154,18 @@ return require('packer').startup(function()
   -- use 'oberblastmeister/rooter.nvim'
   use 'ahmedkhalf/project.nvim'
   use 'euclidianAce/BetterLua.vim'
-  use 'ThePrimeagen/harpoon'
+  -- use {
+  --   'ThePrimeagen/harpoon',
+  --   require('harpoon').setup {
+  --     global_settings = {
+  --       mark_branch = true,
+  --     },
+  --   },
+  -- }
+  use {
+    'cbochs/grapple.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+  }
   use 'tjdevries/nlua.nvim'
   use 'Mathijs-Bakker/zoom-vim'
   -- use 'dstein64/vim-startuptime'
