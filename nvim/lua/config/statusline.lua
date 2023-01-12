@@ -44,18 +44,18 @@ local function get_git_branch()
   return '%#WildMenu#  ' .. git_branch .. '%*'
 end
 
-local harpoon_mark = require 'harpoon.mark'
+-- local harpoon_mark = require 'harpoon.mark'
 
-local function get_harpoon_status()
-  local mark_id = harpoon_mark.status()
+-- local function get_harpoon_status()
+--   local mark_id = harpoon_mark.status()
 
-  if not mark_id or mark_id == '' then
-    return '%#WildMenu# ♆  %*'
-    -- return '%#WildMenu# ♆ -- %*'
-  end
+--   if not mark_id or mark_id == '' then
+--     return '%#WildMenu# ♆  %*'
+--     -- return '%#WildMenu# ♆ -- %*'
+--   end
 
-  return '%#PmenuSel# ♆ ' .. mark_id .. ' %*'
-end
+--   return '%#PmenuSel# ♆ ' .. mark_id .. ' %*'
+-- end
 
 local function is_terminal_window()
   local buftype = tostring(Bo.buftype)
@@ -80,7 +80,7 @@ function StatusLine()
       .. separator
       .. get_git_branch()
       .. separator
-      .. get_harpoon_status()
+      -- .. get_harpoon_status()
       .. section_spacer
       .. get_lsp_status()
       .. section_spacer
