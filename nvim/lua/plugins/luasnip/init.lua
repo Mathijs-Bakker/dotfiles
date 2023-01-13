@@ -152,21 +152,26 @@ end
 -- stylua: ignore
 ls.add_snippets(nil, {
   all = {
-    s('trigger',
-    {
-      t { '', 'After expanding, the cursor is here ->' },
-      i(1),
-      t { 'After jumping forward once, cursor is here ->' },
-      i(2),
-      t { '', 'After jumping once more, the snippet is exited there ->' },
-      i(0),
-    }),
+    -- s('trigger',
+    -- {
+    --   t { '', 'After expanding, the cursor is here ->' },
+    --   i(1),
+    --   t { 'After jumping forward once, cursor is here ->' },
+    --   i(2),
+    --   t { '', 'After jumping once more, the snippet is exited there ->' },
+    --   i(0),
+    -- }),
+
+    s('{', { t { '{' }, i(0), t {'}'} }),
+    s('[', { t { '[' }, i(0), t {']'} }),
+    s('(', { t { '(' }, i(0), t {')'} }),
   },
 
   rust = {
 
     s('derivedebug', t '#[derive(Debug)]'),
     s('deadcode', t '#[allow(dead_code)]'),
+    s('allowfreedom', t '#![allow(clippy::disallowed_names, unused_variables, dead_code)]'),
 
     s('clippypedantic', t '#![warn(clippy::all, clippy::pedantic)]'),
 
@@ -208,12 +213,12 @@ ls.add_snippets(nil, {
       t {'}'},
     }),
 
-    s('if',
-    {
-      t {'if '}, i(1), t {' {', ''},
-	   i(0),
-      t {'}'},
-    }),
+    -- s('if',
+    -- {
+    --   t {'if '}, i(1), t {' {', ''},
+	   -- i(0),
+    --   t {'}'},
+    -- }),
   },
 
   lua = {
