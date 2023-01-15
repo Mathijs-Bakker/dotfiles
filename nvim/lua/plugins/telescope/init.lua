@@ -50,7 +50,7 @@ require('telescope').setup {
           type = 'action',
           opts = { nowait = true, silent = true },
         },
-        ['qq'] = {
+        ['ZQ'] = {
           actions.close,
           type = 'action',
           opts = { nowait = true, silent = true },
