@@ -180,6 +180,8 @@ ls.add_snippets(nil, {
 
     s('clippypedantic', t '#![warn(clippy::all, clippy::pedantic)]'),
 
+    s(':turbofish', { t {'::<'}, i(0), t {'>'} }),
+
     s('print', {
       -- t {'println!("'}, i(1), t {' {:?}", '}, i(0), t {');'}}),
       t {'println!("'}, i(1), t {' {'}, i(0), t {':?}");'}}),
