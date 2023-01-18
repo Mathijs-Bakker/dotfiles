@@ -91,10 +91,10 @@ vim.cmd [[
 	inoremap <silent> <C-J> <cmd>lua ls.jump(-1)<Cr>
 	snoremap <silent> <C-L> <cmd>lua ls.jump(1)<Cr>
 	snoremap <silent> <C-J> <cmd>lua ls.jump(-1)<Cr>
-	imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : ''
-	smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : ''
-	imap <silent><expr> <C-S-E> luasnip#choice_active() ? '<Plug>luasnip-prev-choice' : ''
-	smap <silent><expr> <C-S-E> luasnip#choice_active() ? '<Plug>luasnip-prev-choice' : ''
+	imap <silent><expr> <C-n> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : ''
+	smap <silent><expr> <C-n> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : ''
+	imap <silent><expr> <C-p> luasnip#choice_active() ? '<Plug>luasnip-prev-choice' : ''
+	smap <silent><expr> <C-r> luasnip#choice_active() ? '<Plug>luasnip-prev-choice' : ''
 ]]
 
 require('luasnip.loaders.from_lua').lazy_load()
