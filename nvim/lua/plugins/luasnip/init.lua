@@ -1,6 +1,13 @@
 -- Thanx to:
 -- https://github.com/L3MON4D3/Dotfiles/blob/master/.config/nvim/lua/plugins/luasnip/init.lua
 
+-- Colorscheme:
+local red = 'GruvboxRed'
+local orange = 'GruvboxOrange'
+local blue = 'GruvboxBlue'
+local green = 'GruvboxGreen'
+local yellow = 'GruvboxYellow'
+
 local types = require 'luasnip.util.types'
 
 ls = require 'luasnip'
@@ -14,11 +21,21 @@ ls.config.setup {
   delete_check_events = 'TextChanged,InsertEnter',
   store_selection_keys = '<Tab>',
   ext_opts = {
+    [types.insertNode] = {
+      active = { hl_group = red },
+      visited = { hl_group = orange },
+      unvisited = { hl_group = blue },
+      -- passive = {},
+      -- snippet_passive = {},
+    },
     [types.choiceNode] = {
       active = {
-        virt_text = { { '?', 'GruvboxOrange' } },
+        virt_text = { { '⚡', 'GruvboxOrange' } },
         priority = 0,
       },
+    },
+    [types.snippet] = {
+      -- passive = {},
     },
   },
   ft_func = require('luasnip.extras.filetype_functions').from_pos_or_filetype,
