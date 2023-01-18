@@ -1,8 +1,27 @@
+-- Rust snippets for LuaSnip...
+
+-- I created these snips for smart (read: lazy) coding in Neovim (duh!).
+
+-- Some are inspired by:
+-- https://github.com/rafamadriz/friendly-snippets/blob/main/snippets/rust.json
+-- Not all made it to this list. Because rust-analyzer gets smarter every month
+-- so there's no need for any duplicates (only when they are smarter).
+
+-- You are free to copy these snippets into your own Neovim config.
+-- And if you have created some awesome snippets yourself (or upgraded some of mine),
+-- send a pr, or keep me posted.
+
+-- Cheers!
+-- Mathijs
+
 return {
+  -- ::<TurboFish>
+  s({ trig = ':turbofish', dscr = 'Turbofish\n `::<_>`' }, { t { '::<' }, i(0), t { '>' } }),
+
   -- Atributes:
   s('derivedebug', t '#[derive(Debug)]'),
 
-  -- Attributes, Smart Diagnostics:
+  -- Attributes, 'Smart' Diagnostics:
   s('deadcode', t '#[allow(dead_code)]'),
   s('allowfreedom', t '#![allow(clippy::disallowed_names, unused_variables, dead_code)]'),
   s('clippypedantic', t '#![warn(clippy::all, clippy::pedantic)]'),
@@ -157,16 +176,103 @@ return {
 
   -- Common:
 
-  s(':turbofish', { t { '::<' }, i(0), t { '>' } }),
+  -- Formatted print:
 
-  s('print', {
-    -- t {'println!("'}, i(1), t {' {:?}", '}, i(0), t {');'}}),
+  s({ trig = 'format_outer_args', dscr = '`format!("Some text {:?}", arg)`\nFormat `String` with outside args' }, {
+    t { 'format!("' },
+    i(1),
+    t { ' {' },
+    t { ':?}", ' },
+    i(0),
+    t { ');' },
+  }),
+
+  s({ trig = 'format_inner_args', dscr = '`format!("Some text {arg:?}")`,\nFormat `String` with inside args' }, {
+    t { 'format!("' },
+    i(1),
+    t { ' {' },
+    i(0),
+    t { ':?}");' },
+  }),
+
+  s({ trig = 'print_outer_args', dscr = '`print!("Some text {:?}", arg)`\nFormatted `print!` with outside args' }, {
+    t { 'print!("' },
+    i(1),
+    t { ' {' },
+    t { ':?}", ' },
+    i(0),
+    t { ');' },
+  }),
+
+  s({ trig = 'print_inner_args', dscr = '`print!("Some text {arg:?}")`,\nFormatted `print!` with inside args' }, {
     t { 'println!("' },
     i(1),
     t { ' {' },
     i(0),
     t { ':?}");' },
   }),
+
+  s({
+    trig = 'println_outer_args',
+    dscr = '`println!("Some text {:?}", arg)`\nFormatted `println!` with outside args',
+  }, {
+    t { 'println!("' },
+    i(1),
+    t { ' {' },
+    t { ':?}", ' },
+    i(0),
+    t { ');' },
+  }),
+
+  s({
+    trig = 'eprintln_outer_args',
+    dscr = '`eprintln!("Some text {:?}", arg)`\nFormatted `eprintln!` with outside args',
+  }, {
+    t { 'eprintln!("' },
+    i(1),
+    t { ' {' },
+    t { ':?}", ' },
+    i(0),
+    t { ');' },
+  }),
+
+  s({ trig = 'eprint_inner_args', dscr = '`eprint!("Some text {arg:?}")`,\nFormatted `eprint!` with inside args' }, {
+    t { 'eprintln!("' },
+    i(1),
+    t { ' {' },
+    i(0),
+    t { ':?}");' },
+  }),
+
+  s({ trig = 'eprintln_inner_args', dscr = '`eprintln("Some text {arg:?}")`,\nFormatted `eprintln!` with inside args' }, {
+    t { 'eprintln!("' },
+    i(1),
+    t { ' {' },
+    i(0),
+    t { ':?}");' },
+  }),
+
+  s({
+    trig = 'eprintln_outer_args',
+    dscr = '`eprintln!("Some text {:?}", arg)`\nFormatted `eprintln!` with outside args',
+  }, {
+    t { 'eprintln!("' },
+    i(1),
+    t { ' {' },
+    t { ':?}", ' },
+    i(0),
+    t { ');' },
+  }),
+
+  s({ trig = 'println_inner_args', dscr = '`println("Some text {arg:?}")`,\nFormatted `println!` with inside args' }, {
+    t { 'println!("' },
+    i(1),
+    t { ' {' },
+    i(0),
+    t { ':?}");' },
+  }),
+
+  -- Flow of Control:
 
   s('for', {
     t { 'for ' },
@@ -177,42 +283,6 @@ return {
     i(0),
     t { '', '' },
     t { '}', '' },
-  }),
-
-  s('struct', {
-    t { '#[derive(Debug)]', '' },
-    t { 'struct ' },
-    i(1),
-    t { ' {', '' },
-    i(0),
-    t { '}', '' },
-  }),
-
-  s('test', {
-    t { '#[test]', '' },
-    t { 'fn ' },
-    i(1),
-    t { '() {', '' },
-    t { '	assert' },
-    i(0),
-    t { '', '' },
-    t { '}' },
-  }),
-
-  s('testcfg', {
-    t { '#[cfg(test)]', '' },
-    t { 'mod ' },
-    i(1),
-    t { ' {', '' },
-    t { '	#[test]', '' },
-    t { '	fn ' },
-    i(2),
-    t { '() {', '' },
-    t { '		assert' },
-    i(0),
-    t { '', '' },
-    t { '	}', '' },
-    t { '}' },
   }),
 
   s('else', {
@@ -241,11 +311,56 @@ return {
     t { '}' },
   }),
 
-  -- "body": ["#![allow(${1})]"],
-  -- s('if',
-  -- {
-  --   t {'if '}, i(1), t {' {', ''},
-  -- i(0),
-  --   t {'}'},
-  -- }),
+  -- Custom Types:
+
+  s('struct', {
+    t { '#[derive(Debug)]', '' },
+    t { 'struct ' },
+    i(1),
+    t { ' {', '' },
+    i(0),
+    t { '}', '' },
+  }),
+
+  s({ trig = 'fnreturn', dscr = 'Return function' }, {
+    t { 'fn ' },
+    i(1, 'name'),
+    t { '(' },
+    i(2, 'arg'),
+    t { ') -> ' },
+    i(3, 'ret_type'),
+    t { ' {', '' },
+    t { '	' },
+    i(0, 'unimplemented!();'),
+    t { '', '}' },
+  }),
+
+  -- Testing:
+
+  s('test', {
+    t { '#[test]', '' },
+    t { 'fn ' },
+    i(1),
+    t { '() {', '' },
+    t { '	assert' },
+    i(0),
+    t { '', '' },
+    t { '}' },
+  }),
+
+  s('testmod', {
+    t { '#[cfg(test)]', '' },
+    t { 'mod ' },
+    i(1),
+    t { ' {', '' },
+    t { '	#[test]', '' },
+    t { '	fn ' },
+    i(2),
+    t { '() {', '' },
+    t { '		assert' },
+    i(0),
+    t { '', '' },
+    t { '	}', '' },
+    t { '}' },
+  }),
 }
