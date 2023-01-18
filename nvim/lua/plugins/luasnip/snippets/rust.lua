@@ -1,36 +1,161 @@
--- stylua: ignore
-local ext_opts = {
-  -- these ext_opts are applied when the node is active (e.g. it has been
-  -- jumped into, and not out yet).
-  -- this is the table actually passed to `nvim_buf_set_extmark`.
-  active = {
-    -- highlight the text inside the node red.
-    hl_group = 'GruvboxRed',
-  },
-  -- these ext_opts are applied when the node is not active, but
-  -- the snippet still is.
-
-  -- passive = {
-  -- add virtual text on the line of the node, behind all text.
-  -- virt_text = { { 'virtual text!!', 'GruvboxBlue' } },
-  -- },
-  -- visited or unvisited are applied when a node was/was not jumped into.
-  visited = {
-    hl_group = 'GruvboxGreen',
-  },
-  unvisited = {
-    hl_group = 'GruvboxBlue',
-  },
-  -- and these are applied when both the node and the snippet are inactive.
-  snippet_passive = {},
-}
-
 return {
+  -- Atributes:
   s('derivedebug', t '#[derive(Debug)]'),
+
+  -- Attributes, Smart Diagnostics:
   s('deadcode', t '#[allow(dead_code)]'),
   s('allowfreedom', t '#![allow(clippy::disallowed_names, unused_variables, dead_code)]'),
-
   s('clippypedantic', t '#![warn(clippy::all, clippy::pedantic)]'),
+
+  -- Clippy:
+  s({ trig = 'clippy_allow', dscr = 'Clippy allow lint' }, {
+    t { '#[allow(' },
+    c(1, {
+      t { 'clippy::all' },
+      t { 'clippy::cargo' },
+      t { 'clippy::complexity' },
+      t { 'clippy::correctness' },
+      t { 'clippy::nursery' },
+      t { 'clippy::pedantic' },
+      t { 'clippy::perf' },
+      t { 'clippy::style' },
+      t { 'clippy::suspicious' },
+    }),
+    t { ')]' },
+  }),
+
+  s({ trig = 'clippy_deny', dscr = 'Clippy deny lint' }, {
+    t { '#[deny(' },
+    c(1, {
+      t { 'clippy::all' },
+      t { 'clippy::cargo' },
+      t { 'clippy::complexity' },
+      t { 'clippy::correctness' },
+      t { 'clippy::nursery' },
+      t { 'clippy::pedantic' },
+      t { 'clippy::perf' },
+      t { 'clippy::style' },
+      t { 'clippy::suspicious' },
+    }),
+    t { ')]' },
+  }),
+
+  s({ trig = 'clippy_warn', dscr = 'Clippy warn lint' }, {
+    t { '#![warn(' },
+    c(1, {
+      t { 'clippy::all' },
+      t { 'clippy::cargo' },
+      t { 'clippy::complexity' },
+      t { 'clippy::correctness' },
+      t { 'clippy::nursery' },
+      t { 'clippy::pedantic' },
+      t { 'clippy::perf' },
+      t { 'clippy::style' },
+      t { 'clippy::suspicious' },
+    }),
+    t { ')]' },
+  }),
+
+  -- Attributes, Common Diagnostics:
+  s({ trig = 'allow', dscr = 'Outer attribute: allow' }, {
+    t { '#[allow(' },
+    i(0),
+    t { ')]' },
+  }),
+
+  s({ trig = 'allow!', dscr = 'Inner attribute: allow' }, {
+    t { '#![allow(' },
+    i(0),
+    t { ')]' },
+  }),
+
+  s({
+    trig = 'allow_rustc',
+    dscr = 'Attribute: allow Rust compiler lints\n\nContains most commonly used lints.',
+  }, {
+    t { '#![deny(' },
+    c(1, {
+      t { 'bad_style' },
+      t { 'const_err' },
+      t { 'dead_code' },
+      t { 'improper_ctypes' },
+      t { 'no_mangle_generic_items' },
+      t { 'non_shorthand_field_patterns' },
+      t { 'overflowing_literals' },
+      t { 'path_statements' },
+      t { 'patterns_in_fns_without_body' },
+      t { 'private_in_public' },
+      t { 'unconditional_recursion' },
+      t { 'unused' },
+      t { 'unused_allocation' },
+      t { 'unused_comparisons' },
+      t { 'unused_parens' },
+      t { 'while_true' },
+    }),
+    t { ')]' },
+  }),
+
+  s({ trig = 'deny', dscr = 'Attribute: deny' }, {
+    t { '#![deny(' },
+    i(0),
+    t { ')]' },
+  }),
+
+  s({ trig = 'warn', dscr = 'Attribute: warn' }, {
+    t { '#![warn(' },
+    i(0),
+    t { ')]' },
+  }),
+
+  s({ trig = 'no_std', dscr = 'Attribute: no_std' }, {
+    t { '#![no_std(' },
+    i(0),
+    t { ')]' },
+  }),
+
+  s({ trig = 'no_core', dscr = 'Attribute: no_core' }, {
+    t { '#![no_core(' },
+    i(0),
+    t { ')]' },
+  }),
+
+  s({ trig = 'feature', dscr = 'Attribute: feature' }, {
+    t { '#![feature(' },
+    i(0),
+    t { ')]' },
+  }),
+
+  s({ trig = 'macro_use', dscr = 'Attribute: macro_use' }, {
+    t { '#![macro_use(' },
+    i(0),
+    t { ')]' },
+  }),
+
+  s({ trig = 'repr', dscr = 'Attribute: repr' }, {
+    t { '#![repr(' },
+    i(0),
+    t { ')]' },
+  }),
+
+  s({ trig = 'cfg', dscr = 'Attribute: cfg' }, {
+    t { '#![cfg(' },
+    i(0),
+    t { ')]' },
+  }),
+
+  s({ trig = 'cfg_attr', dscr = 'Attribute: cfg_attr' }, {
+    t { '#![cfg_attr(' },
+    i(0),
+    t { ')]' },
+  }),
+
+  s({ trig = 'cfg!', dscr = 'Attribute: cfg!' }, {
+    t { '#![cfg!(' },
+    i(0),
+    t { ')]' },
+  }),
+
+  -- Common:
 
   s(':turbofish', { t { '::<' }, i(0), t { '>' } }),
 
@@ -94,28 +219,29 @@ return {
     t { 'else {' },
     t { '', '' },
     t { '	' },
-    i(0, 'unimplemented!();', { node_ext_opts = ext_opts }),
+    i(0, 'unimplemented!();'),
     t { '', '' },
     t { '}' },
   }),
 
   s('match', {
     t { 'match ' },
-    i(1, 'expr', { node_ext_opts = ext_opts }),
+    i(1, 'expr'),
     t { ' {', '' },
     t { '	' },
-    i(2, 'Some(expr)', { node_ext_opts = ext_opts }),
+    i(2, 'Some(expr)'),
     t { ' => ' },
-    i(3, 'expr', { node_ext_opts = ext_opts }),
+    i(3, 'expr'),
     t { ',', '' },
     t { '	' },
-    i(4, 'None', { node_ext_opts = ext_opts }),
+    i(4, 'None'),
     t { ' => ' },
-    i(5, 'expr', { node_ext_opts = ext_opts }),
+    i(0, 'expr'),
     t { ',', '' },
     t { '}' },
   }),
 
+  -- "body": ["#![allow(${1})]"],
   -- s('if',
   -- {
   --   t {'if '}, i(1), t {' {', ''},
