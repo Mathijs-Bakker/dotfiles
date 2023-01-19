@@ -2,11 +2,14 @@
 -- https://github.com/L3MON4D3/Dotfiles/blob/master/.config/nvim/lua/plugins/luasnip/init.lua
 
 -- Colorscheme:
-local red = 'GruvboxRed'
+-- local red = 'GruvboxRed'
 local orange = 'GruvboxOrange'
-local blue = 'GruvboxBlue'
-local green = 'GruvboxGreen'
+-- local blue = 'GruvboxBlue'
+-- local green = 'GruvboxGreen'
 local yellow = 'GruvboxYellow'
+
+local aqua_underline = 'GruvboxAquaUnderline'
+local yellow_underline = 'GruvboxYellowUnderline'
 
 local types = require 'luasnip.util.types'
 
@@ -22,20 +25,29 @@ ls.config.setup {
   store_selection_keys = '<Tab>',
   ext_opts = {
     [types.insertNode] = {
-      active = { hl_group = red },
-      visited = { hl_group = orange },
-      unvisited = { hl_group = blue },
-      -- passive = {},
-      -- snippet_passive = {},
+      active = {
+        hl_group = yellow,
+      },
+      visited = { hl_group = yellow_underline },
+      unvisited = { hl_group = yellow_underline },
+      passive = {},
+    },
+    [types.exitNode] = {
+      active = {
+        hl_group = yellow,
+      },
+      visited = { hl_group = yellow_underline },
+      unvisited = { hl_group = yellow_underline },
+      passive = {},
     },
     [types.choiceNode] = {
       active = {
-        virt_text = { { '⚡', 'GruvboxOrange' } },
+        virt_text = { { '≡', orange } },
         priority = 0,
       },
     },
     [types.snippet] = {
-      -- passive = {},
+      passive = { virt_text = { { '↯', yellow } } },
     },
   },
   ft_func = require('luasnip.extras.filetype_functions').from_pos_or_filetype,
