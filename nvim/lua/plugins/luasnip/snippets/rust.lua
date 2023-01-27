@@ -176,6 +176,84 @@ return {
 
   -- Common:
 
+  -- Flow of Control:
+
+  s({ trig = 'for', dscr = '`for _ in _` loop', priority = 5000 }, {
+    t { 'for ' },
+    i(1, 'pat'),
+    t { ' in ' },
+    i(2, 'expr'),
+    t { ' {', '' },
+    t { '	' },
+    i(3, 'unimplemented!();'),
+    t { '', '' },
+    t { '}', '' },
+  }),
+
+  s('else', {
+    t { 'else {' },
+    t { '', '' },
+    t { '	' },
+    i(1, 'unimplemented!();'),
+    t { '', '' },
+    t { '}' },
+  }),
+
+  s({ trig = 'match', dscr = '`match` with two matching arms.' }, {
+    t { 'match ' },
+    i(1, 'expr'),
+    t { ' {', '' },
+    t { '	' },
+    i(2, 'Some(expr)'),
+    t { ' => ' },
+    i(3, 'expr'),
+    t { ',', '' },
+    t { '	' },
+    i(4, 'None'),
+    t { ' => ' },
+    i(4, 'expr'),
+    t { ',', '' },
+    t { '}' },
+  }),
+
+  s({ trig = 'while-let', dscr = 'while-let' }, {
+    t { 'while let ' },
+    i(1, 'Some(pat)'),
+    t { ' = ' },
+    i(2, 'expr'),
+    t { '', '' },
+    t { '{', '' },
+    t { '	' },
+    i(3, 'unimplemented!();'),
+    t { '', '' },
+    t { '}' },
+  }),
+  -- Custom Types:
+
+  s({ trig = 'struct', dscr = 'Classic `struct` that implements `std::fmt::Debug`' }, {
+    t { '#[derive(Debug)]', '' },
+    t { 'struct ' },
+    i(1, 'Name'),
+    t { ' {', '' },
+    t { '	' },
+    i(0),
+    t { '', '' },
+    t { '}', '' },
+  }),
+
+  s({ trig = 'fnreturn', dscr = 'Return function' }, {
+    t { 'fn ' },
+    i(1, 'name'),
+    t { '(' },
+    i(2, 'arg'),
+    t { ') -> ' },
+    i(3, 'ret_type'),
+    t { ' {', '' },
+    t { '	' },
+    i(4, 'unimplemented!();'),
+    t { '', '}' },
+  }),
+
   -- Formatted print:
 
   s({ trig = 'format_outer_args', dscr = '`format!("Some text {:?}", arg)`\nFormat `String` with outside args' }, {
@@ -183,7 +261,7 @@ return {
     i(1),
     t { ' {' },
     t { ':?}", ' },
-    i(0),
+    i(0, 'args'),
     t { ');' },
   }),
 
@@ -270,69 +348,6 @@ return {
     t { ' {' },
     i(0),
     t { ':?}");' },
-  }),
-
-  -- Flow of Control:
-
-  s('for', {
-    t { 'for ' },
-    i(1),
-    t { ' in ' },
-    i(2),
-    t { ' {', '' },
-    i(0),
-    t { '', '' },
-    t { '}', '' },
-  }),
-
-  s('else', {
-    t { 'else {' },
-    t { '', '' },
-    t { '	' },
-    i(0, 'unimplemented!();'),
-    t { '', '' },
-    t { '}' },
-  }),
-
-  s('match', {
-    t { 'match ' },
-    i(1, 'expr'),
-    t { ' {', '' },
-    t { '	' },
-    i(2, 'Some(expr)'),
-    t { ' => ' },
-    i(3, 'expr'),
-    t { ',', '' },
-    t { '	' },
-    i(4, 'None'),
-    t { ' => ' },
-    i(0, 'expr'),
-    t { ',', '' },
-    t { '}' },
-  }),
-
-  -- Custom Types:
-
-  s('struct', {
-    t { '#[derive(Debug)]', '' },
-    t { 'struct ' },
-    i(1),
-    t { ' {', '' },
-    i(0),
-    t { '}', '' },
-  }),
-
-  s({ trig = 'fnreturn', dscr = 'Return function' }, {
-    t { 'fn ' },
-    i(1, 'name'),
-    t { '(' },
-    i(2, 'arg'),
-    t { ') -> ' },
-    i(3, 'ret_type'),
-    t { ' {', '' },
-    t { '	' },
-    i(0, 'unimplemented!();'),
-    t { '', '}' },
   }),
 
   -- Testing:

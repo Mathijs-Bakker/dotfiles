@@ -55,9 +55,9 @@ cmp.setup {
   },
   -- The order of the sources list defines the priority of each source.
   sources = cmp.config.sources {
-    { name = 'nvim_lsp_signature_help' },
-    { name = 'luasnip', priority = 1 },
     { name = 'nvim_lsp', priority = 2, max_item_count = 10 },
+    { name = 'luasnip', priority = 1 },
+    { name = 'nvim_lsp_signature_help' },
     { name = 'nvim_lua' },
     { name = 'custom_source' },
     { name = 'path' },
@@ -67,7 +67,7 @@ cmp.setup {
       name = 'buffer',
       -- priority = 10,
       keyword_length = 3,
-      max_item_count = 4,
+      max_item_count = 3,
       get_bufnrs = function()
         local bufs = {}
         for _, win in ipairs(vim.api.nvim_list_wins()) do
