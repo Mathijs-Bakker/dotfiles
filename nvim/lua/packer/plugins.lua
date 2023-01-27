@@ -29,6 +29,14 @@ return require('packer').startup(function()
   -- -- Completion:
   use 'hrsh7th/nvim-cmp' -- Cmp
   use 'L3MON4D3/LuaSnip' -- Snippets
+  use {
+    'doxnit/cmp-luasnip-choice',
+    config = function()
+      require('cmp_luasnip_choice').setup {
+        auto_open = true, -- Automatically open nvim-cmp on choice node (default: true)
+      }
+    end,
+  }
   use 'onsails/lspkind-nvim' --  vscode-like pictograms
   -- -- Nvim-Cmp sources:
   use 'f3fora/cmp-spell' -- src for vim's spellsuggest
