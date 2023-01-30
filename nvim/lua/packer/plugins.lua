@@ -151,7 +151,15 @@ return require('packer').startup(function()
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
-  -- use 'akinsho/toggleterm.nvim'
+  use {
+    'akinsho/toggleterm.nvim',
+    config = function()
+      require('toggleterm').setup {
+        open_mapping = ',j',
+        direction = 'float',
+      }
+    end,
+  }
 
   use 'tpope/vim-commentary'
   use 'tpope/vim-unimpaired'
