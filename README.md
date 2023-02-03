@@ -1,10 +1,9 @@
 # .dotfiles
 
-## NeoVim, Tmux and Zsh configurations. 
-* Zsh
-* Tmux
-* Neovim 0.5
+## Yabai, NeoVim, Tmux, Kitty and Zsh configurations.
 * Karabiner
-* Alacritty
 * Kitty
-* Yabai
+* Neovim 
+* Tmux
+* Yabai (macOS)
+* Zsh
