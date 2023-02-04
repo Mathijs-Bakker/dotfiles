@@ -17,7 +17,8 @@ dashboard.section.header.val = {
 }
 
 dashboard.section.buttons.val = {
-  dashboard.button(',e', '♆ Harpoon', [[:lua require('harpoon.ui').toggle_quick_menu()<CR>]]),
+  -- dashboard.button(',e', '♆ Harpoon', [[:lua require('harpoon.ui').toggle_quick_menu()<CR>]]),
+  dashboard.button(',e', '♆ Grapple', [[:lua require('grapple').popup_tags()<CR>]]),
   dashboard.button('<Ldr> ff', ' Find File ', ':Telescope find_files<CR>'),
   dashboard.button('<Ldr> fr', ' Frecency/MRU ', ':Telescope frecency<CR>'),
   dashboard.button('<Ldr> fp', '﯑ Projects', ':Telescope projects<CR>'),
