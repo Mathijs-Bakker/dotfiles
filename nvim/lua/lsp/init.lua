@@ -1,6 +1,5 @@
 TrySource 'lsp.lua'
 TrySource 'lsp.omnisharp'
-TrySource 'lsp.rust'
 TrySource 'lsp.typescript'
 TrySource 'lsp.viml'
 
@@ -16,7 +15,9 @@ buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 -- stylua: ignore start
 Nnoremap('gD', 	'<cmd>lua vim.lsp.buf.declaration()<CR>') -- Goto Declaration
 Nnoremap('gd', 	'<cmd>lua vim.lsp.buf.definition()<CR>') -- Goto Definition
-Nnoremap('K', 	'<cmd>lua vim.lsp.buf.hover()<CR>') -- Well, K is K
+
+Nnoremap('K', '<cmd>lua vim.lsp.buf.hover()<CR>') -- Well, K is K
+TrySource 'lsp.rust' -- Have this after K mapping so it gets remapped
 
 ts_map('gr', 	'lsp_references') -- Goto References
 ts_map('gI', 	'lsp_implementations') -- Goto Implementations
