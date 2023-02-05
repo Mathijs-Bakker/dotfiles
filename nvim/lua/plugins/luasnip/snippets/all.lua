@@ -32,12 +32,12 @@ end
 
 return {
   pair('(', ')', neg, char_count_same),
-  pair('{', '}', neg, char_count_same),
+  -- pair('{', '}', neg, char_count_same),
   pair('[', ']', neg, char_count_same),
   pair('<', '>', neg, char_count_same),
   pair("'", "'", neg, even_count),
   pair('"', '"', neg, even_count),
   pair('`', '`', neg, even_count),
-  s({ trig = '{,', wordTrig = false, hidden = true }, { t { '{', '\t' }, i(1), t { '', '}' } }),
+  s({ trig = '{', dscr = '{}' }, { t { '{', '\t' }, i(1), t { '', '}' } }),
   parse('lel', 'lo'),
 }
