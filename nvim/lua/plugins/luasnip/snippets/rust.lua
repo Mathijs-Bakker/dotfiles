@@ -5,9 +5,9 @@
 -- Some are inspired by:
 -- https://github.com/rafamadriz/friendly-snippets/blob/main/snippets/rust.json
 -- Not all made it to this list. Because rust-analyzer gets smarter every month
--- so there's no need for any duplicates (only when they are smarter).
+-- and there's no need for any duplicates (only when they are supersmart).
 
--- You are free to copy these snippets into your own Neovim config.
+-- You are free to yank these snippets into your own Neovim config.
 -- And if you have created some awesome snippets yourself (or upgraded some of mine),
 -- send a pr, or keep me posted.
 
@@ -216,8 +216,7 @@ return {
     t { ' = ' },
     i(2, 'expr'),
     t { '', '' },
-    t { '{', '' },
-    t { '	' },
+    t { '{', '\t' },
     i(3, 'unimplemented!();'),
     t { '', '' },
     t { '}' },
@@ -228,8 +227,7 @@ return {
     t { '#[derive(Debug)]', '' },
     t { 'struct ' },
     i(1, 'Name'),
-    t { ' {', '' },
-    t { '	' },
+    t { ' {', '\t' },
     i(0),
     t { '', '' },
     t { '}', '' },
@@ -242,8 +240,7 @@ return {
     i(2, 'arg'),
     t { ') -> ' },
     i(3, 'ret_type'),
-    t { ' {', '' },
-    t { '	' },
+    t { ' {', '\t' },
     i(4, 'unimplemented!();'),
     t { '', '}' },
   }),
@@ -349,27 +346,29 @@ return {
   s('test', {
     t { '#[test]', '' },
     t { 'fn ' },
-    i(1),
-    t { '() {', '' },
-    t { '	assert!' },
-    i(0),
-    t { '', '' },
+    i(1, 'test'),
+    t { '() {', '\t' },
+    t { 'assert!(' },
+    i(0, 'bool'),
+    t { ');', '' },
     t { '}' },
   }),
 
   s('testmod', {
     t { '#[cfg(test)]', '' },
     t { 'mod ' },
-    i(1),
-    t { ' {', '' },
-    t { '	#[test]', '' },
-    t { '	fn ' },
-    i(2),
-    t { '() {', '' },
-    t { '		assert' },
-    i(0),
-    t { '', '' },
-    t { '	}', '' },
+    i(1, 'mod_test'),
+    t { ' {', '\t' },
+    t { 'use super::*;', '\t' },
+    t { '', '\t' },
+    t { '#[test]', '\t' },
+    t { 'fn ' },
+    i(2, 'test'),
+    t { '() {', '\t\t' },
+    t { 'assert!(' },
+    i(0, 'bool'),
+    t { ');', '\t' },
+    t { '}', '' },
     t { '}' },
   }),
 }
