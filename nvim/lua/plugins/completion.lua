@@ -55,8 +55,8 @@ cmp.setup {
   },
   -- The order of the sources list defines the priority of each source.
   sources = cmp.config.sources {
-    { name = 'nvim_lsp', priority = 2, max_item_count = 10 },
-    { name = 'luasnip', priority = 10 },
+    { name = 'luasnip' },
+    { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
     { name = 'nvim_lua' },
     { name = 'custom_source' },
@@ -65,7 +65,6 @@ cmp.setup {
     { name = 'zsh' },
     {
       name = 'buffer',
-      -- priority = 10,
       keyword_length = 3,
       max_item_count = 3,
       get_bufnrs = function()
