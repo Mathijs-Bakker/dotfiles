@@ -8,15 +8,15 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- LUA:
-local sumneko_lua_root_path = home .. '/Repositories/language-servers/lua-language-server'
+local lua_ls_root_path = home .. '/Repositories/language-servers/lua-language-server'
 
 local lspconfig = require 'lspconfig'
-lspconfig.sumneko_lua.setup {
+lspconfig.lua_ls.setup {
   cmd = {
     -- sumneko_lua_root_path .. '/bin/macOS/lua-language-server',
-    sumneko_lua_root_path .. '/bin/lua-language-server',
+    lua_ls_root_path .. '/bin/lua-language-server',
     '-E',
-    sumneko_lua_root_path .. '/main.lua',
+    lua_ls_root_path .. '/main.lua',
   },
   commands = {
     Format = {
