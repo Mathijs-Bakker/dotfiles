@@ -83,6 +83,7 @@ yabai -m rule --add app="^Excel$" space=office
 yabai -m rule --add app="^Pages$" space=office
 
 yabai -m rule --add app="^Blender$" space=gfx
+yabai -m rule --add app="^Godot$" space=games
 
 # yabai -m rule --add app="^Unity$" space=unity
 yabai -m rule --add app="^Adobe Photoshop CC 2018$" space=gfx
@@ -107,11 +108,13 @@ yabai -m rule --add app="^Battle.net$" space=games
 # Apps that float:
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Godot$" manage=off
 yabai -m rule --add app="^Systeemvoorkeuren$" manage=off
 yabai -m rule --add app="^Calculator.app$" manage=off
 yabai -m rule --add app="^Rekenmachine$" manage=off
 yabai -m rule --add app="^Unity Hub$" manage=off
 yabai -m rule --add app="^Steam$" space=games manage=off
+
 # temperary apps (development)
 yabai -m rule --add app="^KeyFinder$" manage=off
 yabai -m rule --add app="^find_key_of_chord_progression$" manage=off
