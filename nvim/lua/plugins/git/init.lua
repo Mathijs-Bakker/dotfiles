@@ -27,4 +27,4 @@ Nnoremap('<leader>gm', [[<Plug>(git-messenger)]]) -- Default mapping
 --
 -- A 'git log --graph' wrapper
 
--- Nnoremap('<Leader>gl', [[:GV<CR>]])
+Nnoremap('<Leader>gl', [[:GV<CR>]])
