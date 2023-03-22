@@ -1,5 +1,6 @@
 -- vim.keymap.set('n', 'cr', ':! cargo run<CR>')
 vim.keymap.set('n', 'cr', ':TermExec cmd="cargo run"<CR>')
+vim.keymap.set('n', '<Leader>cb', ':TermExec cmd="cargo build"<CR>')
 -- vim.keymap.set('n', '<Leader>ct', ':! cargo test<CR>')
 vim.keymap.set('n', '<Leader>ct', ':TermExec cmd="cargo test"<CR>')
 vim.keymap.set('n', '<Leader>gd', ':RustOpenExternalDocs<CR>')
