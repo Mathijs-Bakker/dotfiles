@@ -151,15 +151,15 @@ return require('packer').startup(function()
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
-  use {
-    'akinsho/toggleterm.nvim',
-    config = function()
-      require('toggleterm').setup {
-        open_mapping = ',j',
-        direction = 'float',
-      }
-    end,
-  }
+  --   use {
+  --     'akinsho/toggleterm.nvim',
+  --     config = function()
+  --       require('toggleterm').setup {
+  --         open_mapping = ',j',
+  --         direction = 'float',
+  --       }
+  --     end,
+  --   }
 
   use 'tpope/vim-commentary'
   use 'tpope/vim-unimpaired'
@@ -170,18 +170,20 @@ return require('packer').startup(function()
   -- use 'oberblastmeister/rooter.nvim'
   use 'ahmedkhalf/project.nvim'
   use 'euclidianAce/BetterLua.vim'
-  -- use {
-  --   'ThePrimeagen/harpoon',
-  --   require('harpoon').setup {
-  --     global_settings = {
-  --       mark_branch = true,
-  --     },
-  --   },
-  -- }
   use {
-    'cbochs/grapple.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
+    'ThePrimeagen/harpoon',
+    config = function()
+      require('harpoon').setup {
+        global_settings = {
+          mark_branch = true,
+        },
+      }
+    end,
   }
+  -- use {
+  --   'cbochs/grapple.nvim',
+  --   requires = { 'nvim-lua/plenary.nvim' },
+  -- }
   use 'tjdevries/nlua.nvim'
   use 'Mathijs-Bakker/zoom-vim'
   -- use 'dstein64/vim-startuptime'
