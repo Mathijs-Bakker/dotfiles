@@ -123,7 +123,8 @@ return require('packer').startup(function()
   use 'mrk21/yaml-vim'
 
   -- Appearance
-  use 'kyazdani42/nvim-web-devicons'
+  -- use 'kyazdani42/nvim-web-devicons'
+  use 'nvim-tree/nvim-web-devicons'
   -- use 'Mathijs-Bakker/gruvbox'
   -- use 'lifepillar/vim-gruvbox8'
   use 'ellisonleao/gruvbox.nvim'

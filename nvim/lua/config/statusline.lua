@@ -73,7 +73,7 @@ local section_spacer = '%='
 
 function StatusLine()
   if is_terminal_window() then
-    -- statusline = '  Terminal  ' .. get_harpoon_status()
+    statusline = '  Terminal  ' .. get_harpoon_status()
   else
     statusline = separator
       .. get_file_status_section()
