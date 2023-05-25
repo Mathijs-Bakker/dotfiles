@@ -53,6 +53,7 @@ end
 
 Nnoremap('<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>') -- Diagnostics
 Nnoremap('dp', '<cmd>lua vim.diagnostic.goto_prev()<CR>') -- Diagnostics Previous
+
 vim.keymap.set('n', 'dp', function()
   vim.diagnostic.goto_prev {
     severity = get_highest_error_severity(),
@@ -60,9 +61,33 @@ vim.keymap.set('n', 'dp', function()
     float = true,
   }
 end)
+
 vim.keymap.set('n', 'dn', function()
-  vim.diagnostic.goto_next { severity = get_highest_error_severity(), wrap = true, float = true }
+  vim.diagnostic.goto_next {
+    severity = get_highest_error_severity(),
+    wrap = true,
+    float = true,
+  }
 end)
+
+vim.keymap.set('n', '<Leader>dp', function()
+  vim.diagnostic.goto_prev {
+    wrap = true,
+    float = true,
+  }
+end)
+
+vim.keymap.set('n', '<Leader>dn', function()
+  vim.diagnostic.goto_next {
+    wrap = true,
+    float = true,
+  }
+end)
+
+vim.keymap.set('n', '<Leader>dl', function()
+  vim.diagnostic.open_float(0, { scope = 'line' })
+end)
+
 Nnoremap('<Leader>ll', '<cmd>lua vim.diagnostic.setloclist()<CR>') -- List Location List
 Nnoremap('<Leader>lf', '<cmd>lua vim.diagnostic.setqflist()<CR>') -- List quickFix
 
@@ -122,7 +147,9 @@ whichkey.register {
         w = { 'List Document Symbols in Current Workspace' },
     },
     name = 'Diagnostics',
-      d = { '[Diagnostics] Display Line Diagnostics' },
+      dl = { '[Diagnostics] Display Line Diagnostics' },
+      dn = { '[Diagnostics] Goto Next' },
+      dp = { '[Diagnostics] Goto Previous' },
       l = {
 	name = 'Diagnostics',
 	  d = { '[Diagnostics] List Diagnostics' },
