@@ -18,6 +18,11 @@ local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/libcodelldb.dylib'
 -- /Users/MateoPanadero/.local/share/nvim/mason/packages/codelldb/extension/lldb/lib/liblldb.dylib
 
+local lspattach = function(_, bufnr)
+  -- vim.keymap.set('n', '<Leader, 0,0>', vim.lsp.buf.inlay_hint(bufnr, true))
+  -- vim.lsp.buf.inlay_hint(bufnr, true)
+end
+
 local opts = {
   tools = { -- rust-tools options
 
@@ -38,7 +43,7 @@ local opts = {
     inlay_hints = {
       -- automatically set inlay hints (type hints)
       -- default: true
-      auto = true,
+      auto = false,
 
       -- Only show inlay hints for the current line
       only_current_line = false,
@@ -176,7 +181,13 @@ local opts = {
   server = {
     settings = {
       capabilities = capabilities,
-      -- on_attach = lsp_attach,
+
+      -- on_attach = lspattach,
+      -- on_attach = function(_, _)
+      --   vim.lsp.buf.inlay_hint(0, true)
+      -- end,
+
+      -- on_attach = lspattach,
       ['rust-analyzer'] = {
         assist = {
           importEnforceGranularity = true,
@@ -189,13 +200,34 @@ local opts = {
           -- default: `cargo check`
           command = 'clippy',
         },
-      },
-      inlayHints = {
-        lifetimeElisionHints = {
-          enable = true,
+        inlayhints = {
+          bindingModeHints = {
+            enable = true,
+          },
+          chainingHints = {
+            enable = true,
+          },
+          closingBraceHints = {
+            enable = true,
+          },
+          lifetimeElisionHints = {
+            enable = 'never',
+          },
           useParameterNames = true,
+          parameterHints = {
+            enable = true,
+          },
+          typeHints = {
+            enable = true,
+          },
         },
       },
+      -- inlayHints = {
+      -- lifetimeElisionHints = {
+      --   enable = true,
+      -- useParameterNames = true,
+      -- },
+      -- },
     },
     standalone = true,
   }, -- rust-analyer options
