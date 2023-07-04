@@ -44,6 +44,7 @@ local opts = {
       -- automatically set inlay hints (type hints)
       -- default: true
       auto = false,
+      -- auto = true,
 
       -- Only show inlay hints for the current line
       only_current_line = false,
@@ -182,12 +183,6 @@ local opts = {
     settings = {
       capabilities = capabilities,
 
-      -- on_attach = lspattach,
-      -- on_attach = function(_, _)
-      --   vim.lsp.buf.inlay_hint(0, true)
-      -- end,
-
-      -- on_attach = lspattach,
       ['rust-analyzer'] = {
         assist = {
           importEnforceGranularity = true,
@@ -200,27 +195,27 @@ local opts = {
           -- default: `cargo check`
           command = 'clippy',
         },
-        inlayhints = {
-          bindingModeHints = {
-            enable = true,
-          },
-          chainingHints = {
-            enable = true,
-          },
-          closingBraceHints = {
-            enable = true,
-          },
-          lifetimeElisionHints = {
-            enable = 'never',
-          },
-          useParameterNames = true,
-          parameterHints = {
-            enable = true,
-          },
-          typeHints = {
-            enable = true,
-          },
-        },
+        -- inlayhints = {
+        --   bindingModeHints = {
+        --     enable = true,
+        --   },
+        --   chainingHints = {
+        --     enable = true,
+        --   },
+        --   closingBraceHints = {
+        --     enable = true,
+        --   },
+        --   lifetimeElisionHints = {
+        --     enable = 'never',
+        --   },
+        --   useParameterNames = true,
+        --   parameterHints = {
+        --     enable = true,
+        --   },
+        --   typeHints = {
+        --     enable = true,
+        --   },
+        -- },
       },
       -- inlayHints = {
       -- lifetimeElisionHints = {
