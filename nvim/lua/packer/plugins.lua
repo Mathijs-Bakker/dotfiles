@@ -132,14 +132,20 @@ return require('packer').startup(function()
 
   use {
     'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require('indent_blankline').setup {
-        -- for example, context is off by default, use this to turn it on
-        show_current_context = true,
-        show_current_context_start = true,
-      }
-    end,
+    -- config = function()
+    -- require('ibl').setup() {}
+    -- end,
   }
+  -- use {
+  --   'lukas-reineke/indent-blankline.nvim',
+  --   config = function()
+  --     require('indent_blankline').setup {
+  --       -- for example, context is off by default, use this to turn it on
+  --       show_current_context = true,
+  --       show_current_context_start = true,
+  --     }
+  --   end,
+  -- }
 
   -- Writing
   use 'junegunn/goyo.vim'
