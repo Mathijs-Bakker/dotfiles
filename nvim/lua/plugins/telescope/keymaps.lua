@@ -19,7 +19,7 @@ end
 -- Lsp:
 ts_map('<Leader>lr', 'lsp_references') -- List References
 -- ts_map('<Leader>ca', 'lsp_code_actions')
-vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, {})
+-- vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, {})
 -- vim.keymap.set("n", "<Leader>cca", vim.lsp.buf.range_code_action, {}) <-- Deprecated
 
 ts_map('<Leader>cd', 'lsp_definitions')

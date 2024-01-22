@@ -200,6 +200,7 @@ return require('packer').startup(function()
   use 'ckipp01/stylua-nvim'
 
   -- Rust:
-  use 'simrat39/rust-tools.nvim'
+  -- use 'simrat39/rust-tools.nvim'
+  use 'mrcjkb/rustaceanvim'
   use 'alx741/vim-rustfmt'
 end)

@@ -118,26 +118,26 @@ end
 --
 
 -- Deprecated/Removed from Telescope:
-function M.lsp_code_actions()
-  -- local opts = themes.get_dropdown {
-  --   winblend = 10,
-  --   border = true,
-  --   previewer = false,
-  -- }
+-- function M.lsp_code_actions()
+--   -- local opts = themes.get_dropdown {
+--   --   winblend = 10,
+--   --   border = true,
+--   --   previewer = false,
+--   -- }
 
-  -- require('telescope.builtin').lsp_code_actions(opts)
-  require('telescope.builtin').lsp_code_actions {
-    prompt_title = ' Code Actions ',
-    path_display = { 'absolute' },
-    word_match = '-w',
-    only_sort_text = true,
-    -- layout_strategy = "vertical",
-    layout_strategy = 'center',
-    layout_config = {
-      preview_cutoff = 20,
-    },
-  }
-end
+--   -- require('telescope.builtin').lsp_code_actions(opts)
+--   require('telescope.builtin').lsp_code_actions {
+--     prompt_title = ' Code Actions ',
+--     path_display = { 'absolute' },
+--     word_match = '-w',
+--     only_sort_text = true,
+--     -- layout_strategy = "vertical",
+--     layout_strategy = 'center',
+--     layout_config = {
+--       preview_cutoff = 20,
+--     },
+--   }
+-- end
 
 function M.lsp_references()
   require('telescope.builtin').lsp_references()
