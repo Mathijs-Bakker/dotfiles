@@ -28,4 +28,3 @@ end
 function Snoremap_expr(keys, cmd)
 	vim.api.nvim_set_keymap('s', keys, cmd, { expr = true, noremap = true, silent = true })
 end
-

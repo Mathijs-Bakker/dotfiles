@@ -1,27 +1,32 @@
-if require 'packer.install_packer'() then
-  return
-end
-
--- [[ Be sure to set leader key first ]]--
+-- Be sure to set leader key first --
 vim.api.nvim_set_keymap('n', '<Space>', '', {})
 vim.g.mapleader = ' '
 
---[[ Global helpers needs to be on top of init.lua --]]
-require 'globals.utils'
-TrySource 'globals'
---
-TrySource 'config.options'
-TrySource 'config.keymaps'
-TrySource 'config.statusline'
+require('globals')
+require('config')
 
-TrySource 'packer.plugins'
-TrySource 'plugins.completion'
-TrySource 'plugins'
-TrySource 'lsp'
+-- Lazy.nvim plugin manager
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
 
-vim.cmd ':source $HOME/.dotfiles/nvim/autoload/file_sourcer.vim'
+vim.opt.rtp:prepend(lazypath)
 
-Cmd [[ augroup highlight_yank
+require('lazy').setup('plugins')
+
+-- Statusline
+require('statusline')
+
+-- Highlights the yanked characters/lines
+vim.cmd [[ augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END ]]

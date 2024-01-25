@@ -1,2 +1,1 @@
-TrySource('globals.vimscript')
-TrySource('globals.keybinder')
+require('globals.keybinder')
