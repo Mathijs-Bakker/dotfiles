@@ -1,0 +1,41 @@
+return {
+  'nvim-treesitter/nvim-treesitter',
+  version = false, -- last release is way too old and doesn't work on Windows
+  build = ':TSUpdate',
+  opts = {
+    ensure_installed = {
+      'bash',
+      'c',
+      'c_sharp',
+      'cmake',
+      'cpp',
+      'css',
+      'csv',
+      'dockerfile',
+      'go',
+      'html',
+      'javascript',
+      'json',
+      'lua',
+      'markdown',
+      'ocaml',
+      'ocaml_interface',
+      'php',
+      'python',
+      'regex',
+      'regex',
+      'rust',
+      'sql',
+      'toml',
+      'typescript',
+      'vim',
+      'vimdoc',
+      'xml',
+      'yaml',
+      'zig',
+    },
+    highlight = {
+      enable = true, -- false will disable the whole extension
+    },
+  },
+}

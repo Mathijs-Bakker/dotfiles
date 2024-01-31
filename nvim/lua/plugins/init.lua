@@ -1,27 +1,33 @@
 return {
 
-	-- Treesitter:
-  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate all' },
-  'nvim-treesitter/playground',
-  -- use 'tjdevries/tree-sitter-lua'
-
   -- LSP:
-  'neovim/nvim-lspconfig',
   'nvim-lua/lsp-status.nvim',
 
   -- DAP:
-	'mfussenegger/nvim-dap',
-  'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
+  'mfussenegger/nvim-dap',
+  {
+    'williamboman/mason.nvim',
+    config = function()
+      require('mason').setup()
+    end,
+  },
+  {
+    'williamboman/mason-lspconfig.nvim',
+    config = function()
+      require('mason-lspconfig').setup {
+        ensure_installed = { 'lua_ls', 'rust_analyzer' },
+      }
+    end,
+  },
   'neovim/nvim-lspconfig',
-    'jayp0521/mason-nvim-dap.nvim',
-    'mfussenegger/nvim-dap',
-'rcarriga/nvim-dap-ui',
+  'jayp0521/mason-nvim-dap.nvim',
+  'mfussenegger/nvim-dap',
+  'rcarriga/nvim-dap-ui',
   { 'nvim-telescope/telescope-dap.nvim' },
 
--- Completion:
-  'hrsh7th/nvim-cmp', -- Cmp
-  'L3MON4D3/LuaSnip',-- Snippets
+  -- Completion:
+  -- 'hrsh7th/nvim-cmp', -- Cmp
+  'L3MON4D3/LuaSnip', -- Snippets
   {
     'doxnit/cmp-luasnip-choice',
     config = function()
@@ -43,91 +49,90 @@ return {
   'saadparwaiz1/cmp_luasnip', -- src for luasnip
   'tamago324/cmp-zsh',
 
--- TELESCOPE
-{
-    'nvim-telescope/telescope.nvim', tag = '0.1.5',
-      dependencies = { 'nvim-lua/plenary.nvim' }
-},
-{
-  "nvim-telescope/telescope-frecency.nvim",
-  config = function()
-    require("telescope").load_extension "frecency"
-  end,
-},
-	'nvim-telescope/telescope-ui-select.nvim',
+  -- TELESCOPE
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.5',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
+  {
+    'nvim-telescope/telescope-frecency.nvim',
+    config = function()
+      require('telescope').load_extension 'frecency'
+    end,
+  },
+  'nvim-telescope/telescope-ui-select.nvim',
 
--- -- Harrrrpooon
--- { 
--- 	'ThePrimeagen/harpoon',
--- 	branch = 'harpoon2'
--- },
+  -- -- Harrrrpooon
+  -- {
+  -- 	'ThePrimeagen/harpoon',
+  -- 	branch = 'harpoon2'
+  -- },
 
--- File Explorer
--- 'tamago324/lir.nvim',
-'tamago324/lir-bookmark.nvim',
-'tamago324/lir-git-status.nvim',
+  -- File Explorer
+  -- 'tamago324/lir.nvim',
+  'tamago324/lir-bookmark.nvim',
+  'tamago324/lir-git-status.nvim',
 
--- Appearance
-'nvim-tree/nvim-web-devicons',
--- 'Mathijs-Bakker/gruvbox'
-'ellisonleao/gruvbox.nvim',
+  -- Appearance
+  'nvim-tree/nvim-web-devicons',
+  -- 'Mathijs-Bakker/gruvbox'
+  'ellisonleao/gruvbox.nvim',
 
--- TPope
-'tpope/vim-commentary',
-'tpope/vim-unimpaired',
-'tpope/vim-repeat', 
-'tpope/vim-surround',
+  -- TPope
+  'tpope/vim-commentary',
+  'tpope/vim-unimpaired',
+  'tpope/vim-repeat',
+  'tpope/vim-surround',
 
--- Git:
-{ 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
-'ThePrimeagen/git-worktree.nvim',
-'tpope/vim-fugitive',
-'shumphrey/fugitive-gitlab.vim',
-'tpope/vim-rhubarb',
-'sodapopcan/vim-twiggy',
-'junegunn/gv.vim',
-'rhysd/git-messenger.vim',
-{ 'ruifm/gitlinker.nvim', dependencies = 'nvim-lua/plenary.nvim' },
+  -- Git:
+  { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
+  'ThePrimeagen/git-worktree.nvim',
+  'tpope/vim-fugitive',
+  'shumphrey/fugitive-gitlab.vim',
+  'tpope/vim-rhubarb',
+  'sodapopcan/vim-twiggy',
+  'junegunn/gv.vim',
+  'rhysd/git-messenger.vim',
+  { 'ruifm/gitlinker.nvim', dependencies = 'nvim-lua/plenary.nvim' },
 
--- Indent
-{ 
-	"lukas-reineke/indent-blankline.nvim",
-	main = "ibl",
-	opts = {} 
-},
--- Folding:
+  -- Indent
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    opts = {},
+  },
+  -- Folding:
   { 'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async' },
 
--- -- Startup (Dashboard)
--- {
---     'goolord/alpha-nvim',
---     dependencies = { 'kyazdani42/nvim-web-devicons' },
--- },
+  -- -- Startup (Dashboard)
+  -- {
+  --     'goolord/alpha-nvim',
+  --     dependencies = { 'kyazdani42/nvim-web-devicons' },
+  -- },
 
--- Which Key
-{
-  "folke/which-key.nvim",
-  event = "VeryLazy",
-  init = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 500
-  end,
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-    marks = false,
-  }
-},
+  -- Which Key
+  {
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 500
+    end,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      marks = false,
+    },
+  },
 
--- Rust:
+  -- Rust:
   -- use 'simrat39/rust-tools.nvim'
   'mrcjkb/rustaceanvim',
   'alx741/vim-rustfmt',
 
--- Lua
-{ "folke/neodev.nvim", opts = {} },
-{ "ckipp01/stylua-nvim", build = "cargo install stylua"},
-
-} 
-
+  -- Lua
+  { 'folke/neodev.nvim', opts = {} },
+  { 'ckipp01/stylua-nvim', build = 'cargo install stylua' },
+}
