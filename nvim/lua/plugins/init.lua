@@ -83,7 +83,7 @@ return {
   'tpope/vim-commentary',
   'tpope/vim-unimpaired',
   'tpope/vim-repeat',
-  'tpope/vim-surround',
+  -- 'tpope/vim-surround',
 
   -- Git:
   { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
