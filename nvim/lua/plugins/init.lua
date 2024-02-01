@@ -26,7 +26,6 @@ return {
   { 'nvim-telescope/telescope-dap.nvim' },
 
   -- Completion:
-  -- 'hrsh7th/nvim-cmp', -- Cmp
   'L3MON4D3/LuaSnip', -- Snippets
   {
     'doxnit/cmp-luasnip-choice',
@@ -37,17 +36,14 @@ return {
     end,
   },
   'onsails/lspkind-nvim', --  vscode-like pictograms
-  -- Nvim-Cmp sources:
-  'f3fora/cmp-spell', -- src for vim's spellsuggest
-  'hrsh7th/cmp-buffer', -- src for buffer words
-  'hrsh7th/cmp-cmdline', -- src for vim's cmdline
-  'hrsh7th/cmp-nvim-lua', -- src for nvim lua
-  'hrsh7th/cmp-nvim-lsp', -- src for neovim builtin LSP client
-  'hrsh7th/cmp-nvim-lsp-document-symbol',
-  'hrsh7th/cmp-path', -- src for path
-  'hrsh7th/cmp-nvim-lsp-signature-help',
-  'saadparwaiz1/cmp_luasnip', -- src for luasnip
-  'tamago324/cmp-zsh',
+
+  {
+    'chrisgrieser/nvim-spider',
+    lazy = true,
+    dependencies = {
+      'theHamsta/nvim_rocks',
+    },
+  },
 
   -- TELESCOPE
   {
