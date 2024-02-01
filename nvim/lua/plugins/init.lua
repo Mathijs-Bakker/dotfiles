@@ -59,12 +59,6 @@ return {
   },
   'nvim-telescope/telescope-ui-select.nvim',
 
-  -- -- Harrrrpooon
-  -- {
-  -- 	'ThePrimeagen/harpoon',
-  -- 	branch = 'harpoon2'
-  -- },
-
   -- File Explorer
   -- 'tamago324/lir.nvim',
   'tamago324/lir-bookmark.nvim',
@@ -100,12 +94,6 @@ return {
   },
   -- Folding:
   { 'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async' },
-
-  -- -- Startup (Dashboard)
-  -- {
-  --     'goolord/alpha-nvim',
-  --     dependencies = { 'kyazdani42/nvim-web-devicons' },
-  -- },
 
   -- Which Key
   {
