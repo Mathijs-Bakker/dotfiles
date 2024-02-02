@@ -1,8 +1,5 @@
 return {
 
-  -- LSP:
-  'nvim-lua/lsp-status.nvim',
-
   -- DAP:
   'mfussenegger/nvim-dap',
   {

@@ -1,5 +1,3 @@
-
-
 -- <C-z> suspends Vim to terminal
 -- Disable <C-z> as it's anoying with SKHD keymapings
 -- NeoVim has a terminal behavior alternative.
@@ -87,7 +85,7 @@ Tnoremap('kj', [[<C-\><C-n>]])
 Nnoremap('<S-y>', [[y$]])
 
 -- Center contexts:
-Nnoremap('n', [[nzzzv]])
+Nnoremap('n', [[nzzzv]]) -- doesn't work with engrammer mod
 Nnoremap('<S-n>', [[Nzzzv]])
 Nnoremap('<S-j>', [[mzJ`z]])
 

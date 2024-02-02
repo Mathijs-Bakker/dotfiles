@@ -29,7 +29,7 @@ local function get_lines()
 end
 
 local function get_lsp_status()
-  local status = require 'plugins.lsp-status'
+  local status = require 'utils.lsp-status'
   local diagnostics = status.statusline()
   return diagnostics
 end
