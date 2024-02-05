@@ -4,17 +4,19 @@ return {
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },
-  keys = {
-    {
-      -- Customize or remove this keymap to your liking
-      '<leader>fm',
-      function()
-        require('conform').format { async = true, lsp_fallback = true }
-      end,
-      mode = '',
-      desc = 'Format buffer',
-    },
-  },
+  -- Don't need a key map for formatting.
+  -- as I will use :w anyways.
+  -- keys = {
+  --   {
+  --     -- Customize or remove this keymap to your liking
+  --     '<leader>fm',
+  --     function()
+  --       require('conform').format { async = true, lsp_fallback = true }
+  --     end,
+  --     mode = '',
+  --     desc = 'Format buffer',
+  --   },
+  -- },
   -- Everything in opts will be passed to setup()
   opts = {
     -- Define your formatters
