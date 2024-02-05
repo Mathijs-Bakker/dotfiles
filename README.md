@@ -7,3 +7,5 @@
 * Tmux
 * Yabai
 * Zsh
+
+  MacOs
