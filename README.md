@@ -5,7 +5,7 @@
 * Kitty
 * Neovim 
 * Tmux
-* Yabai
+* Yabai WM
 * Zsh
 
   MacOs
