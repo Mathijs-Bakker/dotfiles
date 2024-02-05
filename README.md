@@ -5,5 +5,5 @@
 * Kitty
 * Neovim 
 * Tmux
-* Yabai (macOS)
+* Yabai
 * Zsh
