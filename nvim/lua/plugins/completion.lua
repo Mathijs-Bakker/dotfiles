@@ -33,8 +33,10 @@ return {
         end,
       },
       mapping = {
-        ['<c-k>'] = cmp.mapping.select_prev_item(),
-        ['<c-j>'] = cmp.mapping.select_next_item(),
+        ['<c-n>'] = cmp.mapping.select_prev_item(),
+        ['<c-p>'] = cmp.mapping.select_next_item(),
+        -- ['<c-k>'] = cmp.mapping.select_prev_item(),
+        -- ['<c-j>'] = cmp.mapping.select_next_item(),
         ['<c-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<c-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
         ['<c-space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
