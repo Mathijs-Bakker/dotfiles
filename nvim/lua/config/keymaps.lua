@@ -76,10 +76,10 @@ Nnoremap('<A-.>', '<C-W>5>')
 --
 
 -- Escape:
-Inoremap('kj', '<Esc>')
-Vnoremap('kj', '<Esc>')
+-- Inoremap('kj', '<Esc>')
+-- Vnoremap('kj', '<Esc>')
 
-Tnoremap('kj', [[<C-\><C-n>]])
+-- Tnoremap('kj', [[<C-\><C-n>]])
 
 -- Yank last part from current cursor position:
 Nnoremap('<S-y>', [[y$]])
