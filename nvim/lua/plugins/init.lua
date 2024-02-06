@@ -56,11 +56,6 @@ return {
   },
   'nvim-telescope/telescope-ui-select.nvim',
 
-  -- File Explorer
-  -- 'tamago324/lir.nvim',
-  'tamago324/lir-bookmark.nvim',
-  'tamago324/lir-git-status.nvim',
-
   -- Appearance
   'nvim-tree/nvim-web-devicons',
   -- 'Mathijs-Bakker/gruvbox'
