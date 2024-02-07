@@ -1,13 +1,16 @@
 return {
 
-  -- DAP:
-  'mfussenegger/nvim-dap',
+  -- LSP:
+  --
+  -- Keep the ordering
+  -- 1: Mason
   {
     'williamboman/mason.nvim',
     config = function()
       require('mason').setup()
     end,
   },
+  -- 2: mason-lspconfig
   {
     'williamboman/mason-lspconfig.nvim',
     config = function()
@@ -16,7 +19,10 @@ return {
       }
     end,
   },
+  -- 3: nvim-web-devicons
   'neovim/nvim-lspconfig',
+
+  -- DAP:
   'jayp0521/mason-nvim-dap.nvim',
   'mfussenegger/nvim-dap',
   'rcarriga/nvim-dap-ui',
