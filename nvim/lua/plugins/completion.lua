@@ -124,8 +124,9 @@ return {
       sources = cmp.config.sources({
         { name = 'path' },
       }, {
-        { name = 'cmdline' },
+        { name = 'cmdline', max_item_count = 10 },
       }),
+      mapping = cmp.mapping.preset.cmdline(),
     })
 
     vim.cmd [[
