@@ -33,12 +33,10 @@ return {
         end,
       },
       mapping = {
-        ['<c-n>'] = cmp.mapping.select_prev_item(),
-        ['<c-p>'] = cmp.mapping.select_next_item(),
-        -- ['<c-k>'] = cmp.mapping.select_prev_item(),
-        -- ['<c-j>'] = cmp.mapping.select_next_item(),
-        ['<c-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-        ['<c-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+        ['<c-p>'] = cmp.mapping.select_prev_item(),
+        ['<c-n>'] = cmp.mapping.select_next_item(),
+        ['<c-c>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+        ['<c-g>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
         ['<c-space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
         ['<c-y>'] = cmp.config.disable, -- specify `cmp.config.disable` if you want to remove the default `<c-y>` mapping.
         -- ['<c-e>'] = cmp.mapping {
@@ -51,13 +49,17 @@ return {
       -- the order of the sources list defines the priority of each source.
       sources = cmp.config.sources {
         { name = 'luasnip' },
-        { name = 'nvim_lsp' },
+        {
+          name = 'nvim_lsp',
+          entry_filter = function(entry, ctx)
+            return require('cmp.types').lsp.CompletionItemKind[entry:get_kind()] ~= 'Text'
+          end,
+        },
         { name = 'nvim_lsp_signature_help' },
         { name = 'nvim_lua' },
         { name = 'custom_source' },
         { name = 'path' },
         { name = 'spell' },
-        { name = 'zsh' },
         {
           name = 'buffer',
           keyword_length = 3,
@@ -97,7 +99,7 @@ return {
           maxwidth = 50,
           menu = {
             custom_source = '[cust]',
-            buffer = '[buf]',
+            -- buffer = '[buf]',
             nvim_lsp = '[lsp]',
             luasnip = '[snip]',
             nvim_lua = '[api]',
