@@ -1,5 +1,6 @@
-require('plugins.lsp-status').activate()
-local lsp_status = require 'plugins.lsp-status'
+-- require('plugins.lsp-status').activate()
+require 'lsp-status'
+-- local lsp_status = require 'plugins.lsp-status'
 
 local home = os.getenv 'HOME'
 
@@ -8,6 +9,8 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- LUA:
+-- path.concat { vim.fn.stdpath "data", "mason" }
+-- local lua_ls_root_path = path.concat { vim.fn.stdpath 'data', 'mason', 'lua' }
 local lua_ls_root_path = home .. '/.local/share/nvim/mason/packages/lua-language-server'
 
 local lspconfig = require 'lspconfig'

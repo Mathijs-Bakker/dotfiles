@@ -3,7 +3,6 @@ vim.api.nvim_set_keymap('n', '<Space>', '', {})
 vim.g.mapleader = ' '
 
 require 'globals'
-require 'config'
 
 -- Lazy.nvim plugin manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -22,6 +21,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup 'plugins'
 
+require 'config'
 -- Statusline
 require 'statusline'
 

@@ -1,7 +1,7 @@
-TrySource 'lsp.lua'
-TrySource 'lsp.omnisharp'
-TrySource 'lsp.typescript'
-TrySource 'lsp.viml'
+require 'config.lsp.lua'
+require 'config.lsp.omnisharp'
+require 'config.lsp.typescript'
+require 'config.lsp.viml'
 
 local function buf_set_option(...)
   vim.api.nvim_buf_set_option(0, ...)
