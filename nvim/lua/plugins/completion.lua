@@ -51,7 +51,7 @@ return {
         { name = 'luasnip' },
         { name = 'nvim_lsp' },
         { name = 'nvim_lsp_signature_help' },
-        { name = 'nvim_lua' },
+        { name = 'nvim_lua', entry_filter = 'Text' },
         { name = 'custom_source' },
         { name = 'path' },
         { name = 'spell' },
@@ -124,7 +124,7 @@ return {
       sources = cmp.config.sources({
         { name = 'path' },
       }, {
-        { name = 'cmdline', max_item_count = 10 },
+        { name = 'cmdline', keyword_length = 3, max_item_count = 10 },
       }),
       mapping = cmp.mapping.preset.cmdline(),
     })
