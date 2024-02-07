@@ -49,12 +49,7 @@ return {
       -- the order of the sources list defines the priority of each source.
       sources = cmp.config.sources {
         { name = 'luasnip' },
-        {
-          name = 'nvim_lsp',
-          entry_filter = function(entry, ctx)
-            return require('cmp.types').lsp.CompletionItemKind[entry:get_kind()] ~= 'Text'
-          end,
-        },
+        { name = 'nvim_lsp' },
         { name = 'nvim_lsp_signature_help' },
         { name = 'nvim_lua' },
         { name = 'custom_source' },
