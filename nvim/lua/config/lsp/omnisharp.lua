@@ -1,4 +1,4 @@
-local lsp_status = require 'plugins.lsp-status'
+local lsp_status = require 'lsp-status'
 
 local home = os.getenv 'HOME'
 local omnisharp_bin = home .. '/Repositories/language-servers/omnisharp-osx/run'
