@@ -34,6 +34,7 @@ return {
       'yaml',
       'zig',
     },
+    autoinstall = true,
     highlight = {
       enable = true, -- false will disable the whole extension
     },

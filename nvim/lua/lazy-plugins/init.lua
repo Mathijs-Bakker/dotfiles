@@ -109,11 +109,25 @@ return {
     },
   },
 
+  {
+    'j-hui/fidget.nvim',
+    opts = {
+      -- options
+    },
+  },
   -- Rust:
   -- use 'simrat39/rust-tools.nvim'
-  'mrcjkb/rustaceanvim',
-  'alx741/vim-rustfmt',
-
+  -- {
+  -- 'mrcjkb/rustaceanvim',
+  -- dependencies = 'j-hui/fidget.nvim',
+  -- version = '^4', -- Recommended
+  -- ft = { 'rust' },
+  -- config = function()
+  --   print 'Whhop rust'
+  --   require('fidget').setup()
+  -- end,
+  -- },
+  -- 'alx741/vim-rustfmt',
   -- Lua
   { 'folke/neodev.nvim', opts = {} },
   { 'ckipp01/stylua-nvim', build = 'cargo install stylua' },
