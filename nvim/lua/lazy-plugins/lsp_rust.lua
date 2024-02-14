@@ -3,11 +3,16 @@ return {
   version = '^4', -- Recommended
   lazy = false,
   ft = { 'rust' },
-  dependencies = {
-    'j-hui/fidget.nvim', -- Doesn't work with mason-lspconfig
-  },
 
   config = function()
-    require('fidget').setup()
+    settings = {
+      ['rust-analyzer'] = {
+        server = {
+          trace = {
+            server = { 'verbose' },
+          },
+        },
+      },
+    }
   end,
 }

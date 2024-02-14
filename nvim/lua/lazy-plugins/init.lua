@@ -11,15 +11,15 @@ return {
     end,
   },
   -- 2: mason-lspconfig
-  {
-    'williamboman/mason-lspconfig.nvim',
-    config = function()
-      require('mason-lspconfig').setup {
-        ensure_installed = { 'lua_ls', 'rust_analyzer' },
-      }
-    end,
-  },
-  -- 3: nvim-web-devicons
+  -- {
+  --   'williamboman/mason-lspconfig.nvim',
+  -- config = function()
+  --   require('mason-lspconfig').setup {
+  ensure_installed = { 'lua_ls', 'rust_analyzer' },
+  -- }
+  -- end,
+  -- },
+  -- -- 3: nvim-web-devicons
   'neovim/nvim-lspconfig',
 
   -- DAP:
