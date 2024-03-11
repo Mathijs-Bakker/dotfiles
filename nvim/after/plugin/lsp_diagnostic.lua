@@ -65,7 +65,8 @@ vim.keymap.set('n', 'dn', function()
   }
 end)
 
-vim.keymap.set('n', '<Leader>dl', function()
+--  Open/jump into [D]iagnostic [W]indow
+vim.keymap.set('n', '<Leader>dw', function()
   vim.diagnostic.open_float(0, { scope = 'line' })
 end)
 
