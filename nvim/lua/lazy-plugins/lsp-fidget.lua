@@ -1,6 +1,7 @@
 return {
   'j-hui/fidget.nvim',
   -- tag = 'v1.3.0',
+  enable = false,
   opts = {
     -- options
   },

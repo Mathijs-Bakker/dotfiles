@@ -4,7 +4,7 @@
 Nnoremap('<C-z>', '<nop>')
 
 -- Reload config/init
-Nnoremap('<Leader><Leader>r', ':Reload<CR>')
+-- Nnoremap('<Leader><Leader>r', ':Reload<CR>')
 
 Nnoremap([['']], [[:luafile init.lua]])
 --[[  Movement: --]]
@@ -83,6 +83,11 @@ Nnoremap('<A-.>', '<C-W>5>')
 
 -- Yank last part from current cursor position:
 Nnoremap('<S-y>', [[y$]])
+
+-- Glove80 engrammer map
+-- Delete lines: 'dl' has same behavior as 'dd'
+Nnoremap('dl', 'dd')
+vim.keymap.set('n', '<Leader>w', [[:w<CR>]])
 
 -- Center contexts:
 Nnoremap('n', [[nzzzv]]) -- doesn't work with engrammer mod

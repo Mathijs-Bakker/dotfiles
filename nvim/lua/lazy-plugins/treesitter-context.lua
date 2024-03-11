@@ -5,6 +5,7 @@ return {
   opts = {
     mode = 'cursor',
     max_lines = 0,
+    separator = '-',
   },
   -- keys = {
   --   {
