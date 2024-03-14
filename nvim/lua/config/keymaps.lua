@@ -1,5 +1,5 @@
 -- <C-z> suspends Vim to terminal
--- Disable <C-z> as it's anoying with SKHD keymapings
+-- Disable <C-z> as it's anoying with SKHD/Yabai keymapings
 -- NeoVim has a terminal behavior alternative.
 Nnoremap('<C-z>', '<nop>')
 
@@ -18,12 +18,19 @@ local super_key = '<CHAR-0x37>'
 
 -- Inoremap(super_key .. 'k <Esc>', ':m .-2<CR>==gi')
 -- Inoremap(super_key .. 'j <Esc>', ':m .+1<CR>==gi')
-
 Vnoremap(super_key .. 'k', ":m '<-2<cr>gv=gv")
 Vnoremap(super_key .. 'j', ":m '>+1<cr>gv=gv")
-
 Nnoremap(super_key .. 'k', [[:m .-2<CR>==]])
 Nnoremap(super_key .. 'j', [[:m .+1<CR>==]])
+
+Inoremap('<C-t>', '<Esc>:m .+1<CR>==gi') -- Glove80
+Inoremap('<C-s>', ' <Esc>:m .-2<CR>==gi')
+
+Vnoremap('<C-s>', ":m '<-2<cr>gv=gv")
+Vnoremap('<C-t>', ":m '>+1<cr>gv=gv")
+
+Nnoremap('<C-s>', [[:m .-2<CR>==]])
+Nnoremap('<C-t>', [[:m .+1<CR>==]]) -- end Glove80
 
 -- Location List:
 -- -- Navigate to next error:
