@@ -15,7 +15,7 @@ return {
   --   'williamboman/mason-lspconfig.nvim',
   -- config = function()
   --   require('mason-lspconfig').setup {
-  ensure_installed = { 'lua_ls', 'rust_analyzer' },
+  -- ensure_installed = { 'lua_ls', 'rust_analyzer' },
   -- }
   -- end,
   -- },
@@ -114,6 +114,9 @@ return {
     opts = {
       -- options
     },
+  },
+  {
+    'slint-ui/vim-slint',
   },
   -- Rust:
   -- use 'simrat39/rust-tools.nvim'
