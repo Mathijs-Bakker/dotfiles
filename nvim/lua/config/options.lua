@@ -2,11 +2,6 @@ vim.o.fileencoding = 'utf-8'
 
 vim.cmd 'language en_US'
 
---[[ APPEARANCE --]]
-vim.opt.termguicolors = true
-vim.o.background = 'dark' -- or "light" for light mode
-vim.cmd [[colorscheme gruvbox]]
-
 -- Colums, gutters and rulers:
 vim.wo.number = true
 vim.wo.relativenumber = true

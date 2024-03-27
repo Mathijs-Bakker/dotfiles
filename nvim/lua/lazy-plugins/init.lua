@@ -1,25 +1,11 @@
 return {
 
-  -- LSP:
-  --
-  -- Keep the ordering
-  -- 1: Mason
   {
     'williamboman/mason.nvim',
     config = function()
       require('mason').setup()
     end,
   },
-  -- 2: mason-lspconfig
-  -- {
-  --   'williamboman/mason-lspconfig.nvim',
-  -- config = function()
-  --   require('mason-lspconfig').setup {
-  -- ensure_installed = { 'lua_ls', 'rust_analyzer' },
-  -- }
-  -- end,
-  -- },
-  -- -- 3: nvim-web-devicons
   'neovim/nvim-lspconfig',
 
   -- DAP:
@@ -65,7 +51,7 @@ return {
   -- Appearance
   'nvim-tree/nvim-web-devicons',
   -- 'Mathijs-Bakker/gruvbox'
-  'ellisonleao/gruvbox.nvim',
+  -- 'ellisonleao/gruvbox.nvim',
 
   -- TPope
   'tpope/vim-commentary',
