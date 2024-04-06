@@ -23,9 +23,10 @@ Nnoremap('<leader>gm', [[<Plug>(git-messenger)]]) -- Git Blame under cursor
 --[[ GV: ]]
 -- A 'git log --graph' wrapper
 
+Nnoremap('<Leader>gd', [[:Gvdiffsplit!<CR>]]) -- 3 window diff split
 -- Resolving a 3-way diff with :diffget
-Nnoremap('gj', [[<cmd>diffget //2CR ]]) -- fetches the hunk from the target parent (on the left)
-Nnoremap('gk', [[<cmd>diffget //3CR ]]) -- fetches the hunk from the merge parent (on the right)
+Nnoremap('gh', [[<cmd>diffget //2<CR>]]) -- fetches the hunk from the target parent (on the left)
+Nnoremap('gl', [[<cmd>diffget //3<CR> ]]) -- fetches the hunk from the merge parent (on the right)
 
 -- ---------------------------
 -- Git-Worktree
