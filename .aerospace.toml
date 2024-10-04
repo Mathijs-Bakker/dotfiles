@@ -169,7 +169,7 @@ run = ['layout floating', 'move-node-to-workspace 1_System']
 
 [[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
-run = 'move-node-to-workspace 2_Terminal'
+run = ['layout floating', 'move-node-to-workspace 2_Terminal']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Terminal'
