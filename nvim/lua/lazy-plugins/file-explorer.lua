@@ -34,7 +34,8 @@ return {
       -- Module mappings created only inside explorer.
       -- Use `''` (empty string) to not create one.
       mappings = {
-        close = 'q',
+        -- close = 'q',
+        close = '<Esc>',
         go_in = 'l',
         go_in_plus = 'L',
         go_out = 'h',
