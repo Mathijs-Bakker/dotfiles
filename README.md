@@ -5,7 +5,7 @@
 * Kitty
 * Neovim 
 * Tmux
-* Yabai WM
+* Aerospace WM
 * Zsh
 
   MacOs
