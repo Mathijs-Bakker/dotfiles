@@ -53,7 +53,7 @@ vim.o.hidden = true
 vim.o.showmatch = true
 
 -- Avoid hit-enter caused by file messages:
-vim.o.shortmess = 'fmlwxsi'
+vim.o.shortmess = 'ofmlwxsi'
 
 -- TODO: Need to get into language support
 -- vim.bo.spelllang = "en_us,nl_NL,es_ES"
