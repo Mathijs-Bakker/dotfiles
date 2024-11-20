@@ -23,14 +23,14 @@ Vnoremap(super_key .. 'j', ":m '>+1<cr>gv=gv")
 Nnoremap(super_key .. 'k', [[:m .-2<CR>==]])
 Nnoremap(super_key .. 'j', [[:m .+1<CR>==]])
 
-Inoremap('<C-t>', '<Esc>:m .+1<CR>==gi') -- Glove80
-Inoremap('<C-s>', ' <Esc>:m .-2<CR>==gi')
+Inoremap('<C-j>', '<Esc>:m .+1<CR>==gi') -- Glove80
+Inoremap('<A-C-k>', ' <Esc>:m .-2<CR>==gi')
 
-Vnoremap('<C-s>', ":m '<-2<cr>gv=gv")
-Vnoremap('<C-t>', ":m '>+1<cr>gv=gv")
+Vnoremap('<C-k>', ":m '<-2<cr>gv=gv")
+Vnoremap('<C-j>', ":m '>+1<cr>gv=gv")
 
-Nnoremap('<C-s>', [[:m .-2<CR>==]])
-Nnoremap('<C-t>', [[:m .+1<CR>==]]) -- end Glove80
+Nnoremap('<C-k>', [[:m .-2<CR>==]])
+Nnoremap('<C-j>', [[:m .+1<CR>==]]) -- end Glove80
 
 -- Location List:
 -- -- Navigate to next error:
