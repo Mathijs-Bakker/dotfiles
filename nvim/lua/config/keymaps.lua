@@ -94,6 +94,9 @@ Nnoremap('<S-y>', [[y$]])
 -- Glove80 engrammer map
 -- Delete lines: 'dl' has same behavior as 'dd'
 Nnoremap('dl', 'dd')
+
+-- Write Buffer
+-- vim.keymap.set('n', '<Leader>w', [[:w<CR>]])
 vim.keymap.set('n', '<Leader>w', [[:w<CR>]])
 
 -- Center contexts:
@@ -120,3 +123,5 @@ vim.api.nvim_set_keymap(
   [[{-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()]],
   { expr = true, noremap = true, silent = true }
 )
+
+vim.api.nvim_set_keymap('n', '<space>cs', ':lua vim.fn.setreg("/", "")<CR>', { noremap = true })
