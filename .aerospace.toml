@@ -107,24 +107,24 @@ alt-shift-equal = 'resize smart +50'
 alt-1 = 'workspace 1_System'
 alt-2 = 'workspace 2_Terminal'
 alt-3 = 'workspace 3_Browser'
-alt-4 = 'workspace 4_Mail'
-alt-5 = 'workspace 5_Spotify'
-alt-6 = 'workspace 6_GFX'
-alt-7 = 'workspace 7_Social'
-alt-8 = 'workspace 8_Office'
-alt-9 = 'workspace 9_Games'
+alt-4 = 'workspace 4_Editor'
+alt-5 = 'workspace 5_GFX'
+alt-6 = 'workspace 6_Mail'
+alt-7 = 'workspace 7_Spotify'
+alt-8 = 'workspace 8_Social'
+alt-9 = 'workspace 9_Office'
+# alt-9 = 'workspace 10_Games'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-3 = 'move-node-to-workspace 1_System'
-alt-shift-1 = 'move-node-to-workspace 2_Terminal'
-alt-shift-2 = 'move-node-to-workspace 3_Browser'
-alt-shift-4 = 'move-node-to-workspace 4_Mail'
-alt-shift-5 = 'move-node-to-workspace 5_Spotify'
-alt-shift-6 = 'move-node-to-workspace 6_GFX'
-alt-shift-7 = 'move-node-to-workspace 7_Social'
-alt-shift-8 = 'move-node-to-workspace 8_Office'
-alt-shift-9 = 'move-node-to-workspace 9_Games'
-
+alt-shift-1 = 'move-node-to-workspace 1_System'
+alt-shift-2 = 'move-node-to-workspace 2_Terminal'
+alt-shift-3 = 'move-node-to-workspace 3_Browser'
+alt-shift-4 = 'move-node-to-workspace 4_Editor'
+alt-shift-5 = 'move-node-to-workspace 5_GFX'
+alt-shift-6 = 'move-node-to-workspace 6_Mail'
+alt-shift-7 = 'move-node-to-workspace 7_Spotify'
+alt-shift-8 = 'move-node-to-workspace 8_Social'
+alt-shift-9 = 'move-node-to-workspace 9_Office'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 # alt-tab = 'workspace-back-and-forth'
@@ -168,6 +168,10 @@ run = ['layout floating', 'move-node-to-workspace 1_System']
 # Terminal / IDE
 
 [[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = ['layout floating', 'move-node-to-workspace 2_Terminal']
+
+[[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
 run = ['layout floating', 'move-node-to-workspace 2_Terminal']
 
@@ -193,38 +197,66 @@ run = 'move-node-to-workspace 3_Browser'
 if.app-id = 'com.apple.Safari'
 run = 'move-node-to-workspace 3_Browser'
 
+# Engine 
+
+[[on-window-detected]]
+if.app-id = 'org.godotengine.godot'
+run = 'move-node-to-workspace 4_Editor'
+
+# GFX 
+
+[[on-window-detected]]
+if.app-id = 'com.adobe.illustrator'
+run = 'move-node-to-workspace 5_GFX'
+ 
+[[on-window-detected]]
+if.app-id = 'com.adobe.Photoshop'
+run = 'move-node-to-workspace 5_GFX'
+ 
+[[on-window-detected]]
+if.app-id = 'com.adobe.InDesign'
+run = 'move-node-to-workspace 5_GFX'
+  
+[[on-window-detected]]
+if.app-id = 'org.blenderfoundation.blender'
+run = 'move-node-to-workspace 5_GFX'
+
+[[on-window-detected]]
+if.app-id = 'com.seriflabs.affinitydesigner2'
+run = 'move-node-to-workspace 5_GFX'
+
 # Mail
 
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'
-run = 'move-node-to-workspace 4_Mail'
+run = 'move-node-to-workspace 6_Mail'
  
 # Social
 
 [[on-window-detected]]
 if.app-id = 'net.whatsapp.WhatsApp'
-run = 'move-node-to-workspace 7_Social'
+run = 'move-node-to-workspace 8_Social'
 
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
-run = 'move-node-to-workspace 7_Social'
+run = 'move-node-to-workspace 8_Social'
 
 # Spotify
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
-run = 'move-node-to-workspace 5_Spotify'
+run = 'move-node-to-workspace 7_Spotify'
 
 # Office
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Word'
-run = 'move-node-to-workspace 8_Office'
+run = 'move-node-to-workspace 9_Office'
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Powerpoint'
-run = 'move-node-to-workspace 8_Office'
+run = 'move-node-to-workspace 9_Office'
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Excel'
-run = 'move-node-to-workspace 8_Office'
+run = 'move-node-to-workspace 9_Office'
 
