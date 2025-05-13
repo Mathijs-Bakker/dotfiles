@@ -5,19 +5,19 @@ return {
   enabled = true,
   keys = {
     -- Engram/Enthium:
-    { ',e', [[:lua require('harpoon.ui').toggle_quick_menu()<CR>]], { silent = true }, desc = 'Harpoon Menu' },
-    { ',m', [[:lua require('harpoon.mark').add_file()<CR>]], { silent = true }, desc = 'Harpoon Mark' },
+    { ';e', [[:lua require('harpoon.ui').toggle_quick_menu()<CR>]], { silent = true }, desc = 'Harpoon Menu' },
+    { ';m', [[:lua require('harpoon.mark').add_file()<CR>]], { silent = true }, desc = 'Harpoon Mark' },
 
     -- { '<Space>c', [[:lua require('harpoon.ui').nav_file(1)<CR>]], { silent = true }, desc = 'Harpoon M1' },
     -- { '<Space>i', [[:lua require('harpoon.ui').nav_file(2)<CR>]], { silent = true }, desc = 'Harpoon M2' },
     -- { '<Space>e', [[:lua require('harpoon.ui').nav_file(3)<CR>]], { silent = true }, desc = 'Harpoon M3' },
     -- { '<Space>a', [[:lua require('harpoon.ui').nav_file(4)<CR>]], { silenw = true }, desc = 'Harpoon M4' },
     -- { '<Space>,', [[:lua require('harpoon.ui').nav_file(5)<CR>]], { silent = true }, desc = 'Harpoon M5' },
-    { ',h', [[:lua require('harpoon.ui').nav_file(1)<CR>]], { silent = true }, desc = 'Harpoon M1' },
-    { ',t', [[:lua require('harpoon.ui').nav_file(2)<CR>]], { silent = true }, desc = 'Harpoon M2' },
-    { ',n', [[:lua require('harpoon.ui').nav_file(3)<CR>]], { silent = true }, desc = 'Harpoon M3' },
-    { ',s', [[:lua require('harpoon.ui').nav_file(4)<CR>]], { silent = true }, desc = 'Harpoon M4' },
-    { ',z', [[:lua require('harpoon.ui').nav_file(5)<CR>]], { silent = true }, desc = 'Harpoon M5' },
+    { ';h', [[:lua require('harpoon.ui').nav_file(1)<CR>]], { silent = true }, desc = 'Harpoon M1' },
+    { ';t', [[:lua require('harpoon.ui').nav_file(2)<CR>]], { silent = true }, desc = 'Harpoon M2' },
+    { ';n', [[:lua require('harpoon.ui').nav_file(3)<CR>]], { silent = true }, desc = 'Harpoon M3' },
+    { ';s', [[:lua require('harpoon.ui').nav_file(4)<CR>]], { silent = true }, desc = 'Harpoon M4' },
+    { ';z', [[:lua require('harpoon.ui').nav_file(5)<CR>]], { silent = true }, desc = 'Harpoon M5' },
     {
       ',c',
       [[:lua require('harpoon.cmd-ui').toggle_quick_menu()<CR>]],

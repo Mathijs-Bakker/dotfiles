@@ -106,6 +106,12 @@ bind -Tcopy-mode-vi 'y' send -X copy-pipe-and-cancel "tmux save-buffer - | reatt
 bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
 bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-buffer"
 
+#### Spotify
+# update the status bar every second
+set -g status-interval 1
+
+# show our widget
+set -g status-right ' #(spt_status.sh)'
 ##############################
 ### Color & Style Settings ###
 ##############################

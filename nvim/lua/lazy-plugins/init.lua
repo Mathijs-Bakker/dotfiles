@@ -14,6 +14,9 @@ return {
   'rcarriga/nvim-dap-ui',
   { 'nvim-telescope/telescope-dap.nvim' },
 
+  -- GODOT
+  -- 'habamax/vim-godot',
+
   -- Completion:
   'L3MON4D3/LuaSnip', -- Snippets
   {

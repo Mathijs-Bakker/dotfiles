@@ -29,6 +29,7 @@ return {
     }
 
     require('lspconfig').slint_lsp.setup {}
+    require('lspconfig').gdscript.setup { capabilities = capabilities }
 
     -- Global mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions

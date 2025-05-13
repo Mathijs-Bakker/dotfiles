@@ -6,6 +6,11 @@ Nnoremap('<C-z>', '<nop>')
 -- Reload config/init
 -- Nnoremap('<Leader><Leader>r', ':Reload<CR>')
 
+-- GODOT:
+vim.keymap.set('n', '<Leader>sg', function()
+  vim.fn.serverstart '127.0.0.1:6004'
+end, { noremap = true })
+
 Nnoremap([['']], [[:luafile init.lua]])
 --[[  Movement: --]]
 -- Lines up and down:
