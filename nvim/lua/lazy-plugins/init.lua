@@ -15,7 +15,8 @@ return {
   { 'nvim-telescope/telescope-dap.nvim' },
 
   -- GODOT
-  -- 'habamax/vim-godot',
+  'habamax/vim-godot',
+  'Cretezy/godot-server.nvim',
 
   -- Completion:
   'L3MON4D3/LuaSnip', -- Snippets

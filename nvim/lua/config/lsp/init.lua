@@ -4,6 +4,7 @@ require 'config.lsp.omnisharp'
 require 'config.lsp.typescript'
 require 'config.lsp.viml'
 require 'config.lsp.godot'
+print 'This is a debug print from: lsp/init.lua (LSP)'
 
 function ts_map(key, picker_f)
   local rhs = string.format(":lua require'config.telescope.pickers'.%s()<CR>", picker_f)

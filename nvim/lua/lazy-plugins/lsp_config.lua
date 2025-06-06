@@ -13,7 +13,8 @@ return {
   },
   config = function()
     local cmp_lsp = require 'cmp_nvim_lsp'
-    vim.tbl_deep_extend('force', {}, vim.lsp.protocol.make_client_capabilities(), cmp_lsp.default_capabilities())
+    local capabilities =
+      vim.tbl_deep_extend('force', {}, vim.lsp.protocol.make_client_capabilities(), cmp_lsp.default_capabilities())
 
     local lspconfig = require 'lspconfig'
     lspconfig.lua_ls.setup {
@@ -24,11 +25,28 @@ return {
             globals = { 'vim', 'it', 'describe', 'before_each', 'after_each' },
           },
         },
-        require('lspconfig').clangd.setup {},
       },
     }
 
+    require('lspconfig').clangd.setup {}
     require('lspconfig').slint_lsp.setup {}
+
+    -- require('lspconfig').gdscript.setup {
+    -- -- cmd = { 'godot', '--headless', '--editor', '--lsp', '--path', vim.fn.getcwd() },
+    -- cmd = { 'ncat', '127.0.0.1', '6005' },
+    -- filetypes = { 'gd', 'gdscript', 'gdscript3' },
+    -- root_dir = require('lspconfig.util').root_pattern 'project.godot',
+    -- on_attach = function(client, bufnr)
+    --   local buf_map = function(mode, lhs, rhs)
+    --     vim.keymap.set(mode, lhs, rhs, { noremap = true, silent = true, buffer = bufnr })
+    --   end
+    --   buf_map('n', 'gd', vim.lsp.buf.definition)
+    --   buf_map('n', 'K', vim.lsp.buf.hover)
+    --   buf_map('n', '<leader>rn', vim.lsp.buf.rename)
+    --   buf_map('n', '<leader>ca', vim.lsp.buf.code_action)
+    -- end,
+    -- }
+
     require('lspconfig').gdscript.setup { capabilities = capabilities }
 
     -- Global mappings.
