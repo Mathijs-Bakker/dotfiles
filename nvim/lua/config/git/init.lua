@@ -1,43 +1,41 @@
---[[ Fugitive: ]]
+-- Fugitive:
 vim.api.nvim_exec([[ let g:fugitive_git_executable = 'hub' ]], true)
--- Nvim_exec([[ let g:fugitive_git_executable = 'hub' ]], true)
-
-Nnoremap('<Leader>ga', [[:Git add %:p<CR>]]) -- '$ git add' current file
-Nnoremap('<Leader>gb', [[:Git blame<CR>]]) -- Gitt Blame
-Nnoremap('<Leader>gc', [[:Git commit -v<CR>]]) -- Git Commit
-Nnoremap('<Leader>ge', [[:Gedit<CR>]]) -- Git Edit
-Nnoremap('<Leader>gf', [[:Git pull --rebase<CR>]]) -- Git Pull/Fetch
-Nnoremap('<Leader>gl', [[:GV<CR>]]) -- Git Log
-Nnoremap('<Leader>gp', [[:Git push<CR>]]) -- Git Push
-Nnoremap('<Leader>gr', [[:Gread<CR>]])
-Nnoremap('<Leader>gs', [[:Git<CR>]]) -- Git Status
-
---[[ Fugitive-gitlab: ]]
--- vim.api.nvim_exec([==[ let g:fugitive_gitlab_domains = ['https://my.gitlab.com']]==], true)
-
--- require 'config.git.gitlab_access_token'
-
---[[ Git Messenger: ]]
-Nnoremap('<leader>gm', [[<Plug>(git-messenger)]]) -- Git Blame under cursor
-
---[[ GV: ]]
--- A 'git log --graph' wrapper
-
-Nnoremap('<Leader>gd', [[:Gvdiffsplit!<CR>]]) -- 3 window diff split
--- Resolving a 3-way diff with :diffget
-Nnoremap('gh', [[<cmd>diffget //2<CR>]]) -- fetches the hunk from the target parent (on the left)
-Nnoremap('gl', [[<cmd>diffget //3<CR> ]]) -- fetches the hunk from the merge parent (on the right)
-
--- ---------------------------
--- Git-Worktree
--- ---------------------------
+-- Git Worktree:
 require('telescope').load_extension 'git_worktree'
 
--- Worktree List:
-Nnoremap('<Leader>gwl', [[:lua require('telescope').extensions.git_worktree.git_worktrees()<CR>]])
--- <Enter> - switches to that worktree
--- <c-d> - deletes that worktree
--- <c-D> - force deletes that worktree
-
--- Worktree Creation:
-Nnoremap('<Leader>gwc', [[:lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>]])
+local wk = require 'which-key'
+wk.add {
+  { '<leader>g', group = 'git' }, -- group
+  -- { "<leader>g",  , desc = "", mode = "n" },
+  { '<leader>ga', [[:Git add %:p<CR>]], desc = 'Git Add (current buffer)', mode = 'n' },
+  { '<leader>gb', [[:Git blame<CR>]], desc = 'Git Blame', mode = 'n' },
+  { '<leader>gc', [[:Git commit -v<CR>]], desc = 'Git Commit', mode = 'n' },
+  { '<leader>ge', [[:Gedit<CR>]], desc = 'Git Edit', mode = 'n' },
+  { '<leader>gf', [[:Git pull --rebase<CR>]], desc = "Git ('Fetch') pull --rebase", mode = 'n' },
+  { '<leader>gl', [[:GV<CR>]], desc = 'Git Log', mode = 'n' },
+  { '<leader>gp', [[:Git push<CR>]], desc = 'Git Push', mode = 'n' },
+  { '<leader>gr', [[:Gread<CR>]], desc = 'Git Read', mode = 'n' },
+  { '<leader>gs', [[:Git<CR>]], desc = 'Git Status', mode = 'n' },
+  { '<leader>gm', [[<Plug>(git-messenger)]], desc = 'Git Blame under cursor', mode = 'n' },
+  { '<leader>gd', [[:Gvdiffsplit!<CR>]], desc = '3-window Diffsplit', mode = 'n' },
+  {
+    '<leader>gh',
+    [[<cmd>diffget //2<CR>]],
+    desc = 'Diffget From Left Window)',
+    mode = 'n',
+  },
+  { '<leader>gl', [[<cmd>diffget //3<CR> ]], desc = 'Diffget From Right Window', mode = 'n' },
+  { '<leader>gw', group = 'git worktree' }, -- group
+  {
+    '<leader>gwl',
+    [[:lua require('telescope').extensions.git_worktree.git_worktrees()<CR>]],
+    desc = 'Worktree List',
+    mode = 'n',
+  },
+  {
+    '<leader>gwc',
+    [[:lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>]],
+    desc = 'Worktree Create',
+    mode = 'n',
+  },
+}
