@@ -23,10 +23,12 @@ return {
     formatters_by_ft = {
       lua = { 'stylua' },
       python = { 'isort', 'black' },
-      javascript = { { 'prettierd', 'prettier' } },
+      -- go = { 'goimports' },
+      go = { 'gofmt' },
+      -- javascript = { { 'deno_fmt', stop_after_first = true } },
     },
     -- Set up format-on-save
-    format_on_save = { timeout_ms = 500, lsp_fallback = true },
+    format_on_save = { timeout_ms = 500, lsp_fallback = false },
     -- Customize formatters
     formatters = {
       shfmt = {
