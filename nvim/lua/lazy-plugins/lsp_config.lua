@@ -36,6 +36,7 @@ return {
     }
 
     require('lspconfig').clangd.setup {}
+    require('lspconfig').jsonlsp.setup {}
     require('lspconfig').slint_lsp.setup {}
 
     -- require('lspconfig').gdscript.setup {

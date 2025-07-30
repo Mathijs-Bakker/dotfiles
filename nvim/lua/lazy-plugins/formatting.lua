@@ -7,14 +7,15 @@ return {
   opts = {
     -- Define your formatters
     formatters_by_ft = {
-      lua = { 'stylua' },
-      python = { 'isort', 'black' },
       -- go = { 'goimports' },
       go = { 'gofmt' },
+      html = { 'superhtml' },
       javascript = { 'deno_fmt' },
+      json = { 'deno_fmt' },
+      lua = { 'stylua' },
+      python = { 'isort', 'black' },
       typescript = { 'deno_fmt' },
       typescriptreact = { 'deno_fmt' },
-      html = { 'superhtml' },
     },
     -- Set up format-on-save
     format_on_save = { timeout_ms = 500, lsp_fallback = false },
