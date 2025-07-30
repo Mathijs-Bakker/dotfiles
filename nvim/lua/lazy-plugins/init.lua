@@ -41,7 +41,7 @@ return {
   -- TELESCOPE
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.5',
+    tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
   {
@@ -108,19 +108,6 @@ return {
   {
     'slint-ui/vim-slint',
   },
-  -- Rust:
-  -- use 'simrat39/rust-tools.nvim'
-  -- {
-  -- 'mrcjkb/rustaceanvim',
-  -- dependencies = 'j-hui/fidget.nvim',
-  -- version = '^4', -- Recommended
-  -- ft = { 'rust' },
-  -- config = function()
-  --   print 'Whhop rust'
-  --   require('fidget').setup()
-  -- end,
-  -- },
-  -- 'alx741/vim-rustfmt',
   -- Lua
   { 'folke/neodev.nvim', opts = {} },
   { 'ckipp01/stylua-nvim', build = 'cargo install stylua' },

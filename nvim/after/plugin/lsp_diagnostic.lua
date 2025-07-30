@@ -55,7 +55,7 @@ vim.keymap.set('n', 'dp', function()
     wrap = true,
     float = true,
   }
-end)
+end, { desc = 'Diagnostic: Goto Next Error' })
 
 vim.keymap.set('n', 'dn', function()
   vim.diagnostic.goto_next {

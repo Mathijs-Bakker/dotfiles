@@ -28,6 +28,13 @@ return {
       },
     }
 
+    lspconfig.superhtml.setup {
+      capabilities = capabilities,
+      filetypes = { 'html' },
+      cmd = { 'superhtml', '--stdio' },
+      root_dir = require('lspconfig.util').root_pattern('.git', '.'),
+    }
+
     require('lspconfig').clangd.setup {}
     require('lspconfig').slint_lsp.setup {}
 
@@ -59,9 +66,12 @@ return {
     -- Use LspAttach autocommand to only map the following keys
     -- after the language server attaches to the current buffer
     vim.api.nvim_create_autocmd('LspAttach', {
+      print '✅ lsp_config 2',
       group = vim.api.nvim_create_augroup('UserLspConfig', {}),
       callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        print 'LSP ATTACH'
+        vim.api.nvim_echo 'echo'
 
         -- 🛑 Disable LSP formatting for gopls
         if client.name == 'gopls' then

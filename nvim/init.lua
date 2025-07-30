@@ -9,7 +9,6 @@ require 'lazyinit'
 require 'config'
 -- Statusline
 require 'statusline'
-
 require('fidget').setup {}
 -- Highlights the yanked characters/lines
 vim.cmd [[ augroup highlight_yank
