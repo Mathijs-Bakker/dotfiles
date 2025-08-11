@@ -15,8 +15,15 @@ return {
   { 'nvim-telescope/telescope-dap.nvim' },
 
   -- GODOT
-  'habamax/vim-godot',
-  'Cretezy/godot-server.nvim',
+  -- 'habamax/vim-godot',
+  -- 'Cretezy/godot-server.nvim',
+  {
+    'Mathijs-Bakker/godot-lsp.nvim',
+    branch = 'development',
+    config = function()
+      require('godot-lsp').setup { skip_godot_check = true }
+    end,
+  },
 
   -- Completion:
   'L3MON4D3/LuaSnip', -- Snippets
