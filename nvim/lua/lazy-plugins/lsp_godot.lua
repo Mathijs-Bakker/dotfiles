@@ -2,7 +2,7 @@
 return {
   'Mathijs-Bakker/godot-lsp.nvim',
   branch = 'development',
-  dependencies = { 'neovim/nvim-lspconfig' },
+  dependencies = { 'neovim/nvim-lspconfig', 'rcarriga/nvim-dap-ui' },
   config = function()
     local lspconfig_status_ok, lspconfig = pcall(require, 'lspconfig')
     if not lspconfig_status_ok then
@@ -50,9 +50,8 @@ return {
             local file = vim.fn.expand '%:p'
             local line = vim.fn.line '.'
             local col = vim.fn.col '.'
-            vim.notify('Executing reload script for ' .. file)
-            -- Use a login shell to inherit the user environment
-            local cmd = 'PATH=$PATH:/usr/local/bin bash -l -c "/Users/MateoPanadero/.local/bin/open-nvim-godot.sh '
+            vim.notify('Executing reload script for ' .. file, vim.log.levels.INFO)
+            local cmd = 'PATH=$PATH:/usr/local/bin:/usr/bin:/opt/homebrew/bin bash -l -c "/Users/MateoPanadero/.local/bin/open-nvim-godot.sh '
               .. file
               .. ' '
               .. line
@@ -61,9 +60,16 @@ return {
               .. ' reload > /tmp/godot_lsp_log 2>&1"'
             local handle = io.popen(cmd)
             if handle then
+              local output = handle:read '*a'
               handle:close()
+              if output and output:match 'error' then
+                vim.notify('Reload script failed: ' .. output, vim.log.levels.ERROR)
+              else
+                vim.notify('Reload script executed, check /tmp/godot_lsp_log', vim.log.levels.INFO)
+              end
+            else
+              vim.notify('Failed to execute reload script', vim.log.levels.ERROR)
             end
-            vim.notify 'Reload script executed, check /tmp/godot_lsp_log'
           end,
         })
       end,

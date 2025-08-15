@@ -1,29 +1,27 @@
 return {
-
   {
     'williamboman/mason.nvim',
     config = function()
       require('mason').setup()
     end,
   },
-  'neovim/nvim-lspconfig',
-
+  { 'neovim/nvim-lspconfig', lazy = false },
+  {
+    import = 'lazy-plugins.lsp_godot', -- Import the lsp_godot module
+    dependencies = { 'neovim/nvim-lspconfig' }, -- Redundant but reinforces order
+  },
   -- DAP:
   'jayp0521/mason-nvim-dap.nvim',
   'mfussenegger/nvim-dap',
-  'rcarriga/nvim-dap-ui',
-  { 'nvim-telescope/telescope-dap.nvim' },
-
-  -- GODOT
-  -- 'habamax/vim-godot',
-  -- 'Cretezy/godot-server.nvim',
   {
-    'Mathijs-Bakker/godot-lsp.nvim',
-    branch = 'development',
+    'rcarriga/nvim-dap-ui',
+    dependencies = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' },
     config = function()
-      require('godot-lsp').setup { skip_godot_check = true }
+      local dapui = require 'dapui'
+      dapui.setup()
     end,
   },
+  { 'nvim-telescope/telescope-dap.nvim' },
 
   -- Completion:
   'L3MON4D3/LuaSnip', -- Snippets
@@ -95,7 +93,6 @@ return {
     'folke/which-key.nvim',
     event = 'VeryLazy',
     init = function()
-      vim.o.timeout = true
       vim.o.timeoutlen = 500
     end,
     opts = {
