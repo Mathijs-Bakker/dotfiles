@@ -1,41 +1,50 @@
--- return {
---   'stevearc/oil.nvim',
---   keys = {
---     { '-' '<CMD>Oil<CR>', desc = 'Open parent directory' },
---   },
---   opts = {
---     view_options = {
---       -- Show files and directories that start with "."
---       show_hidden = true,
---     },
---   },
---   dependencies = { 'nvim-tree/nvim-web-devicons' },
--- }
 return {
   'echasnovski/mini.files',
-  version = false,
-
-  vim.keymap.set('n', '-', function()
-    require('mini.files').open()
-  end),
-
+  keys = {
+    {
+      '-',
+      function()
+        require('mini.files').open()
+      end,
+      desc = 'Open MiniFiles',
+    },
+  },
   config = function()
-    require('fidget').setup {
-      -- Customization of shown content
-      content = {
-        -- Predicate for which file system entries to show
-        filter = nil,
-        -- What prefix to show to the left of file system entry
-        prefix = nil,
-        -- In which order to show file system entries
-        sort = nil,
-      },
+    local original_set_lines = vim.api.nvim_buf_set_lines
 
-      -- Module mappings created only inside explorer.
-      -- Use `''` (empty string) to not create one.
+    local filter_godot_files = function(lines)
+      local filtered = {}
+      local godot_patterns = {
+        '%.uid[/]?$', -- .uid files
+        '%.import[/]?$', -- .import files
+        '^%.godot[/]?$', -- .godot directory
+        '^%.mono[/]?$', -- .mono directory
+        'godot.*%.tmp$', -- godot temp files
+      }
+
+      for _, line in ipairs(lines) do
+        local should_include = true
+        for _, pattern in ipairs(godot_patterns) do
+          if line:match(pattern) then
+            should_include = false
+            break
+          end
+        end
+        if should_include then
+          table.insert(filtered, line)
+        end
+      end
+      return filtered
+    end
+
+    require('mini.files').setup {
+      content = {
+        filter = function(fs_entry)
+          return true
+        end, -- Use our custom filtering instead
+      },
       mappings = {
-        -- close = 'q',
-        close = '<Esc>',
+        close = 'q',
         go_in = 'l',
         go_in_plus = 'L',
         go_out = 'h',
@@ -47,28 +56,25 @@ return {
         trim_left = '<',
         trim_right = '>',
       },
-
-      -- General options
       options = {
-        -- Whether to delete permanently or move into module-specific trash
         permanent_delete = true,
-        -- Whether to use for editing directories
         use_as_default_explorer = true,
       },
-
-      -- Customization of explorer windows
       windows = {
-        -- Maximum number of windows to show side by side
         max_number = math.huge,
-        -- Whether to show preview of file/directory under cursor
         preview = false,
-        -- Width of focused window
         width_focus = 50,
-        -- Width of non-focused window
         width_nofocus = 15,
-        -- Width of preview window
         width_preview = 25,
       },
     }
+
+    vim.api.nvim_buf_set_lines = function(buf_id, start, end_idx, strict_indexing, lines)
+      local bufname = vim.api.nvim_buf_get_name(buf_id)
+      if bufname:match 'minifiles://' and type(lines) == 'table' then
+        lines = filter_godot_files(lines)
+      end
+      return original_set_lines(buf_id, start, end_idx, strict_indexing, lines)
+    end
   end,
 }
