@@ -2,6 +2,36 @@ if not pcall(require, 'telescope') then
   return
 end
 
+local actions = require 'telescope.actions'
+local action_state = require 'telescope.actions.state'
+
+-- Custom 'q' function
+local function close_if_empty(prompt_bufnr)
+  local prompt = action_state.get_current_line()
+  if prompt == '' then
+    actions.close(prompt_bufnr)
+  else
+    -- insert a literal 'q' if the prompt is not empty
+    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+    local line = vim.api.nvim_get_current_line()
+    vim.api.nvim_set_current_line(line:sub(1, col) .. 'q' .. line:sub(col + 1))
+    vim.api.nvim_win_set_cursor(0, { row, col + 1 })
+  end
+end
+
+-- Telescope setup
+require('telescope').setup {
+  defaults = {
+    mappings = {
+      i = {
+        ['q'] = close_if_empty, -- insert mode mapping
+      },
+      n = {
+        ['q'] = actions.close, -- normal mode mapping
+      },
+    },
+  },
+}
 function ts_map(key, picker_f)
   local rhs = string.format(":lua require'config.telescope.pickers'.%s()<CR>", picker_f)
 
