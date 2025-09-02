@@ -1,6 +1,7 @@
 -- ~/.config/nvim/lua/lazy-plugins/lsp_godot.lua
 return {
   'Mathijs-Bakker/godot-lsp.nvim',
+  enabled = false,
   branch = 'development',
   dependencies = { 'neovim/nvim-lspconfig', 'rcarriga/nvim-dap-ui' },
   config = function()
@@ -16,12 +17,31 @@ return {
       return
     end
 
-    godot_lsp.setup {
+    -- Custom setup to handle Godot LSP limitations
+    local function custom_on_attach(client, bufnr)
+      client.server_capabilities.document_formatting = false
+      client.server_capabilities.document_range_formatting = false
+      client.server_capabilities.workspace = {
+        configuration = false,
+      }
+    end
+
+    lspconfig.gdscript.setup {
       cmd = { 'ncat', 'localhost', '6005' },
       filetypes = { 'gdscript' },
+      on_attach = custom_on_attach,
+      settings = {
+        godot_lsp = {
+          debug = true,
+        },
+      },
+    }
+
+    godot_lsp.setup {
       skip_godot_check = true,
       debug_logging = true,
       dap = true,
+      on_attach = custom_on_attach, -- Apply the same capability fixes to godot_lsp setup
       keymaps = {
         definition = 'gd',
         declaration = 'gD',
@@ -36,43 +56,13 @@ return {
         rename = '<leader>rn',
         workspace_symbols = '<leader>ws',
         format = '<leader>f',
-        dap_continue = '<F5>',
-        dap_toggle_breakpoint = '<F9>',
-        dap_step_over = '<F10>',
-        dap_step_into = '<F11>',
-        dap_step_out = '<F12>',
+        dap_continue = '<F5',
+        dap_toggle_breakpoint = '<F9',
+        dap_step_over = '<F10',
+        dap_step_into = '<F11',
+        dap_step_out = '<F12',
         dap_ui = '<leader>du',
       },
-      on_attach = function(client, bufnr)
-        vim.api.nvim_create_autocmd('BufWritePost', {
-          buffer = bufnr,
-          callback = function()
-            local file = vim.fn.expand '%:p'
-            local line = vim.fn.line '.'
-            local col = vim.fn.col '.'
-            vim.notify('Executing reload script for ' .. file, vim.log.levels.INFO)
-            local cmd = 'PATH=$PATH:/usr/local/bin:/usr/bin:/opt/homebrew/bin bash -l -c "/Users/MateoPanadero/.local/bin/open-nvim-godot.sh '
-              .. file
-              .. ' '
-              .. line
-              .. ' '
-              .. col
-              .. ' reload > /tmp/godot_lsp_log 2>&1"'
-            local handle = io.popen(cmd)
-            if handle then
-              local output = handle:read '*a'
-              handle:close()
-              if output and output:match 'error' then
-                vim.notify('Reload script failed: ' .. output, vim.log.levels.ERROR)
-              else
-                vim.notify('Reload script executed, check /tmp/godot_lsp_log', vim.log.levels.INFO)
-              end
-            else
-              vim.notify('Failed to execute reload script', vim.log.levels.ERROR)
-            end
-          end,
-        })
-      end,
     }
   end,
 }
