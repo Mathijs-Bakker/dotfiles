@@ -256,3 +256,5 @@ export PATH="/usr/local/opt/node@16/bin:$PATH"
 
 # Godot:
 export PATH="/Applications/Godot.app/Contents/MacOS:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"

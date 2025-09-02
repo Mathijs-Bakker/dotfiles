@@ -113,6 +113,6 @@ return {
     'slint-ui/vim-slint',
   },
   -- Lua
-  { 'folke/neodev.nvim', opts = {} },
+  -- { 'folke/neodev.nvim', opts = {} },
   { 'ckipp01/stylua-nvim', build = 'cargo install stylua' },
 }

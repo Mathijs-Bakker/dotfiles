@@ -40,6 +40,9 @@ return {
     autoinstall = true,
     highlight = {
       enable = true, -- false will disable the whole extension
+      disable = {},
+      additional_vim_regex_highlighting = false,
     },
+    sync_install = false,
   },
 }
