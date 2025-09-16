@@ -2,7 +2,6 @@
 vim.api.nvim_set_keymap('n', '<Space>', '', {})
 vim.g.mapleader = ' '
 
-require 'globals'
 
 require 'lazyinit'
 

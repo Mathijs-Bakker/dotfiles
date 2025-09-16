@@ -59,7 +59,7 @@ ts_map('<Leader>cw', 'lsp_workspace_symbols')
 -- ts_map('<Leader>cD', 'lsp_diagnostics')
 ts_map('<Leader>ld', 'lsp_diagnostics')
 
-Nnoremap('gt', [[:lua require('telescope.builtin').lsp_type_definitions()<CR>]])
+vim.keymap.set('n', 'gt', [[:lua require('telescope.builtin').lsp_type_definitions()<CR>]])
 
 -- Files:
 ts_map('<Leader>ff', 'find_files')
