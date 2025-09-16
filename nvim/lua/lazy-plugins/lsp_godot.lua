@@ -52,7 +52,7 @@ return {
         diagnostic_open_float = '<leader>cd',
         diagnostic_goto_next = ']d',
         diagnostic_goto_prev = '[d',
-        references = '<leader>cr',
+        references = 'gr',
         rename = '<leader>rn',
         workspace_symbols = '<leader>ws',
         format = '<leader>f',

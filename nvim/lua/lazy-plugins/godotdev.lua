@@ -14,6 +14,8 @@ return {
       editor_host = '127.0.0.1', -- override default '127.0.0.1'
       debug_port = 6006, -- override default 6006
       csharp = true,
+      -- formatter = 'gdscript-format',
+      formatter = 'gdformat',
     }
   end,
 }

@@ -10,18 +10,18 @@ return {
     import = 'lazy-plugins.lsp_godot', -- Import the lsp_godot module
     dependencies = { 'neovim/nvim-lspconfig' }, -- Redundant but reinforces order
   },
-  -- DAP:
-  'jayp0521/mason-nvim-dap.nvim',
-  'mfussenegger/nvim-dap',
-  {
-    'rcarriga/nvim-dap-ui',
-    dependencies = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' },
-    config = function()
-      local dapui = require 'dapui'
-      dapui.setup()
-    end,
-  },
-  { 'nvim-telescope/telescope-dap.nvim' },
+  -- -- DAP:
+  -- 'jayp0521/mason-nvim-dap.nvim',
+  -- 'mfussenegger/nvim-dap',
+  -- {
+  --   'rcarriga/nvim-dap-ui',
+  --   dependencies = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' },
+  --   config = function()
+  --     local dapui = require 'dapui'
+  --     dapui.setup()
+  --   end,
+  -- },
+  -- { 'nvim-telescope/telescope-dap.nvim' },
 
   -- Completion:
   'L3MON4D3/LuaSnip', -- Snippets

@@ -1,18 +1,20 @@
 return {
   'mrcjkb/rustaceanvim',
-  version = '^4', -- Recommended
+  version = '^6', -- Recommended
   lazy = false,
   ft = { 'rust' },
 
-  config = function()
-    settings = {
-      ['rust-analyzer'] = {
-        server = {
-          trace = {
-            server = { 'verbose' },
-          },
-        },
-      },
-    }
-  end,
+  -- config = function()
+  --   local keymaps = require 'config.lsp_on_attach'
+
+  --   settings = {
+  --     ['rust-analyzer'] = {
+  --       server = {
+  --         trace = {
+  --           server = { 'verbose' },
+  --         },
+  --       },
+  --     },
+  --   }
+  -- end,
 }
