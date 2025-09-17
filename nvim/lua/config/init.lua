@@ -1,5 +1,6 @@
 require 'config.options'
 require 'config.keymaps'
+require 'config.keymaps_lsp'
 require 'config.telescope'
 -- require 'config.luasnip'
 require 'config.git'
