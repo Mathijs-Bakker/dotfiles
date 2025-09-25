@@ -1,6 +1,8 @@
 return {
-  'ThePrimeagen/harpoon',
-  branch = 'harpoon2',
+  -- 'ThePrimeagen/harpoon',
+  -- branch = 'harpoon2',
+  dir = '~/Repositories/harpoon/',
+  branch = 'fix/325-swap-file',
   dependencies = { 'nvim-lua/plenary.nvim' },
   enabled = true,
   settings = {

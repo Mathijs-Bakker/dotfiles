@@ -5,11 +5,7 @@ return {
       require('mason').setup()
     end,
   },
-  { 'neovim/nvim-lspconfig', lazy = false },
-  {
-    import = 'lazy-plugins.lsp_godot', -- Import the lsp_godot module
-    dependencies = { 'neovim/nvim-lspconfig' }, -- Redundant but reinforces order
-  },
+  -- { 'neovim/nvim-lspconfig', lazy = false },
   -- -- DAP:
   -- 'jayp0521/mason-nvim-dap.nvim',
   -- 'mfussenegger/nvim-dap',

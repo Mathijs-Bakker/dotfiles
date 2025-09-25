@@ -2,10 +2,10 @@
 vim.api.nvim_set_keymap('n', '<Space>', '', {})
 vim.g.mapleader = ' '
 
-
 require 'lazyinit'
 
 require 'config'
+require 'lsp_config'
 -- Statusline
 require 'statusline'
 require('fidget').setup {}
