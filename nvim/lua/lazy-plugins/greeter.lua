@@ -6,6 +6,7 @@ return {
   config = function()
     local alpha = require 'alpha'
     local dashboard = require 'alpha.themes.dashboard'
+    local harpoon = require 'harpoon'
 
     dashboard.section.header.val = {
       [[   ]],
@@ -13,7 +14,12 @@ return {
     }
 
     dashboard.section.buttons.val = {
-      dashboard.button(',e', '♆ Harpoon', [[:lua require('harpoon.ui').toggle_quick_menu()<CR>]]),
+      dashboard.button(
+        ',e',
+        '♆ Harpoon',
+        [[:lua require('harpoon').ui:toggle_quick_menu(require('harpoon'):list())<CR>]]
+      ),
+      -- harpoon.ui:toggle_quick_menu(list())
       dashboard.button('<Ldr> ff', ' Find File ', ':Telescope find_files<CR>'),
       dashboard.button('<Ldr> fr', ' Frecency/MRU ', ':Telescope frecency<CR>'),
       dashboard.button('<Ldr> fp', '﯑ Projects', ':Telescope projects<CR>'),
