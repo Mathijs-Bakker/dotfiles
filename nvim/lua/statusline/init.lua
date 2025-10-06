@@ -66,41 +66,41 @@ end
 --   return '%#PmenuSel# ♆ ' .. mark_id .. ' %*'
 -- end
 
-local harpoon = require 'harpoon'
+-- local harpoon = require 'harpoon'
 
-local function normalize_path(path)
-  if not path then
-    return ''
-  end
-  return vim.fn.fnamemodify(vim.fn.expand(path), ':p')
-end
+-- local function normalize_path(path)
+--   if not path then
+--     return ''
+--   end
+--   return vim.fn.fnamemodify(vim.fn.expand(path), ':p')
+-- end
 
-local function get_harpoon_status()
-  local list = harpoon:list()
-  local items = list.items or {}
+-- local function get_harpoon_status()
+--   local list = harpoon:list()
+--   local items = list.items or {}
 
-  local current = normalize_path(vim.api.nvim_buf_get_name(0))
-  local mark_id = nil
+--   local current = normalize_path(vim.api.nvim_buf_get_name(0))
+--   local mark_id = nil
 
-  for i, item in ipairs(items) do
-    if item and item.path then
-      local item_path = item.path:gsub('\\', '/') -- normalize slashes
-      local current_rel = current:gsub('\\', '/')
-      if current_rel:sub(-#item_path) == item_path then
-        mark_id = i
-        break
-      end
-    end
-  end
+--   for i, item in ipairs(items) do
+--     if item and item.path then
+--       local item_path = item.path:gsub('\\', '/') -- normalize slashes
+--       local current_rel = current:gsub('\\', '/')
+--       if current_rel:sub(-#item_path) == item_path then
+--         mark_id = i
+--         break
+--       end
+--     end
+--   end
 
-  local layout = vim.g.harpoon_current_layout or '?'
+--   local layout = vim.g.harpoon_current_layout or '?'
 
-  if not mark_id then
-    return string.format('%%#WildMenu# ♆  [%s] %%*', layout)
-  end
+--   if not mark_id then
+--     return string.format('%%#WildMenu# ♆  [%s] %%*', layout)
+--   end
 
-  return string.format('%%#PmenuSel# ♆ %d [%s] %%*', mark_id, layout)
-end
+--   return string.format('%%#PmenuSel# ♆ %d [%s] %%*', mark_id, layout)
+-- end
 
 local statusline = ''
 local separator = '  '
@@ -108,14 +108,14 @@ local section_spacer = '%='
 
 function StatusLine()
   if is_terminal_window() then
-    statusline = '  Terminal  ' .. get_harpoon_status()
+    -- statusline = '  Terminal  ' .. get_harpoon_status()
   else
     statusline = separator
       .. get_file_status_section()
       .. separator
       .. get_git_branch()
       .. separator
-      .. get_harpoon_status()
+      -- .. get_harpoon_status()
       .. section_spacer
       .. get_lsp_status()
       .. section_spacer
