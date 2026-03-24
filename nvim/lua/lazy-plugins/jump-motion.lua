@@ -1,5 +1,5 @@
 return {
-  'ggandor/leap.nvim',
+  url = 'https://codeberg.org/andyg/leap.nvim',
   dependencies = 'tpope/vim-repeat',
   config = function()
     vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap)')
