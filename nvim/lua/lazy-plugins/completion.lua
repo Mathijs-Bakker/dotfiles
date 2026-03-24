@@ -48,6 +48,9 @@ return {
       },
       -- the order of the sources list defines the priority of each source.
       sources = cmp.config.sources {
+        per_filetype = {
+          codecompanion = { 'codecompanion' },
+        },
         { name = 'luasnip' },
         { name = 'nvim_lsp' },
         { name = 'nvim_lsp_signature_help' },
