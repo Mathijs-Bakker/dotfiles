@@ -5,6 +5,10 @@ vim.keymap.set('n', '<leader>ca', function()
   vim.cmd.RustLsp 'codeAction'
 end, { silent = true, buffer = bufnr, desc = 'Rust: Code Actions' })
 
+vim.keymap.set('v', '<leader>ca', function()
+  vim.cmd.RustLsp 'codeAction'
+end, { silent = true, buffer = bufnr, desc = 'Rust: Code Actions' })
+
 vim.keymap.set('n', 'K', function()
   vim.cmd.RustLsp { 'hover', 'actions' }
 end, { silent = true, buffer = bufnr })
@@ -50,3 +54,10 @@ vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
 vim.keymap.set('n', '<space>f', function()
   vim.vim.lsp.buf.format { async = true }
 end, opts)
+
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.rs',
+  callback = function()
+    vim.cmd 'RustFmt'
+  end,
+})
