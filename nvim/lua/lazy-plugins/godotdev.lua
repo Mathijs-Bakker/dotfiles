@@ -18,4 +18,7 @@ return {
       formatter = 'gdformat',
     }
   end,
+  keys = {
+    { 'gK', '<cmd>GodotDocsBuffer<cr>', desc = 'Godot Class Documentation' },
+  },
 }
