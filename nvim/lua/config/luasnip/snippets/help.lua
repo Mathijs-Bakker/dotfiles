@@ -1,4 +1,4 @@
-require('plugins.luasnip.helpers').setup_snip_env()
+require('config.luasnip.helpers').setup_snip_env()
 
 local function neg(fn, ...)
   return not fn(...)

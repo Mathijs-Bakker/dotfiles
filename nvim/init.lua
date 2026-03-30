@@ -2,13 +2,14 @@
 vim.api.nvim_set_keymap('n', '<Space>', '', {})
 vim.g.mapleader = ' '
 
-require 'lazyinit'
+if not require('packinit').setup() then
+  return
+end
 
 require 'config'
 require 'lsp_config'
 -- Statusline
 require 'statusline'
-require('fidget').setup {}
 -- Highlights the yanked characters/lines
 vim.cmd [[ augroup highlight_yank
     autocmd!

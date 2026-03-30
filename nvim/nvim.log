@@ -1,0 +1,2 @@
+WRN 2026-03-30T10:53:11.436 ?.66148    server_start:197: Failed to start server: operation not permitted: /var/folders/w6/cf5_h7q96ssg40krbhkj_8cm0000gp/T/nvim.MateoPanadero/6qZGhg/nvim.66148.0
+WRN 2026-03-30T10:53:26.366 ?.66193    server_start:197: Failed to start server: operation not permitted: /var/folders/w6/cf5_h7q96ssg40krbhkj_8cm0000gp/T/nvim.MateoPanadero/7lraaZ/nvim.66193.0

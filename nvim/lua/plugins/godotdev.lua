@@ -2,7 +2,6 @@ return {
   dir = '~/Repositories/godotdev.nvim', -- local dev path
   name = 'godotdev.nvim',
   dev = true, -- marks as local dev plugin
-  lazy = false, -- load on startup
   dependencies = {
     'neovim/nvim-lspconfig',
     'mfussenegger/nvim-dap',

@@ -1,6 +1,6 @@
 return {
   'chrisgrieser/nvim-spider',
-  enable = false,
+  enabled = false,
   keys = {
     { -- example for lazy-loading on keystroke
       'e',

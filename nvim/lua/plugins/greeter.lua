@@ -19,13 +19,12 @@ return {
         '♆ Harpoon',
         [[:lua require('harpoon').ui:toggle_quick_menu(require('harpoon'):list())<CR>]]
       ),
-      -- harpoon.ui:toggle_quick_menu(list())
       dashboard.button('<Ldr> ff', ' Find File ', ':Telescope find_files<CR>'),
-      dashboard.button('<Ldr> fr', ' Frecency/MRU ', ':Telescope frecency<CR>'),
-      dashboard.button('<Ldr> fp', '﯑ Projects', ':Telescope projects<CR>'),
+      dashboard.button('<Ldr> fr', ' Recent Files ', ':Telescope oldfiles<CR>'),
+      dashboard.button('<Ldr> fp', '﯑ Dotfiles', ':Telescope find_files cwd=~/.dotfiles<CR>'),
       dashboard.button('<Ldr> fw', ' Grep Word', ':Telescope live_grep<CR>'),
       dashboard.button('e', ' New file', ':ene <BAR> startinsert <CR>'),
-      dashboard.button('up', ' Update Plugins', ':Lazy <CR>'),
+      dashboard.button('up', ' Update Plugins', ':PackUpdate<CR>'),
       dashboard.button('ch', '﫵Check Health', ':checkhealth <CR>'),
     }
 

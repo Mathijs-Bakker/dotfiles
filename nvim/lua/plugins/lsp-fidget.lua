@@ -1,9 +1,7 @@
 return {
   'j-hui/fidget.nvim',
-  -- tag = 'v1.3.0',
-  enable = false,
+  enabled = false,
   opts = {
-    -- options
   },
   config = function()
     require('fidget').setup {

@@ -1,6 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  version = false, -- last release is way too old and doesn't work on Windows
+  main = 'nvim-treesitter.configs',
   build = ':TSUpdate',
   opts = {
     ensure_installed = {
