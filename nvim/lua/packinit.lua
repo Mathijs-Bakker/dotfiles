@@ -6,7 +6,7 @@ local function normalize_src(spec)
   end
 
   if spec.dir then
-    return vim.fn.expand(spec.dir)
+    return 'file://' .. vim.fn.fnamemodify(vim.fn.expand(spec.dir), ':p')
   end
 
   if spec.url then
@@ -190,6 +190,29 @@ local function call_setup(spec)
   plugin.setup(spec.opts)
 end
 
+local function apply_keys(spec)
+  if type(spec.keys) ~= 'table' then
+    return
+  end
+
+  for _, key in ipairs(spec.keys) do
+    if type(key) == 'table' and key[1] ~= nil and key[2] ~= nil then
+      local lhs = key[1]
+      local rhs = key[2]
+      local mode = key.mode or 'n'
+      local opts = {}
+
+      for k, v in pairs(key) do
+        if type(k) ~= 'number' and k ~= 'mode' then
+          opts[k] = v
+        end
+      end
+
+      vim.keymap.set(mode, lhs, rhs, opts)
+    end
+  end
+end
+
 function M.setup()
   if vim.pack == nil then
     vim.notify('This config now requires Neovim 0.12+ with vim.pack', vim.log.levels.ERROR)
@@ -242,6 +265,7 @@ function M.setup()
 
     vim.cmd.packadd(spec.name)
     call_setup(spec)
+    apply_keys(spec)
     configured[name] = true
   end
 

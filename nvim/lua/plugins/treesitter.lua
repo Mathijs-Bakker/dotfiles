@@ -1,9 +1,8 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  main = 'nvim-treesitter.configs',
   build = ':TSUpdate',
-  opts = {
-    ensure_installed = {
+  config = function()
+    local languages = {
       'bash',
       'c',
       'c_sharp',
@@ -36,13 +35,12 @@ return {
       'xml',
       'yaml',
       'zig',
-    },
-    autoinstall = true,
-    highlight = {
-      enable = true, -- false will disable the whole extension
-      disable = {},
-      additional_vim_regex_highlighting = false,
-    },
-    sync_install = false,
-  },
+    }
+
+    local treesitter = require 'nvim-treesitter'
+    treesitter.setup {
+      install_dir = vim.fn.stdpath 'data' .. '/site',
+    }
+    treesitter.install(languages)
+  end,
 }

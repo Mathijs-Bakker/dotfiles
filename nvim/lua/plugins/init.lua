@@ -20,7 +20,23 @@ local function as_list(value)
     return {}
   end
 
-  if value[1] == nil and value.src == nil and value.dir == nil and value.url == nil then
+  if type(value) ~= 'table' then
+    return { value }
+  end
+
+  if value.src ~= nil or value.dir ~= nil or value.url ~= nil then
+    return { value }
+  end
+
+  if type(value[1]) == 'string' then
+    for key, _ in pairs(value) do
+      if type(key) ~= 'number' then
+        return { value }
+      end
+    end
+  end
+
+  if value[1] == nil then
     return { value }
   end
 
