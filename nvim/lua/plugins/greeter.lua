@@ -6,11 +6,40 @@ return {
   config = function()
     local alpha = require 'alpha'
     local dashboard = require 'alpha.themes.dashboard'
-    local harpoon = require 'harpoon'
+    local v = vim.version()
+    local version = string.format('v%d.%d.%d', v.major, v.minor, v.patch)
+
+    vim.api.nvim_set_hl(0, 'AlphaGreen', { fg = '#53903f' })
+    vim.api.nvim_set_hl(0, 'AlphaBlue', { fg = '#156ead' })
+    vim.api.nvim_set_hl(0, 'AlphaLightGreen', { fg = '#6bb362' })
 
     dashboard.section.header.val = {
-      [[   ]],
-      [[ 01101110 00110011 00110000 01110110 00110001 01101101 ]],
+      '│ ╲ ││',
+      '││╲╲││',
+      '││ ╲ │',
+      '   ',
+      'NVIM ' .. version,
+    }
+    dashboard.section.header.opts = {
+      position = 'center',
+      hl = {
+        {
+          { 'AlphaLightGreen', 0, 5 },
+          { 'AlphaGreen', 8, 12 },
+        },
+        {
+          { 'AlphaBlue', 0, 4 },
+          { 'AlphaGreen', 4, 16 },
+        },
+        {
+          { 'AlphaBlue', 0, 4 },
+          { 'AlphaLightGreen', 5, 15 },
+        },
+        {},
+        {
+          { 'AlphaGreen', 0, -1 },
+        },
+      },
     }
 
     dashboard.section.buttons.val = {

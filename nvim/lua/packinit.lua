@@ -45,6 +45,18 @@ local function normalize_version(spec)
   return spec.version or spec.tag or spec.branch or spec.commit
 end
 
+local function normalize_dir(spec)
+  if not spec.dir then
+    return nil
+  end
+
+  return vim.fn.fnamemodify(vim.fn.expand(spec.dir), ':p')
+end
+
+local function is_local_dir_spec(spec)
+  return type(spec.dir) == 'string' and spec.dir ~= ''
+end
+
 local function flatten_deps(deps, register)
   local names = {}
 
@@ -112,6 +124,8 @@ local function collect_specs()
       name = name,
       main = normalize_main(raw, name),
       version = normalize_version(raw),
+      dir = normalize_dir(raw),
+      local_dir = is_local_dir_spec(raw),
     })
 
     spec.dependencies = flatten_deps(raw.dependencies, register)
@@ -231,14 +245,18 @@ function M.setup()
   local pack_specs = {}
   for _, name in ipairs(order) do
     local spec = specs[name]
-    table.insert(pack_specs, {
-      src = spec.src,
-      name = spec.name,
-      version = spec.version,
-    })
+    if not spec.local_dir then
+      table.insert(pack_specs, {
+        src = spec.src,
+        name = spec.name,
+        version = spec.version,
+      })
+    end
   end
 
-  vim.pack.add(pack_specs, { confirm = false, load = false })
+  if #pack_specs > 0 then
+    vim.pack.add(pack_specs, { confirm = false, load = false })
+  end
 
   for _, name in ipairs(order) do
     local spec = specs[name]
@@ -263,7 +281,12 @@ function M.setup()
       load(dep_name)
     end
 
-    vim.cmd.packadd(spec.name)
+    if spec.local_dir then
+      vim.opt.rtp:prepend(spec.dir)
+    else
+      vim.cmd.packadd(spec.name)
+    end
+
     call_setup(spec)
     apply_keys(spec)
     configured[name] = true

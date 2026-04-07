@@ -3,7 +3,6 @@ return {
   name = 'godotdev.nvim',
   dev = true, -- marks as local dev plugin
   dependencies = {
-    'neovim/nvim-lspconfig',
     'mfussenegger/nvim-dap',
     'rcarriga/nvim-dap-ui',
   },
