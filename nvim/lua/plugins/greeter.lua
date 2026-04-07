@@ -14,9 +14,9 @@ return {
     vim.api.nvim_set_hl(0, 'AlphaLightGreen', { fg = '#6bb362' })
 
     dashboard.section.header.val = {
-      '│ ╲ ││',
-      '││╲╲││',
-      '││ ╲ │',
+      '   / ╲ ││',
+      '   ││╲╲││',
+      '   ││ ╲ /',
       '   ',
       'NVIM ' .. version,
     }
@@ -24,16 +24,16 @@ return {
       position = 'center',
       hl = {
         {
-          { 'AlphaLightGreen', 0, 5 },
-          { 'AlphaGreen', 8, 12 },
+          { 'AlphaLightGreen', 2, 8 },
+          { 'AlphaGreen', 9, 15 },
         },
         {
-          { 'AlphaBlue', 0, 4 },
-          { 'AlphaGreen', 4, 16 },
+          { 'AlphaBlue', 3, 7 },
+          { 'AlphaGreen', 7, 19 },
         },
         {
-          { 'AlphaBlue', 0, 4 },
-          { 'AlphaLightGreen', 5, 15 },
+          { 'AlphaBlue', 3, 7 },
+          { 'AlphaLightGreen', 8, 18 },
         },
         {},
         {
