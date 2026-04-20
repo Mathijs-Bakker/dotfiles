@@ -19,10 +19,24 @@ return {
       editor_port = 6005, -- override default 6005
       editor_host = '127.0.0.1', -- override default '127.0.0.1'
       debug_port = 6006, -- override default 6006
+      -- autostart_editor_server = true,
+      editor_server = {
+        address = '/tmp/godot.nvim',
+      },
+      inline_hints = {
+        enabled = true,
+      },
+      run = {
+        console = {
+          enabled = true,
+          renderer = 'buffer',
+        },
+      },
       csharp = netcoredbg ~= '',
       netcoredbg_path = netcoredbg ~= '' and netcoredbg or nil,
-      -- formatter = 'gdscript-format',
-      formatter = 'gdformat',
+      formatter = 'gdscript-formatter',
+      -- formatter = false,
+      -- formatter = 'gdformat',
     }
   end,
   keys = {
