@@ -131,13 +131,5 @@ return {
       }),
       mapping = cmp.mapping.preset.cmdline(),
     })
-
-    vim.cmd [[
-  imap <silent><expr> <c-k> luasnip#expand_or_jumpable() ? '<plug>luasnip-expand-or-jump' : ''
-  inoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<cr>
-  imap <silent><expr> <c-l> luasnip#choice_active() ? '<plug>luasnip-next-choice' : '<C-l>'
-  snoremap <silent> <C-k> <cmd>lua require('luasnip').jump(1)<CR>
-  snoremap <silent> <C-j> <cmd>lua require('luasnip').jump(-1)<CR>
-]]
   end,
 }
